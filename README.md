@@ -1,5 +1,21 @@
 # PROJECT MEMORIES
 
+## WIREFRAME SITIO
+
+[DESKTOP](https://www.figma.com/proto/sbirSeKRWcFU57mv2KtLLE/wireframe-memories-desktop?node-id=22%3A15&scaling=min-zoom)
+
+[MOBILE](https://www.figma.com/proto/a6F1mIfOrGNHtA70MWuEJP/wireframe-memories-mobile?node-id=64%3A6&scaling=scale-down)
+
+### Contiene las pantallas:
+
+* Home
+* Árbol de categorías
+* Grilla
+* Pdp
+* Carrito
+* Login
+* Creación de cuenta
+
 ## ¿Qué vendemos?
 
 Vendemos experiencias, vendemos momentos.
