@@ -16,11 +16,11 @@
 * Login
 * Creación de cuenta
 
-## MARCA
+## INFO MARCA
 
-* [Logo] (logo/logo-memories.png)
-* [PaletaDeColores] (https://coolors.co/ffffff-dfdfdf-000000-fbc46c-79c8d6-f48169)
-* [FamiliaTipografica] (https://fonts.google.com/specimen/Source+Sans+Pro?preview.text=Eleg%C3%AD+tu+caja+de+Memories+y+viv%C3%AD+una+experiencia+inolvidable!&preview.text_type=custom)
+* [Logo](logo/logo-memories.png)
+* [PaletaDeColores](https://coolors.co/ffffff-dfdfdf-000000-fbc46c-79c8d6-f48169)
+* [FamiliaTipografica](https://fonts.google.com/specimen/Source+Sans+Pro?preview.text=Eleg%C3%AD+tu+caja+de+Memories+y+viv%C3%AD+una+experiencia+inolvidable!&preview.text_type=custom)
 
 
 ## ¿Qué vendemos?
