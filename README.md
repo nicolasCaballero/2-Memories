@@ -16,6 +16,13 @@
 * Login
 * Creación de cuenta
 
+## MARCA
+
+* Logo
+* Paleta de colores
+* Tipografías
+
+
 ## ¿Qué vendemos?
 
 Vendemos experiencias, vendemos momentos.
