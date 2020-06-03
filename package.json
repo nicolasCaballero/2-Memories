@@ -1,0 +1,25 @@
+{
+  "name": "proyectointegrador",
+  "version": "1.0.0",
+  "description": "Desarrollo del sitio Memories",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicolasCaballero/2-Memories.git"
+  },
+  "author": "nicolasCaballero",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicolasCaballero/2-Memories/issues"
+  },
+  "homepage": "https://github.com/nicolasCaballero/2-Memories#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
