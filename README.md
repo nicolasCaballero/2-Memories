@@ -101,3 +101,20 @@ Funcionalidades:
 Funcionalidades:
 * Posibilidades de regalar una gift box (card) para luego intercambiar por una experiencia. 
 * En el footer incluye una caja para suscribirse al newsletter.
+
+## Retrospectiva
+
+Comenzar a hacer:
+* Establecer fechas específicas para tener terminadas las tareas que le corresponden a cada uno.
+
+Más de: 
+* Mayor coordinación.
+* Definición más precisa de las tareas correspondientes a cada     integrante en particular.
+
+Seguir haciendo: 
+* Mantener el compromiso con el proyecto.
+* Gestión óptima del tiempo del sprint.
+* Comunicación constante y fluída.
+
+Dejar de hacer:
+* Superposición de tareas.
