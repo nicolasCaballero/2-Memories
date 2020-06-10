@@ -1,5 +1,9 @@
 # PROJECT MEMORIES
 
+## TABLERO DE TRABAJO
+
+[TRELLO](https://trello.com/b/2zHzpBDS/proyecto-integrador-2-memories)
+
 ## WIREFRAME SITIO
 
 [DESKTOP](https://www.figma.com/proto/sbirSeKRWcFU57mv2KtLLE/wireframe-memories-desktop?node-id=22%3A15&scaling=min-zoom)
