@@ -10,6 +10,7 @@ const cartRoutes = require('./routes/cartRoutes');
 
 //ubicar nuestros archivos estaticos
 app.use(express.static('public'));
+app.set('view engine', 'ejs');
 
 //Usar rutas requeridas
 app.use(mainRoutes);
