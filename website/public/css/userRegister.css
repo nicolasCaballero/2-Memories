@@ -1,0 +1,82 @@
+* {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+#btn-crearCuenta {
+    margin-top: 30px;
+}
+
+.form-check p {
+    font-size: 12px;
+    line-height: 2px;
+}
+
+.fondo {
+    background-color: rgba(247, 247, 247, 0.3)
+}
+
+#titulo {
+    margin-top: 50px;
+}
+
+#separador {
+    height: 50px;
+}
+
+#videoBack {
+    position: fixed;
+    z-index: -1;
+    width: 100%;
+    height: auto;
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+@media (min-aspect-ratio: 16/9) {
+    #videoBack {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (orientation: portrait) and (max-width: 1023px) {
+    #videoBack {
+        display: none;
+    }
+
+    body {
+        background-image: url('../img/bg-register-1024.jpg');
+        background-position-x: center;
+        background-position-y: center;
+    }
+}
+
+@media (orientation: portrait) and (min-width: 1024px) {
+    #videoBack {
+        display: none;
+    }
+
+    body {
+        background-image: url('../img/bg-register-1024.jpg');
+        background-position-x: center;
+        background-position-y: initial;
+    }
+}
+
+@media (max-width: 767px) {
+    #videoBack {
+        display: none;
+    }
+
+    body {
+        background-image: url('../img/bg-register-700.jpg');
+        background-position-x: center;
+        background-position-y: center;
+    }
+}
+
+.separador {
+    height: 50px;
+}
