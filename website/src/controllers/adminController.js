@@ -6,6 +6,9 @@ let adminController = {
     },
     'memoriesCreate': (req, res) => {
         res.render(path.resolve(__dirname, '../views/admin/memoriesCreate.ejs'));
+    },
+    'experienceCreate': (req, res) => {
+        res.render(path.resolve(__dirname, '../views/admin/experienceCreate.ejs'));
     }
 };
 

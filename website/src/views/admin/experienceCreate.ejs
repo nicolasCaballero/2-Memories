@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <%- include('../partials/headPartial.ejs') %>
+    <link rel="stylesheet" href="/css/admin/admin.css">
+    <title>AGREGAR | MEMORIES</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm fixed-top">
+            <a href="#" class="navbar-center"><img src="/img/logo-memories-md.png" width="75px"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul id="nav-left" class="navbar-nav col-10">
+
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Memories</i>
+                        </a>
+                        <div class="dropdown-menu border shadow-sm" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Agregar nuevo pack<i
+                                    class="fas fa-plus-circle ml-2"></i></a>
+                            <a class="dropdown-item" href="#">Listar packs<i class="fas fa-list-alt ml-2"></i></a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Experiencias</i>
+                        </a>
+                        <div class="dropdown-menu border shadow-sm" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Agregar nueva experiencia<i
+                                    class="fas fa-plus-circle ml-2"></i></a>
+                            <a class="dropdown-item" href="#">Listar experiencias<i
+                                    class="fas fa-list-alt ml-2"></i></a>
+                        </div>
+                    </li>
+                </ul>
+                <ul id="nav-right" class="navbar-nav col-2">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-toggle="dropdown"
+                            aria-haspopup="true" aria-expanded="false">
+                            Usuario<i class="fas fa-user-circle ml-2"></i>
+                        </a>
+                        <div class="dropdown-menu border shadow-sm" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#">Ingresá<i class="fas fa-sign-in-alt ml-2"></i></a>
+                            <a class="dropdown-item" href="#">Salir<i class="fas fa-sign-out-alt ml-2"></i></a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active">ADMIN</a>
+                    </li>
+                </ul>
+
+
+
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid">
+
+
+        <!-- Cuerpo principal -->
+
+        <section class="row">
+            <article class="col-12 card pt-5 border-0">
+                <div class="card-body">
+                    <h1 class="card-title text-center">Agregar nueva experiencia</h1>
+
+
+                </div>
+            </article>
+        </section>
+
+        <section id="formulario" class="bg-home pt-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-10 col-sm-10 col-xs-12 mx-auto bg-light shadow-sm">
+                        <div class="signup-form mt-2">
+                            <form action="/admin/create" method="post" enctype="application/x-www-form-urlencoded">
+                                <div class="form-group">
+                                    <label for="nombre">Nombre</label>
+                                    <input type="text" class="form-control rounded-pill" name="nombre"
+                                        placeholder="Ej: Tucson" required="required">
+                                </div>
+                                <div class="form-group">
+                                    <label for="descripción">Descripción</label>
+                                    <textarea class="form-control rounded-lg" name="descripcion"
+                                        placeholder="Ej: Cena americana para disfrutar con tus amigos"
+                                        rows="3"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="imagen-producto">Imagen</label>
+                                    <input type="file" class="form-control-file rounded" id="imagen-producto">
+                                </div>
+                                <div class="form-group">
+                                    <label for="sku">SKU</label>
+                                    <input type="text" class="form-control rounded-pill" name="sku"
+                                        placeholder="Ej: #100-10001" required="required">
+                                </div>
+                                <div class="form-group">
+                                    <label for="select-category">Categoría</label>
+                                    <select id="select-category" class="form-control rounded-pill">
+                                        <option selected>Seleccionar</option>
+                                        <option>Aventura</option>
+                                        <option>Bienestar</option>
+                                        <option>Cursos</option>
+                                        <option>Entretenimiento</option>
+                                        <option>Escapadas</option>
+                                        <option>Gastronomía</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="experiencias">Asociar a packs de Memories</label>
+                                    <div id="container-experiencias">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="experiencia1"
+                                                value="experiencia1">
+                                            <label class="form-check-label" for="experiencias">Beer & Burger</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="experiencia1"
+                                                value="experiencia1">
+                                            <label class="form-check-label" for="experiencias">Bodegones</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="experiencia1"
+                                                value="experiencia1">
+                                            <label class="form-check-label" for="experiencias">Buen Día</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="experiencia1"
+                                                value="experiencia1">
+                                            <label class="form-check-label" for="experiencias">Chef At Home</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="experiencia1"
+                                                value="experiencia1">
+                                            <label class="form-check-label" for="experiencias">De Copas</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="experiencia1"
+                                                value="experiencia1">
+                                            <label class="form-check-label" for="experiencias">Drinks</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="experiencia1"
+                                                value="experiencia1">
+                                            <label class="form-check-label" for="experiencias">Fancy Cuisine</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="experiencia1"
+                                                value="experiencia1">
+                                            <label class="form-check-label" for="experiencias">Gourmet Restó</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="experiencia1"
+                                                value="experiencia1">
+                                            <label class="form-check-label" for="experiencias">Sabores del Mundo</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="experiencia1"
+                                                value="experiencia1">
+                                            <label class="form-check-label" for="experiencias">Street Food</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="experiencia1"
+                                                value="experiencia1">
+                                            <label class="form-check-label" for="experiencias">Take Away</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="experiencia1"
+                                                value="experiencia1">
+                                            <label class="form-check-label" for="experiencias">Veggie</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="experiencia1"
+                                                value="experiencia1">
+                                            <label class="form-check-label" for="experiencias">Wine Life</label>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group"><label for="form-check-input">Estado</label>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="estado-activo"
+                                            id="estado-activo" value="activo" checked>
+                                        <label class="form-check-label" for="estado-activo">
+                                            Activo
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="estado-inactivo"
+                                            id="estado-inactivo" value="inactivo">
+                                        <label class="form-check-label" for="estado-inactivo">
+                                            Inactivo
+                                        </label>
+                                    </div>
+
+                                </div>
+
+
+
+
+                                <div id="btn-guardar" class="form-group float-right">
+                                    <button type="submit" class="btn btn-info rounded-pill">Guardar</button>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </section>
+    <%- include('../partials/jsPartials.ejs') %>
+</body>
+
+</html>
