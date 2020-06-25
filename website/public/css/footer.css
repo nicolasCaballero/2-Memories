@@ -1,5 +1,6 @@
-*{
+* {
     font-family: 'Source Sans Pro', sans-serif;
+    box-sizing: border-box;
 }
 
 .container-fluid {
@@ -39,31 +40,30 @@
 @media only screen and (max-width: 768px) {
     .link ul {
         display: flex;
-        justify-content : flex-start;
+        justify-content: flex-start;
 
     }
-    
+
     .link li {
-      border-bottom: solid 1px;
-      border-color: lightgray;
-      
+        border-bottom: solid 1px;
+        border-color: lightgray;
+
     }
 
     .link p {
-        margin-bottom: 0;
         display: inline;
-      }
-    
+    }
+
     .link i {
-        display: inline;
+        display: block;
         float: right;
         line-height: inherit;
         font-size: large;
-        
+
     }
 
     .social-media {
         border-bottom: solid 1px;
         border-color: lightgrey;
     }
-  }
+}
