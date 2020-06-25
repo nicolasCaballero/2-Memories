@@ -1,0 +1,49 @@
+* {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+}
+
+
+#precio-total {
+    font-size: 20px;
+}
+
+#continuar {
+    font-size: 13px;
+}
+
+#titulo-producto {
+    background-color: #fbc46c;
+    color: black;
+}
+
+#eliminar {
+    font-size: 14px;
+    color: #f48169;
+}
+
+#precio-producto {
+    font-size: 18px;
+}
+
+#cantidad i {
+    font-size: 12px;
+    color: #79c8d6;
+}
+
+#btn-finalizar a {
+    font-size: 18px;
+    ;
+}
+
+h2 {
+    margin-bottom: 40px;
+}
+
+#separador {
+    height: 50px;
+}

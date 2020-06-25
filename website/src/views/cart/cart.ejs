@@ -1,14 +1,138 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CARRITO | MEMORIES</title>
+<%- include('../partials/headPartial.ejs') %>
+<link rel="stylesheet" href="/css/cart.css">
+<title>CARRITO | MEMORIES</title>
 </head>
-
 <body>
-    <h1>Carrito de Compras</h1>
+    <header>
+        <nav class="navbar navbar-light bg-white border-bottom shadow-sm">
+            <a href="/" class="navbar-center"><img src="img/logo-memories-md.png" width="75px"></a>
+            <div class="navbar">
+                <ul id="nav-right" class="navbar-nav float-right">
+                    <li class="nav-item">
+                        <img src="img/https.png" width="40px" alt="">
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid">
+        <div class="row justify-content-center mt-3">
+            <h2>Tu Carrito</h2>
+            <section class="col-12 text-center">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6 col-lg-6 col-md-11 col-sm-11 col-xs-11 mx-1">
+                        <article class="mb-3">
+                            <div class="row border rounded-sm shadow-sm">
+                                <div class="col-4">
+                                    <img class="mr-2 mt-2 pt-2 rounded d-block" src="img/memories-gastro-streetfood.jpg"
+                                        width="145px" alt="Imagen Street Food">
+                                </div>
+                                <div class="col-8">
+                                    <div class="card-body ml-2">
+                                        <h5 id="titulo-producto" class="card-title py-2 pl-2"><strong>Street
+                                                Food</strong></h5>
+                                        <p id="precio-producto" class="card-text pl-2 mt-2"><i
+                                                class="fas fa-money-bill-alt mr-1"></i><strong>$2.599</strong></p>
+                                        <p id="cantidad" class="card-text pl-2"><i class="fas fa-minus mr-1"></i> x1<i
+                                                class="fas fa-plus ml-1"></i></p>
+                                        <a href="#">
+                                            <p id="eliminar" class="card-text float-right mb-1"><i
+                                                    class="fas fa-trash-alt mr-1"></i>Eliminar</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="mb-3">
+                            <div class="row border rounded-sm shadow-sm">
+                                <div class="col-4">
+                                    <img class="mr-2 mt-2 pt-2 rounded d-block" src="img/memories-gastro-takeaway.jpg"
+                                        width="145px" alt="Imagen Take Away">
+                                </div>
+                                <div class="col-8">
+                                    <div class="card-body ml-2">
+                                        <h5 id="titulo-producto" class="card-title py-2 pl-2"><strong>Take Away</strong>
+                                        </h5>
+                                        <p id="precio-producto" class="card-text pl-2 mt-2"><i
+                                                class="fas fa-money-bill-alt mr-1"></i><strong>$1.499</strong></p>
+                                        <p id="cantidad" class="card-text pl-2"><i class="fas fa-minus mr-1"></i> x1<i
+                                                class="fas fa-plus ml-1"></i></p>
+                                        <a href="#">
+                                            <p id="eliminar" class="card-text float-right mb-1"><i
+                                                    class="fas fa-trash-alt mr-1"></i>Eliminar</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="mb-3">
+                            <div class="row border rounded-sm shadow-sm">
+                                <div class="col-4">
+                                    <img class="mr-2 mt-2 pt-2 rounded d-block" src="img/memories-gastro-beerburger.jpg"
+                                        width="145px" alt="Imagen Beer & Burger">
+                                </div>
+                                <div class="col-8">
+                                    <div class="card-body ml-2">
+                                        <h5 id="titulo-producto" class="card-title py-2 pl-2"><strong>Beer &
+                                                Burger</strong></h5>
+                                        <p id="precio-producto" class="card-text pl-2 mt-2"><i
+                                                class="fas fa-money-bill-alt mr-1"></i><strong>$1.899</strong></p>
+                                        <p id="cantidad" class="card-text pl-2"><i class="fas fa-minus mr-1"></i> x1<i
+                                                class="fas fa-plus ml-1"></i></p>
+                                        <a href="#">
+                                            <p id="eliminar" class="card-text float-right mb-1"><i
+                                                    class="fas fa-trash-alt mr-1"></i>Eliminar</p>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-xl-4 col-lg-4 col-md-11 col-sm-11 col-xs-11 mx-1">
+                        <section id="resumen-productos" class="d-flex flex-column justify-content-center">
+                            <div class="container">
+                                <div class="card bg-light shadow-sm">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-center"><strong>Resumen de Compra</strong></h5>
+                                        <article class="d-flex flex-row justify-content-between">
+                                            <p class="card-text">Street Food x1</p>
+                                            <p class="card-text">$2.599</p>
+                                        </article>
+                                        <article class="d-flex flex-row justify-content-between">
+                                            <p class="card-text">Take Away x1</p>
+                                            <p class="card-text">$1.499</p>
+                                        </article>
+                                        <article class="d-flex flex-row justify-content-between">
+                                            <p class="card-text">Beer & Burger x1</p>
+                                            <p class="card-text">$1.899</p>
+                                        </article>
+                                        <article id="precio-total"
+                                            class="d-flex flex-row justify-content-between border-top pt-3">
+                                            <p class="card-text"><strong>Precio Total</strong></p>
+                                            <p class="card-text"><strong>$5.997</strong></p>
+                                        </article>
+                                        <div class="text-center">
+                                            <p id="continuar" class="text-center text-black-50"><a href="#"
+                                                    class="text-reset text-decoration-none">Continuar comprando</a></p>
+                                        </div>
+                                        <div id="btn-finalizar" class="text-center"><a href="#"
+                                                class="btn btn-primary btn-block rounded-pill text-center">Finalizar
+                                                Compra</a></div>
+                                    </div>
+                                </div>
+                        </section>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <div id="separador">
+    </div>
+    <%- include('../partials/footerPartial.ejs') %>
+    <%- include('../partials/jsPartials.ejs') %>
 </body>
 
 </html>
