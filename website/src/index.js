@@ -3,13 +3,14 @@ const express = require('express');
 //se guarda la ejecución de express en la const app
 const app = express();
 //require de las rutas a utilizar
+const path = require ('path');
 const mainRoutes = require('./routes/mainRoutes');
 const userRoutes = require('./routes/userRoutes');
 const productRoutes = require('./routes/productRoutes');
 const cartRoutes = require('./routes/cartRoutes');
 
 //ubicar nuestros archivos estaticos
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, '../public')));
 app.set('view engine', 'ejs');
 
 //Usar rutas requeridas

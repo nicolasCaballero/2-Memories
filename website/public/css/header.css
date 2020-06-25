@@ -1,0 +1,55 @@
+* {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+#abri {
+    color: #79C8D6;
+}
+
+#search {
+    font-size: 12px;
+}
+
+#categorias {
+    position: static;
+}
+
+/* enable absolute positioning */
+.inner-addon {
+    position: relative;
+}
+
+/* style icon */
+.inner-addon .fa-search {
+    position: absolute;
+    padding: 10px;
+    pointer-events: none;
+}
+
+/* align icon */
+.left-addon .fa-search {
+    left: 0px;
+}
+
+.right-addon .fa-search {
+    right: 0px;
+}
+
+/* add padding  */
+.left-addon input {
+    padding-left: 30px;
+}
+
+.right-addon input {
+    padding-right: 30px;
+}
+
+.card {
+    border: 0px;
+}
+
+
+
+.dropdown-menu {
+    border: 0px;
+}
