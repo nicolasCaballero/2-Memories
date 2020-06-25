@@ -26,7 +26,7 @@
                             Memories</i>
                         </a>
                         <div class="dropdown-menu border shadow-sm" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Agregar nuevo pack<i
+                            <a class="dropdown-item" href="/admin/memoriesCreate">Agregar nuevo pack<i
                                     class="fas fa-plus-circle ml-2"></i></a>
                             <a class="dropdown-item" href="#">Listar packs<i class="fas fa-list-alt ml-2"></i></a>
                         </div>
@@ -37,7 +37,7 @@
                             Experiencias</i>
                         </a>
                         <div class="dropdown-menu border shadow-sm" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Agregar nueva experiencia<i
+                            <a class="dropdown-item" href="/admin/experienceCreate">Agregar nueva experiencia<i
                                     class="fas fa-plus-circle ml-2"></i></a>
                             <a class="dropdown-item" href="#">Listar experiencias<i
                                     class="fas fa-list-alt ml-2"></i></a>
@@ -205,22 +205,19 @@
                                 </div>
 
 
-                                <div class="form-group"><label for="form-check-input">Estado</label>
+                                <label for="estado">Estado</label>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="estado-activo"
-                                            id="estado-activo" value="activo" checked>
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="estado-activo" value="activo">
                                         <label class="form-check-label" for="estado-activo">
-                                            Activo
+                                          Activo
                                         </label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="estado-inactivo"
-                                            id="estado-inactivo" value="inactivo">
+                                      </div>
+                                      <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="exampleRadios" id="estado-inactivo" value="inactivo">
                                         <label class="form-check-label" for="estado-inactivo">
-                                            Inactivo
+                                          Inactivo
                                         </label>
-                                    </div>
-
+                                      </div>
                                 </div>
                                 <div id="btn-guardar" class="form-group float-right">
                                     <button type="submit" class="btn btn-info rounded-pill">Guardar</button>
