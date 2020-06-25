@@ -1,0 +1,16 @@
+* {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.btn-info {
+    background-color: #f48169;
+    border-color: #f48169;
+}
+
+h1 {
+    margin-top: 50px;
+}
+
+#formulario {
+    margin-bottom: 40px;
+}
