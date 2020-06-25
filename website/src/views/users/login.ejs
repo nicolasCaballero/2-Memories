@@ -1,14 +1,58 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOGIN | MEMORIES</title>
+    <%- include('../partials/headPartial.ejs') %>
+    <link rel="stylesheet" href="/css/login.css">
+    <title>INGRESAR | MEMORIES</title>
 </head>
 
 <body>
-    <h1>Login</h1>
+    <%- include('../partials/headerPartial.ejs') %>
+    <div class="container-fluid">
+        <section id="titulo" class="row">
+            <article class="col-12">
+                <div class="text-center mt-3 mb-3">
+                    <div class="text-center mt-3 mb-3">
+                        <h2>¡Iniciá sesión!</h2>
+                    </div>
+            </article>
+        </section>
+        <section class="bg-home pt-15">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 mx-auto pt-2  fondo shadow-sm rounded-lg">
+                        <div class="signup-form mt-3">
+                            <form action="" method="post">
+                                <div class="form-group">
+                                    <input type="email" class="form-control rounded-pill" name="email"
+                                        placeholder="e-mail" required="required">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control rounded-pill" name="password"
+                                        placeholder="contraseña" required="required">
+                                </div>
+                                <div class="form-group text-right display-5">
+                                    <a href="#">¿Olvidaste tu contraseña?</a>
+                                </div>
+                                <div class="form-group text-center btn-block">
+                                    <button type="submit"
+                                        class="btn btn-info btn-primary btn-lg btn-block rounded-pill">Ingresar</button>
+                                </div>
+                                <div class="form-group text-center">
+                                    <input type="checkbox"><label class="checkbox-inline">&nbsp;Recordarme</label>
+                                </div>
+                            </form>
+                            <div class="text-center mb-3">¿No tenés cuenta? <a href="/registro">¡REGISTRATE ACA!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div id="separador"></div>
+        <%- include('../partials/footerPartial.ejs') %>
+        <%- include('../partials/jsPartials.ejs') %>
 </body>
 
 </html>

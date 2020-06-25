@@ -1,0 +1,37 @@
+* {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+body {
+    background-image: url('../img/bg-login-1920-wide.jpg');
+    background-size: cover;
+}
+
+.fondo {
+    background-color: rgba(247, 247, 247, 0.6)
+}
+
+#titulo {
+    margin-top: 50px;
+}
+
+#separador {
+    height: 50px;
+}
+
+@media (min-width: 656px) and (max-width: 1366px) {
+    body {
+        background-image: url('../img/bg-login-mobile.jpg');
+        background-position-x: center;
+        background-position-y: center;
+    }
+}
+
+@media (max-width: 655px) {
+    body {
+        background-image: url('../img/bg-login-mobile.jpg');
+        background-position-x: center;
+        background-position-y: center;
+    }
+}
+
