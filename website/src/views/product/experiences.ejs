@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/headPartial.ejs') %>
+    <link rel="stylesheet" href="/css/product.css">
+    <title>EXPERIENCIA | MEMORIES</title>
+</head>
+
+<body>
+    <%- include('../partials/headerPartial.ejs') %>
+    <div class="container" id="containerSupremo">
+        <div class="row" id="containerProducto">
+            <div class="col-lg-6 col-12">
+                <img src="/img/memories genericas/sushisushi.jpg" alt="Memorie Take Away" width="80%"
+                    id="imagenRestaurant">
+                <!--Cierre div imagen del Memorie-->
+            </div>
+
+
+
+            <!--<div class="container">
+                <div class="row" id="informacion">-->
+            <div class="col-lg-6 col-12" id="informacion">
+                <ul class="infoEnLista1" id="informacion">
+
+                    <li id="nombreMemorie">
+                        <h2> SIPAN RESTAURANTS </h2>
+                    </li>
+
+                    <li><br></li>
+
+                    <li id="textoDescriptivoMemorie">
+                        <h5> Una experiencia culinaria de alto nivel en el living de tu casa. </h5>
+                    </li>
+
+                    <li id="textoDescriptivoMemorie">
+                        <h5> "Amor por lo Nikkei". Con esta premisa Sipan invita a que exploren un mundo de sabores.
+                            <br> Su propuesta gastronómica es la cevichería con especialidad en pescados y mariscos.
+                        </h5>
+                    </li>
+
+                    <li id="textoDescriptivoMemorie">
+                        <h5> Distinguido como el mejor restaurante peruano en Argentina por el Gobierno de Perú.
+                        </h5>
+                    </li>
+
+                    <li><br></li>
+
+                    <div class="row" id="metodos">
+                        <div class="col-6 col-6">
+                            <li>
+                                <h6><a class="text-decoration-none text-dark" href=""> METODOS DE PAGO <ion-icon
+                                            name="card-outline"></ion-icon></a></h6>
+                            </li>
+                        </div>
+                        <div class="col-6">
+                            <li>
+                                <h6><a class="text-decoration-none text-dark" href="">METODOS DE ENVIO<ion-icon
+                                            name="gift-outline"></ion-icon> </a>
+                                    <h6>
+                            </li>
+                        </div>
+                    </div>
+                    <li>
+                        <h6>#sku skuEjemplo</h6>
+                    </li>
+
+                    <li><br></li>
+
+                    <li><button type="button" class="btn-block btn-lg rounded-pill" id="botonComprar"><a
+                                class="text-decoration-none text-dark" href="/detalle">VER MEMORIE</a>
+                        </button></li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="accordion" id="accordionExample">
+            <div class="card">
+                <div class="card-header" id="headingOne">
+                    <h2 class="mb-0 queTrae">
+                        <button class="btn btn-block text-left" type="button" data-toggle="collapse"
+                            data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <h5 class="queTrae">¿QUÉ INCLUYE ESTA EXPERIENCIA?</h5>
+                        </button>
+                    </h2>
+                </div>
+
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                    data-parent="#accordionExample">
+                    <div class="card-body">
+                        <ul class="items">
+
+                            <li id="nombreMemorie">
+                                <h5> La experiencia incluye, únicamente para TAKE AWAY:
+                                    <br>
+                                    <br>
+                                    <ul>
+                                        <li>1 Entrada del Menú a elección </li>
+                                        <br>
+                                        <li>2 (dos) Platos principales del Menú a elección</li>
+                                        <br>
+                                        <li>2 (dos) Cocktails </li>
+                                        <br>
+                                        <li>2 (dos) Bebidas sin alcohol</li>
+                                        <br>
+                                        <li>2 (dos) Postres </li>
+                                    </ul>
+                                    <br>
+                            <li>Una vez canjeada la Memorie no se aceptan devoluciones.</li>
+                            <li><br>
+                                <h5 id="website">Sitio Web: <a id="website" class="text-decoration-none text-dark"
+                                        href="http://www.sipanrestaurants.com/">Sipan Restaurantes</a></h5>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <!--Cierre div contenedor supremo-->
+    </div>
+    <%- include('../partials/footerPartial.ejs') %>
+    <%- include('../partials/jsPartials.ejs') %>
+</body>
+
+</html>

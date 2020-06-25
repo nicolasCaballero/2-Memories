@@ -6,6 +6,9 @@ let productController = {
     },
     'add': (req, res) => {
         res.render(path.resolve(__dirname, '../views/cart/cart.ejs'));
+    },
+    'experiencies': (req, res) => {
+        res.render(path.resolve(__dirname, '../views/product/experiences.ejs'));
     }
 };
 

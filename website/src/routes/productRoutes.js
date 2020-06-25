@@ -5,6 +5,7 @@ const productController = require ('../controllers/productController');
 
 router.get('/detalle', productController.detail);
 router.get('/detalle/agregar', productController.add);
+router.get('/detalle/experiencias', productController.experiencies);
 
 
 

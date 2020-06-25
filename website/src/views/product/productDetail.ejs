@@ -2,13 +2,141 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../partials/headPartial.ejs') %>
+    <link rel="stylesheet" href="/css/product.css">
     <title>DETALLE | MEMORIES</title>
 </head>
 
 <body>
-    <h1>Detalle del producto</h1>
+    <%- include('../partials/headerPartial.ejs') %>
+    <div class="container" id="containerSupremo">
+        <div class="row" id="containerProducto">
+            <div class="col-lg-6 col-md-7 col-sm-12" id="divImagenCentral">
+                <img src="/img/packs/gastronomia/memories-gastro-takeaway.jpg" alt="Memorie Take Away"
+                    id="imagenMemorie">
+            </div>
+            <div class="col-xl-6 col-lg-6 col-md-5 col-sm-12" id="informacion">
+                <ul class="infoEnLista1">
+
+                    <li id="nombreMemorie">
+                        <h2> TAKE AWAY </h2>
+                    </li>
+
+                    <li><br></li>
+
+                    <li id="precioMemorie">
+                        <h3>$1.499 </h3>
+                    </li>
+
+                    <li><br></li>
+                    <li id="textoDescriptivoMemorie">
+                        <h5> Delicias para disfrutar en casa </h5>
+                    </li>
+                    <li id="textoDescriptivoMemorie">
+                        <h5> Cenar afuera pero estando adentro. </h5>
+                    </li>
+                    <li id="textoDescriptivoMemorie">
+                        <h5> Vas a encontrar desde comidas gourmet hasta los clásicos de siempre.
+                        </h5>
+                    </li>
+
+                    <li><br></li>
+
+                    <div class="row" id="metodos">
+                        <div class="col-6 col-6">
+                            <li>
+                                <h6><a class="text-decoration-none text-dark" href=""> METODOS DE PAGO <ion-icon
+                                            name="card-outline"></ion-icon></a></h6>
+                            </li>
+                        </div>
+                        <div class="col-6">
+                            <li>
+                                <h6><a class="text-decoration-none text-dark" href="">METODOS DE ENVIO<ion-icon
+                                            name="gift-outline"></ion-icon> </a>
+                                    <h6>
+                            </li>
+                        </div>
+                    </div>
+                    <li>
+                        <h6>#sku skuEjemplo</h6>
+                    </li>
+
+                    <li><br></li>
+
+                    <li><button type="button" class="btn-block btn-lg rounded-pill" id="botonComprar"><a
+                                class="text-decoration-none text-dark" href="/cart">COMPRAR</a></button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12" id="experienciasDentroDelMemorie">
+        <h2 id="titulo"> SELECCIONA UNA DE LAS EXPERIENCIAS DENTRO DE ESTE MEMORIE </h2>
+    </div>
+
+    <div class="row" id="filaExperiencias">
+
+        <div class="col-lg-3 col-xl-3 col-md-3 col-sm-12" id="detalle/experiencias"><a class="text-decoration-none text-dark"
+                href="/detalle/experiencias">
+                <img src="/img/memories genericas/sorrentinos.jpg" alt="Parolaccia" width="70%" id="imagenDelLocal">
+                <h5 class="nombreLocal">La Parolaccia</h5>
+            </a>
+        </div>
+
+        <div class="col-lg-3 col-xl-3 col-md-3 col-sm-12" id="detalle/experiencias"><a class="text-decoration-none text-dark"
+                href="/detalle/experiencias">
+                <img src="/img/memories genericas/estas ribs.jpg" alt="Bistecca" width="70%" id="imagenDelLocal">
+                <h5 class="nombreLocal">La Bistecca</h5>
+            </a>
+        </div>
+
+        <div class="col-lg-3 col-xl-3 col-md-3 col-sm-12" id="detalle/experiencias"><a class="text-decoration-none text-dark"
+                href="/detalle/experiencias">
+                <img src="/img/memories genericas/burger.jpg" alt="Tucson" width="70%" id="imagenDelLocal">
+                <h5 class="nombreLocal">Tucson</h5>
+            </a>
+        </div>
+
+        <div class="col-lg-3 col-xl-3 col-md-3 col-sm-12" id="detalle/experiencias"><a class="text-decoration-none text-dark"
+                href="/detalle/experiencias">
+                <img src="/img/memories genericas/bife y papas fritas.jpg" alt="" width="70%" id="imagenDelLocal">
+                <h5 class="nombreLocal">El Pulpo</h5>
+            </a>
+        </div>
+
+        <div class="col-lg-3 col-xl-3 col-md-3 col-sm-12" id="detalle/experiencias"><a class="text-decoration-none text-dark"
+                href="/detalle/experiencias">
+                <img src="/img/memories genericas/experiencias-gastronomia.jpg" alt="LOS INMORTALES" width="70%"
+                    id="imagenDelLocal">
+                <h5 class="nombreLocal">Los Inmortales</h5>
+            </a>
+        </div>
+
+        <div class="col-lg-3 col-xl-3 col-md-3 col-sm-12" id="detalle/experiencias"><a class="text-decoration-none text-dark"
+                href="/detalle/experiencias">
+                <img src="/img/memories genericas/paella.jpg" alt="ASATO" width="70%" id="imagenDelLocal">
+                <h5 class="nombreLocal">Asato</h5>
+            </a>
+        </div>
+
+        <div class="col-lg-3 col-xl-3 col-md-3 col-sm-12" id="detalle/experiencias"><a class="text-decoration-none text-dark"
+                href="/detalle/experiencias">
+                <img src="/img/memories genericas/merluzza.jpg" alt="Maizales" width="70%" id="imagenDelLocal">
+                <h5 class="nombreLocal">Los Maizales</h5>
+            </a>
+        </div>
+
+        <div class="col-lg-3 col-xl-3 col-md-3 col-sm-12" id="detalle/experiencias"><a class="text-decoration-none text-dark"
+                href="/detalle/experiencias">
+                <img src="/img/memories genericas/sushisushi.jpg" alt="Sipan" width="70%" id="imagenDelLocal">
+                <h5 class="nombreLocal">Sipan Restaurant</h5>
+            </a>
+        </div>
+    </div>
+    </div>
+    <%- include('../partials/footerPartial.ejs') %>
+    <%- include('../partials/jsPartials.ejs') %>
 </body>
 
 </html>
