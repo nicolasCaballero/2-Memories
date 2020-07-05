@@ -3,11 +3,137 @@
 
 <head>
     <%- include('../partials/headPartial.ejs') %>
+    <link rel="stylesheet" href="/css/product.css">
     <title>AYUDA | MEMORIES</title>
 </head>
 
 <body>
     <%- include('../partials/headerPartial.ejs') %>
+    <div class="d-none d-lg-block">
+        <figure class="figure">
+            <img src="/img/banners/banner-escapada-desktop.jpg" class="figure-img img-fluid rounded"
+                alt="bannerCategoriadesktop">
+        </figure>
+    </div>
+    <div class="d-lg-none">
+        <figure class="figure">
+            <img src="/img/banners/banner-escapada-mobile.jpg" class="figure-img img-fluid rounded"
+                alt="bannerCategoriamobile">
+        </figure>
+    </div>
+    <h1 class="tituloCategoriaGrilla"> PREGUNTAS FRECUENTES </h1>
+    <div class="accordion" id="accordionExample">
+        <div class="card">
+            <div class="card-header" id="headingZero">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left queTrae" type="button" data-toggle="collapse"
+                        data-target="#collapseZero" aria-expanded="true" aria-controls="collapseZero">
+                        ¿Qué es Memories?
+                    </button>
+                </h2>
+            </div>
+
+            <div id="collapseZero" class="collapse" aria-labelledby="headingZero" data-parent="#accordionExample">
+                <div class="card-body">
+                    Si buscás un regalo original, ¡las experiencias Memories son la mejor opción! <br>
+
+                    Contamos con distintas temáticas para que elijas!: Gastronomía, Bienestar, Escapadas, Entretenimiento,  Aventura y más! <br>
+                    
+                    Cada Memories incluye una selección de experiencias. El agasajado elige la que más le gusta y reserva directamente con el lugar. <br>
+                    
+                    Contamos con dos formatos de Memories: física (envío a domicilio o en nuestros punto de venta) y digital (envío por mail).
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left queTrae" type="button" data-toggle="collapse"
+                        data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        ¿Cómo abrir mi Memories?
+                    </button>
+                </h2>
+            </div>
+
+            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                    Para abrir tu Memories lo primero que tenés que hacer es registrarte. Lo podes hacer haciendo <a style="color: black;" href="http://localhost:3000/registro">¡CLICK ACÁ!</a> (Psst! La contraseña que crees debe tener seis caracteres y ser alfanumérica). <br> Una vez que te registres podés abrir tu Memories ingresando tu código en <a style="color: black;"
+                    href="http://localhost:3000/mi-regalo">¡MI REGALO!</a> ¡Listo! ¡A disfrutar!
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left collapsed queTrae" type="button"
+                        data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false"
+                        aria-controls="collapseTwo">
+                        Quiero abrir mi Memories
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div class="card-body">
+                    Al ingresar el código de tu memories en nuestra web: (<a style="color: black;"
+                        href="http://localhost:3000/mi-regalo">https://www.memories.com.ar/mi-regalo</a>) podrás ver el
+                    catálogo de tu regalo y elegir una experiencia de entre todas las propuestas. Cuando ingreses a cada
+                    una verás en detalle qué incluye y los datos de contacto, para que puedas realizar la reserva.
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left collapsed queTrae" type="button"
+                        data-toggle="collapse" data-target="#collapseThree" aria-expanded="false"
+                        aria-controls="collapseThree">
+                        ¿Como reservo?
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div class="card-body">
+                    Para reservar comunicate directamente con el lugar (los datos de contacto figuran en la
+                    descripción!) y hacé tu reserva indicando el código de tu Memories.
+                    Todas las reservas se realizan con anticipación y se encuentran sujetas a disponibilidad y
+                    condiciones del prestador de la experiencia. <br>
+                    No te olvides que las Memories tiene fecha de vencimiento!!
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingFour">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left collapsed queTrae" type="button"
+                        data-toggle="collapse" data-target="#collapseFour" aria-expanded="false"
+                        aria-controls="collapseFour">
+                        ¿Hasta cuándo tengo tiempo de utilizar mi Memories?
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                <div class="card-body">
+                    La experiencia se debe reservar y realizar hasta la fecha de vencimiento que figure junto al código Memories (independientemente de cuando se active). <br> Todas las reservas se deben realizar con anticipación y se encuentran sujetas a disponibilidad y condiciones del prestador de la experiencia. Luego de la fecha de vencimiento, el código Memorie queda inhabilitado y no puede ser utilizado. No es posible realizar una reserva para una fecha posterior al vencimiento. 
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header" id="headingFive">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left collapsed queTrae" type="button"
+                        data-toggle="collapse" data-target="#collapseFive" aria-expanded="false"
+                        aria-controls="collapseFive">
+                        En caso de no poder asistir al establecimiento elegido, ¿debo cancelar mi reserva?
+                    </button>
+                </h2>
+            </div>
+            <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+                <div class="card-body">
+                    En el caso de que no puedas asistir, te recomendamos que canceles tu reserva contactando al prestador tan pronto como sea posible. <br>
+                </div>
+            </div>
+        </div>
+    </div>
     <%- include('../partials/footerPartial.ejs') %>
     <%- include('../partials/jsPartials.ejs') %>
 </body>
