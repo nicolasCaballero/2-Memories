@@ -3,11 +3,44 @@
 
 <head>
     <%- include('../partials/headPartial.ejs') %>
+    <link rel="stylesheet" href="/css/product.css">
     <title>MÉTODOS DE PAGO | MEMORIES</title>
 </head>
 
 <body>
     <%- include('../partials/headerPartial.ejs') %>
+    <div class="d-none d-lg-block">
+        <figure class="figure">
+            <img src="/img/banners/banner-escapada-desktop.jpg" class="figure-img img-fluid rounded"
+                alt="bannerCategoriadesktop">
+        </figure>
+    </div>
+    <div class="d-lg-none">
+        <figure class="figure">
+            <img src="/img/banners/banner-escapada-mobile.jpg" class="figure-img img-fluid rounded"
+                alt="bannerCategoriamobile">
+        </figure>
+    </div>
+    <div class="accordion" id="accordionExample">
+        <div class="card">
+            <div class="card-header" id="headingZero">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left queTrae" type="button" data-toggle="collapse"
+                        data-target="#collapseZero" aria-expanded="true" aria-controls="collapseZero">
+                        MÉTODOS DE PAGO
+                    </button>
+                </h2>
+            </div>
+
+            <div id="collapseZero" class="collapse show" aria-labelledby="headingZero" data-parent="#accordionExample">
+                <div class="card-body">
+                    Todas las compras realizadas en el <a style="color: black;" href="http://localhost:3000/">MEMORIES</a> se realizan mediante tarjeta de crédito o débito. MEMORES posee un sistema de cobranza que es 100% seguro. Los números son encriptados y no sufren ningún tipo de amenaza en nuestro banco de datos, siendo enviados directamente a la administradora de la tarjeta de crédito.
+
+                    Todas las compras pueden ser procesadas mediante MercadoPago (ver plan de financiación), o NPS tarjétas de crédito hasta 12 cuotas sin interés.
+                </div>
+            </div>
+        </div>
+    </div>
     <%- include('../partials/footerPartial.ejs') %>
     <%- include('../partials/jsPartials.ejs') %>
 </body>
