@@ -1,0 +1,19 @@
+[{
+    "id": 1,
+    "name": "Nicolás Caballero",
+    "email": "niicolas.caballero@gmail.com",
+    "password": "HIOyEak6zoJ",
+    "password_confirmation": "6161YQLq8"
+}, {
+    "id": 1,
+    "name": "Sebastian Navarro",
+    "email": "sebastian.navarro87@gmail.com",
+    "password": "HIOyEak6zoJ",
+    "password_confirmation": "6161YQLq8"
+}, {
+    "id": 1,
+    "name": "Facundo Ruiz",
+    "email": "facu-ru@hotmail.com",
+    "password": "HIOyEak6zoJ",
+    "password_confirmation": "6161YQLq8"
+}]
