@@ -8,11 +8,12 @@
 </head>
 
 <body>
+    <div class="container-fluid">
     <%- include('../partials/headerPartial.ejs') %>
     <video autoplay muted loop id="videoBack">
         <source src="/img/paracaidas.mp4" type="video/mp4">
     </video>
-    <div class="container-fluid">
+    
         <section id="titulo" class="row">
             <article class="col-12">
                 <div class="text-left mt-3 mb-3">
@@ -69,11 +70,12 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            
         </section>
         <div class="separador"></div>
         <%- include('../partials/footerPartial.ejs') %>
         <%- include('../partials/jsPartials.ejs') %>
+    </div>
 </body>
 
 </html>

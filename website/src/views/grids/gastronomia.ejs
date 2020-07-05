@@ -7,11 +7,14 @@
 </head>
 <body>
     <%- include('../partials/headerPartial.ejs') %>
-    <img src="/img/banners/banner-gastronomia-desktop.jpg" alt="gastronomia" class="bannerGrilla">
+    <div class="container-fluid">
+      <section id="topBannerCategoria">
+        <img src="/img/banners/banner-gastronomia-desktop.jpg" alt="gastronomia" class="bannerGrilla">
+      </section>
     
     <div class="col-12"id="experienciasDentroDelMemorie">
         <h1 class="tituloCategoriaGrilla"> Gastronomía </h1> 
-        <h3 class="subtituloCategoriaGrilla"> Disfruta de experiencias <br> gastronómicas inolvidables </h3> 
+        <h4 class="subtituloCategoriaGrilla"> Disfruta de experiencias <br> gastronómicas inolvidables </h4> 
     </div>
     <div class="container">
         <div class="row rowBotones">
@@ -73,5 +76,6 @@
 </div>
 <%- include('../partials/footerPartial.ejs') %>
 <%- include('../partials/jsPartials.ejs') %>
+</div>
 </body>
 </html>

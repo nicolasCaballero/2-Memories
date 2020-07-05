@@ -2,6 +2,15 @@
     font-family: 'Source Sans Pro', sans-serif;
 }
 
+body {
+    overflow-x: hidden;
+}
+
+.container-fluid {
+    width: 100%;
+    overflow-x: hidden;
+}
+
 #btn-crearCuenta {
     margin-top: 30px;
 }

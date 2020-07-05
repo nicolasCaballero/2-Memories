@@ -3,12 +3,24 @@
 
 <head>
     <%- include('../partials/headPartial.ejs') %>
-    <link rel="stylesheet" href="/css/product.css">
+    <link rel="stylesheet" href="/css/index.css">
     <title>Página Oficial | MEMORIES</title>
 </head>
 
-<body class="container-fluid">
+<body>
+    <div class="container-fluid">
     <%- include('../partials/headerPartial.ejs') %>
+    <div class="bannerContenedor" id="bannerHomeMobile">
+        <div>
+            <img src="/img/banners/banner-home-mobile.jpg" alt="Banner Home Mobile"
+                class="bannerHome">
+        <div class="mx-auto">
+            <h2 class="text-center tituloBannerMobile text-center">Regalá recuerdos, regalá Memories</h2>
+            <button class="btn btn-color active rounded-pill buttonAbriMobile">Abrí tu memorie</button>
+        </div>
+        
+        </div>
+    </div>
     <div id="carouselExampleCaptions" class="carousel slide carouselLanding" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
@@ -42,6 +54,7 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
+    <section>
     <div class="row">
         <div class="col-12" id="experienciasDentroDelMemorie">
             <h2 id="tituloCategoriasHome" class="mb-4 text-center"> Categorías </h2>
@@ -78,35 +91,51 @@
                             class="d-block w-100 imagenCategoriaHome" src="/img/categorias/aventura.jpg"
                             alt="Categoria Aventura"></a></div>
             </div>
-            <div class="col-12" id="experienciasDentroDelMemorie">
-                <h2 id="tituloPasoAPasoHome" class="b-4 text-center"> Paso a paso </h2>
-            </div>
+        </section>
+
+
             <section>
-                <div class="container" id="containerPasoAPaso">
-                    <div class="row" id="rowPasoAPaso">
-                        <div class="col-lg-3 col-xl-3 col-md-3 col-12" class="divImagenPasoAPaso">
-                            <img src="/img/pasoAPaso/elegirMemorie.jpg" alt="Elegir Memorie" height="25%"
-                                class="imagenPasoAPaso">
-                            <h5 id="textoPaso">1. Vos elegís las Memories</h5>
-                        </div>
-                        <div class="col-lg-3 col-xl-3 col-md-3 col-12" class="divImagenPasoAPaso">
-                            <img src="/img/pasoAPaso/regalar.png" alt="Regalo" height="25%"
-                                class="imagenPasoAPaso">
-                            <h5 id="textoPaso">2. Tus amigos reciben el regalo</h5>
-                        </div>
-                        <div class="col-lg-3 col-xl-3 col-md-3 col-12" class="divImagenPasoAPaso">
-                            <img src="/img/pasoAPaso/seleccionarXP.jpg" alt="Seleccionar Experiencia"
-                                height="25%" class="imagenPasoAPaso">
-                            <h5 id="textoPaso">3. Ellos eligen una experiencia</h5>
-                        </div>
-                        <div class="col-lg-3 col-xl-3 col-md-3 col-12" class="divImagenPasoAPaso">
-                            <img src="/img/pasoAPaso/jummpingHappy.jpg" alt="Disfrutar" height="25%"
-                                class="imagenPasoAPaso">
-                            <h5 id="textoPaso4">4. Tus amigos disfrutan y recuerdan por siempre!</h5>
-                        </div>
-                    </div>
+                <div class="col-12" id="experienciasDentroDelMemorie">
+                    <h2 id="tituloPasoAPasoHome" class="b-4 text-center"> Paso a paso </h2>
                 </div>
+                <div class="container">
+                    <div class="row mx-auto">
+                        <div class="card mx-auto col-lg-3 col-xl-3 col-md-3 col-sm-5 col-xs-5" style="width: 18rem;">
+                            <img src="/img/pasoAPaso/elegirMemorie.jpg" class="card-img-top" alt="Elegir Memorie">
+                            <div class="card-body">
+                              <p id="textoPaso" class="card-title text-center">1. Vos elegís las Memories</p>
+                            </div>
+                          </div>
+                          <div class="card mx-auto col-lg-3 col-xl-3 col-md-3 col-sm-5 col-xs-5" style="width: 18rem;">
+                            <img src="/img/pasoAPaso/regalar.png" class="card-img-top" alt="Regalo">
+                            <div class="card-body">
+                              <p id="textoPaso" class="card-title text-center">2. Tus amigos reciben el regalo</p>
+                            </div>
+                          </div>
+                          <div class="card mx-auto col-lg-3 col-xl-3 col-md-3 col-sm-5 col-xs-5" style="width: 18rem;">
+                            <img src="/img/pasoAPaso/seleccionarXP.jpg" class="card-img-top" alt="Seleccionar experiencia">
+                            <div class="card-body">
+                              <p id="textoPaso" class="card-title text-center">3. Ellos eligen una experiencia</p>
+                            </div>
+                          </div>
+                          <div class="card mx-auto col-lg-3 col-xl-3 col-md-3 col-sm-5 col-xs-5" style="width: 18rem;">
+                            <img src="/img/pasoAPaso/jummpingHappy.jpg" class="card-img-top" alt="Disfrutar">
+                            <div class="card-body">
+                              <p id="textoPaso" class="card-title text-center">4. Disfrutan y recuerdan por siempre!</p>
+                            </div>
+                          </div>
+
+
+                    </div>
+
+                </div>
+
+
             </section>
+
+
+
+            
             <div class="row">
                 <div class="col-12">
                     <img src="/img/banners/banner-aventura-desktop.jpg" alt="Bienestar"
@@ -118,6 +147,7 @@
     </div>
     <%- include('../partials/footerPartial.ejs') %>
     <%- include('../partials/jsPartials.ejs') %>
+</div>
 </body>
 
 </html>

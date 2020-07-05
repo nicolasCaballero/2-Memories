@@ -9,14 +9,14 @@
 
 <body>
     <%- include('../partials/headerPartial.ejs') %>
-    <div class="container" id="containerSupremo">
+    <div class="container-fluid" id="containerSupremo">
         <div class="row" id="containerProducto">
-            <div class="col-lg-6 col-12">
+            <div class="col-lg-6 col-12" id="divImagenCentral">
                 <img src="/img/memories genericas/sushisushi.jpg" alt="Memorie Take Away" width="80%"
                     id="imagenRestaurant">
             </div>
             <div class="col-lg-6 col-12" id="informacion">
-                <ul class="infoEnLista1" id="informacion">
+                <ul class="infoEnLista1">
 
                     <li id="nombreMemorie">
                         <h2> Sipan Restaurants </h2>
@@ -44,18 +44,18 @@
                     <div class="row" id="metodos">
                         <div class="col-6 col-6">
                             <li>
-                                <h6><a class="text-decoration-none text-dark" href=""> METODOS DE PAGO <i class="fas fa-credit-card"></i></a></h6>
+                                <h6><a class="text-decoration-none text-dark" href=""> <i class="fas fa-credit-card mr-1"></i>FORMAS DE PAGO </a></h6>
                             </li>
                         </div>
                         <div class="col-6">
                             <li>
-                                <h6><a class="text-decoration-none text-dark" href="">METODOS DE ENVIO<i class="fas fa-truck"></i> </a>
+                                <h6><a class="text-decoration-none text-dark" href=""><i class="fas fa-truck mr-1"></i>METODOS DE ENVIO </a>
                                     <h6>
                             </li>
                         </div>
                     </div>
                     <li>
-                        <h6>#sku skuEjemplo</h6>
+                        <h6 id="txt-sku" class="text-center">#sku skuEjemplo</h6>
                     </li>
 
                     <li><br></li>
@@ -111,9 +111,10 @@
 
 
         </div>
-    </div>
+    
     <%- include('../partials/footerPartial.ejs') %>
     <%- include('../partials/jsPartials.ejs') %>
+    </div>
 </body>
 
 </html>

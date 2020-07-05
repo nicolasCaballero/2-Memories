@@ -2,6 +2,12 @@
     font-family: 'Source Sans Pro', sans-serif;
 }
 
+body {
+    overflow-x: hidden;
+    width: 100%;
+    position: absolute;
+}
+
 #abri {
     color: #79C8D6;
 }
@@ -17,6 +23,7 @@
 /* enable absolute positioning */
 .inner-addon {
     position: relative;
+    width: 60%;
 }
 
 /* style icon */

@@ -5,6 +5,14 @@
 body {
     background-image: url('../img/bg-login-1920-wide.jpg');
     background-size: cover;
+    overflow-x: hidden;
+    width: 100%;
+    position: absolute;
+}
+
+.container-fluid {
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .fondo {

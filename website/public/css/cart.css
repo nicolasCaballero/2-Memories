@@ -2,6 +2,15 @@
     font-family: 'Source Sans Pro', sans-serif;
 }
 
+body {
+    overflow-x: hidden;
+}
+
+.container-fluid {
+    overflow-x: hidden;
+    width: 100%;
+}
+
 .card-horizontal {
     display: flex;
     flex: 1 1 auto;
