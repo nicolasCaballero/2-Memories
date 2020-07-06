@@ -106,7 +106,7 @@ Funcionalidades:
 * Posibilidades de regalar una gift box (card) para luego intercambiar por una experiencia. 
 * En el footer incluye una caja para suscribirse al newsletter.
 
-## Retrospectiva
+## Retrospectiva Sprint 1
 
 Comenzar a hacer:
 * Establecer fechas específicas para tener terminadas las tareas que le corresponden a cada uno.
@@ -122,3 +122,18 @@ Seguir haciendo:
 
 Dejar de hacer:
 * Superposición de tareas.
+
+## Retrospectiva Sprint 2
+
+Comenzar a hacer:
+* Reuniones semanales sobre el avance de cada uno y las tareas realizadas y por hacer.
+* Elaboración de un cronograma de cumplimiento.
+
+Más de: 
+* Gestión óptima del tiempo del sprint.
+
+Seguir haciendo: 
+* Mantener el compromiso con el proyecto.
+* Comunicación constante y fluída.
+* Colaboración y acompañamiento grupal.
+
