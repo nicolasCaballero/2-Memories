@@ -89,3 +89,7 @@ body {
 .separador {
     height: 50px;
 }
+
+ul {
+    list-style: none;
+}

@@ -9,16 +9,27 @@
 
 <body>
     <div class="container-fluid">
-    <%- include('../partials/headerPartial.ejs') %>
-    <video autoplay muted loop id="videoBack">
-        <source src="/img/paracaidas.mp4" type="video/mp4">
-    </video>
-    
+        <%- include('../partials/headerPartial.ejs') %>
+        <video autoplay muted loop id="videoBack">
+            <source src="/img/paracaidas.mp4" type="video/mp4">
+        </video>
+
         <section id="titulo" class="row">
             <article class="col-12">
                 <div class="text-left mt-3 mb-3">
                     <div class="text-center mt-3 mb-3">
                         <h2>¡Creá tu Cuenta!</h2>
+                        <% if (typeof errors != 'undefined') { %>
+                        <div class="alert alert-warning" role="alert">
+                            <ul>
+                                <% for(let i = 0; i < errors.length; i++) { %>
+                                <li>
+                                    <%= errors[i].msg %>
+                                </li>
+                                <% } %>
+                            </ul>
+                        </div>
+                        <% } %>
                     </div>
             </article>
         </section>
@@ -27,10 +38,14 @@
                 <div class="row">
                     <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 mx-auto pt-2 fondo shadow-sm rounded-lg">
                         <div class="signup-form mt-3">
-                            <form action="" method="post">
+                            <form action="/registro" method="post" novalidate>
                                 <div class="form-group">
-                                    <input type="text" class="form-control rounded-pill" name="nombre"
+                                    <input type="text" class="form-control rounded-pill" name="name"
                                         placeholder="nombre" required="required">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control rounded-pill" name="lastName"
+                                        placeholder="apellido" required="required">
                                 </div>
                                 <div class="form-group">
                                     <input type="email" class="form-control rounded-pill" name="email"
@@ -40,10 +55,6 @@
                                     <input type="password" class="form-control rounded-pill" name="password"
                                         placeholder="contraseña" required="required">
                                 </div>
-                                <div class="form-group">
-                                    <input type="password" class="form-control rounded-pill" name="re-password"
-                                        placeholder="repetir contraseña" required="required">
-                                </div>
                                 <div class="form-check ml-2">
                                     <input class="form-check-input" checked="checked" type="checkbox" value=""
                                         id="quieroPromociones">
@@ -52,9 +63,11 @@
                                     </label>
                                 </div>
                                 <div class="form-check ml-2">
-                                    <input class="form-check-input" type="checkbox" value="" id="aceptoTerminos">
+                                    <input class="form-check-input" type="checkbox" value="" id="aceptoTerminos"
+                                        required="required">
                                     <label class="form-check-label" for="aceptoTerminos">
-                                        <p class="ml-1">He leído y acepto los <a href="/terminos-y-condiciones">Términos y Condiciones.</a>
+                                        <p class="ml-1">He leído y acepto los <a href="/terminos-y-condiciones">Términos
+                                                y Condiciones.</a>
                                         </p>
                                     </label>
                                 </div>
@@ -70,7 +83,7 @@
                         </div>
                     </div>
                 </div>
-            
+
         </section>
         <div class="separador"></div>
         <%- include('../partials/footerPartial.ejs') %>
