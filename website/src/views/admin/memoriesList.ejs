@@ -4,7 +4,7 @@
 <head>
     <%- include('../partials/headPartial.ejs') %>
     <link rel="stylesheet" href="/css/admin/admin.css">
-    <title>ADMIN | MEMORIES</title>
+    <title>LISTADO DE PACKS | MEMORIES</title>
 </head>
 
 <body>
@@ -65,49 +65,50 @@
             </div>
         </nav>
     </header>
-    <section class="row">
-        <article id="tituloAdmin" class="col-12 card pt-5 border-0">
-            <div class="card-body">
-                <h1 class="card-title text-center">Administración de Productos</h1>
+    <div class="container-fluid">
+
+        <section class="row">
+            <article id="tituloAdmin" class="col-12 card pt-5 border-0">
+                <div class="card-body">
+                    <h1 class="card-title text-center">Listado de Packs de Memories</h1>
 
 
-            </div>
-        </article>
-    </section>
+                </div>
+            </article>
+        </section>
 
-    <div class="container">
-        <div id="adminProductos" class="row justify-content-md-center">
-          <div class="col text-center">
-            <h3>Packs de Memories</h3>
-            <div class="d-flex flex-column">
-                <button type="button" class="btn btn-light mb-3"><a class="text-decoration-none" href="/admin/memoriesCreate">Agregar nuevo pack<i
-                    class="fas fa-plus-circle ml-2"></i></a></button>
-                <button type="button" class="btn btn-light mb-3"><a class="text-decoration-none" href="/admin/listado-memories">Listar packs<i class="fas fa-list-alt ml-2"></i></a></button>
-            </div>
-          </div>
-          <div class="col text-center">
-            <h3>Experiencias</h3>
-            <div class="d-flex flex-column">
-                <button type="button" class="btn btn-light mb-3"><a class="text-decoration-none" href="/admin/experiencesCreate">Agregar nueva experiencia<i
-                    class="fas fa-plus-circle ml-2"></i></a></button>
-                <button type="button" class="btn btn-light mb-3"><a class="text-decoration-none" href="#">Listar experiencias<i class="fas fa-list-alt ml-2"></i></a></button>
-            </div>
-          </div>
+        <table class="table mt-2">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Categoría</th>
+                    <th scope="col">Precio $</th>
+                    <th scope="col">Stock</th>
+                    <th scope="col">Ver</th>
+                    <th scope="col">Editar</th>
+                    <th scope="col">Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                        <td scope="row">2</td>
+                        <td>Take Away</td>
+                        <td>Gastronomía</td>
+                        <td>1499</td>
+                        <td>1000</td>
+                        <td><a href="/admin/detail/"><i class="fas fa-eye text-decoration-none"></i></a></td>
+                        <td><a href="/admin/edit/"><i class="fas fa-edit text-decoration-none"></i></a></td>
+                        <td><a href="/admin/delete/>"><i class="fas fa-trash text-decoration-none"></i></a></td>
+                    </tr>
+
+                
+    
+            </tbody>
+        </table>
+        <div id="btn-guardar" class="float-right mt-5">
+            <button type="submit" class="btn btn-info rounded-pill mr-5">Agregar nuevo pack</button>
         </div>
-
-        <div id="adminUsuarios" class="row justify-content-md-center">
-            <div class="col-6 text-center">
-                <h1 class="card-title text-center">Administración de Usuarios</h1>
-              <div class="d-flex flex-column">
-                  <button type="button" class="btn btn-light mb-3"><a class="text-decoration-none" href="/admin/memoriesCreate">Crear nuevo usuario<i
-                      class="fas fa-user-edit ml-2"></i></a></button>
-                  <button type="button" class="btn btn-light mb-3"><a class="text-decoration-none" href="#">Listar usuarios<i class="fas fa-list-alt ml-2"></i></a></button>
-              </div>
-            </div>
-    </div>
-
-        
-        
 
         
     <%- include('../partials/jsPartials.ejs') %>

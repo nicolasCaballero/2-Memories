@@ -7,10 +7,31 @@
     border-color: #f48169;
 }
 
+.container-fluid {
+    width: 100%;
+    overflow-x: hidden;
+}
+
 h1 {
     margin-top: 50px;
 }
 
 #formulario {
     margin-bottom: 40px;
+}
+
+#tituloAdmin {
+    margin-top: 100px;
+}
+
+#tituloAdmin {
+    margin-top: 0px;
+}
+
+td a {
+    color: #212529;
+}
+
+.fondo {
+    background-color: rgba(247, 247, 247, 0.7)
 }
