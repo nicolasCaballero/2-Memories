@@ -233,8 +233,8 @@
         "image": "memories-escapadas-exotico.jpg",
         "visibility": true,
         "categories": "escapadas",
-        "price": 20,
-        "special_price": 20,
+        "price": 7999,
+        "special_price": 7999,
         "associated": "Manuel",
         "qty": 100
     },
