@@ -8,6 +8,6 @@ router.get('/gastronomia', gridController.gastronomyShow);
 router.get('/bienestar', gridController.wellbeingShow);
 router.get('/escapadas', gridController.escapeShow);
 router.get('/entretenimiento', gridController.entertainmentShow);
-router.get('/aventuras', gridController.adventureShow);
+router.get('/aventura', gridController.adventureShow);
 router.get('/cursos', gridController.coursesShow);
 module.exports = router;
