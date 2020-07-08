@@ -91,19 +91,18 @@
                 </tr>
             </thead>
             <tbody>
-                    <tr>
-                        <td scope="row">2</td>
-                        <td>Take Away</td>
-                        <td>Gastronomía</td>
-                        <td>1499</td>
-                        <td>1000</td>
-                        <td><a href="/admin/detail/"><i class="fas fa-eye text-decoration-none"></i></a></td>
-                        <td><a href="/admin/edit/"><i class="fas fa-edit text-decoration-none"></i></a></td>
-                        <td><a href="/admin/delete/>"><i class="fas fa-trash text-decoration-none"></i></a></td>
-                    </tr>
-
-                
-    
+                    <% products.forEach(product => { %>
+                        <tr>
+                            <td scope="row"><%= product.sku %> </td>
+                            <td><%= product.name%> </td>
+                            <td><%= product.categories%> </td>
+                            <td><%= product.price%> </td>
+                            <td><%= product.qty%> </td>
+                            <td><a href="/admin/detail/"><i class="fas fa-eye text-decoration-none"></i></a></td>
+                            <td><a href="/admin/edit/"><i class="fas fa-edit text-decoration-none"></i></a></td>
+                            <td><a href="/admin/delete/>"><i class="fas fa-trash text-decoration-none"></i></a></td>
+                        </tr>
+                    <% }) ; %>
             </tbody>
         </table>
         <div id="btn-guardar" class="float-right mt-5">

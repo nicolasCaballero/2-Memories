@@ -8,7 +8,7 @@ const storage = multer.diskStorage({
       cb(null, path.resolve(__dirname, '../../public/img/packs'));
     },
     filename: function (req, file, cb) {
-      cb(null, 'plato' + '-' + Date.now()+ path.extname(file.originalname));
+      cb(null, path.extname(file.originalname));
     }
   })
    
