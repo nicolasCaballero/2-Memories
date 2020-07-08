@@ -21,4 +21,5 @@ router.post('/admin/memoriesCreate', upload.single('image') ,adminController.mem
 router.get('/admin/experienceCreate', adminController.experienceCreate);
 router.get('/admin/listado-memories', adminController.memoriesList);
 router.get('/admin/listado-memories/:sku', adminController.show);
+router.get('/admin/listado-memories/delete/:sku', adminController.delete);
 module.exports = router;

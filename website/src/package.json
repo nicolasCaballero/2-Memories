@@ -4,7 +4,7 @@
   "description": "Desarrollo del sitio Memories",
   "main": "src/index.js",
   "scripts": {
-    "test": "nodemon src/index.js"
+    "test": "nodemon src/index.js -e js,ejs,json,mjs"
   },
   "repository": {
     "type": "git",

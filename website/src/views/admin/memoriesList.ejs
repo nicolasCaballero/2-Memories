@@ -45,7 +45,7 @@
                             <td><%= product.qty%> </td>
                             <td><a id="btn-view" class=" text-decoration-none" href="/admin/listado-memories/<%= product.sku%>"><i class="fas fa-eye text-decoration-none"></i></a></td>
                             <td><a id="btn-edit" class=" text-decoration-none" href="/admin/edit/"><i class="fas fa-edit text-decoration-none"></i></a></td>
-                            <td><a id="btn-delete" class=" text-decoration-none" href="/admin/delete/>"><i class="fas fa-trash text-decoration-none"></i></a></td>
+                            <td><a id="btn-delete" class=" text-decoration-none" onClick='confirm("¿Seguro querés borrar el producto <%= product.name%>?")' href="/admin/listado-memories/delete/<%= product.sku%>"><i class="fas fa-trash text-decoration-none"></i></a></td>
                         </tr>
                     <% }) ; %>
             </tbody>

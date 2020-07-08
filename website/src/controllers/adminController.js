@@ -37,6 +37,7 @@ let adminController = {
         res.render(path.resolve(__dirname, '../views/admin/experienceCreate.ejs'));
     },
     'memoriesList': (req, res) => {
+        let products  = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/products.json')));
         res.render(path.resolve(__dirname, '../views/admin/memoriesList.ejs'), {products});
     },
     'login': (req, res) => {
@@ -45,8 +46,16 @@ let adminController = {
     'show': (req,res) => {
         let products  = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/products.json')));
         let productId = req.params.sku;
-        const product = products.find(p => p.sku == productId);
+        let product = products.find(p => p.sku == productId);
         res.render(path.resolve(__dirname, '../views/admin/memoriesDetail.ejs'), {product});
+    },
+    'delete': (req, res) => {
+        let products  = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/products.json')));
+        let productId = req.params.sku;
+        let product = products.filter(p => p.sku != productId);
+        productsJSON = JSON.stringify(product,null,2);
+        fs.writeFileSync(path.resolve(__dirname, '../models/products.json'),productsJSON);
+        res.redirect('/admin/listado-memories');
     }
 };
 
