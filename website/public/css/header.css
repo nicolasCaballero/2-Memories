@@ -20,20 +20,21 @@ body {
     position: static;
 }
 
-/* enable absolute positioning */
+.img-categorias-header{
+    border-radius: 20px;
+}
+
 .inner-addon {
     position: relative;
     width: 60%;
 }
 
-/* style icon */
 .inner-addon .fa-search {
     position: absolute;
     padding: 10px;
     pointer-events: none;
 }
 
-/* align icon */
 .left-addon .fa-search {
     left: 0px;
 }
@@ -42,7 +43,6 @@ body {
     right: 0px;
 }
 
-/* add padding  */
 .left-addon input {
     padding-left: 30px;
 }
@@ -54,8 +54,6 @@ body {
 .card {
     border: 0px;
 }
-
-
 
 .dropdown-menu {
     border: 0px;

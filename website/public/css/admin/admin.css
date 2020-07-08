@@ -7,6 +7,11 @@
     border-color: #f48169;
 }
 
+.btn-secondary {
+    background-color: #FBC46C;
+    border-color: #FBC46C;
+}
+
 .container-fluid {
     width: 100%;
     overflow-x: hidden;
@@ -20,6 +25,10 @@ h1 {
     margin-bottom: 40px;
 }
 
+.card {
+    margin-top: 1rem;
+}
+
 #tituloAdmin {
     margin-top: 100px;
 }
@@ -30,8 +39,21 @@ h1 {
 
 td a {
     color: #212529;
+    text-decoration: none;
 }
 
 .fondo {
     background-color: rgba(247, 247, 247, 0.7)
+}
+
+#btn-view:hover {
+    color: #FBC46C;
+}
+
+#btn-edit:hover {
+    color: #79C8D6;
+}
+
+#btn-delete:hover {
+    color: #F48169;
 }

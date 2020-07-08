@@ -4,67 +4,12 @@
 <head>
     <%- include('../partials/headPartial.ejs') %>
     <link rel="stylesheet" href="/css/admin/admin.css">
-    <title>LISTADO DE PACKS | MEMORIES</title>
+    <title>Listado de Packs | MEMORIES</title>
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom shadow-sm fixed-top">
-            <a href="/admin" class="navbar-center"><img src="/img/logo-memories-md.png" width="75px"></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul id="nav-left" class="navbar-nav col-10">
-
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            Memories</i>
-                        </a>
-                        <div class="dropdown-menu border shadow-sm" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/admin/memoriesCreate">Agregar nuevo pack<i
-                                    class="fas fa-plus-circle ml-2"></i></a>
-                            <a class="dropdown-item" href="/admin/listado-memories">Listar packs<i class="fas fa-list-alt ml-2"></i></a>
-                        </div>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            Experiencias</i>
-                        </a>
-                        <div class="dropdown-menu border shadow-sm" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/admin/experienceCreate">Agregar nueva experiencia<i
-                                    class="fas fa-plus-circle ml-2"></i></a>
-                            <a class="dropdown-item" href="#">Listar experiencias<i
-                                    class="fas fa-list-alt ml-2"></i></a>
-                        </div>
-                    </li>
-                </ul>
-                <ul id="nav-right" class="navbar-nav col-2">
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">
-                            Usuario<i class="fas fa-user-circle ml-2"></i>
-                        </a>
-                        <div class="dropdown-menu border shadow-sm" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/admin/login">Ingresá<i class="fas fa-sign-in-alt ml-2"></i></a>
-                            <a class="dropdown-item" href="#">Salir<i class="fas fa-sign-out-alt ml-2"></i></a>
-                        </div>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active">ADMIN</a>
-                    </li>
-                </ul>
-
-
-
-            </div>
-        </nav>
-    </header>
+    
+        <%- include('../partials/headerAdminPartial.ejs') %>
     <div class="container-fluid">
 
         <section class="row">
@@ -77,7 +22,7 @@
             </article>
         </section>
 
-        <table class="table mt-2">
+        <table class="table mt-2 border-bottom">
             <thead class="thead-dark">
                 <tr>
                     <th scope="col">ID</th>
@@ -98,15 +43,15 @@
                             <td><%= product.categories%> </td>
                             <td><%= product.price%> </td>
                             <td><%= product.qty%> </td>
-                            <td><a href="/admin/listado-memories/<%= product.sku%>"><i class="fas fa-eye text-decoration-none"></i></a></td>
-                            <td><a href="/admin/edit/"><i class="fas fa-edit text-decoration-none"></i></a></td>
-                            <td><a href="/admin/delete/>"><i class="fas fa-trash text-decoration-none"></i></a></td>
+                            <td><a id="btn-view" class=" text-decoration-none" href="/admin/listado-memories/<%= product.sku%>"><i class="fas fa-eye text-decoration-none"></i></a></td>
+                            <td><a id="btn-edit" class=" text-decoration-none" href="/admin/edit/"><i class="fas fa-edit text-decoration-none"></i></a></td>
+                            <td><a id="btn-delete" class=" text-decoration-none" href="/admin/delete/>"><i class="fas fa-trash text-decoration-none"></i></a></td>
                         </tr>
                     <% }) ; %>
             </tbody>
         </table>
-        <div id="btn-guardar" class="float-right mt-5">
-            <button type="submit" class="btn btn-info rounded-pill mr-5">Agregar nuevo pack</button>
+        <div id="btn-guardar" class="float-right mt-5 mb-5"><a href="/admin/memoriesCreate">
+            <button type="submit" class="btn btn-info rounded-pill mr-5">Agregar nuevo pack</button></a>
         </div>
 
         
