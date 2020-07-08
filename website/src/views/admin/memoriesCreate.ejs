@@ -34,12 +34,12 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle active" href="#" role="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
-                            Experiencias</i>
+                            associated</i>
                         </a>
                         <div class="dropdown-menu border shadow-sm" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="/admin/experienceCreate">Agregar nueva experiencia<i
                                     class="fas fa-plus-circle ml-2"></i></a>
-                            <a class="dropdown-item" href="#">Listar experiencias<i
+                            <a class="dropdown-item" href="#">Listar associated<i
                                     class="fas fa-list-alt ml-2"></i></a>
                         </div>
                     </li>
@@ -85,140 +85,135 @@
                 <div class="row">
                     <div class="col-lg-8 col-md-10 col-sm-10 col-xs-12 mx-auto bg-light shadow-sm">
                         <div class="signup-form mt-2">
-                            <form action="/admin/create" method="post" enctype="application/x-www-form-urlencoded">
+                            <form action="/admin/memoriesCreate" method="POST" enctype="multipart/form-data">
                                 <div class="form-group">
-                                    <label for="nombre">Nombre</label>
-                                    <input type="text" class="form-control rounded-pill" name="nombre"
+                                    <label for="name">Nombre</label>
+                                    <input type="text" class="form-control rounded-pill" name="name"
                                         placeholder="Ej: Take Away" required="required">
                                 </div>
                                 <div class="form-group">
-                                    <label for="descripción">Descripción</label>
-                                    <textarea class="form-control rounded-lg" name="descripcion"
+                                    <label for="description">Descripción</label>
+                                    <textarea class="form-control rounded-lg" name="description"
                                         placeholder="Ej: Delicias para disfrutar en casa" rows="3"></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label for="imagen-producto">Imagen</label>
-                                    <input type="file" class="form-control-file rounded" id="imagen-producto">
+                                    <label for="image">Imagen</label>
+                                    <input type="file" class="form-control-file rounded" id="imagen-producto" name="image">
                                 </div>
                                 <div class="form-group">
-                                    <label for="precio">Precio $</label>
-                                    <input type="number" class="form-control rounded-pill" name="precio"
-                                        placeholder="Ej: 1899" required="required">
-                                </div>
-                                <div class="form-group">
-                                    <label for="sku">SKU</label>
-                                    <input type="text" class="form-control rounded-pill" name="sku"
-                                        placeholder="Ej: #100-10001" required="required">
-                                </div>
-                                <div class="form-group">
-                                    <label for="select-category">Categoría</label>
-                                    <select id="select-category" class="form-control rounded-pill">
-                                        <option selected>Seleccionar</option>
-                                        <option>Aventura</option>
-                                        <option>Bienestar</option>
-                                        <option>Cursos</option>
-                                        <option>Entretenimiento</option>
-                                        <option>Escapadas</option>
-                                        <option>Gastronomía</option>
+                                    <label for="visibility">Visibilidad</label>
+                                    <select id="visibility" class="form-control rounded-pill" name="visibility">
+                                        <option value="true">true</option>
+                                        <option value="false">false</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="experiencias">Incluir experiencias</label>
-                                    <div id="container-experiencias">
+                                    <label for="price">Precio $</label>
+                                    <input type="number" class="form-control rounded-pill" name="price"
+                                        placeholder="Ej: 1899" required="required">
+                                </div>
+                                <div class="form-group">
+                                    <label for="special_price">Precio Especial $</label>
+                                    <input type="number" class="form-control rounded-pill" name="special_price"
+                                        placeholder="Ej: 1899" required="required">
+                                </div>
+                                <div class="form-group">
+                                    <label for="qty">Stock</label>
+                                    <input type="number" class="form-control rounded-pill" name="qty"
+                                        placeholder="Ej: 100" required="required">
+                                </div>
+                                <div class="form-group">
+                                    <label for="categories">Categoría</label>
+                                    <select id="categories" class="form-control rounded-pill" name="categories">
+                                        <option value="aventura">Aventura</option>
+                                        <option value="bienestar">Bienestar</option>
+                                        <option value="cursos">Cursos</option>
+                                        <option value="entrenimiento">Entretenimiento</option>
+                                        <option value="escapadas">Escapadas</option>
+                                        <option value="gastronomia">Gastronomía</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="associated">Incluir Experiencias</label>
+                                    <div id="container-associated">
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="checkbox" id="experiencia1"
-                                                value="experiencia1">
-                                            <label class="form-check-label" for="experiencias">La Bistecca</label>
+                                                value="experiencia1" name="associated">
+                                            <label class="form-check-label" for="associated">La Bistecca</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="checkbox" id="experiencia2"
+                                                value="experiencia2" name="associated">
+                                            <label class="form-check-label" for="associated">Baum Cervecería</label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="checkbox" id="experiencia1"
                                                 value="experiencia1">
-                                            <label class="form-check-label" for="experiencias">Baum Cervecería</label>
+                                            <label class="form-check-label" for="associated">Tucson</label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="checkbox" id="experiencia1"
                                                 value="experiencia1">
-                                            <label class="form-check-label" for="experiencias">Tucson</label>
+                                            <label class="form-check-label" for="associated">Sipan</label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="checkbox" id="experiencia1"
                                                 value="experiencia1">
-                                            <label class="form-check-label" for="experiencias">Sipan</label>
+                                            <label class="form-check-label" for="associated">Kansas</label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="checkbox" id="experiencia1"
                                                 value="experiencia1">
-                                            <label class="form-check-label" for="experiencias">Kansas</label>
+                                            <label class="form-check-label" for="associated">La Bistecca</label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="checkbox" id="experiencia1"
                                                 value="experiencia1">
-                                            <label class="form-check-label" for="experiencias">La Bistecca</label>
+                                            <label class="form-check-label" for="associated">Georgie's</label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="checkbox" id="experiencia1"
                                                 value="experiencia1">
-                                            <label class="form-check-label" for="experiencias">Georgie's</label>
+                                            <label class="form-check-label" for="associated">Siga la Vaca</label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="checkbox" id="experiencia1"
                                                 value="experiencia1">
-                                            <label class="form-check-label" for="experiencias">Siga la Vaca</label>
+                                            <label class="form-check-label" for="associated">Los Maizales</label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="checkbox" id="experiencia1"
                                                 value="experiencia1">
-                                            <label class="form-check-label" for="experiencias">Los Maizales</label>
+                                            <label class="form-check-label" for="associated">La Parolaccia</label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="checkbox" id="experiencia1"
                                                 value="experiencia1">
-                                            <label class="form-check-label" for="experiencias">La Parolaccia</label>
+                                            <label class="form-check-label" for="associated">La Birra</label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="checkbox" id="experiencia1"
                                                 value="experiencia1">
-                                            <label class="form-check-label" for="experiencias">La Birra</label>
+                                            <label class="form-check-label" for="associated">Wunderbar</label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="checkbox" id="experiencia1"
                                                 value="experiencia1">
-                                            <label class="form-check-label" for="experiencias">Wunderbar</label>
+                                            <label class="form-check-label" for="associated">Estilo Campo</label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="checkbox" id="experiencia1"
                                                 value="experiencia1">
-                                            <label class="form-check-label" for="experiencias">Estilo Campo</label>
+                                            <label class="form-check-label" for="associated">Atte. Pizzeria</label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="checkbox" id="experiencia1"
                                                 value="experiencia1">
-                                            <label class="form-check-label" for="experiencias">Atte. Pizzeria</label>
+                                            <label class="form-check-label" for="associated">Banchero</label>
                                         </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="checkbox" id="experiencia1"
-                                                value="experiencia1">
-                                            <label class="form-check-label" for="experiencias">Banchero</label>
-                                        </div>
-
                                     </div>
                                 </div>
 
-
-                                <label for="estado">Estado</label>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="estado-activo" value="activo">
-                                        <label class="form-check-label" for="estado-activo">
-                                          Activo
-                                        </label>
-                                      </div>
-                                      <div class="form-check">
-                                        <input class="form-check-input" type="radio" name="exampleRadios" id="estado-inactivo" value="inactivo">
-                                        <label class="form-check-label" for="estado-inactivo">
-                                          Inactivo
-                                        </label>
-                                      </div>
-                                </div>
                                 <div id="btn-guardar" class="form-group float-right">
                                     <button type="submit" class="btn btn-info rounded-pill">Guardar</button>
                                 </div>

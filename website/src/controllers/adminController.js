@@ -10,6 +10,29 @@ let adminController = {
     'memoriesCreate': (req, res) => {
         res.render(path.resolve(__dirname, '../views/admin/memoriesCreate.ejs'));
     },
+    'memoriesSave': (req,res) => {
+       let products  = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/products.json')));
+       let allProducts  = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/products.json')));
+       let lastProductId = allProducts.pop();
+
+       let newProduct = {
+           sku : lastProductId.sku + 1,
+           name : req.body.name,
+           description : req.body.description,
+           image: req.file ? req.file.filename : "",
+           visibility: req.body.visibility,
+           categories: req.body.categories,
+           price: parseInt(req.body.price),
+           special_price: parseInt(req.body.special_price),
+           associated: req.body.associated,
+           qty: parseInt(req.body.qty)
+       }
+       
+       products.push(newProduct);
+       productsJSON = JSON.stringify(products,null,2);
+       fs.writeFileSync(path.resolve(__dirname, '../models/products.json'),productsJSON);
+       res.redirect('/');
+    },
     'experienceCreate': (req, res) => {
         res.render(path.resolve(__dirname, '../views/admin/experienceCreate.ejs'));
     },
