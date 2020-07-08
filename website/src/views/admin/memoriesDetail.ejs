@@ -73,9 +73,7 @@
         <section class="row">
             <article class="col-12 card pt-5 border-0">
                 <div class="card-body">
-                    <h1 class="card-title text-center">Agregar nuevo pack de Memories</h1>
-
-
+                    <h1 class="card-title text-center">Detalle del producto</h1>
                 </div>
             </article>
         </section>
@@ -85,10 +83,15 @@
                     <div class="col-8 mx-auto bg-light ">
                         <div class="card">
                             <ul class="list-group">
-                                <li class="list-group-item">Id: <%= product.sku%></li>
+                                <li class="list-group-item">Sku: <%= product.sku%></li>
                                 <li class="list-group-item">Nombre: <%= product.name%></li>
                                 <li class="list-group-item">Descripción: <%= product.description%></li>
                                 <li class="list-group-item">Precio: <%= product.price%></li>
+                                <li class="list-group-item">Precio Especial: <%= product.special_price%></li>
+                                <li class="list-group-item">Visibilidad: <%= product.visibility%></li>
+                                <li class="list-group-item">Categoría: <%= product.categories%></li>
+                                <li class="list-group-item">Experiencias Asociadas: <%= product.associated%></li>
+                                <li class="list-group-item">Qty: <%= product.qty%></li>
                                 <li class="list-group-item ">Imagen: <img class="img-thumbnail" src="/img/packs/<%= product.image%>" alt=""></li>
                             </ul>
                         </div>
