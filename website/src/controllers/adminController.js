@@ -18,6 +18,12 @@ let adminController = {
     },
     'login': (req, res) => {
         res.render(path.resolve(__dirname, '../views/admin/login.ejs'));
+    },
+    'show': (req,res) => {
+        let products  = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/products.json')));
+        let productId = req.params.sku;
+        const product = products.find(p => p.sku == productId);
+        res.render(path.resolve(__dirname, '../views/admin/memoriesDetail.ejs'), {product});
     }
 };
 

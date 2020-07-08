@@ -19,4 +19,5 @@ router.get('/admin/login', adminController.login);
 router.get('/admin/memoriesCreate', adminController.memoriesCreate);
 router.get('/admin/experienceCreate', adminController.experienceCreate);
 router.get('/admin/listado-memories', adminController.memoriesList);
+router.get('/admin/listado-memories/:sku', adminController.show);
 module.exports = router;

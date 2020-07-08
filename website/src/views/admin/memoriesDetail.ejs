@@ -4,7 +4,7 @@
 <head>
     <%- include('../partials/headPartial.ejs') %>
     <link rel="stylesheet" href="/css/admin/admin.css">
-    <title>LISTADO DE PACKS | MEMORIES</title>
+    <title>AGREGAR | MEMORIES</title>
 </head>
 
 <body>
@@ -46,7 +46,7 @@
                 </ul>
                 <ul id="nav-right" class="navbar-nav col-2">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-toggle="dropdown"
+                        <a class="nav-link dropdown-toggle active" href="/admin/login" role="button" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             Usuario<i class="fas fa-user-circle ml-2"></i>
                         </a>
@@ -67,49 +67,38 @@
     </header>
     <div class="container-fluid">
 
+
+        <!-- Cuerpo principal -->
+
         <section class="row">
-            <article id="tituloAdmin" class="col-12 card pt-5 border-0">
+            <article class="col-12 card pt-5 border-0">
                 <div class="card-body">
-                    <h1 class="card-title text-center">Listado de Packs de Memories</h1>
+                    <h1 class="card-title text-center">Agregar nuevo pack de Memories</h1>
 
 
                 </div>
             </article>
         </section>
+        <section class="bg-home pt-4">
+            <div class="container">
+                <div class="row" >
+                    <div class="col-8 mx-auto bg-light ">
+                        <div class="card">
+                            <ul class="list-group">
+                                <li class="list-group-item">Id: <%= product.sku%></li>
+                                <li class="list-group-item">Nombre: <%= product.name%></li>
+                                <li class="list-group-item">Descripción: <%= product.description%></li>
+                                <li class="list-group-item">Precio: <%= product.price%></li>
+                                <li class="list-group-item ">Imagen: <img class="img-thumbnail" src="/img/packs/<%= product.image%>" alt=""></li>
+                            </ul>
+                        </div>
+                        <a class="btn btn-danger" href="/administrar"><h4 class="text-center">Volver</h4></a>
+                    </div>                        
+                </div>
+            </div>
+        </section>
 
-        <table class="table mt-2">
-            <thead class="thead-dark">
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Categoría</th>
-                    <th scope="col">Precio $</th>
-                    <th scope="col">Stock</th>
-                    <th scope="col">Ver</th>
-                    <th scope="col">Editar</th>
-                    <th scope="col">Eliminar</th>
-                </tr>
-            </thead>
-            <tbody>
-                    <% products.forEach(product => { %>
-                        <tr>
-                            <td scope="row"><%= product.sku %> </td>
-                            <td><%= product.name%> </td>
-                            <td><%= product.categories%> </td>
-                            <td><%= product.price%> </td>
-                            <td><%= product.qty%> </td>
-                            <td><a href="/admin/listado-memories/<%= product.sku%>"><i class="fas fa-eye text-decoration-none"></i></a></td>
-                            <td><a href="/admin/edit/"><i class="fas fa-edit text-decoration-none"></i></a></td>
-                            <td><a href="/admin/delete/>"><i class="fas fa-trash text-decoration-none"></i></a></td>
-                        </tr>
-                    <% }) ; %>
-            </tbody>
-        </table>
-        <div id="btn-guardar" class="float-right mt-5">
-            <button type="submit" class="btn btn-info rounded-pill mr-5">Agregar nuevo pack</button>
-        </div>
-
-        
+    </div>
     <%- include('../partials/jsPartials.ejs') %>
 </body>
 
