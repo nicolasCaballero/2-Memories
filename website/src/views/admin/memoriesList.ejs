@@ -50,10 +50,15 @@
                     <% }) ; %>
             </tbody>
         </table>
-        <div id="btn-guardar" class="float-right mt-5 mb-5"><a href="/admin/memoriesCreate">
-            <button type="submit" class="btn btn-info rounded-pill mr-5">Agregar nuevo pack</button></a>
-        </div>
 
+        <div class="col-12 mx-auto  pt-4 ">
+            <div id="btn-volver" class="form-group float-left">
+                <a href="/admin"><button class="btn btn-secondary rounded-pill"><i class="fas fa-arrow-left mr-1"></i>Volver al listado</button></a>
+            </div>
+            <div id="btn-guardar" class="float-right"><a href="/admin/memoriesCreate">
+                <button type="submit" class="btn btn-info rounded-pill mr-5">Agregar nuevo pack</button></a>
+            </div>
+        </div>
         
     <%- include('../partials/jsPartials.ejs') %>
 </body>
