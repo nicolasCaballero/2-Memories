@@ -4,7 +4,7 @@
 <head>
     <%- include('../partials/headPartial.ejs') %>
     <link rel="stylesheet" href="/css/product.css">
-    <title>DETALLE | MEMORIES</title>
+    <title><%= product.name%> | MEMORIES</title>
 </head>
 
 <body>
@@ -12,34 +12,26 @@
     <div class="container-fluid" id="containerSupremo">
         <div class="row" id="containerProducto">
             <div class="col-lg-6 col-12" id="divImagenCentral">
-                <img src="/img/packs/gastronomia/memories-gastro-takeaway.jpg" alt="Memorie Take Away"
+                <img src="/img/packs/<%= product.image%>" alt="<%= product.name%>"
                     id="imagenMemorie" width="80%">
             </div>
             <div class="col-lg-6 col-12" id="informacion">
                 <ul class="infoEnLista1">
 
                     <li id="nombreMemorie">
-                        <h2> Take Away </h2>
+                        <h2> <%= product.name%> </h2>
                     </li>
 
                     <li><br></li>
 
                     <li id="precioMemorie">
-                        <h3><i class="fas fa-money-bill-alt mr-1"></i>$1.499 </h3>
+                        <h3><i class="fas fa-money-bill-alt mr-1"></i>$<%= product.price%></h3>
                     </li>
 
                     <li><br></li>
                     <li id="textoDescriptivoMemorie">
-                        <h6> Delicias para disfrutar en casa </h6>
+                        <h6> <%= product.description%> </h6>
                     </li>
-                    <li id="textoDescriptivoMemorie">
-                        <h6> Cenar afuera pero estando adentro. </h6>
-                    </li>
-                    <li id="textoDescriptivoMemorie">
-                        <h6> Vas a encontrar desde comidas gourmet hasta los clásicos de siempre.
-                        </h6>
-                    </li>
-
                     <li><br></li>
 
                     <div class="row text-center" id="metodos">
@@ -56,7 +48,7 @@
                         </div>
                     </div>
                     <li>
-                        <h6 id="txt-sku" class="text-center">#sku skuEjemplo</h6>
+                        <h6 id="txt-sku" class="text-center">SKU #<%= product.sku%></h6>
                     </li>
 
                     <li><br></li>
