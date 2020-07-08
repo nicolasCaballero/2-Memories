@@ -1,0 +1,31 @@
+[{
+        "id": 1,
+        "category": "Aventura",
+        "image": "aventura.jpg"
+    },
+    {
+        "id": 2,
+        "category": "Bienestar",
+        "image": "bienestar.jpg"
+    },
+    {
+        "id": 3,
+        "category": "Cursos",
+        "image": "cursos.jpg"
+    },
+    {
+        "id": 4,
+        "category": "Entretenimiento",
+        "image": "entretenimiento.jpg"
+    },
+    {
+        "id": 5,
+        "category": "Escapadas",
+        "image": "escapadas.jpg"
+    },
+    {
+        "id": 6,
+        "category": "Gastronomía",
+        "image": "gastronomia.jpg"
+    }
+]
