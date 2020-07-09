@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "name": "Sebastian",
+    "username": "snavarro",
+    "email": "sebastian.navarro87@gmail.com",
+    "password": "$2b$10$ob2eBIr7KRyct/S/yqYJEOljvEBe5CVGz1nAtLqrfoBJPuarv8EPW",
+    "role": 1
+  },
+  {
+    "id": 2,
+    "name": "Nicolas",
+    "username": "ncaballero",
+    "email": "niicolas.caballero@gmail.com",
+    "password": "$2b$10$8T1NS6pIA5hDYbBc7Am8n.bYeRte2fdMgUA.Ml5ja3WMtWbI/tUIK"
+  },
+  {
+    "id": 3,
+    "name": "Facundo",
+    "username": "fruiz",
+    "email": "facu-ru@hotmail.com",
+    "password": "$2b$10$BTJcA/hLojYdjq5vIyXH3eyF1csSTBJm.YtuuSTKd/v.3Mtr6d38."
+  }
+]

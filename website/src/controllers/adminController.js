@@ -1,5 +1,11 @@
 const path = require('path');
 const fs = require('fs');
+const bcrypt = require('bcrypt');
+const {
+    check,
+    validationResult,
+    body
+} = require('express-validator');
 
 const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/products.json')));
 
@@ -40,6 +46,41 @@ let adminController = {
     },
     'login': (req, res) => {
         res.render(path.resolve(__dirname, '../views/admin/login.ejs'));
+    },
+    'register': (req, res) => {
+        res.render(path.resolve(__dirname, '../views/admin/register.ejs'));
+    },
+    'userCreate': (req, res, next) => {
+        let completeUsers = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/adminUsers.json')));
+        let lastUserId = completeUsers.pop();
+        let errors = validationResult(req);
+        if (errors.isEmpty()) {
+            let user = {
+                id: lastUserId.id + 1,
+                name: req.body.name,
+                username: req.body.username,
+                email: req.body.email,
+                password: bcrypt.hashSync(req.body.password, 10)
+            }
+            let archivoUsers = fs.readFileSync(path.resolve(__dirname, '../models/adminUsers.json'), {
+                encoding: 'utf-8'
+            });
+            let users = [];
+            if (archivoUsers == "") {
+                users = [];
+            } else {
+                users = JSON.parse(archivoUsers);
+            };
+
+            users.push(user);
+            usersJSON = JSON.stringify(users, null, 2);
+            fs.writeFileSync(path.resolve(__dirname, '../models/adminUsers.json'), usersJSON);
+            res.redirect('/admin');
+        } else {
+            return res.render(path.resolve(__dirname, '../views/admin/register'), {
+                errors: errors.errors
+            });
+        }
     },
     'show': (req,res) => {
         let products  = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/products.json')));
