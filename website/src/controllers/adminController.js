@@ -93,6 +93,14 @@ let adminController = {
         let user = adminUsers.find(u => u.id == userId);
         res.render(path.resolve(__dirname, '../views/admin/userDetail.ejs'), {user});
     },
+    'usersDelete': (req, res) => {
+        let users  = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/adminUsers.json')));
+        let userId = req.params.id;
+        let user = users.filter(u => u.id != userId);
+        usersJSON = JSON.stringify(user,null,2);
+        fs.writeFileSync(path.resolve(__dirname, '../models/adminUsers.json'),usersJSON);
+        res.redirect('/admin/listado-users');
+    },
     'memoriesShow': (req, res) => {
         let products  = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/products.json')));
         let productId = req.params.sku;
