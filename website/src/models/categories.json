@@ -1,31 +1,31 @@
 [{
         "id": 1,
-        "category": "Aventura",
+        "category": "aventura",
         "image": "aventura.jpg"
     },
     {
         "id": 2,
-        "category": "Bienestar",
+        "category": "bienestar",
         "image": "bienestar.jpg"
     },
     {
         "id": 3,
-        "category": "Cursos",
+        "category": "cursos",
         "image": "cursos.jpg"
     },
     {
         "id": 4,
-        "category": "Entretenimiento",
+        "category": "entretenimiento",
         "image": "entretenimiento.jpg"
     },
     {
         "id": 5,
-        "category": "Escapadas",
+        "category": "escapadas",
         "image": "escapadas.jpg"
     },
     {
         "id": 6,
-        "category": "Gastronomía",
+        "category": "gastronomia",
         "image": "gastronomia.jpg"
     }
 ]

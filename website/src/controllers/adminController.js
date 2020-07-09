@@ -123,13 +123,12 @@ let adminController = {
     },
     'memoriesSaveEdit': (req, res) => {
         let products  = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/products.json')));
-
         req.body.sku = req.params.sku;
         let productUpdate = products.map(p => { 
             if(p.sku == req.body.sku) {
                 p.name = req.body.name,
                 p.description = req.body.description,
-                p.image = req.body.image,
+                p.image = p.image,
                 p.visibility = req.body.visibility,
                 p.categories = req.body.categories,
                 p.price = parseInt(req.body.price),
