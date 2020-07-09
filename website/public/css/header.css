@@ -66,3 +66,12 @@ body {
 #separador2 {
     height: 89px;
 }
+
+@media (max-width: 991px) {
+.navbar {
+    height: auto;
+    max-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+}
