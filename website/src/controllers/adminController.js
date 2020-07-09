@@ -101,6 +101,29 @@ let adminController = {
         fs.writeFileSync(path.resolve(__dirname, '../models/adminUsers.json'),usersJSON);
         res.redirect('/admin/listado-users');
     },
+    'userEdit': (req, res) => {
+        let adminUsers  = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/adminUsers.json')));
+        let adminId = req.params.id;
+        let user = adminUsers.find(u => u.id == adminId);
+        res.render(path.resolve(__dirname, '../views/admin/userEdit.ejs'), {user});
+    },
+    'userSaveEdit': (req, res) => {
+        let adminUsers  = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/adminUsers.json')));
+        console.log('prueba: 1', req.body);
+        req.body.id = req.params.id;
+        let userUpdate = adminUsers.map(u => { 
+            if(u.id == req.body.id) {
+                u.name = req.body.name,
+                u.username = req.body.username,
+                u.email = req.body.email,
+                u.role = parseInt(req.body.role)
+            }
+            return u;
+        });
+        adminUsersJSON = JSON.stringify(userUpdate,null,2);
+        fs.writeFileSync(path.resolve(__dirname, '../models/adminUsers.json'),adminUsersJSON);
+        res.redirect('/admin/listado-users');
+    },
     'memoriesShow': (req, res) => {
         let products  = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/products.json')));
         let productId = req.params.sku;
