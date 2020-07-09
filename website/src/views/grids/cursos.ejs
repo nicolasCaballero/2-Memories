@@ -10,10 +10,16 @@
 <body>
   <%- include('../partials/headerPartial.ejs') %>
   <div class="container-fluid">
-    <section id="topBannerCategoria">
-      <img src="/img/banners/banner-gastronomia-desktop.jpg" alt="gastronomia" class="bannerGrilla">
-    </section>
-
+    <div class="d-none d-lg-block">
+      <section id="topBannerCategoria">
+        <img src="/img/banners/banner-cursos-desktop.jpg" alt="gastronomia" class="bannerGrilla">
+      </section>
+    </div>
+    <div class="d-lg-none">
+      <section id="topBannerCategoria">
+        <img src="/img/banners/banner-cursos-mobile.jpg" alt="gastronomia" class="bannerGrilla">
+      </section>
+    </div>
     <div class="col-12" id="experienciasDentroDelMemorie">
       <h1 class="tituloCategoriaGrilla"> Cursos </h1>
       <h4 class="subtituloCategoriaGrilla"> Disfrutá de experiencias <br> inolvidables </h4>
@@ -56,8 +62,7 @@
         <% for( let i = 0; i < products.length; i++ ) { %>
         <% if (products[i].categories == 'cursos') { %>
         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12" class="memoriePack"><a href="/detalle/<%= products[i].sku %>">
-            <img class="imagenMemoriePack" src="/img/packs/<%= products[i].image %>"
-              alt="<%= products[i].name %>"></a>
+            <img class="imagenMemoriePack" src="/img/packs/<%= products[i].image %>" alt="<%= products[i].name %>"></a>
           <h4 class="text-center mb-4"><%= '$' +   products[i].price %></h4>
         </div>
         <% } %>
