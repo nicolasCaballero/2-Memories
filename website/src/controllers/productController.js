@@ -14,7 +14,7 @@ let productController = {
         res.render(path.resolve(__dirname, '../views/cart/cart.ejs'));
     },
     'experiencies': (req, res) => {
-        res.render(path.resolve(__dirname, '../views/product/experiences.ejs'));
+        res.render(path.resolve(__dirname, '../views/product/experiences'));
     }
 };
 
