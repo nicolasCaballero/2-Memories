@@ -20,6 +20,10 @@ body {
     position: static;
 }
 
+#link-admin {
+    color: rgb(187, 187, 187);
+}
+
 .img-categorias-header{
     border-radius: 20px;
 }
