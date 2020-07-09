@@ -18,6 +18,9 @@ let mainController = {
     },
     'contact': (req, res) => {
         res.render(path.resolve(__dirname, '../views/index/contact.ejs'));
+    },
+    'shipments': (req, res) => {
+        res.render(path.resolve(__dirname, '../views/index/shipments.ejs'));
     }
 };
 module.exports = mainController;

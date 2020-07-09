@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/headPartial.ejs') %>
+    <link rel="stylesheet" href="/css/product.css">
+    <title>MÉTODOS DE ENVÍO | MEMORIES</title>
+</head>
+
+<body>
+    <%- include('../partials/headerPartial.ejs') %>
+    <div class="d-none d-lg-block">
+        <figure class="figure">
+            <img src="/img/banners/banner-escapada-desktop.jpg" class="figure-img img-fluid rounded"
+                alt="bannerCategoriadesktop">
+        </figure>
+    </div>
+    <div class="d-lg-none">
+        <figure class="figure">
+            <img src="/img/banners/banner-escapada-mobile.jpg" class="figure-img img-fluid rounded"
+                alt="bannerCategoriamobile">
+        </figure>
+    </div>
+    <div class="accordion" id="accordionExample">
+        <div class="card">
+            <div class="card-header" id="headingZero">
+                <h2 class="mb-0">
+                    <button class="btn btn-link btn-block text-left queTrae" type="button" data-toggle="collapse"
+                        data-target="#collapseZero" aria-expanded="true" aria-controls="collapseZero">
+                        MÉTODOS DE ENVÍO
+                    </button>
+                </h2>
+            </div>
+            <div class="accordion" id="accordionExample">
+                <div class="card">
+                  <div class="card-header" id="headingOne">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link btn-block text-left queTrae" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        ENVÍO FÍSICO
+                      </button>
+                    </h2>
+                  </div>
+              
+                  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                        Hacemos envíos a todo el país. Se envía a domicilio que indiques al momento de la compra (puede ser el de tu agasajado o el tuyo). <br>
+                        Recibirás una caja con la Memories adquirida.
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingTwo">
+                    <h2 class="mb-0">
+                      <button class="btn btn-link btn-block text-left collapsed queTrae" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        ENVÍO DIGITAL
+                      </button>
+                    </h2>
+                  </div>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                        La versión digital se envía por mail. Podés enviar el mail de tu agasajado o el tuyo para después reenviarlo desde tu casilla o imprimirlo. <br>
+                        Se recibe de manera inmediata.
+                    </div>
+                  </div>
+                </div>
+              </div>
+        </div>
+    </div>
+    <%- include('../partials/footerPartial.ejs') %>
+    <%- include('../partials/jsPartials.ejs') %>
+</body>
+
+</html>
