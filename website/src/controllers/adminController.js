@@ -60,7 +60,8 @@ let adminController = {
                 name: req.body.name,
                 username: req.body.username,
                 email: req.body.email,
-                password: bcrypt.hashSync(req.body.password, 10)
+                password: bcrypt.hashSync(req.body.password, 10),
+                role: parseInt(req.body.role)
             }
             let archivoUsers = fs.readFileSync(path.resolve(__dirname, '../models/adminUsers.json'), {
                 encoding: 'utf-8'
@@ -82,13 +83,23 @@ let adminController = {
             });
         }
     },
-    'show': (req,res) => {
+    'usersList': (req, res) => {
+        let adminUsers  = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/adminUsers.json')));
+        res.render(path.resolve(__dirname, '../views/admin/usersList.ejs'), {adminUsers});
+    },
+    'usersShow': (req, res) => {
+        let adminUsers  = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/adminUsers.json')));
+        let userId = req.params.id;
+        let user = adminUsers.find(u => u.id == userId);
+        res.render(path.resolve(__dirname, '../views/admin/userDetail.ejs'), {user});
+    },
+    'memoriesShow': (req, res) => {
         let products  = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/products.json')));
         let productId = req.params.sku;
         let product = products.find(p => p.sku == productId);
         res.render(path.resolve(__dirname, '../views/admin/memoriesDetail.ejs'), {product});
     },
-    'delete': (req, res) => {
+    'memoriesDelete': (req, res) => {
         let products  = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/products.json')));
         let productId = req.params.sku;
         let product = products.filter(p => p.sku != productId);
@@ -96,13 +107,13 @@ let adminController = {
         fs.writeFileSync(path.resolve(__dirname, '../models/products.json'),productsJSON);
         res.redirect('/admin/listado-memories');
     },
-    'edit': (req, res) => {
+    'memoriesEdit': (req, res) => {
         let products  = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/products.json')));
         let productId = req.params.sku;
         let product = products.find(p => p.sku == productId);
         res.render(path.resolve(__dirname, '../views/admin/memoriesEdit.ejs'), {product});
     },
-    'saveEdit': (req, res) => {
+    'memoriesSaveEdit': (req, res) => {
         let products  = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/products.json')));
 
         req.body.sku = req.params.sku;

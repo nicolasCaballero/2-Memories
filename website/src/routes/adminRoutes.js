@@ -31,13 +31,15 @@ router.post('/admin/registro', [
   check('email').isEmail().withMessage('Ingrese un email válido'),
   check('password').isLength({min: 8}).withMessage('La contraseña debe contener al menos 8 caracteres')
 ],  adminController.userCreate);
+router.get('/admin/listado-users', adminController.usersList);
+router.get('/admin/listado-users/view/:id', adminController.usersShow);
 router.get('/admin/memoriesCreate', adminController.memoriesCreate);
 router.post('/admin/memoriesCreate', upload.single('image') ,adminController.memoriesSave);
-router.get('/admin/experienceCreate', adminController.experienceCreate);
 router.get('/admin/listado-memories', adminController.memoriesList);
-router.get('/admin/listado-memories/view/:sku', adminController.show);
-router.get('/admin/listado-memories/delete/:sku', adminController.delete);
-router.get('/admin/listado-memories/edit/:sku', adminController.edit);
-router.put('/admin/listado-memories/edit/:sku', adminController.saveEdit);
+router.get('/admin/listado-memories/view/:sku', adminController.memoriesShow);
+router.get('/admin/listado-memories/delete/:sku', adminController.memoriesDelete);
+router.get('/admin/listado-memories/edit/:sku', adminController.memoriesEdit);
+router.put('/admin/listado-memories/edit/:sku', adminController.memoriesSaveEdit);
+router.get('/admin/experienceCreate', adminController.experienceCreate);
 
 module.exports = router;

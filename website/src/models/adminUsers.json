@@ -9,16 +9,18 @@
   },
   {
     "id": 2,
-    "name": "Nicolas",
-    "username": "ncaballero",
-    "email": "niicolas.caballero@gmail.com",
-    "password": "$2b$10$8T1NS6pIA5hDYbBc7Am8n.bYeRte2fdMgUA.Ml5ja3WMtWbI/tUIK"
-  },
-  {
-    "id": 3,
     "name": "Facundo",
     "username": "fruiz",
     "email": "facu-ru@hotmail.com",
-    "password": "$2b$10$BTJcA/hLojYdjq5vIyXH3eyF1csSTBJm.YtuuSTKd/v.3Mtr6d38."
+    "password": "$2b$10$BTJcA/hLojYdjq5vIyXH3eyF1csSTBJm.YtuuSTKd/v.3Mtr6d38.",
+    "role": 1
+  },
+  {
+    "id": 3,
+    "name": "nicolas",
+    "username": "ncaballero",
+    "email": "niicolas.caballero@gmail.com",
+    "password": "$2b$10$46PZL1RgaMed9KwfjO.Ot.c8NB723RVVhhdD.JleJUGYkHmwCYSM2",
+    "role": 1
   }
 ]
