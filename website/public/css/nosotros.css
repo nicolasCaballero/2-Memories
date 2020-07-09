@@ -1,0 +1,16 @@
+
+#tituloNosotros {
+    text-align: center;
+}
+
+.pNosotros {
+    text-align: left;
+}
+
+.imagenNosotros {
+    width: 100%;
+}
+
+.divImagenNosotros {
+    justify-content: space-between;
+}
