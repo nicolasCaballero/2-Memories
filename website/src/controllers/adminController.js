@@ -29,7 +29,7 @@ let adminController = {
        products.push(newProduct);
        productsJSON = JSON.stringify(products,null,2);
        fs.writeFileSync(path.resolve(__dirname, '../models/products.json'),productsJSON);
-       res.redirect('/');
+       res.redirect('/admin/listado-memories');
     },
     'experienceCreate': (req, res) => {
         res.render(path.resolve(__dirname, '../views/admin/experienceCreate.ejs'));
