@@ -29,16 +29,15 @@
                 <div class="row">
                     <div class="col-lg-8 col-md-10 col-sm-10 col-xs-12 mx-auto bg-light shadow-sm">
                         <div class="signup-form mt-2">
-                            <form action="/admin/memoriesCreate" method="POST" enctype="multipart/form-data">
+                            <form action="/admin/listado-memories/edit/<%= product.sku%>?_method=PUT" method="POST" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label for="name">Nombre</label>
-                                    <input type="text" class="form-control rounded-pill" name="name"
-                                        placeholder="Ej: Take Away" required="required">
+                                    <input type="text" class="form-control rounded-pill" name="name" value ='<%= product.name%>' required="required">
                                 </div>
                                 <div class="form-group">
                                     <label for="description">Descripción</label>
                                     <input type="text" class="form-control rounded-pill" name="description"
-                                    placeholder="Ej: Delicias para disfrutar en casa" rows="3">
+                                    value ='<%= product.description%>' rows="3">
                                 </div>
                                 <div class="form-group">
                                     <label for="image">Imagen</label>
@@ -47,48 +46,47 @@
                                 <div class="form-group">
                                     <label for="visibility">Visibilidad</label>
                                     <select id="visibility" class="form-control rounded-pill" name="visibility">
-                                        <option value="true">true</option>
-                                        <option value="false">false</option>
+                                        <option <% if (product.visibility == "true") {%> selected <% } %>>true</option>
+                                        <option <% if (product.visibility == "false") {%> selected <% } %>>false</option>  
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="price">Precio $</label>
                                     <input type="number" class="form-control rounded-pill" name="price"
-                                        placeholder="Ej: 1899" required="required">
+                                    value ='<%= product.price%>' required="required">
                                 </div>
                                 <div class="form-group">
                                     <label for="special_price">Precio Especial $</label>
                                     <input type="number" class="form-control rounded-pill" name="special_price"
-                                        placeholder="Ej: 1899" required="required">
+                                    value ='<%= product.special_price%>' required="required">
                                 </div>
                                 <div class="form-group">
                                     <label for="qty">Stock</label>
                                     <input type="number" class="form-control rounded-pill" name="qty"
-                                        placeholder="Ej: 100" required="required">
+                                    value ='<%= product.qty%>' required="required">
                                 </div>
                                 <div class="form-group">
                                     <label for="categories">Categoría</label>
                                     <select id="categories" class="form-control rounded-pill" name="categories">
-                                        <option value="aventura">Aventura</option>
-                                        <option value="bienestar">Bienestar</option>
-                                        <option value="cursos">Cursos</option>
-                                        <option value="entretenimiento">Entretenimiento</option>
-                                        <option value="escapadas">Escapadas</option>
-                                        <option value="gastronomia">Gastronomía</option>
+                                        <option <% if (product.categories == "aventura") {%> selected <% } %>>Aventura</option>
+                                        <option <% if (product.categories == "bienestar") {%> selected <% } %>>Bienestar</option> 
+                                        <option <% if (product.categories == "cursos") {%> selected <% } %>>Cursos</option> 
+                                        <option <% if (product.categories == "entretenimiento") {%> selected <% } %>>Entretenimiento</option> 
+                                        <option <% if (product.categories == "escapadas") {%> selected <% } %>>Escapadas</option> 
+                                        <option <% if (product.categories == "gastronomia") {%> selected <% } %>>Gastronomía</option> 
                                     </select>
                                 </div>
                                 <div class="col-8 mx-auto bg-light pt-4 shadow-sm">
                                     <div id="btn-volver" class="form-group float-left">
-                                        <a href="/admin"><button class="btn btn-secondary rounded-pill"><i class="fas fa-arrow-left mr-1"></i>Volver</button></a>
+                                        <a href="/admin/listado-memories"><button class="btn btn-secondary rounded-pill"><i class="fas fa-arrow-left mr-1"></i>Volver al Listado</button></a>
                                     </div>
                                     <div id="btn-guardar" class="form-group float-right">
-                                        <button type="submit" class="btn btn-info rounded-pill">Guardar</button>
+                                    <button type="submit" class="btn btn btn-info rounded-pill">Actualizar</button>
                                     </div>
                                 </div>
                             </form>
                         </div>
                     </div>
-
                 </div>
             </div>
     </div>

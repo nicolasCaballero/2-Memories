@@ -20,6 +20,9 @@ router.get('/admin/memoriesCreate', adminController.memoriesCreate);
 router.post('/admin/memoriesCreate', upload.single('image') ,adminController.memoriesSave);
 router.get('/admin/experienceCreate', adminController.experienceCreate);
 router.get('/admin/listado-memories', adminController.memoriesList);
-router.get('/admin/listado-memories/:sku', adminController.show);
+router.get('/admin/listado-memories/view/:sku', adminController.show);
 router.get('/admin/listado-memories/delete/:sku', adminController.delete);
+router.get('/admin/listado-memories/edit/:sku', adminController.edit);
+router.put('/admin/listado-memories/edit/:sku', adminController.saveEdit);
+
 module.exports = router;
