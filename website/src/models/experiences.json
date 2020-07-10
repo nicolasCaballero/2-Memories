@@ -1,0 +1,30 @@
+[{
+    "id": 1,
+    "name": "Sipan Restaurants",
+    "description": "Una experiencia culinaria de alto nivel en el living de tu casa. Amor por lo Nikkei. Con esta premisa Sipan invita a que exploren un mundo de sabores. Su propuesta gastronómica es la cevichería con especialidad en pescados y mariscos. Distinguido como el mejor restaurante peruano en Argentina por el Gobierno de Perú.",
+    "sku": 1,
+    "image": "sushisushi.jpg",
+    "title": "La experiencia incluye, únicamente para TAKE AWAY:",
+    "steps": [
+        "1 Entrada del Menú a elección",
+        "2 (dos) Platos principales del Menú a elección",
+        "2 (dos) Cocktails",
+        "2 (dos) Bebidas sin alcohol",
+        "2 (dos) Postres"
+    ]
+},
+{
+    "id": 2,
+    "name": "Sipan Restaurants",
+    "description": "Una experiencia culinaria de alto nivel en el living de tu casa. Amor por lo Nikkei. Con esta premisa Sipan invita a que exploren un mundo de sabores. Su propuesta gastronómica es la cevichería con especialidad en pescados y mariscos. Distinguido como el mejor restaurante peruano en Argentina por el Gobierno de Perú.",
+    "sku": 1,
+    "image": "sushisushi.jpg",
+    "title": "La experiencia incluye, únicamente para TAKE AWAY:",
+    "steps": [
+        "1 Entrada del Menú a elección",
+        "2 (dos) Platos principales del Menú a elección",
+        "2 (dos) Cocktails",
+        "2 (dos) Bebidas sin alcohol",
+        "2 (dos) Postres"
+    ]
+}]
