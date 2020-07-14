@@ -2,12 +2,11 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const path = require ('path');
-const mainRoutes = require('./routes/mainRoutes');
-const userRoutes = require('./routes/userRoutes');
-const productRoutes = require('./routes/productRoutes');
-const cartRoutes = require('./routes/cartRoutes');
-const adminRoutes = require('./routes/adminRoutes');
-const gridRoutes = require('./routes/gridRoutes');
+const mainRoutes = require('./routes/main/mainRoutes');
+const userRoutes = require('./routes/user/userRoutes');
+const productRoutes = require('./routes/product/productRoutes');
+const adminRoutes = require('./routes/admin/adminRoutes');
+const gridRoutes = require('./routes/grid/gridRoutes');
 const methodOverride = require('method-override');
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -21,7 +20,6 @@ app.use(methodOverride('_method'));
 app.use(mainRoutes);
 app.use(userRoutes);
 app.use(productRoutes);
-app.use(cartRoutes);
 app.use(adminRoutes);
 app.use(gridRoutes);
 
