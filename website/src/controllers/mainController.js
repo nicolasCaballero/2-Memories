@@ -1,8 +1,10 @@
-const path = require ('path');
+const path = require('path');
+const fs = require ('fs');
 
 let mainController = {
     'index': (req, res) => {
-        res.render(path.resolve(__dirname, '../views/index/index.ejs'));
+        const categories  = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categories.json')));
+        res.render(path.resolve(__dirname, '../views/index/index.ejs'), {categories});
     },
     'about': (req, res) => {
         res.render(path.resolve(__dirname, '../views/index/nosotros.ejs'));

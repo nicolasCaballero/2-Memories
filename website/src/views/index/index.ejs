@@ -66,34 +66,13 @@
         <div class="col-12">
 
             <div class="row" id="rowCategoriasHome">
-                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-12" id="categoriaIndividualHome"><a href="/gastronomia"><img
-                            class="d-block w-100 imagenCategoriaHome"
-                            src="/img/categorias/gastronomia.jpg" alt="Categoria Gastronomia"></a></div>
-
-                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-12" id="categoriaIndividualHome"><a href="/gastronomia"><img
-                            class="d-block w-100 imagenCategoriaHome" src="/img/categorias/bienestar.jpg"
-                            alt="Categoria Bienestar"></a></div>
-
-                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-12" id="categoriaIndividualHome"><a href="/gastronomia"><img
-                            class="d-block w-100 imagenCategoriaHome" src="/img/categorias/escapadas.jpg"
-                            alt="Categoria Escapadas"></a></div>
-
-                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-12" id="categoriaIndividualHome"><a href="/gastronomia"><img
-                            class="d-block w-100 imagenCategoriaHome" src="/img/categorias/cursos.jpg"
-                            alt="Categoria Cursos"></a></div>
-
-                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-12" id="categoriaIndividualHome"><a href="/gastronomia"><img
-                            class="d-block w-100 imagenCategoriaHome"
-                            src="/img/categorias/entretenimiento.jpg"
-                            alt="Categoria Entretenimiento"></a></div>
-
-                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-12" id="categoriaIndividualHome"><a href="/gastronomia"><img
-                            class="d-block w-100 imagenCategoriaHome" src="/img/categorias/aventura.jpg"
-                            alt="Categoria Aventura"></a></div>
+                <% for( let i = 0; i < categories.length; i++ ) { %>
+                    <div class="col-xl-2 col-lg-2 col-md-4 col-sm-12" id="categoriaIndividualHome"><a href="/<%= categories[i].category %> "><img
+                        class="d-block w-100 imagenCategoriaHome"
+                        src="/img/categorias/<%= categories[i].image %>" alt="Categoria <%= categories[i].category %> "></a></div>
+                <% } %>
             </div>
         </section>
-
-
             <section>
                 <div class="col-12" id="experienciasDentroDelMemorie">
                     <h2 id="tituloPasoAPasoHome" class="b-4 text-center"> Paso a paso </h2>

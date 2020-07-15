@@ -23,5 +23,5 @@ app.use(productRoutes);
 app.use(adminRoutes);
 app.use(gridRoutes);
 
-app.listen('3000', () => console.log('Servidor corriendo en el puerto http://localhost:3000'));
+app.listen('3000', () => console.log('Server runing on port: http://localhost:3000'));
 
