@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('./partials/headPartial.ejs') %>
+    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/404.css">
+    <title>Oops | MEMORIES</title>
+</head>
+
+<body>
+
+    <canvas id="dotty"></canvas>
+    <div class="content">
+
+        <div class="content-box">
+
+            <div class="big-content">
+                <div class="list-square">
+                    <span class="square"></span>
+                    <span class="square"></span>
+                    <span class="square"></span>
+                </div>
+                <div class="list-line">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </div>
+                <i class="fa fa-search" aria-hidden="true"></i>
+                <div class="clear"></div>
+
+            </div>
+            <h1>Oops! Error 404.</h1>
+            <p>
+                La página que solicitaste puede ser que ya no exista.<br>
+                No te preocupes! Te dejamos algunos links a mano.
+            </p>
+            <ul class="text-center">
+                <li>
+                    <a href="/">HOME</a>
+                </li>
+                <li>
+                    <a href="/aventura">AVENTURA</a>
+                </li>
+                <li>
+                    <a href="/bienestar">BIENESTAR</a>
+                </li>
+                <li>
+                    <a href="/cursos">CURSOS</a>
+                </li>
+                <li>
+                    <a href="/entretenimiento">ENTRETENIMIENTO</a>
+                </li>
+                <li>
+                    <a href="/escapadas">ESCAPADAS</a>
+                </li>
+                <li>
+                    <a href="/gastronomia">GASTRONOMÍA</a>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+    <script src="js/mozaic.js"></script>
+    <%- include('./partials/jsPartials.ejs') %>
+    <script src="js/mozaic.js"></script>
+
+</body>
+
+</html>
