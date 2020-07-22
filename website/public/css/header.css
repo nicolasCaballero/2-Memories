@@ -26,6 +26,8 @@ body {
 
 .img-categorias-header{
     border-radius: 20px;
+    transform: scale(1);
+    transition: transform .5s ease;
 }
 
 .inner-addon {
@@ -65,6 +67,11 @@ body {
 
 #separador2 {
     height: 89px;
+}
+
+a:hover .img-categorias-header {
+    transform: scale(1.025);
+    transition: transform .5s ease;
 }
 
 @media (max-width: 991px) {
