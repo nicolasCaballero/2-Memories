@@ -45,6 +45,12 @@ let userController = {
                 errors: errors.errors
             });
         }
+    },
+    'usersShow': (req, res) => {
+        let adminUsers  = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/users.JSON')));
+        let userId = req.params.id;
+        let user = adminUsers.find(u => u.id == userId);
+        res.render(path.resolve(__dirname, '../views/users/miCuenta.ejs'), {user});
     }
 };
 
