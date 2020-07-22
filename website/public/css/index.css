@@ -197,6 +197,13 @@ margin-bottom: 18%;
 
 .imagenCategoriaHome {
     border-radius: 20px;
+    transform: scale(1);
+    transition: transform .5s ease;
+}
+
+a:hover .imagenCategoriaHome{
+    transform: scale(1.025);
+    transition: transform .5s ease;
 }
 
 #tituloCategoriasHome {
