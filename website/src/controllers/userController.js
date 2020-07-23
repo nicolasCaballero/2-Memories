@@ -47,9 +47,9 @@ let userController = {
         }
     },
     'usersShow': (req, res) => {
-        let adminUsers  = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/users.JSON')));
+        let completeUsers = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/users.json')));
         let userId = req.params.id;
-        let user = adminUsers.find(u => u.id == userId);
+        let user = completeUsers.find(u => u.id == userId);
         res.render(path.resolve(__dirname, '../views/users/miCuenta.ejs'), {user});
     }
 };

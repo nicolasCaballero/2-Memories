@@ -18,7 +18,7 @@ router.post('/registro', [
     check('email').isEmail().withMessage('Ingrese un email válido'),
     check('password').isLength({min: 8}).withMessage('La contraseña debe contener al menos 8 caracteres')
 ], userController.create);
-router.get('/miCuenta/view/:id', userController.usersShow);
+router.get('/mi-cuenta/ver/:id', userController.usersShow);
 
 
 module.exports = router;
