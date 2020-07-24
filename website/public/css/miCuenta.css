@@ -2,6 +2,20 @@
     font-family: 'Source Sans Pro', sans-serif;
 }
 
+
+.img-thumbnail {
+    vertical-align: middle;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    
+}
+
+.center { 
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
 .btn-info {
     background-color: #f48169;
     border-color: #f48169;
