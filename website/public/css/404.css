@@ -70,15 +70,12 @@ table {
   border-spacing: 0;
 }
 
-/* ------------------------------------- */
-/* 1. Generic styles ................... */
-/* ------------------------------------- */
 html {
   font-size: 62.5%;
 }
 
 body {
-  background: #1F222E;
+  background: #000000;
   font-family: 'Source Sans Pro', sans-serif;
   color: #000000;
   -webkit-font-smoothing: antialiased;
@@ -129,7 +126,7 @@ a {
   cursor: pointer;
   text-decoration: none;
   color: #FFFFFF;
-  font-family: Montserrat, "Helvetica Neue", "Lucida Grande", Arial, Verdana, sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 a:hover {
   color: #00af94;
@@ -140,6 +137,30 @@ a:active, a:focus {
   outline: none !important;
   text-decoration: none !important;
   color: #FFFFFF;
+}
+
+.salmon a:hover {
+  color: #F48169;
+  text-decoration: none !important;
+  outline: none !important;
+}
+
+.yellow a:hover {
+  color: #fbc46c;
+  text-decoration: none !important;
+  outline: none !important;
+}
+
+.middle-blue a:hover {
+  color: #79c8d6;
+  text-decoration: none !important;
+  outline: none !important;
+}
+
+.home-btn a:hover {
+  color: #dfdfdf;
+  text-decoration: none !important;
+  outline: none !important;
 }
 
 button {
@@ -175,8 +196,9 @@ p.subtitle {
   margin-bottom: 3rem;
 }
 
+
 h1, h2, h3, h4, h5, h6 {
-  color: #FFFFFF;
+  color: #F48169;
   font-family: 'Source Sans Pro', sans-serif;
   font-weight: 400;
   text-transform: uppercase;
@@ -361,7 +383,7 @@ sup {
   top: 10rem;
   left: 15rem;
   font-size: 10rem;
-  color: #00c8aa;
+  color: #79C8D6;
   -webkit-animation: corner 5s infinite;
   -moz-animation: corner 5s infinite;
   animation: corner 5s infinite;
