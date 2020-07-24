@@ -23,6 +23,10 @@ let mainController = {
     },
     'shipments': (req, res) => {
         res.render(path.resolve(__dirname, '../views/index/shipments.ejs'));
+    },
+    'test': (req, res) => {
+        res.render(path.resolve(__dirname, '../views/index/test.ejs'));
     }
+
 };
 module.exports = mainController;

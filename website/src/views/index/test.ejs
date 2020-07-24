@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <%- include('../partials/headPartial.ejs') %>
+    <link rel="stylesheet" href="/css/miCuenta.css">
+    <title>Editar Usuario | MEMORIES</title>
+</head>
+
+<body>
+    <%- include('../partials/headerAdminPartial.ejs') %>
+    <div class="container-fluid">
+
+        <section class="row">
+            <article class="col-12 card pt-5 border-0">
+                <div class="card-body">
+                    <h1 class="card-title text-center">¡ Bienvenido <%= user.name%> !</h1>
+
+
+                </div>
+            </article>
+        </section>
+
+        <section id="formulario" class="bg-home pt-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-md-10 col-sm-10 col-xs-12 mx-auto bg-light shadow-sm">
+                        <div class="signup-form mt-2">
+                            <form action="/admin/listado-users/edit/<%= user.id%>?_method=PUT" method="POST">
+                                <div class="form-group">
+                                    <label for="name">Nombre</label>
+                                    <input type="text" class="form-control rounded-pill" name="name"
+                                        value='<%= user.name%>' required="required">
+                                </div>
+                                <div class="form-group">
+                                    <label for="text">Apellido</label>
+                                    <input type="text" class="form-control rounded-pill" name="name"
+                                        value='<%= user.lastName%>' required="required">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="text" class="form-control rounded-pill" name="email"
+                                        value='<%= user.email%>' rows="3">
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control rounded-pill" name="password"
+                                        value='<%= user.password %> ' required="required">
+                                </div>
+                                <div class="mx-auto bg-light mt-2 shadow-sm">
+                                    <div id="btn-guardar" class="form-group float-right mt-2">
+                                        <button type="submit" class="btn btn btn-info rounded-pill">Actualizar</button>
+                                    </div>
+                                </div>
+                            </form>
+                            <div id="btn-volver" class="form-group float-left mt-2">
+                                <a href="/admin/listado-users"><button class="btn btn-secondary rounded-pill"><i
+                                            class="fas fa-arrow-left mr-1"></i>Volver al Listado</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    </section>
+    <%- include('../partials/jsPartials.ejs') %>
+</body>
+
+</html>
