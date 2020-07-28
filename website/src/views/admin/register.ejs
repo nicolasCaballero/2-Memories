@@ -17,7 +17,7 @@
         <section class="row">
             <article id="tituloAdmin" class="col-12 card pt-5 border-0">
                 <div class="card-body">
-                    <h1 class="card-title text-center">Creá tu usuario Administrador</h1>
+                    <h1 class="card-title text-center">Crear nuevo usuario Administrador</h1>
                     <% if (typeof errors != 'undefined') { %>
                         <div class="alert alert-warning" role="alert">
                             <ul>
@@ -55,21 +55,18 @@
                                         placeholder="password" required="required">
                                 </div>
                                 <div class="form-group">
-                                    <label for="role">role</label>
+                                    <label for="role">Rol</label>
                                     <select id="role" class="form-control rounded-pill" name="role">
-                                        <option value="1">1</option>
-                                        <option value="2">2</option>
+                                        <option value="1">Full Admin</option>
+                                        <option value="2">Basic User</option>
                                     </select>
                                 </div>
-                                <div id="btn-crearCuenta" class="form-group text-center btn-block">
-                                    <button type="submit"
-                                        class="btn btn-info btn-primary btn-lg btn-block rounded-pill">Crear
-                                        cuenta</button>
+                                <div class="mx-auto bg-light shadow-sm">
+                                    <div id="btn-crearCuenta" class="form-group float-right mt-2">
+                                        <button type="submit" class="btn btn-info rounded-pill">Crear usuario</button>
+                                    </div>
                                 </div>
                             </form>
-                            <div class="text-center mb-3">
-                                <p>¿Ya tenés cuenta? <a href="/admin/login">INGRESA</a></p>
-                            </div>
                         </div>
                     </div>
                 </div>
