@@ -6,6 +6,7 @@ const mainRoutes = require('./routes/main/mainRoutes');
 const userRoutes = require('./routes/user/userRoutes');
 const productRoutes = require('./routes/product/productRoutes');
 const adminRoutes = require('./routes/admin/adminRoutes');
+const adminUserRoutes = require('./routes/admin/adminUserRoutes');
 const gridRoutes = require('./routes/grid/gridRoutes');
 const methodOverride = require('method-override');
 
@@ -27,6 +28,7 @@ app.use(userRoutes);
 app.use(productRoutes);
 app.use(adminRoutes);
 app.use(gridRoutes);
+app.use(adminUserRoutes);
 app.use(function (req, res, next) {
     res.status(404);
     if (req.accepts('html')) {
@@ -34,4 +36,5 @@ app.use(function (req, res, next) {
         return;
     }
 });
+
 app.listen('3000', () => console.log('Server runing on port: http://localhost:3000'));
