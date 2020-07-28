@@ -4,6 +4,7 @@
 <head>
     <%- include('../partials/headPartial.ejs') %>
     <link rel="stylesheet" href="/css/admin/admin.css">
+    <link rel="stylesheet" href="/css/admin/admin.css">
     <title>Detalle del Usuario | MEMORIES</title>
 </head>
 
@@ -27,6 +28,7 @@
                     <div class="col-8 mx-auto bg-light shadow-sm">
                         <div class="card">
                             <ul class="list-group">
+                                <li class="list-group-item text-center"><img width="50%" class="img-thumbnail" src="/img/adminUsers/<%= user.photo%>" alt=""></li>
                                 <li class="list-group-item"><strong>ID: </strong><%= user.id%></li>
                                 <li class="list-group-item"><strong>Nombre: </strong><%= user.name%></li>
                                 <li class="list-group-item"><strong>Username: </strong><%= user.username%></li>
