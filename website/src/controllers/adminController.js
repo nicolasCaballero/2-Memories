@@ -61,7 +61,8 @@ let adminController = {
                 username: req.body.username,
                 email: req.body.email,
                 password: bcrypt.hashSync(req.body.password, 10),
-                role: parseInt(req.body.role)
+                role: parseInt(req.body.role),
+                photo: req.file ? req.file.filename : "",
             }
             let archivoUsers = fs.readFileSync(path.resolve(__dirname, '../models/adminUsers.json'), {
                 encoding: 'utf-8'

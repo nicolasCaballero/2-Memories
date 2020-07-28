@@ -22,5 +22,14 @@
     "email": "niicolas.caballero@gmail.com",
     "password": "$2b$10$46PZL1RgaMed9KwfjO.Ot.c8NB723RVVhhdD.JleJUGYkHmwCYSM2",
     "role": 2
+  },
+  {
+    "id": 4,
+    "name": "prueba",
+    "username": "prueba",
+    "email": "prueba@prueba.com",
+    "password": "$2b$10$2KV2.hNTAD.9J9z0Ald1gePEy3UuG8URIWUqXU.9JkLN/.JKVCZB2",
+    "role": 1,
+    "photo": "pp.jpg"
   }
 ]

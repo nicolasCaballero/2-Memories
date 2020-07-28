@@ -10,7 +10,7 @@ const {
 } = require('express-validator');
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, path.resolve(__dirname, '../../public/img/adminUsers'));
+        cb(null, path.resolve(__dirname, '../../../public/img/adminUsers'));
     },
     filename: function (req, file, cb) {
         cb(null, file.originalname);
@@ -23,7 +23,7 @@ const upload = multer({
 
 router.get('/admin/login', adminController.login);
 router.get('/admin/registro', adminController.register);
-router.post('/admin/registro', [
+router.post('/admin/registro', upload.single('photo'), [
     check('name').isAlpha().withMessage('El campo name solo debe contener letras de la A-Z'),
     check('name').isLength({
         min: 1
@@ -37,7 +37,7 @@ router.post('/admin/registro', [
     check('password').isLength({
         min: 8
     }).withMessage('La contraseña debe contener al menos 8 caracteres')
-], upload.single('image'), adminController.userCreate);
+], adminController.userCreate);
 router.get('/admin/listado-users', adminController.usersList);
 router.get('/admin/listado-users/view/:id', adminController.usersShow);
 router.get('/admin/listado-users/delete/:id', adminController.usersDelete);
