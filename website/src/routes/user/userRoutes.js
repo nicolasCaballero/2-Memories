@@ -29,7 +29,14 @@ router.post('/registro', [
     check('lastName').isAlpha().withMessage('El campo apellido solo debe contener letras de la A-Z'),
     check('lastName').isLength({min: 1}).withMessage('El campo apellido no puede estár vacío'),
     check('email').isEmail().withMessage('Ingrese un email válido'),
-    check('password').isLength({min: 8}).withMessage('La contraseña debe contener al menos 8 caracteres')
+    check('password').isLength({min: 8}).withMessage('La contraseña debe contener al menos 8 caracteres'),
+    body('passwordConfirmation').custom((value, {req}) =>{
+        if (req.body.password == value ){
+            return true  
+        }else{
+            return false
+        }    
+    }).withMessage('Las contraseñas deben ser iguales')
 ], userController.create);
 router.get('/mi-cuenta/ver/:id', userController.usersShow);
 router.put('/mi-cuenta/ver/:id', upload.single('image'), userController.saveEdit);
