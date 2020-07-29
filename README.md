@@ -137,3 +137,16 @@ Seguir haciendo:
 * Comunicación constante y fluída.
 * Colaboración y acompañamiento grupal.
 
+## Retrospectiva Sprint 3
+
+Comenzar a hacer:
+* Establecer fechas específicas para tener terminadas las tareas que le corresponden a cada uno.
+
+Más de: 
+* Gestión óptima del tiempo del sprint.
+
+Seguir haciendo: 
+* Mantener el compromiso con el proyecto.
+* Comunicación constante y fluída.
+* Reuniones semanales sobre el avance de cada uno y las tareas realizadas y por hacer.
+
