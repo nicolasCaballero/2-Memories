@@ -11,6 +11,26 @@ let userController = {
     'login': (req, res) => {
         res.render(path.resolve(__dirname, '../views/users/login.ejs'));
     },
+    'userLogin': (req, res) => {
+        const errors = validationResult(req);
+        if (errors.isEmpty()) {
+            let completeUsers = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/users.json')));
+            let loggedInUser = completeUsers.find(user => user.email == req.body.email);
+            delete loggedInUser.password;
+            req.session.user = loggedInUser ; 
+            if (req.body.remember) {
+                res.cookie('email', loggedInUser.email, {
+                    maxAge: 60*60*24*365
+                })
+            }
+            return res.redirect('/');
+
+        } else {
+            res.render(path.resolve(__dirname, '../views/users/login.ejs'), {
+                errors: errors.mapped(),old: req.body
+            });
+        }
+    },
     'register': (req, res) => {
         res.render(path.resolve(__dirname, '../views/users/register.ejs'));
     },
@@ -50,23 +70,25 @@ let userController = {
         let completeUsers = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/users.json')));
         let userId = req.params.id;
         let user = completeUsers.find(u => u.id == userId);
-        res.render(path.resolve(__dirname, '../views/users/miCuenta.ejs'), {user});
+        res.render(path.resolve(__dirname, '../views/users/miCuenta.ejs'), {
+            user
+        });
     },
     'saveEdit': (req, res) => {
-        let users  = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/users.json')));
+        let users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/users.json')));
         req.body.id = req.params.id;
-        let userUpdate = users.map(u => { 
-            if(u.id == req.body.id) {
+        let userUpdate = users.map(u => {
+            if (u.id == req.body.id) {
                 u.name = req.body.name,
-                u.lastName = req.body.lastName,
-                u.email = req.body.email,
-                u.password = req.body.password,
-                u.image = req.file ? req.file.filename : u.image
+                    u.lastName = req.body.lastName,
+                    u.email = req.body.email,
+                    u.password = req.body.password,
+                    u.image = req.file ? req.file.filename : u.image
             }
             return u;
         });
-        usersJSON = JSON.stringify(userUpdate,null,2);
-        fs.writeFileSync(path.resolve(__dirname, '../models/users.json'),usersJSON);
+        usersJSON = JSON.stringify(userUpdate, null, 2);
+        fs.writeFileSync(path.resolve(__dirname, '../models/users.json'), usersJSON);
         res.redirect('/mi-cuenta/ver/' + req.params.id);
     }
 };

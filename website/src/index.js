@@ -9,10 +9,19 @@ const adminRoutes = require('./routes/admin/adminRoutes');
 const adminUserRoutes = require('./routes/admin/adminUserRoutes');
 const gridRoutes = require('./routes/grid/gridRoutes');
 const methodOverride = require('method-override');
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+const login = require('./middlewares/login');
 
 app.use(bodyParser.urlencoded({
     extended: true
 }));
+app.use(session({
+    secret: 'topSecret',
+    resave: true,
+    saveUninitialized: true,
+}));
+app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../public')));
 app.set('view engine', 'ejs');
@@ -32,7 +41,9 @@ app.use(adminUserRoutes);
 app.use(function (req, res, next) {
     res.status(404);
     if (req.accepts('html')) {
-            res.render('404', {url: req.url});
+        res.render('404', {
+            url: req.url
+        });
         return;
     }
 });
