@@ -71,3 +71,12 @@ td a {
 #btn-delete:hover {
     color: #F48169;
 }
+
+.eye {
+    margin-left: 95%;
+    cursor: pointer;
+}
+
+.password {
+    margin-top: -30px;
+}

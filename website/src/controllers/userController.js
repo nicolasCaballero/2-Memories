@@ -39,7 +39,7 @@ let userController = {
             users.push(user);
             usersJSON = JSON.stringify(users, null, 2);
             fs.writeFileSync(path.resolve(__dirname, '../models/users.json'), usersJSON);
-            res.redirect('/');
+            res.redirect('/mi-cuenta/ver/' + user.id);
         } else {
             return res.render(path.resolve(__dirname, '../views/users/register'), {
                 errors: errors.errors
@@ -51,6 +51,23 @@ let userController = {
         let userId = req.params.id;
         let user = completeUsers.find(u => u.id == userId);
         res.render(path.resolve(__dirname, '../views/users/miCuenta.ejs'), {user});
+    },
+    'saveEdit': (req, res) => {
+        let users  = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/users.json')));
+        req.body.id = req.params.id;
+        let userUpdate = users.map(u => { 
+            if(u.id == req.body.id) {
+                u.name = req.body.name,
+                u.lastName = req.body.lastName,
+                u.email = req.body.email,
+                u.password = req.body.password,
+                u.image = req.file ? req.file.filename : u.image
+            }
+            return u;
+        });
+        usersJSON = JSON.stringify(userUpdate,null,2);
+        fs.writeFileSync(path.resolve(__dirname, '../models/users.json'),usersJSON);
+        res.redirect('/mi-cuenta/ver/' + req.params.id);
     }
 };
 
