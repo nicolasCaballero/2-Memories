@@ -4,6 +4,7 @@
 <head>
     <%- include('../partials/headPartial.ejs') %>
     <link rel="stylesheet" href="/css/admin/admin.css">
+    <script src="/js/main.js"></script>
     <title>Editar Usuario | MEMORIES</title>
 </head>
 
@@ -29,11 +30,18 @@
                 <div class="row">
                     <div class="col-lg-8 col-md-10 col-sm-10 col-xs-12 mx-auto bg-light shadow-sm">
                         <div class="signup-form mt-2">
-                            <form action="/admin/listado-users/edit/<%= user.id%>?_method=PUT" method="POST">
+                            <form action="/admin/listado-users/edit/<%= user.id%>?_method=PUT" method="POST"
+                                enctype="multipart/form-data">
+                                <div class="form-group text-center photo">
+                                    <img width="20%" class="rounded-circle" src="/img/adminUsers/<%= user.photo%>"
+                                        value='<%= user.photo%>' alt="">
+                                    <input type="file" class="form-control-file rounded" id="imagen-producto"
+                                        name="photo">
+                                </div>
                                 <div class="form-group">
                                     <label for="name">Nombre</label>
                                     <input type="text" class="form-control rounded-pill" name="name"
-                                        value='<%= user.name%>' required="required">
+                                        value='<%=user.name%>' required="required">
                                 </div>
                                 <div class="form-group">
                                     <label for="username">Username</label>
@@ -44,6 +52,12 @@
                                     <label for="email">Email</label>
                                     <input type="text" class="form-control rounded-pill" name="email"
                                         value='<%= user.email%>' rows="3">
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">Contraseña</label> 
+                                    <i class="togglePassword fas fa-eye text-decoration-none eye"></i>
+                                    <input type="password" class="password form-control rounded-pill" name="password"
+                                        value='<%= user.password%>' required="required">
                                 </div>
                                 <div class="form-group">
                                     <label for="role">Role</label>

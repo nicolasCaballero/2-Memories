@@ -117,6 +117,7 @@ let adminController = {
                 u.name = req.body.name,
                 u.username = req.body.username,
                 u.email = req.body.email,
+                u.photo = u.photo,
                 u.role = parseInt(req.body.role)
             }
             return u;

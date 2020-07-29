@@ -42,6 +42,6 @@ router.get('/admin/listado-users', adminController.usersList);
 router.get('/admin/listado-users/view/:id', adminController.usersShow);
 router.get('/admin/listado-users/delete/:id', adminController.usersDelete);
 router.get('/admin/listado-users/edit/:id', adminController.userEdit);
-router.put('/admin/listado-users/edit/:id', adminController.userSaveEdit);
+router.put('/admin/listado-users/edit/:id', upload.single('photo'), adminController.userSaveEdit);
 
 module.exports = router;
