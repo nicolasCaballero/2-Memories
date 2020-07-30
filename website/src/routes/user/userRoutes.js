@@ -38,11 +38,10 @@ router.post('/login', [
                 } else {
                     return false;
                 }
-            }
-        }
-
+            };
+        };
     }).withMessage('Contraseña incorrecta'),
-], userController.userLogin);
+], userController.processLogin);
 router.get('/registro', userController.register);
 router.post('/registro', [
     check('name').isAlpha().withMessage('El campo nombre solo debe contener letras de la A-Z'),
@@ -76,6 +75,13 @@ router.post('/registro', [
 
     }).withMessage('Este email ya se encuentra registrado!')
 ], userController.create);
+router.get('/check', (req, res) => {
+    if(req.session.loggedInUser == undefined) {
+        res.send('No estás logueado');
+    } else {
+        res.send('El usuario logueado es ' + req.session.loggedInUser.email)
+    }
+})
 router.get('/mi-cuenta/ver/:id', userController.usersShow);
 router.put('/mi-cuenta/ver/:id', upload.single('image'), userController.saveEdit);
 

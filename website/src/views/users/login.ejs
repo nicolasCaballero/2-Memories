@@ -4,6 +4,7 @@
 <head>
     <%- include('../partials/headPartial.ejs') %>
     <link rel="stylesheet" href="/css/login.css">
+    <script src="/js/passwordToggle.js"></script>
     <title>INGRESAR | MEMORIES</title>
 </head>
 
@@ -33,7 +34,8 @@
                                     <%}%>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control rounded-pill" name="password"
+                                    <i class="togglePassword fas fa-eye text-decoration-none eye"></i>
+                                    <input type="password" class="password form-control rounded-pill" name="password"
                                         placeholder="contraseña" required="required">
                                         <% if(typeof errors != 'undefined' && errors.password){%>
                                             <span class="text-danger"> <%=errors.password.msg %></span>
@@ -47,7 +49,8 @@
                                         class="btn btn-info btn-primary btn-lg btn-block rounded-pill">Ingresar</button>
                                 </div>
                                 <div class="form-group text-center">
-                                    <input type="checkbox" name="remember"><label class="checkbox-inline">&nbsp;Recordarme</label>
+                                    <input type="checkbox" name="remember">
+                                    <label class="checkbox-inline">&nbsp;Recordarme</label>
                                 </div>
                             </form>
                             <div class="text-center mb-3">¿No tenés cuenta? <a href="/registro">¡REGISTRATE ACA!</a>

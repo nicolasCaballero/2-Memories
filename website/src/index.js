@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser');
 const path = require('path');
+const session = require('express-session');
 const mainRoutes = require('./routes/main/mainRoutes');
 const userRoutes = require('./routes/user/userRoutes');
 const productRoutes = require('./routes/product/productRoutes');
@@ -9,20 +9,17 @@ const adminRoutes = require('./routes/admin/adminRoutes');
 const adminUserRoutes = require('./routes/admin/adminUserRoutes');
 const gridRoutes = require('./routes/grid/gridRoutes');
 const methodOverride = require('method-override');
-const session = require('express-session');
 const cookieParser = require('cookie-parser');
-const login = require('./middlewares/login');
+const loginMiddleware = require('./middlewares/loginMiddleware');
 
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
 app.use(session({
-    secret: 'topSecret',
+    secret: 'secret',
     resave: true,
-    saveUninitialized: true,
+    saveUninitialized: true
 }));
+
 app.use(cookieParser());
-app.use(bodyParser.json());
+
 app.use(express.static(path.join(__dirname, '../public')));
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({
@@ -38,6 +35,7 @@ app.use(productRoutes);
 app.use(adminRoutes);
 app.use(gridRoutes);
 app.use(adminUserRoutes);
+app.use(loginMiddleware);
 app.use(function (req, res, next) {
     res.status(404);
     if (req.accepts('html')) {

@@ -93,3 +93,21 @@ body {
 ul {
     list-style: none;
 }
+
+.eye {
+    margin-left: 95%;
+    cursor: pointer;
+}
+
+.password {
+    margin-top: -30px;
+}
+
+.eye2 {
+    margin-left: 95%;
+    cursor: pointer;
+}
+
+.password2 {
+    margin-top: -30px;
+}

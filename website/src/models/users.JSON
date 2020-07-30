@@ -20,5 +20,12 @@
     "email": "niicolas.caballero@gmail.com",
     "password": "$2b$10$maSd/RIp52/FWksal.FwTeTQo3JX86toKbvFU3STzOzVnvRWHjGY2",
     "image": "nicoPerfil.jpg"
+  },
+  {
+    "id": 4,
+    "name": "prueba",
+    "lastName": "pruebanuevo",
+    "email": "prueba@prueba.com",
+    "password": "$2b$10$b97Pd4CK0Ug0feZjhmmrkucENQjxv7yi3INqEeyT5vbF9IIjBh/PG"
   }
 ]

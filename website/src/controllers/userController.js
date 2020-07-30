@@ -11,25 +11,45 @@ let userController = {
     'login': (req, res) => {
         res.render(path.resolve(__dirname, '../views/users/login.ejs'));
     },
-    'userLogin': (req, res) => {
+    'processLogin': (req, res, next) => {
         let errors = validationResult(req);
         if (errors.isEmpty()) {
-            let completeUsers = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/users.json')));
-            let loggedInUser = completeUsers.find(user => user.email == req.body.email);
-            delete loggedInUser.password;
-            req.session.user = loggedInUser ; 
-            if (req.body.remember) {
-                res.cookie('email', loggedInUser.email, {
-                    maxAge: 60*60*24*365
+            let users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/users.json')));
+            for (let i = 0; i < users.length; i++) {
+                if (users[i].email == req.body.email) {
+                    if (bcrypt.compareSync(req.body.password, users[i].password)) {
+                        var userToLogIn = users[i];
+                        break;
+                    };
+                };
+            };
+            if (userToLogIn == undefined) {
+                return res.render(path.resolve(__dirname, '../views/users/login.ejs'), {
+                    Title: 'Login',
+                    usuarioMail: req.body.email,
+                    password: req.body.password,
+                    old: req.body,
+                    errors: errors.mapped()
                 });
-            }
-            return res.redirect('/');
-
+            };
+            req.session.loggedInUser = userToLogIn;
+            if (req.body.remember != undefined) {
+                res.cookie('rememberme', userToLogIn.email, {
+                    maxAge: 1000 * 60 * 60 * 24
+                });
+            };
+            res.redirect('/');
         } else {
-            res.render(path.resolve(__dirname, '../views/users/login.ejs'), {
-                errors: errors.mapped(),old: req.body
+
+            return res.render(path.resolve(__dirname, '../views/users/login.ejs'), {
+                Title: 'Login',
+                usuarioMail: req.body.email,
+                password: req.body.password,
+                old: req.body,
+                errors: errors.mapped()
             });
         }
+
     },
     'register': (req, res) => {
         res.render(path.resolve(__dirname, '../views/users/register.ejs'));
@@ -62,6 +82,7 @@ let userController = {
             res.redirect('/mi-cuenta/ver/' + user.id);
         } else {
             return res.render(path.resolve(__dirname, '../views/users/register'), {
+                old: req.body,
                 errors: errors.errors
             });
         }

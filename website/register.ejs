@@ -4,6 +4,7 @@
 <head>
     <%- include('../partials/headPartial.ejs') %>
     <link rel="stylesheet" href="/css/userRegister.css">
+    <script src="/js/passwordToggle.js"></script>
     <title>REGISTRO | MEMORIES</title>
 </head>
 
@@ -39,10 +40,10 @@
                     <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 mx-auto pt-2 fondo shadow-sm rounded-lg">
                         <div class="signup-form mt-3">
                             <form action="/registro" method="post" novalidate>
-                                <div class="form-group">
-                                    <input type="text" class="form-control rounded-pill" name="name"
-                                        placeholder="nombre" required="required" autofocus>
-                                </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control rounded-pill" name="name"
+                                            placeholder="nombre" required="required" autofocus >
+                                    </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control rounded-pill" name="lastName"
                                         placeholder="apellido" required="required">
@@ -52,11 +53,13 @@
                                         placeholder="e-mail" required="required">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control rounded-pill" name="password"
+                                    <i class="togglePassword fas fa-eye text-decoration-none eye"></i>
+                                    <input type="password" class="password form-control rounded-pill" name="password"
                                         placeholder="contraseña" required="required">
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control rounded-pill" name="passwordConfirmation" 
+                                    <i class="togglePassword2 fas fa-eye text-decoration-none eye"></i>
+                                    <input type="password" class="password2 form-control rounded-pill" name="passwordConfirmation" 
                                     placeholder="confirmar contraseña" required="required">
                                 </div>    
                                 <div class="form-check ml-2">
