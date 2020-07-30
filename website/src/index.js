@@ -11,6 +11,7 @@ const gridRoutes = require('./routes/grid/gridRoutes');
 const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 const loginMiddleware = require('./middlewares/loginMiddleware');
+const loginAdminMiddleware = require('./middlewares/adminMiddlewares/loginAdminMiddleware');
 
 app.use(session({
     secret: 'secret',
@@ -28,14 +29,14 @@ app.use(express.urlencoded({
 app.use(methodOverride('_method'));
 
 
-
+app.use(loginMiddleware);
+app.use(loginAdminMiddleware);
 app.use(mainRoutes);
 app.use(userRoutes);
 app.use(productRoutes);
 app.use(adminRoutes);
 app.use(gridRoutes);
 app.use(adminUserRoutes);
-app.use(loginMiddleware);
 app.use(function (req, res, next) {
     res.status(404);
     if (req.accepts('html')) {

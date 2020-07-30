@@ -1,8 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
+const fs = require('fs');
 const multer = require('multer');
+const bcrypt = require('bcrypt');
 const adminController = require('../../controllers/adminController');
+const users =  JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../models/adminUsers.json')));
 const {
     check,
     validationResult,
@@ -22,6 +25,27 @@ const upload = multer({
 });
 
 router.get('/admin/login', adminController.login);
+router.post('/admin/login', [
+    body('email').custom((value) => {
+        for (let i = 0; i < users.length; i++) {
+            if (users[i].email == value) {
+                return true
+            }
+        }
+        return false
+    }).withMessage('Usuario inexistente'),
+    body('password').custom((value, {req}) => {
+        for (let i = 0; i < users.length; i++) {
+            if (users[i].email == req.body.email) {
+                if (bcrypt.compareSync(value, users[i].password)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            };
+        };
+    }).withMessage('Contraseña incorrecta'),
+], adminController.processLogin);
 router.get('/admin/registro', adminController.register);
 router.post('/admin/registro', upload.single('photo'), [
     check('name').isAlpha().withMessage('El campo name solo debe contener letras de la A-Z'),
@@ -38,6 +62,7 @@ router.post('/admin/registro', upload.single('photo'), [
         min: 8
     }).withMessage('La contraseña debe contener al menos 8 caracteres')
 ], adminController.userCreate);
+router.get('/admin/logout', adminController.logout);
 router.get('/admin/listado-users', adminController.usersList);
 router.get('/admin/listado-users/view/:id', adminController.usersShow);
 router.get('/admin/listado-users/delete/:id', adminController.usersDelete);

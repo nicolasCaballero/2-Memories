@@ -49,7 +49,11 @@ let userController = {
                 errors: errors.mapped()
             });
         }
-
+    },
+    'logout': (req, res) => {
+        req.session.destroy();
+        res.cookie('rememberme',null,{maxAge: -1});
+        res.redirect('/');
     },
     'register': (req, res) => {
         res.render(path.resolve(__dirname, '../views/users/register.ejs'));
