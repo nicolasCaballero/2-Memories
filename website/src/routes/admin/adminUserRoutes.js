@@ -5,7 +5,7 @@ const fs = require('fs');
 const multer = require('multer');
 const bcrypt = require('bcrypt');
 const adminController = require('../../controllers/adminController');
-const users =  JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../models/adminUsers.json')));
+const users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../models/adminUsers.json')));
 const {
     check,
     validationResult,
@@ -34,7 +34,9 @@ router.post('/admin/login', [
         }
         return false
     }).withMessage('Usuario inexistente'),
-    body('password').custom((value, {req}) => {
+    body('password').custom((value, {
+        req
+    }) => {
         for (let i = 0; i < users.length; i++) {
             if (users[i].email == req.body.email) {
                 if (bcrypt.compareSync(value, users[i].password)) {

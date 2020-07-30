@@ -3,6 +3,7 @@ const router = express.Router();
 const path = require('path');
 const multer = require('multer');
 const adminController = require('../../controllers/adminController');
+const adminNotLoggedInMiddleware = require('../../middlewares/adminMiddlewares/adminNotLoggedInMiddleware');
 const {
   check,
   validationResult,
@@ -21,7 +22,7 @@ const upload = multer({
   storage
 });
 
-router.get('/admin', adminController.index);
+router.get('/admin',adminNotLoggedInMiddleware, adminController.index);
 router.get('/admin/memoriesCreate', adminController.memoriesCreate);
 router.post('/admin/memoriesCreate', upload.single('image'), adminController.memoriesSave);
 router.get('/admin/listado-memories', adminController.memoriesList);
