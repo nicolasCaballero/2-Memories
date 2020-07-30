@@ -12,7 +12,7 @@ let userController = {
         res.render(path.resolve(__dirname, '../views/users/login.ejs'));
     },
     'userLogin': (req, res) => {
-        const errors = validationResult(req);
+        let errors = validationResult(req);
         if (errors.isEmpty()) {
             let completeUsers = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/users.json')));
             let loggedInUser = completeUsers.find(user => user.email == req.body.email);
@@ -21,7 +21,7 @@ let userController = {
             if (req.body.remember) {
                 res.cookie('email', loggedInUser.email, {
                     maxAge: 60*60*24*365
-                })
+                });
             }
             return res.redirect('/');
 

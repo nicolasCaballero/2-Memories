@@ -7,11 +7,8 @@ const bcrypt = require('bcrypt');
 const userController = require('../../controllers/userController');
 const users =  JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../models/users.json')))
 
-const {
-    check,
-    validationResult,
-    body
-} = require('express-validator');
+const { check, validationResult, body } = require('express-validator');
+
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, path.resolve(__dirname, '../../../public/img/users'));
@@ -21,9 +18,7 @@ const storage = multer.diskStorage({
     }
 })
 
-const upload = multer({
-    storage
-});
+const upload = multer({ storage });
 
 router.get('/login', userController.login);
 router.post('/login', [
@@ -70,7 +65,16 @@ router.post('/registro', [
         } else {
             return false
         }
-    }).withMessage('Las contraseñas deben ser iguales')
+    }).withMessage('Las contraseñas no coinciden'),
+    body('email').custom(function (value) {
+        for (let i = 0; i < users.length; i++) {
+            if (users[i].email == value) {
+                return false;
+            }
+        }
+        return true;
+
+    }).withMessage('Este email ya se encuentra registrado!')
 ], userController.create);
 router.get('/mi-cuenta/ver/:id', userController.usersShow);
 router.put('/mi-cuenta/ver/:id', upload.single('image'), userController.saveEdit);
