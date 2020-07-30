@@ -4,6 +4,8 @@
 <head>
     <%- include('../partials/headPartial.ejs') %>
     <link rel="stylesheet" href="/css/admin/admin.css">
+    <link rel="stylesheet" href="/css/miCuenta.css">
+    <script src="/js/passwordToggle.js"></script>
     <title>INICIO DE SESION | MEMORIES ADMIN</title>
 </head>
 
@@ -29,14 +31,22 @@
                 <div class="row">
                     <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 mx-auto pt-2 fondo shadow-sm rounded-lg">
                         <div class="signup-form mt-3">
-                            <form action="" method="post">
+                            <form action="/admin/login" method="POST">
                                 <div class="form-group">
                                     <input type="email" class="form-control rounded-pill" name="email"
-                                        placeholder="e-mail" required="required">
+                                        placeholder="e-mail" value="<%=typeof old == 'undefined' ? '':old.email %>"
+                                        required="required" autofocus>
+                                    <% if(typeof errors != 'undefined' && errors.email){%>
+                                    <span class="text-danger"> <%= errors.email.msg %></span>
+                                    <%}%>
                                 </div>
                                 <div class="form-group">
-                                    <input type="password" class="form-control rounded-pill" name="password"
+                                    <i class="togglePassword fas fa-eye text-decoration-none eye"></i>
+                                    <input type="password" class="password form-control rounded-pill" name="password"
                                         placeholder="contraseña" required="required">
+                                        <% if(typeof errors != 'undefined' && errors.password){%>
+                                    <span class="text-danger"> <%=errors.password.msg %></span>
+                                    <%}%>
                                 </div>
                                 <div class="form-group text-right display-5">
                                     <a href="#">¿Olvidaste tu contraseña?</a>
@@ -46,7 +56,8 @@
                                         class="btn btn-info btn-primary btn-lg btn-block rounded-pill">Ingresar</button>
                                 </div>
                                 <div class="form-group text-center">
-                                    <input type="checkbox"><label class="checkbox-inline">&nbsp;Recordarme</label>
+                                    <input type="checkbox" name="remember">
+                                    <label class="checkbox-inline">&nbsp;Recordarme</label>
                                 </div>
                             </form>
                         </div>

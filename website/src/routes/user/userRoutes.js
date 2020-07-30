@@ -5,7 +5,9 @@ const fs = require('fs');
 const multer = require('multer');
 const bcrypt = require('bcrypt');
 const userController = require('../../controllers/userController');
-const users =  JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../models/users.json')))
+const users =  JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../models/users.json')));
+const loggedInMiddleware = require('../../middlewares/loggedInMiddleware');
+
 
 const { check, validationResult, body } = require('express-validator');
 
@@ -42,7 +44,7 @@ router.post('/login', [
         };
     }).withMessage('Contraseña incorrecta'),
 ], userController.processLogin);
-router.get('/registro', userController.register);
+router.get('/registro', loggedInMiddleware, userController.register);
 router.post('/registro', [
     check('name').isAlpha().withMessage('El campo nombre solo debe contener letras de la A-Z'),
     check('name').isLength({
@@ -81,7 +83,8 @@ router.get('/check', (req, res) => {
     } else {
         res.send('El usuario logueado es ' + req.session.loggedInUser.email)
     }
-})
+});
+router.get('/logout', userController.logout);
 router.get('/mi-cuenta/ver/:id', userController.usersShow);
 router.put('/mi-cuenta/ver/:id', upload.single('image'), userController.saveEdit);
 
