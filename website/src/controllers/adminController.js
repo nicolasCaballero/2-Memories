@@ -10,6 +10,9 @@ const {
 const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/products.json')));
 
 let adminController = {
+    'denied': (req, res) => {
+        res.render(path.resolve(__dirname, '../views/admin/denied.ejs'));
+    },
     'index': (req, res) => {
         res.render(path.resolve(__dirname, '../views/admin/index.ejs'));
     },

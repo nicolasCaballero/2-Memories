@@ -5,6 +5,7 @@ const fs = require('fs');
 const multer = require('multer');
 const bcrypt = require('bcrypt');
 const adminController = require('../../controllers/adminController');
+const adminRoleMiddleware = require('../../middlewares/adminMiddlewares/adminRoleMiddleware');
 const users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../models/adminUsers.json')));
 const {
     check,
@@ -68,7 +69,7 @@ router.get('/admin/logout', adminController.logout);
 router.get('/admin/listado-users', adminController.usersList);
 router.get('/admin/listado-users/view/:id', adminController.usersShow);
 router.get('/admin/listado-users/delete/:id', adminController.usersDelete);
-router.get('/admin/listado-users/edit/:id', adminController.userEdit);
+router.get('/admin/listado-users/edit/:id', adminRoleMiddleware, adminController.userEdit);
 router.put('/admin/listado-users/edit/:id', upload.single('photo'), adminController.userSaveEdit);
 
 module.exports = router;
