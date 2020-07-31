@@ -1,5 +1,18 @@
 # PROJECT MEMORIES
 
+
+## USUARIOS ADMIN TEST
+
+nombre: DHFullAdmin
+username: dhfulladmin
+e-mail: dhfulladmin@test.com
+password: DHtest123
+
+nombre: DHBasicUser
+username: dhbasicuser
+e-mail: dhbasicuser@test.com
+password: DHtest123
+
 ## TABLERO DE TRABAJO
 
 [TRELLO](https://trello.com/b/2zHzpBDS/proyecto-integrador-2-memories)
