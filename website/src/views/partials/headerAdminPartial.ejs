@@ -33,6 +33,7 @@
                         <a class="dropdown-item" href="#">Listar experiencias<i class="fas fa-list-alt ml-2"></i></a>
                     </div>
                 </li>
+                <% if (loggedInAdminUser.role == 1) { %>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle active" href="#" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
@@ -45,21 +46,20 @@
                                 class="fas fa-list-alt ml-2"></i></a>
                     </div>
                 </li>
+            <% }%>
+
             </ul>
             <% if (loggedInAdminUser) { %>
             <ul id="nav-right" class="navbar-nav col-2">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle active" href="/admin/login" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
-                        <%= loggedInAdminUser.username %> <i class="fas fa-user-circle ml-2"></i>
+                        <%= loggedInAdminUser.username %> <img class="rounded-circle" width="20%" src="/img/adminUsers/<%= loggedInAdminUser.photo %> " alt=""> </i>
                     </a>
                     <div class="dropdown-menu border shadow-sm" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="/admin/listado-users/view/<%= loggedInAdminUser.id %> ">Mi Cuenta<i class="fas fa-edit ml-2"></i></a>
                         <a class="dropdown-item" href="/admin/logout">Salir<i class="fas fa-sign-out-alt ml-2"></i></a>
                     </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active">ADMIN</a>
                 </li>
             </ul>
             <% } else {%>
@@ -73,9 +73,6 @@
                         <a class="dropdown-item" href="/admin/login">Ingresá<i class="fas fa-sign-in-alt ml-2"></i></a>
                         <a class="dropdown-item" href="#">Salir<i class="fas fa-sign-out-alt ml-2"></i></a>
                     </div>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active">ADMIN</a>
                 </li>
             </ul>
             <%}%>  

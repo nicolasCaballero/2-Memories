@@ -23,25 +23,25 @@
     "username": "ncaballero",
     "email": "niicolas.caballero@gmail.com",
     "password": "$2b$10$dOcfUFyHoYgVwUg7UzJLM.q59aUjHpPAMinsNg4Ajw2zA18FBmXRy",
-    "role": 2,
+    "role": 1,
     "photo": "nico.jpg"
   },
   {
     "id": 4,
-    "name": "DHAdmin",
-    "username": "dhadmin",
-    "email": "dhadmin@test.com",
-    "password": "$2b$10$ZAbz3C1OVsA4nUee20drqun5X60.4ziVy6Ls.WCB5nggk7kFhFTIi",
+    "name": "DHFullAdmin",
+    "username": "dhfulladmin",
+    "email": "dhfulladmin@test.com",
+    "password": "$2b$10$gnBduGLx9Dh4NCEBkBsHEOKgjCMx6N1SIfkDShUm2Y9xweYi/DWXK",
     "role": 1,
-    "photo": ""
+    "photo": "digitalhouse.jpg"
   },
   {
     "id": 5,
     "name": "DHBasicUser",
     "username": "dhbasicuser",
     "email": "dhbasicuser@test.com",
-    "password": "$2b$10$mU3cdtDALO4qfsMtV80WNewb.pO74h8tC6WdELcmafesAWfCO671u",
+    "password": "$2b$10$7ObeyBkXaWYj2p/XkR/6cuksCmI0m3zAR7my62jxyMDsfbpJk.ERC",
     "role": 2,
-    "photo": ""
+    "photo": "digitalhouse.jpg"
   }
 ]
