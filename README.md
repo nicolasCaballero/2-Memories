@@ -3,16 +3,19 @@
 
 ## USUARIOS ADMIN TEST
 
-* nombre: DHFullAdmin
-* username: dhfulladmin
+FULL ADMIN
+
+* Nombre: DHFullAdmin
+* Username: dhfulladmin
 * e-mail: dhfulladmin@test.com
-* password: DHtest123
+* Password: DHtest123
 
+BASIC ADMIN
 
-* nombre: DHBasicUser
-* username: dhbasicuser
+* Nombre: DHBasicUser
+* Username: dhbasicuser
 * e-mail: dhbasicuser@test.com
-* password: DHtest123
+* Password: DHtest123
 
 ## TABLERO DE TRABAJO
 
@@ -163,4 +166,3 @@ Seguir haciendo:
 * Mantener el compromiso con el proyecto.
 * Comunicación constante y fluída.
 * Reuniones semanales sobre el avance de cada uno y las tareas realizadas y por hacer.
-
