@@ -32,6 +32,11 @@
                         </div>
                         <% } %>
                     </div>
+                    <div class="div-errors">
+                        <ul>
+
+                        </ul>
+                    </div>
             </article>
         </section>
         <section class="bg-home pt-15">
@@ -39,29 +44,30 @@
                 <div class="row">
                     <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 mx-auto pt-2 fondo shadow-sm rounded-lg">
                         <div class="signup-form mt-3">
-                            <form action="/registro" method="post" novalidate>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control rounded-pill" name="name"
-                                            placeholder="nombre" required="required" autofocus >
-                                    </div>
+                            <form class="form" action="/registro" method="post" novalidate>
                                 <div class="form-group">
-                                    <input type="text" class="form-control rounded-pill" name="lastName"
-                                        placeholder="apellido" required="required">
+                                    <input type="text" class="form-control rounded-pill name" name="name"
+                                        value="<%= typeof old != 'undefined' ? old.name : '' %>" placeholder="nombre" autofocus>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control rounded-pill" name="email"
-                                        placeholder="e-mail" required="required">
+                                    <input type="text" class="form-control rounded-pill lastName" name="lastName"
+                                    value="<%= typeof old != 'undefined' ? old.lastName : '' %>" placeholder="apellido">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control rounded-pill email" name="email"
+                                    value="<%= typeof old != 'undefined' ? old.email : '' %>" placeholder="e-mail" >
                                 </div>
                                 <div class="form-group">
                                     <i class="togglePassword fas fa-eye text-decoration-none eye"></i>
                                     <input type="password" class="password form-control rounded-pill" name="password"
-                                        placeholder="contraseña" required="required">
+                                        placeholder="contraseña">
                                 </div>
                                 <div class="form-group">
                                     <i class="togglePassword2 fas fa-eye text-decoration-none eye"></i>
-                                    <input type="password" class="password2 form-control rounded-pill" name="passwordConfirmation" 
-                                    placeholder="confirmar contraseña" required="required">
-                                </div>    
+                                    <input type="password" class="password2 form-control rounded-pill"
+                                        name="passwordConfirmation" placeholder="confirmar contraseña"
+                                        >
+                                </div>
                                 <div class="form-check ml-2">
                                     <input class="form-check-input" checked="checked" type="checkbox" value=""
                                         id="quieroPromociones">
@@ -70,8 +76,7 @@
                                     </label>
                                 </div>
                                 <div class="form-check ml-2">
-                                    <input class="form-check-input" type="checkbox" value="" id="aceptoTerminos"
-                                        required="required">
+                                    <input class="form-check-input" checked="checked" type="checkbox" value="" id="aceptoTerminos">
                                     <label class="form-check-label" for="aceptoTerminos">
                                         <p class="ml-1">He leído y acepto los <a href="/terminos-y-condiciones">Términos
                                                 y Condiciones.</a>
@@ -95,7 +100,9 @@
         <div class="separador"></div>
         <%- include('../partials/footerPartial.ejs') %>
         <%- include('../partials/jsPartials.ejs') %>
+
     </div>
+    <script src="/js/registerValidation.js"></script>
 </body>
 
 </html>

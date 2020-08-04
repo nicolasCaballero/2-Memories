@@ -94,6 +94,10 @@ ul {
     list-style: none;
 }
 
+li {
+    list-style: none;
+}
+
 .eye {
     margin-left: 95%;
     cursor: pointer;
