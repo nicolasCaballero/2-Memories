@@ -1,31 +1,38 @@
-[{
-        "id": 1,
-        "category": "aventura",
-        "image": "aventura.jpg"
-    },
-    {
-        "id": 2,
-        "category": "bienestar",
-        "image": "bienestar.jpg"
-    },
-    {
-        "id": 3,
-        "category": "cursos",
-        "image": "cursos.jpg"
-    },
-    {
-        "id": 4,
-        "category": "entretenimiento",
-        "image": "entretenimiento.jpg"
-    },
-    {
-        "id": 5,
-        "category": "escapadas",
-        "image": "escapadas.jpg"
-    },
-    {
-        "id": 6,
-        "category": "gastronomia",
-        "image": "gastronomia.jpg"
-    }
+[
+  {
+    "id": 1,
+    "category": "aventura",
+    "image": "aventura.jpg",
+    "visibility": "enabled"
+  },
+  {
+    "id": 2,
+    "category": "bienestar",
+    "image": "bienestar.jpg",
+    "visibility": "enabled"
+  },
+  {
+    "id": 3,
+    "category": "cursos",
+    "image": "cursos.jpg",
+    "visibility": "enabled"
+  },
+  {
+    "id": 4,
+    "category": "entretenimiento",
+    "image": "entretenimiento.jpg",
+    "visibility": "enabled"
+  },
+  {
+    "id": 5,
+    "category": "escapadas",
+    "image": "escapadas.jpg",
+    "visibility": "enabled"
+  },
+  {
+    "id": 6,
+    "category": "gastronomia",
+    "image": "gastronomia.jpg",
+    "visibility": "enabled"
+  }
 ]

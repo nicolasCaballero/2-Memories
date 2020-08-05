@@ -7,6 +7,7 @@ const userRoutes = require('./routes/user/userRoutes');
 const productRoutes = require('./routes/product/productRoutes');
 const adminRoutes = require('./routes/admin/adminRoutes');
 const adminUserRoutes = require('./routes/admin/adminUserRoutes');
+const adminCategoriesRoutes = require('./routes/admin/adminCategoriesRoutes');
 const gridRoutes = require('./routes/grid/gridRoutes');
 const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
@@ -37,6 +38,7 @@ app.use(productRoutes);
 app.use(adminRoutes);
 app.use(gridRoutes);
 app.use(adminUserRoutes);
+app.use(adminCategoriesRoutes);
 app.use(function (req, res, next) {
     res.status(404);
     if (req.accepts('html')) {

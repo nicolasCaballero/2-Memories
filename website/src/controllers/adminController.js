@@ -16,6 +16,71 @@ let adminController = {
     'index': (req, res) => {
         res.render(path.resolve(__dirname, '../views/admin/index.ejs'));
     },
+    'categoriesCreate': (req, res) => {
+        res.render(path.resolve(__dirname, '../views/admin/categoriesCreate.ejs'));
+    },
+    'categoriesSave': (req, res) => {
+        let categories = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categories.json')));
+        let allCategories = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categories.json')));
+        let lastCategorieId = allCategories.pop();
+        let newCategory = {
+            id: lastCategorieId.id + 1,
+            category: req.body.category,
+            image: req.file ? req.file.filename : "",
+            visibility: req.body.visibility
+        }
+
+        categories.push(newCategory);
+        categoriesJSON = JSON.stringify(categories, null, 2);
+        fs.writeFileSync(path.resolve(__dirname, '../models/categories.json'), categoriesJSON);
+        res.redirect('/admin');
+
+    },
+    'categoriesList': (req, res) => {
+        let categories = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categories.json')));
+        res.render(path.resolve(__dirname, '../views/admin/categoriesList.ejs'), {
+            categories
+        });
+    },
+    'categoriesShow': (req, res) => {
+        let categories = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categories.json')));
+        let categoryId = req.params.id;
+        let category = categories.find(c => c.id == categoryId);
+        res.render(path.resolve(__dirname, '../views/admin/categoriesDetail.ejs'), {
+            category
+        });
+    },
+    'categoriesEdit': (req, res) => {
+        let categories = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categories.json')));
+        let categoryID = req.params.id;
+        let category = categories.find(c => c.id == categoryID);
+        res.render(path.resolve(__dirname, '../views/admin/categoriesEdit.ejs'), {
+            category
+        });
+    },
+    'categoriesSaveEdit': (req, res) => {
+        let categories = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categories.json')));
+        req.body.id = req.params.id;
+        let categoriesUpdate = categories.map(c => {
+            if (c.id == req.body.id) {
+                c.category = req.body.category,
+                    c.image = c.image,
+                    c.visibility = req.body.visibility
+            }
+            return c;
+        });
+        categorieJSON = JSON.stringify(categoriesUpdate, null, 2);
+        fs.writeFileSync(path.resolve(__dirname, '../models/categories.json'), categorieJSON);
+        res.redirect('/admin/categories-list');
+    },
+    'categoriesDelete': (req, res) => {
+        let categories = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categories.json')));
+        let categoryId = req.params.id;
+        let category = categories.filter(c => c.id != categoryId);
+        categoriesJSON = JSON.stringify(category, null, 2);
+        fs.writeFileSync(path.resolve(__dirname, '../models/categories.json'), categoriesJSON);
+        res.redirect('/admin/categories-list');
+    },
     'memoriesCreate': (req, res) => {
         res.render(path.resolve(__dirname, '../views/admin/memoriesCreate.ejs'));
     },
