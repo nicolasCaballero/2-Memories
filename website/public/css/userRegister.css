@@ -115,3 +115,32 @@ li {
 .password2 {
     margin-top: -30px;
 }
+
+.eye3 {
+    margin-left: 90%;
+    cursor: pointer;
+}
+
+#message {
+    display: none;
+    color: #000;
+    position: relative;
+}
+
+.is-valid {
+    color: green
+}
+
+.is-valid:before {
+    position: relative;
+    content: "✔"
+}
+
+.is-invalid {
+    color: red;
+}
+
+.is-invalid:before {
+    position: relative;
+    content: "✖"
+}

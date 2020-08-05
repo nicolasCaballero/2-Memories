@@ -9,8 +9,7 @@ window.addEventListener('load', () => {
         let name = document.querySelector('.name');
         let lastName = document.querySelector('.lastName');
         let email = document.querySelector('.email');
-        let password = document.querySelector('.password');
-        let passwordConfirmation = document.querySelector('.password2');
+        let eye = document.querySelector('.eye');
 
 
 
@@ -28,7 +27,7 @@ window.addEventListener('load', () => {
             lastName.classList.add('is-valid');
             lastName.classList.remove('is-invalid');
         };
-        let reEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+        let reEmail = /^(([^<>()\[\]\\.,;:\s@']+(\.[^<>()\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
         if (!reEmail.test(email.value)) {
             errors.push('El email es inválido');
@@ -36,6 +35,20 @@ window.addEventListener('load', () => {
         } else {
             email.classList.add('is-valid');
             email.classList.remove('is-invalid');
+        };
+
+        let rePassword = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+
+        if (!rePassword.test(password.value)) {
+            errors.push('La contraseña debe contener mínimo 6 dígitos, una mayuscula, una minúscula y un número');
+            password.classList.add('is-invalid');
+            eye.classList.remove('eye');
+            eye.classList.add('eye3');
+        } else {
+            password.classList.add('is-valid');
+            password.classList.remove('is-invalid');
+            eye.classList.remove('eye');
+            eye.classList.add('eye3');
         };
 
         if (errors.length > 0) {
@@ -52,4 +65,57 @@ window.addEventListener('load', () => {
         };
 
     });
+});
+
+let password = document.querySelector('.password');
+let letter = document.getElementById('letter');
+let capital = document.getElementById('capital');
+let number = document.getElementById('number');
+let length = document.getElementById('length');
+
+password.addEventListener('focus', () => {
+    document.getElementById('message').style.display = 'block';
+});
+
+password.addEventListener('blur', () => {
+    document.getElementById('message').style.display = 'none';
+});
+
+password.addEventListener('keyup', () => {
+
+    let lowerCaseLetters = /[a-z]/;
+    let upperCaseLetters = /[A-Z]/;
+    let numbers = /[0-9]/;
+
+    if (password.value.match(lowerCaseLetters)) {
+        letter.classList.remove('is-invalid');
+        letter.classList.add('is-valid');
+    } else {
+        letter.classList.remove('is-valid');
+        letter.classList.add('is-invalid');
+    };
+
+    if (password.value.match(upperCaseLetters)) {
+        capital.classList.remove('is-invalid');
+        capital.classList.add('is-valid');
+    } else {
+        capital.classList.remove('is-valid');
+        capital.classList.add('is-invalid');
+    };
+
+    if (password.value.match(numbers)) {
+        number.classList.remove('is-invalid');
+        number.classList.add('is-valid');
+    } else {
+        number.classList.remove('is-valid');
+        number.classList.add('is-invalid');
+    };
+
+    if (password.value.length >= 6) {
+        length.classList.remove('is-invalid');
+        length.classList.add('is-valid');
+    } else {
+        length.classList.remove('is-valid');
+        length.classList.add('is-invalid');
+    };
 });
