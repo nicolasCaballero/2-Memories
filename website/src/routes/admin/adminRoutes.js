@@ -24,9 +24,9 @@ const upload = multer({
 
 router.get('/admin',adminNotLoggedInMiddleware, adminController.index);
 router.get('/access-denied', adminController.denied);
-router.get('/admin/experienceCreate', adminController.experienceCreate);
-router.get('/admin/memoriesCreate', adminController.memoriesCreate);
-router.post('/admin/memoriesCreate', upload.single('image'), adminController.memoriesSave);
+router.get('/admin/experiences-create', adminController.experienceCreate);
+router.get('/admin/memories-create', adminController.memoriesCreate);
+router.post('/admin/memories-create', upload.single('image'), adminController.memoriesSave);
 router.get('/admin/listado-memories', adminController.memoriesList);
 router.get('/admin/listado-memories/view/:sku', adminController.memoriesShow);
 router.get('/admin/listado-memories/delete/:sku', adminController.memoriesDelete);
