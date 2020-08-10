@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `memories_db` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `memories_db`;
 -- MySQL dump 10.13  Distrib 5.7.17, for macos10.12 (x86_64)
 --
 -- Host: localhost    Database: memories_db
