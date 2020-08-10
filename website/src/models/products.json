@@ -1,14 +1,13 @@
-[
-  {
+[{
     "sku": 1,
     "name": "Gourmet Restó",
     "description": "Para los paladares exigentes y amantes del buen comer. Un Memorie que permite disfrutar de maravillosas veladas acompañadas de platos exquisitos en los mejores restaurantes de Buenos Aires.",
     "image": "memories-gastro-gourmetresto.jpg",
     "visibility": "true",
-    "categories": "gastronomia",
     "price": 2999,
     "special_price": 2999,
-    "qty": 100
+    "qty": 100,
+    "categoryId": 6
   },
   {
     "sku": 2,
@@ -16,7 +15,7 @@
     "description": "Una comida distinta para disfrutar en la comodidad de nuestro hogar. Desde platos elaborados hasta los clásicos argentinos. Los más amplios menús para que nadie se quede afuera.",
     "image": "memories-gastro-takeaway.jpg",
     "visibility": "true",
-    "categories": "gastronomia",
+    "categoryId": 6,
     "price": 1499,
     "special_price": 1499,
     "qty": 100
@@ -27,10 +26,10 @@
     "description": "El equipo de Memories sabe que el desayuno es la comida más importante del día. Por ello decidimos acercarte esta opción para los fanáticos de las mañanas. Desayunos y tés en los mejores Cafés de la City, incluyendo la posibilidad de recibirlos a domicilio.",
     "image": "memories-gastro-buendia.jpg",
     "visibility": "true",
-    "categories": "gastronomia",
     "price": 1499,
     "special_price": 1499,
-    "qty": 100
+    "qty": 100,
+    "categoryId": 6
   },
   {
     "sku": 4,
@@ -38,10 +37,10 @@
     "description": "Este Memorie ofrece no solo ricas comidas, sino experiencias gastronómicas completas. Cenas o almuerzos completos de alto nivel en los restaurantes más reconocidos a nivel regional encontrados en Buenos Aires, que incluyen maravillosos en vivo.",
     "image": "memories-gastro-fancycuisine.jpg",
     "visibility": "true",
-    "categories": "gastronomia",
     "price": 7999,
     "special_price": 7999,
-    "qty": 100
+    "qty": 100,
+    "categoryId": 6
   },
   {
     "sku": 5,
@@ -49,10 +48,10 @@
     "description": "Comida al paso en la ciudad que nunca duerme. Podrás acceder a los puestos y/o ferias de comidas más ricos y conocidos del momento. Experiencia ideal quienes les encante andar de paseo.",
     "image": "memories-gastro-streetfood.jpg",
     "visibility": "true",
-    "categories": "gastronomia",
     "price": 2599,
     "special_price": 2599,
-    "qty": 100
+    "qty": 100,
+    "categoryId": 6
   },
   {
     "sku": 6,
@@ -60,10 +59,10 @@
     "description": "Viajá a otro destino tan solo con el paladar. Acceda a restaurantes donde podrás conocer las artes culinarias de diferentes países. Comida mexicana, china, árabe y más. Degustá sabores y conocé culturas.",
     "image": "memories-gastro-saboresdelmundo.jpg",
     "visibility": "true",
-    "categories": "gastronomia",
     "price": 3499,
     "special_price": 3499,
-    "qty": 100
+    "qty": 100,
+    "categoryId": 6
   },
   {
     "sku": 7,
@@ -71,10 +70,10 @@
     "description": "A veces la vida nos da tragos amargos. Por eso con esta Memorie te aseguramos unos tragos deliciosos. Encontrarán distintos tragos de autor para poder disfrutar de excelentes Cocktails para todos los gustos.",
     "image": "memories-gastro-drinks.jpg",
     "visibility": "true",
-    "categories": "gastronomia",
     "price": 2499,
     "special_price": 2499,
-    "qty": 100
+    "qty": 100,
+    "categoryId": 6
   },
   {
     "sku": 8,
@@ -82,21 +81,21 @@
     "description": "Comida especialmente hecha para vos. Regalando este Memorie estamos regalando platos de calidad culinaria profesional, contando con la presencia de un chef pudiendo además disfrutar de un tour del detrás de escena de la cocina.",
     "image": "memories-gastro-invitaelchef.jpg",
     "visibility": "true",
-    "categories": "gastronomia",
     "price": 4199,
     "special_price": 4199,
-    "qty": 100
+    "qty": 100,
+    "categoryId": 6
   },
   {
     "sku": 9,
     "name": "De Copas",
-    "description": "Para los amantes del vino. Distintos tours de degustación por la Ciudad de Buenos Aires, conociendo las particularidades de cada cosecha y copa. ",
+    "description": "Para los amantes del vino. Distintos tours de degustación por la Ciudad de Buenos Aires, conociendo las particularidades de cada cosecha y copa.",
     "image": "memories-gastro-decopas.jpg",
     "visibility": "true",
-    "categories": "gastronomia",
     "price": 1899,
     "special_price": 1899,
-    "qty": 100
+    "qty": 100,
+    "categoryId": 6
   },
   {
     "sku": 10,
@@ -104,10 +103,10 @@
     "description": "Para quienes no saben, las artes culinarias porteñas han alcanzado niveles de altísima calidad y sabor en la cocina de burgers, volviéndose uno de los epicentros más conocidos de la región en el desarrollo de estas comidas. Por supuesto, acompañadas de la mejor birra artesanal.",
     "image": "memories-gastro-beerburger.jpg",
     "visibility": "true",
-    "categories": "gastronomia",
     "price": 1899,
     "special_price": 1899,
-    "qty": 100
+    "qty": 100,
+    "categoryId": 6
   },
   {
     "sku": 11,
@@ -115,10 +114,10 @@
     "description": "Para propios y ajenos. Disfruten de experiencias tranquilas y dinámicas en la degustación de vinos. Diferentes cosechas, sabores y sensaciones. Tanto para quien se encuentren en el mundo del vino como para quien esté interesado en adentrase.",
     "image": "memories-gastro-winelife.jpg",
     "visibility": "true",
-    "categories": "gastronomia",
     "price": 1899,
     "special_price": 1899,
-    "qty": 100
+    "qty": 100,
+    "categoryId": 6
   },
   {
     "sku": 12,
@@ -126,10 +125,10 @@
     "description": "Visitemos los lugares que vieron crecer a la ciudad, o que mejor dicho, crecieron a la par. Los bodegones más antiguos, con comidas sabrosas y sus ambientaciones originales. Memories los invita a conocer su historia.",
     "image": "memories-gastro-bodegones.jpg",
     "visibility": "true",
-    "categories": "gastronomia",
     "price": 2999,
     "special_price": 2999,
-    "qty": 100
+    "qty": 100,
+    "categoryId": 6
   },
   {
     "sku": 13,
@@ -137,10 +136,10 @@
     "description": "Ideal para todos y todas. Con este Memorie en mano podrán acceder a los distintos restaurantes veganos cuyo nombre pisa con fuerza en la gastronomía porteña. Disfruten de los mejores y más saludables platos.",
     "image": "memories-gastro-veggie.jpg",
     "visibility": "true",
-    "categories": "gastronomia",
     "price": 1899,
     "special_price": 1899,
-    "qty": 100
+    "qty": 100,
+    "categoryId": 6
   },
   {
     "sku": 14,
@@ -148,7 +147,7 @@
     "description": "Regalá un mimo, regalá un descanso. Un día para encontrar la calma y dejar de lado el ritmo de la semana. Desde masajes hasta los mejores tratamientos corporales.",
     "image": "memories-bienestar-relax.jpg",
     "visibility": "true",
-    "categories": "bienestar",
+    "categoryId": 2,
     "price": 2199,
     "special_price": 2199,
     "qty": 100
@@ -159,10 +158,10 @@
     "description": "Para quienes amen el maquillaje y la estética facial. Podrán encontrar distintas clases de automaquillaje dictadas por profesionales del ambiente, cada una con sus distintas técnicas.",
     "image": "memories-bienestar-makeup.jpg",
     "visibility": "true",
-    "categories": "bienestar",
     "price": 1299,
     "special_price": 1299,
-    "qty": 100
+    "qty": 100,
+    "categoryId": 2
   },
   {
     "sku": 16,
@@ -170,10 +169,10 @@
     "description": "Distenderse. Desconectarse. Sumergirse en una tranquilidad absoluta de diferentes maneras. Una agradable combinación entre salud y bienestar.",
     "image": "memories-bienestar-pazyarmonia.jpg",
     "visibility": "true",
-    "categories": "bienestar",
     "price": 3499,
     "special_price": 3499,
-    "qty": 100
+    "qty": 100,
+    "categoryId": 2
   },
   {
     "sku": 17,
@@ -181,21 +180,21 @@
     "description": "Experiencias agradables, tranquilas y llevaderas para tener de a dos. Ideal para parejas y amigos. Abarca distintas actividades, desde días de campo hasta días de spa.",
     "image": "memories-bienestar-deados.jpg",
     "visibility": "true",
-    "categories": "bienestar",
     "price": 4999,
     "special_price": 4999,
-    "qty": 100
+    "qty": 100,
+    "categoryId": 2
   },
   {
     "sku": 18,
     "name": "Cambio de Aire",
-    "description": "Fines de semana enteros en otras latitudes. Regalá un cambio de aire, un fin de semana off. Relajate, divertite, caminá y recordá. Playa, montañas y sierras. Elegí donde desconectarte. ",
+    "description": "Fines de semana enteros en otras latitudes. Regalá un cambio de aire, un fin de semana off. Relajate, divertite, caminá y recordá. Playa, montañas y sierras. Elegí donde desconectarte.",
     "image": "memories-escapadas-cambiodeaire.jpg",
     "visibility": "true",
-    "categories": "escapadas",
     "price": 4199,
     "special_price": 4199,
-    "qty": 100
+    "qty": 100,
+    "categoryId": 5
   },
   {
     "sku": 19,
@@ -203,10 +202,10 @@
     "description": "Hoteles y estancias para los mejores fines de semana",
     "image": "memories-escapadas-finde.jpg",
     "visibility": "true",
-    "categories": "escapadas",
     "price": 9999,
     "special_price": 9999,
-    "qty": 100
+    "qty": 100,
+    "categoryId": 5
   },
   {
     "sku": 20,
@@ -214,10 +213,10 @@
     "description": "Diferentes experiencias distintas a las convencionales. Escapadas con las cuales podrás vivir momentos exóticos y únicos",
     "image": "memories-escapadas-exotico.jpg",
     "visibility": "true",
-    "categories": "escapadas",
     "price": 7999,
     "special_price": 7999,
-    "qty": 100
+    "qty": 100,
+    "categoryId": 5
   },
   {
     "sku": 21,
@@ -225,10 +224,10 @@
     "description": "Fines de semana completos en los mejores Hoteles Boutique de la Costa Atlántica. Disfrutá de la playa pero no esperes al verano. Opciones en Pinamar, Cariló, Mar del Plata y Villa Gessel.",
     "image": "memories-escapadas-luxury.jpg",
     "visibility": "true",
-    "categories": "escapadas",
     "price": 12999,
     "special_price": 12999,
-    "qty": 100
+    "qty": 100,
+    "categoryId": 5
   },
   {
     "sku": 22,
@@ -236,10 +235,10 @@
     "description": "¿Ser o no ser? La Avenida Corrientes es internacionalmente conocida por sus sendos teatros, por ello desde el equipo de Memories creemos indispensable su inclusión en esta categoría. Obras espectaculares con los actores y las actrices más renombrados. Noches llenas de talento.",
     "image": "memories-entretenimiento-showtime.jpg",
     "visibility": "true",
-    "categories": "entretenimiento",
     "price": 3099,
     "special_price": 3099,
-    "qty": 100
+    "qty": 100,
+    "categoryId": 4
   },
   {
     "sku": 23,
@@ -247,21 +246,21 @@
     "description": "La música transmite cientos de emociones. Regalá música. Con este Memorie podrás acceder a distintas experiencias musicales, desde orquestas hasta conciertos, inclusive festivales.",
     "image": "memories-entretenimiento-musicaparasoñar.jpg",
     "visibility": "true",
-    "categories": "entretenimiento",
     "price": 4199,
     "special_price": 4199,
-    "qty": 100
+    "qty": 100,
+    "categoryId": 4
   },
   {
     "sku": 24,
     "name": "L'Art",
-    "description": "Para los amantes del arte. Experiencias donde podrán tomar nota de las mejores obras y exposiciones en las distintas galerías y museos de Buenos Aires, una de las capitales culturales más conocidas del mundo. ",
+    "description": "Para los amantes del arte. Experiencias donde podrán tomar nota de las mejores obras y exposiciones en las distintas galerías y museos de Buenos Aires, una de las capitales culturales más conocidas del mundo.",
     "image": "memories-entretenimiento-lart.jpg",
     "visibility": "true",
-    "categories": "entretenimiento",
     "price": 2099,
     "special_price": 2099,
-    "qty": 100
+    "qty": 100,
+    "categoryId": 4
   },
   {
     "sku": 25,
@@ -269,10 +268,10 @@
     "description": "Dicen que quien ríe último, ríe mejor. Profesionales de la comedia desmienten esta afirmación. Quien ríe último no entendió el chiste. En este Memorie encontrarás veladas llenas de risas y alegría. Regalá lindos recuerdos, regalá risas.",
     "image": "memories-entretenimiento-standup.jpg",
     "visibility": "true",
-    "categories": "entretenimiento",
     "price": 999,
     "special_price": 999,
-    "qty": 100
+    "qty": 100,
+    "categoryId": 4
   },
   {
     "sku": 26,
@@ -280,10 +279,10 @@
     "description": "Adrenalina. Emoción. Desafiá tus límites. Disfrutá de momentos de alto impacto. Ponete a prueba y superá tus miedos. Rafting, paracaidismo, parapente y más.",
     "image": "memories-aventura-vertigo.jpg",
     "visibility": "true",
-    "categories": "aventura",
     "price": 3999,
     "special_price": 3999,
-    "qty": 100
+    "qty": 100,
+    "categoryId": 1
   },
   {
     "sku": 27,
@@ -291,10 +290,10 @@
     "description": "¿Quien no soñó alguna vez con la posibilidad de volar? En Memories lo hacemos realidad. Accedé a las mejores excursiones que te permitirán volar por un rato. Regalá alas, regalá Memories.",
     "image": "memories-aventura-enelaire.jpg",
     "visibility": "true",
-    "categories": "aventura",
     "price": 7999,
     "special_price": 7999,
-    "qty": 100
+    "qty": 100,
+    "categoryId": 1
   },
   {
     "sku": 28,
@@ -302,10 +301,10 @@
     "description": "La vida es cuesta arriba, por eso en Memories incluimos estas experiencias, para que veas que tan alto podés llegar. Con experiencias supervisadas pone a prueba tu resistencia y no pares de subir.",
     "image": "memories-aventura-escalando.jpg",
     "visibility": "true",
-    "categories": "aventura",
     "price": 6499,
     "special_price": 6499,
-    "qty": 100
+    "qty": 100,
+    "categoryId": 1
   },
   {
     "sku": 29,
@@ -313,10 +312,10 @@
     "description": "Para los amantes del agua. Con este Memorie accederán a excursiones donde podrán sumergirse por completo. Experiencias en bote, gomón y hasta buceo. Ustedes eligen que tan hondo llegar.",
     "image": "memories-aventura-splash.jpg",
     "visibility": "true",
-    "categories": "aventura",
     "price": 5499,
     "special_price": 5499,
-    "qty": 100
+    "qty": 100,
+    "categoryId": 1
   },
   {
     "sku": 30,
@@ -324,7 +323,7 @@
     "description": "Aprende técnicas únicas para poder sacar las mejores fotografías y grabar los videos más impresionantes. Algunos de ellos requieren cámara profesional, otros nos enseñan a utilizar al máximo el potencial fotográfico de nuestros equipos móviles.",
     "image": "memories-cursos-paralacamara.jpg",
     "visibility": "true",
-    "categories": "cursos",
+    "categoryId": 3,
     "price": 2499,
     "special_price": 2499,
     "qty": 100
@@ -335,10 +334,10 @@
     "description": "Cursos prácticos y divertidos, luego de los cuales se podrán llevar lo que hayan cocinado. Aprender y comer, dos de los placeres de la vida reunidos en cualquiera de las opciones que encontrarán debajo.",
     "image": "memories-cursos-chefcasa.jpg",
     "visibility": "true",
-    "categories": "cursos",
     "price": 1999,
     "special_price": 2499,
-    "qty": 100
+    "qty": 100,
+    "categoryId": 3
   },
   {
     "sku": 32,
@@ -346,9 +345,9 @@
     "description": "Cursos llenos de teoría y práctica donde aprenderás de diseño en sus distintos enfoques. Diseño digital, Ilustración, diseño de marca, diseño gráfico y más. Dictados por expertos en la materia.",
     "image": "memories-cursos-diseno.jpg",
     "visibility": "true",
-    "categories": "cursos",
     "price": 1999,
     "special_price": 1999,
-    "qty": 100
+    "qty": 100,
+    "categoryId": 3
   }
 ]

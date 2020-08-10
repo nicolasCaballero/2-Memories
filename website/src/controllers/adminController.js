@@ -25,7 +25,7 @@ let adminController = {
         let lastCategorieId = allCategories.pop();
         let newCategory = {
             id: lastCategorieId.id + 1,
-            category: req.body.category,
+            name: req.body.name,
             image: req.file ? req.file.filename : "",
             visibility: req.body.visibility
         }

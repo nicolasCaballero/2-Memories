@@ -44,7 +44,7 @@
                     <% categories.forEach(categorie => { %>
                         <tr>
                             <td scope="row"><%= categorie.id %> </td>
-                            <td><%= categorie.category%> </td>
+                            <td><%= categorie.name%> </td>
                             <td><%= categorie.visibility%> </td>
                             <td><a id="btn-view" class=" text-decoration-none" href="/admin/categories/view/<%= categorie.id%>"><i class="fas fa-eye text-decoration-none"></i></a></td>
                             <td><a id="btn-edit" class=" text-decoration-none" href="/admin/categories/edit/<%= categorie.id%>"><i class="fas fa-edit text-decoration-none"></i></a></td>

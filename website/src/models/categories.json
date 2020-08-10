@@ -1,37 +1,37 @@
 [
   {
     "id": 1,
-    "category": "aventura",
+    "name": "aventura",
     "image": "aventura.jpg",
     "visibility": "enabled"
   },
   {
     "id": 2,
-    "category": "bienestar",
+    "name": "bienestar",
     "image": "bienestar.jpg",
     "visibility": "enabled"
   },
   {
     "id": 3,
-    "category": "cursos",
+    "name": "cursos",
     "image": "cursos.jpg",
     "visibility": "enabled"
   },
   {
     "id": 4,
-    "category": "entretenimiento",
+    "name": "entretenimiento",
     "image": "entretenimiento.jpg",
     "visibility": "enabled"
   },
   {
     "id": 5,
-    "category": "escapadas",
+    "name": "escapadas",
     "image": "escapadas.jpg",
     "visibility": "enabled"
   },
   {
     "id": 6,
-    "category": "gastronomia",
+    "name": "gastronomia",
     "image": "gastronomia.jpg",
     "visibility": "enabled"
   }
