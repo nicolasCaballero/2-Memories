@@ -1,8 +1,5 @@
-<<<<<<< HEAD
 CREATE DATABASE  IF NOT EXISTS `memories_db` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `memories_db`;
-=======
->>>>>>> SebaN
 -- MySQL dump 10.13  Distrib 5.7.17, for macos10.12 (x86_64)
 --
 -- Host: localhost    Database: memories_db
@@ -208,10 +205,7 @@ CREATE TABLE `products` (
   `specialPrice` int(11) DEFAULT NULL,
   `qty` int(11) DEFAULT NULL,
   `categoryId` int(11) DEFAULT NULL,
-<<<<<<< HEAD
-=======
   `experienceId` int(11) DEFAULT NULL,
->>>>>>> SebaN
   `createdAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `updatedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `deletedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
@@ -307,8 +301,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
-<<<<<<< HEAD
--- Dump completed on 2020-08-11 16:30:58
-=======
--- Dump completed on 2020-08-11 16:53:45
->>>>>>> SebaN
+-- Dump completed on 2020-08-11 18:21:50
