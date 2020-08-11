@@ -1,10 +1,10 @@
 CREATE DATABASE  IF NOT EXISTS `memories_db` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `memories_db`;
--- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.17, for macos10.12 (x86_64)
 --
--- Host: 127.0.0.1    Database: memories_db
+-- Host: localhost    Database: memories_db
 -- ------------------------------------------------------
--- Server version	5.5.5-10.4.13-MariaDB
+-- Server version	5.7.26
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -29,12 +29,12 @@ CREATE TABLE `adminuser` (
   `name` varchar(45) DEFAULT NULL,
   `username` varchar(20) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
-  `password` text DEFAULT NULL,
+  `password` text,
   `role` int(11) DEFAULT NULL,
-  `photo` longtext DEFAULT NULL,
-  `createdAt` timestamp NULL DEFAULT current_timestamp(),
-  `updatedAt` timestamp NULL DEFAULT current_timestamp(),
-  `deletedAt` timestamp NULL DEFAULT current_timestamp(),
+  `photo` longtext,
+  `createdAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `deletedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `username_UNIQUE` (`username`),
   UNIQUE KEY `email_UNIQUE` (`email`)
@@ -64,9 +64,9 @@ CREATE TABLE `cart` (
   `price` int(11) DEFAULT NULL,
   `qty` int(11) DEFAULT NULL,
   `orderNumber` int(11) DEFAULT NULL,
-  `createdAt` timestamp NULL DEFAULT current_timestamp(),
-  `updatedAt` timestamp NULL DEFAULT current_timestamp(),
-  `deletedAt` timestamp NULL DEFAULT current_timestamp(),
+  `createdAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `deletedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `productSku` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `user_id_foreign_idx` (`userId`),
@@ -100,9 +100,9 @@ CREATE TABLE `cartproduct` (
   `subTotal` int(11) DEFAULT NULL,
   `userId` int(11) DEFAULT NULL,
   `cartId` int(11) DEFAULT NULL,
-  `createdAt` timestamp NULL DEFAULT current_timestamp(),
-  `updatedAt` timestamp NULL DEFAULT current_timestamp(),
-  `deletedAt` timestamp NULL DEFAULT current_timestamp(),
+  `createdAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `deletedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `productSku` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `userId_foreign_cartProduct_idx` (`userId`),
@@ -133,11 +133,11 @@ DROP TABLE IF EXISTS `categories`;
 CREATE TABLE `categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
-  `image` text DEFAULT NULL,
+  `image` text,
   `visibility` tinyint(4) DEFAULT NULL,
-  `createdAt` timestamp NULL DEFAULT current_timestamp(),
-  `updatedAt` timestamp NULL DEFAULT current_timestamp(),
-  `deletedAt` timestamp NULL DEFAULT current_timestamp(),
+  `createdAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `deletedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `productSku` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `product_sku_foreign_categories_idx` (`productSku`),
@@ -169,10 +169,13 @@ CREATE TABLE `experiences` (
   `image` longtext NOT NULL,
   `include` longtext NOT NULL,
   `website` varchar(50) NOT NULL,
-  `createdAt` timestamp NULL DEFAULT current_timestamp(),
-  `updatedAt` timestamp NULL DEFAULT current_timestamp(),
+  `productSku` int(11) DEFAULT NULL,
+  `createdAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `deletedAt` varchar(45) DEFAULT 'CURRENT_TIMESTAMP',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  KEY `productSku_foreign_experiences_idx` (`productSku`),
+  CONSTRAINT `productSku_foreign_experiences` FOREIGN KEY (`productSku`) REFERENCES `products` (`sku`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -196,15 +199,15 @@ CREATE TABLE `products` (
   `sku` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(45) DEFAULT NULL,
   `description` varchar(1000) DEFAULT NULL,
-  `image` text DEFAULT NULL,
+  `image` text,
   `visibility` tinyint(4) DEFAULT NULL,
   `price` int(11) DEFAULT NULL,
   `specialPrice` int(11) DEFAULT NULL,
   `qty` int(11) DEFAULT NULL,
   `categoryId` int(11) DEFAULT NULL,
-  `createdAt` timestamp NULL DEFAULT current_timestamp(),
-  `updatedAt` timestamp NULL DEFAULT current_timestamp(),
-  `deletedAt` timestamp NULL DEFAULT current_timestamp(),
+  `createdAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `deletedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`sku`),
   UNIQUE KEY `sku_UNIQUE` (`sku`),
   KEY `category_id_idx` (`categoryId`),
@@ -232,13 +235,13 @@ DROP TABLE IF EXISTS `transactions`;
 CREATE TABLE `transactions` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `cart_id` int(11) DEFAULT NULL,
-  `date` datetime DEFAULT current_timestamp(),
+  `date` datetime DEFAULT CURRENT_TIMESTAMP,
   `totalAmount` int(11) DEFAULT NULL,
   `paymentMethod` tinyint(4) DEFAULT NULL,
   `shippingMethod` tinyint(4) DEFAULT NULL,
-  `createdAt` timestamp NULL DEFAULT current_timestamp(),
-  `updatedAt` timestamp NULL DEFAULT current_timestamp(),
-  `deletedAt` timestamp NULL DEFAULT current_timestamp(),
+  `createdAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `deletedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   KEY `cart_id_foreign_idx` (`cart_id`),
   CONSTRAINT `cart_id_foreign` FOREIGN KEY (`cart_id`) REFERENCES `cart` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -266,11 +269,11 @@ CREATE TABLE `users` (
   `name` varchar(45) DEFAULT NULL,
   `lastName` varchar(45) DEFAULT NULL,
   `email` varchar(50) NOT NULL,
-  `password` text DEFAULT NULL,
-  `photo` text DEFAULT NULL,
-  `createdAt` timestamp NULL DEFAULT current_timestamp(),
-  `updatedAt` timestamp NULL DEFAULT current_timestamp(),
-  `deletedAt` timestamp NULL DEFAULT current_timestamp(),
+  `password` text,
+  `photo` text,
+  `createdAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updatedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `deletedAt` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
@@ -295,4 +298,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-08-10 17:46:34
+-- Dump completed on 2020-08-11 16:30:58
