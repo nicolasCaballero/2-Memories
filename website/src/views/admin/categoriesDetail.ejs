@@ -29,7 +29,11 @@
                             <ul class="list-group">
                                 <li class="list-group-item"><strong>Id: </strong><%= category.id%></li>
                                 <li class="list-group-item"><strong>Nombre: </strong><%= category.name%></li>
-                                <li class="list-group-item"><strong>Visibilidad: </strong><%= category.visibility%></li>
+                                <li class="list-group-item"><strong>Visibilidad: </strong><% if (category.visibility == 0) { %>
+                                    <%= 'Enabled' %>
+                                    <% } else {%>
+                                    <%= 'Disabled' %>
+                                    <%}%></li>
                                 <li class="list-group-item "><strong>Imagen: </strong><img width="50%" class="img-thumbnail" src="/img/categorias/<%= category.image%>" alt=""></li>
                             </ul>
                         </div>

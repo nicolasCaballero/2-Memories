@@ -8,6 +8,7 @@ const {
 } = require('express-validator');
 
 const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/products.json')));
+const db = require('../db/models');
 
 let adminController = {
     'denied': (req, res) => {
@@ -37,18 +38,20 @@ let adminController = {
 
     },
     'categoriesList': (req, res) => {
-        let categories = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categories.json')));
-        res.render(path.resolve(__dirname, '../views/admin/categoriesList.ejs'), {
-            categories
-        });
+        db.categories.findAll()
+            .then((categories) => {
+                res.render(path.resolve(__dirname, '../views/admin/categoriesList.ejs'), {
+                    categories
+                });
+            });
     },
     'categoriesShow': (req, res) => {
-        let categories = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categories.json')));
-        let categoryId = req.params.id;
-        let category = categories.find(c => c.id == categoryId);
-        res.render(path.resolve(__dirname, '../views/admin/categoriesDetail.ejs'), {
-            category
-        });
+        db.categories.findByPk(req.params.id)
+            .then((category) => {
+                res.render(path.resolve(__dirname, '../views/admin/categoriesDetail.ejs'), {
+                    category
+                });
+            });
     },
     'categoriesEdit': (req, res) => {
         let categories = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categories.json')));
@@ -109,9 +112,11 @@ let adminController = {
         res.render(path.resolve(__dirname, '../views/admin/experienceCreate.ejs'));
     },
     'memoriesList': (req, res) => {
-        let products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/products.json')));
-        res.render(path.resolve(__dirname, '../views/admin/memoriesList.ejs'), {
-            products
+        db.products.findAll()
+        .then((products) => {
+            res.render(path.resolve(__dirname, '../views/admin/memoriesList.ejs'), {
+                products
+            });
         });
     },
     'login': (req, res) => {
@@ -201,17 +206,25 @@ let adminController = {
         }
     },
     'usersList': (req, res) => {
-        let adminUsers = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/adminUsers.json')));
-        res.render(path.resolve(__dirname, '../views/admin/usersList.ejs'), {
-            adminUsers
+        db.AdminUsers.findAll()
+        .then((adminUsers) => {
+            res.render(path.resolve(__dirname, '../views/admin/usersList.ejs'), {
+                adminUsers
+            });
         });
     },
     'usersShow': (req, res) => {
-        let adminUsers = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/adminUsers.json')));
-        let userId = req.params.id;
-        let user = adminUsers.find(u => u.id == userId);
-        res.render(path.resolve(__dirname, '../views/admin/userDetail.ejs'), {
-            user
+        // let adminUsers = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/adminUsers.json')));
+        // let userId = req.params.id;
+        // let user = adminUsers.find(u => u.id == userId);
+        // res.render(path.resolve(__dirname, '../views/admin/userDetail.ejs'), {
+        //     user
+        // });
+        db.AdminUsers.findByPk(req.params.id)
+        .then((user) => {
+            res.render(path.resolve(__dirname, '../views/admin/userDetail.ejs'), {
+                user
+            });
         });
     },
     'usersDelete': (req, res) => {
@@ -249,11 +262,11 @@ let adminController = {
         res.redirect('/admin/listado-users');
     },
     'memoriesShow': (req, res) => {
-        let products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/products.json')));
-        let productId = req.params.sku;
-        let product = products.find(p => p.sku == productId);
-        res.render(path.resolve(__dirname, '../views/admin/memoriesDetail.ejs'), {
-            product
+        db.products.findByPk(req.params.sku)
+        .then((product) => {
+            res.render(path.resolve(__dirname, '../views/admin/memoriesDetail.ejs'), {
+                product
+            });
         });
     },
     'memoriesDelete': (req, res) => {

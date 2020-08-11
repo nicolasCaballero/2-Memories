@@ -48,7 +48,11 @@
                     <td><%= user.name%> </td>
                     <td><%= user.username%> </td>
                     <td><%= user.email%> </td>
-                    <td><%= user.role%> </td>
+                    <td><% if (user.role == 1) { %>
+                        <%= 'Full Administrator' %>
+                        <% } else {%>
+                        <%= 'Basic Administrator' %>
+                        <%}%></td>
                     <td><a id="btn-view" class=" text-decoration-none" href="/admin/listado-users/view/<%= user.id%>"><i
                                 class="fas fa-eye text-decoration-none"></i></a></td>
                     <td><a id="btn-edit" class=" text-decoration-none" href="/admin/listado-users/edit/<%= user.id%>"><i

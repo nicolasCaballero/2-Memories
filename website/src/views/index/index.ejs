@@ -67,7 +67,7 @@
 
                     <div class="row" id="rowCategoriasHome">
                         <% for( let i = 0; i < categories.length; i++ ) { %>
-                        <% if (categories[i].visibility == "enabled") { %>
+                        <% if (categories[i].visibility == 0) { %>
                         <div class="col-xl-2 col-lg-2 col-md-4 col-sm-12" id="categoriaIndividualHome"><a
                                 href="/<%= categories[i].name %> "><img class="d-block w-100 imagenCategoriaHome"
                                     src="/img/categorias/<%= categories[i].image %>"

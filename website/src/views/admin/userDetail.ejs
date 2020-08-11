@@ -33,10 +33,10 @@
                                 <li class="list-group-item"><strong>Username: </strong><%= user.username%></li>
                                 <li class="list-group-item"><strong>Email: </strong><%= user.email%></li>
                                 <% if (user.role == 1) { %>
-                                    <li class="list-group-item"><strong>Rol: </strong><%= user.role + ' -Full Admin'%></li>
+                                    <li class="list-group-item"><strong>Rol: </strong><%= user.role + ' -Full Administrator'%></li>
                                 <% } %>
                                 <% if (user.role == 2) { %>
-                                    <li class="list-group-item"><strong>Rol: </strong><%= user.role + ' -Basic User'%></li>
+                                    <li class="list-group-item"><strong>Rol: </strong><%= user.role + ' -Basic Administrator'%></li>
                                 <% } %>
                             </ul>
                         </div>

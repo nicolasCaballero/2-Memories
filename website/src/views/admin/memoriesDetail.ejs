@@ -31,10 +31,14 @@
                                 <li class="list-group-item"><strong>Nombre: </strong><%= product.name%></li>
                                 <li class="list-group-item"><strong>Descripción: </strong><%= product.description%></li>
                                 <li class="list-group-item"><strong>Precio: </strong>$<%= product.price%></li>
-                                <li class="list-group-item"><strong>Precio Especial: </strong>$<%= product.special_price%></li>
-                                <li class="list-group-item"><strong>Visibilidad: </strong><%= product.visibility%></li>
-                                <li class="list-group-item"><strong>Categoría: </strong><%= product.categories%></li>
-                                <li class="list-group-item"><strong>Experiencias Asociadas: </strong><%= product.associated%></li>
+                                <li class="list-group-item"><strong>Precio Especial: </strong>$<%= product.specialPrice%></li>
+                                <li class="list-group-item"><strong>Visibilidad: </strong><% if (product.visibility == 0) { %>
+                                    <%= 'Enabled' %>
+                                    <% } else {%>
+                                    <%= 'Disabled' %>
+                                    <%}%></li>
+                                <li class="list-group-item"><strong>Categoría: </strong><%= product.categoryId%></li>
+                                <li class="list-group-item"><strong>Experiencias Asociadas: </strong><%= product.experienceId%></li>
                                 <li class="list-group-item"><strong>Stock: </strong><%= product.qty%></li>
                                 <li class="list-group-item "><strong>Imagen: </strong><img width="50%" class="img-thumbnail" src="/img/packs/<%= product.image%>" alt=""></li>
                             </ul>
