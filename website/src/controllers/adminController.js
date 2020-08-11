@@ -214,12 +214,6 @@ let adminController = {
         });
     },
     'usersShow': (req, res) => {
-        // let adminUsers = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/adminUsers.json')));
-        // let userId = req.params.id;
-        // let user = adminUsers.find(u => u.id == userId);
-        // res.render(path.resolve(__dirname, '../views/admin/userDetail.ejs'), {
-        //     user
-        // });
         db.AdminUsers.findByPk(req.params.id)
         .then((user) => {
             res.render(path.resolve(__dirname, '../views/admin/userDetail.ejs'), {
