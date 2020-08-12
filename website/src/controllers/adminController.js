@@ -23,9 +23,9 @@ let adminController = {
     'categoriesSave': (req, res) => {
         let categories = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categories.json')));
         let allCategories = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categories.json')));
-        let lastCategorieId = allCategories.pop();
+        let lastCategoryId = allCategories.pop();
         let newCategory = {
-            id: lastCategorieId.id + 1,
+            id: lastCategoryId.id + 1,
             name: req.body.name,
             image: req.file ? req.file.filename : "",
             visibility: req.body.visibility
