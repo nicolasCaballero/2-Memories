@@ -21,21 +21,12 @@ let adminController = {
         res.render(path.resolve(__dirname, '../views/admin/categoriesCreate.ejs'));
     },
     'categoriesSave': (req, res) => {
-        let categories = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categories.json')));
-        let allCategories = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categories.json')));
-        let lastCategoryId = allCategories.pop();
-        let newCategory = {
-            id: lastCategoryId.id + 1,
+        db.categories.create({
             name: req.body.name,
             image: req.file ? req.file.filename : "",
             visibility: req.body.visibility
-        }
-
-        categories.push(newCategory);
-        categoriesJSON = JSON.stringify(categories, null, 2);
-        fs.writeFileSync(path.resolve(__dirname, '../models/categories.json'), categoriesJSON);
-        res.redirect('/admin');
-
+        });
+        res.redirect('/admin/categories-list');
     },
     'categoriesList': (req, res) => {
         db.categories.findAll()
@@ -77,35 +68,27 @@ let adminController = {
         res.redirect('/admin/categories-list');
     },
     'categoriesDelete': (req, res) => {
-        let categories = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categories.json')));
-        let categoryId = req.params.id;
-        let category = categories.filter(c => c.id != categoryId);
-        categoriesJSON = JSON.stringify(category, null, 2);
-        fs.writeFileSync(path.resolve(__dirname, '../models/categories.json'), categoriesJSON);
+        db.categories.destroy({
+            where: {
+                id: req.params.id
+            }
+        });
         res.redirect('/admin/categories-list');
     },
     'memoriesCreate': (req, res) => {
         res.render(path.resolve(__dirname, '../views/admin/memoriesCreate.ejs'));
     },
     'memoriesSave': (req, res) => {
-        let products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/products.json')));
-        let allProducts = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/products.json')));
-        let lastProductId = allProducts.pop();
-        let newProduct = {
-            sku: lastProductId.sku + 1,
+        db.products.create({
             name: req.body.name,
             description: req.body.description,
             image: req.file ? req.file.filename : "",
-            visibility: req.body.visibility,
-            categories: req.body.categories,
+            visibility: parseInt(req.body.visibility),
             price: parseInt(req.body.price),
             special_price: parseInt(req.body.special_price),
-            qty: parseInt(req.body.qty)
-        }
-
-        products.push(newProduct);
-        productsJSON = JSON.stringify(products, null, 2);
-        fs.writeFileSync(path.resolve(__dirname, '../models/products.json'), productsJSON);
+            qty: parseInt(req.body.qty),
+            categoryId: parseInt(req.body.categories)
+        });
         res.redirect('/admin/listado-memories');
     },
     'experienceCreate': (req, res) => {
@@ -113,11 +96,11 @@ let adminController = {
     },
     'memoriesList': (req, res) => {
         db.products.findAll()
-        .then((products) => {
-            res.render(path.resolve(__dirname, '../views/admin/memoriesList.ejs'), {
-                products
+            .then((products) => {
+                res.render(path.resolve(__dirname, '../views/admin/memoriesList.ejs'), {
+                    products
+                });
             });
-        });
     },
     'login': (req, res) => {
         res.render(path.resolve(__dirname, '../views/admin/login.ejs'));
@@ -207,19 +190,19 @@ let adminController = {
     },
     'usersList': (req, res) => {
         db.AdminUsers.findAll()
-        .then((adminUsers) => {
-            res.render(path.resolve(__dirname, '../views/admin/usersList.ejs'), {
-                adminUsers
+            .then((adminUsers) => {
+                res.render(path.resolve(__dirname, '../views/admin/usersList.ejs'), {
+                    adminUsers
+                });
             });
-        });
     },
     'usersShow': (req, res) => {
         db.AdminUsers.findByPk(req.params.id)
-        .then((user) => {
-            res.render(path.resolve(__dirname, '../views/admin/userDetail.ejs'), {
-                user
+            .then((user) => {
+                res.render(path.resolve(__dirname, '../views/admin/userDetail.ejs'), {
+                    user
+                });
             });
-        });
     },
     'usersDelete': (req, res) => {
         let users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/adminUsers.json')));
@@ -257,11 +240,11 @@ let adminController = {
     },
     'memoriesShow': (req, res) => {
         db.products.findByPk(req.params.sku)
-        .then((product) => {
-            res.render(path.resolve(__dirname, '../views/admin/memoriesDetail.ejs'), {
-                product
+            .then((product) => {
+                res.render(path.resolve(__dirname, '../views/admin/memoriesDetail.ejs'), {
+                    product
+                });
             });
-        });
     },
     'memoriesDelete': (req, res) => {
         let products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/products.json')));
