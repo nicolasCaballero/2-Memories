@@ -6,6 +6,8 @@ const {
     validationResult,
     body
 } = require('express-validator');
+const db = require('../db/models');
+
 
 let userController = {
     'login': (req, res) => {
@@ -14,30 +16,32 @@ let userController = {
     'processLogin': (req, res, next) => {
         let errors = validationResult(req);
         if (errors.isEmpty()) {
-            let users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/users.json')));
-            for (let i = 0; i < users.length; i++) {
-                if (users[i].email == req.body.email) {
-                    if (bcrypt.compareSync(req.body.password, users[i].password)) {
-                        var userToLogIn = users[i];
-                        break;
+            db.AdminUsers.findAll()
+                .then((users) => {
+                    for (let i = 0; i < users.length; i++) {
+                        if (users[i].email == req.body.email) {
+                            if (bcrypt.compareSync(req.body.password, users[i].password)) {
+                                var userToLogIn = users[i];
+                                break;
+                            };
+                        };
                     };
-                };
-            };
-            if (userToLogIn == undefined) {
-                return res.render(path.resolve(__dirname, '../views/users/login.ejs'), {
-                    Title: 'Login',
-                    usuarioMail: req.body.email,
-                    password: req.body.password,
-                    old: req.body,
-                    errors: errors.mapped()
-                });
-            };
-            req.session.loggedInUser = userToLogIn;
-            if (req.body.remember != undefined) {
-                res.cookie('rememberme', userToLogIn.email, {
-                    maxAge: 1000 * 60 * 60 * 24
-                });
-            };
+                    if (userToLogIn == undefined) {
+                        return res.render(path.resolve(__dirname, '../views/users/login.ejs'), {
+                            Title: 'Login',
+                            usuarioMail: req.body.email,
+                            password: req.body.password,
+                            old: req.body,
+                            errors: errors.mapped()
+                        });
+                    };
+                    req.session.loggedInUser = userToLogIn;
+                    if (req.body.remember != undefined) {
+                        res.cookie('rememberme', userToLogIn.email, {
+                            maxAge: 1000 * 60 * 60 * 24
+                        });
+                    };
+                })
             res.redirect('/');
         } else {
 
@@ -52,7 +56,9 @@ let userController = {
     },
     'logout': (req, res) => {
         req.session.destroy();
-        res.cookie('rememberme',null,{maxAge: -1});
+        res.cookie('rememberme', null, {
+            maxAge: -1
+        });
         res.redirect('/');
     },
     'register': (req, res) => {
