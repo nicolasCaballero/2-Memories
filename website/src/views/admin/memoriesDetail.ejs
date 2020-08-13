@@ -38,12 +38,7 @@
                                     <%= 'Disabled' %>
                                     <%}%></li>
                                 <li class="list-group-item"><strong>Categoría: </strong>
-                                    <% if (product.categoryId == 1) { %> <%= 'Aventura' %>  <% } %>
-                                    <% if (product.categoryId == 2) { %> <%= 'Bienestar' %>  <% } %>
-                                    <% if (product.categoryId == 3) { %> <%= 'Cursos' %>  <% } %>
-                                    <% if (product.categoryId == 4) { %> <%= 'Entretenimiento' %>  <% } %>
-                                    <% if (product.categoryId == 5) { %> <%= 'Escapadas' %>  <% } %>
-                                    <% if (product.categoryId == 6) { %> <%= 'Gastronomía' %>  <% } %>
+                                    <%= product.productCategory.name %> 
                                 </li>
                                 <li class="list-group-item"><strong>Experiencias Asociadas: </strong><%= product.experienceId%></li>
                                 <li class="list-group-item"><strong>Stock: </strong><%= product.qty%></li>

@@ -106,11 +106,11 @@ let adminController = {
             });
     },
     'memoriesShow': (req, res) => {
-        db.products.findByPk(req.params.sku)
+        db.products.findByPk(req.params.sku, {
+            include: [{association: 'productCategory'}]
+        })
             .then((product) => {
-                res.render(path.resolve(__dirname, '../views/admin/memoriesDetail.ejs'), {
-                    product
-                });
+                res.render(path.resolve(__dirname, '../views/admin/memoriesDetail.ejs'), {product});
             });
         db.categories.findAll()
             .then((category) => {
