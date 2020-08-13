@@ -5,9 +5,8 @@ const fs = require('fs');
 const multer = require('multer');
 const bcrypt = require('bcrypt');
 const userController = require('../../controllers/userController');
-// const users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../models/users.json')));
 const loggedInMiddleware = require('../../middlewares/loggedInMiddleware');
-const db = require('../../db/models')
+const db = require('../../db/models');
 
 
 const {
@@ -30,29 +29,32 @@ const upload = multer({
 });
 
 router.get('/login', userController.login);
-router.post('/login', [
-    body('email').custom((value) => {
-        for (let i = 0; i < users.length; i++) {
-            if (users[i].email == value) {
-                return true
-            }
-        }
-        return false
-    }).withMessage('Usuario inexistente'),
-    body('password').custom((value, {
-        req
-    }) => {
-        for (let i = 0; i < users.length; i++) {
-            if (users[i].email == req.body.email) {
-                if (bcrypt.compareSync(value, users[i].password)) {
-                    return true;
-                } else {
-                    return false;
+db.users.findAll()
+    .then((users) => {
+        router.post('/login', [
+            body('email').custom((value) => {
+                for (let i = 0; i < users.length; i++) {
+                    if (users[i].email == value) {
+                        return true
+                    }
                 }
-            };
-        };
-    }).withMessage('Contraseña incorrecta'),
-], userController.processLogin);
+                return false
+            }).withMessage('Usuario inexistente'),
+            body('password').custom((value, {
+                req
+            }) => {
+                for (let i = 0; i < users.length; i++) {
+                    if (users[i].email == req.body.email) {
+                        if (bcrypt.compareSync(value, users[i].password)) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    };
+                };
+            }).withMessage('Contraseña incorrecta'),
+        ], userController.processLogin);
+    })
 router.get('/registro', loggedInMiddleware, userController.register);
 db.users.findAll()
     .then((users) => {

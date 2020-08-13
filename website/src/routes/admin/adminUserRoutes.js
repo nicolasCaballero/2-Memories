@@ -8,6 +8,7 @@ const adminController = require('../../controllers/adminController');
 const adminRoleMiddleware = require('../../middlewares/adminMiddlewares/adminRoleMiddleware');
 const adminLoggedInMiddleware = require('../../middlewares/adminMiddlewares/adminLoggedInMiddleware');
 const users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../models/adminUsers.json')));
+const db = require('../../db/models');
 const {
     check,
     validationResult,
@@ -27,29 +28,32 @@ const upload = multer({
 });
 
 router.get('/admin/login', adminLoggedInMiddleware, adminController.login);
-router.post('/admin/login', [
-    body('email').custom((value) => {
-        for (let i = 0; i < users.length; i++) {
-            if (users[i].email == value) {
-                return true
-            }
-        }
-        return false
-    }).withMessage('Usuario inexistente'),
-    body('password').custom((value, {
-        req
-    }) => {
-        for (let i = 0; i < users.length; i++) {
-            if (users[i].email == req.body.email) {
-                if (bcrypt.compareSync(value, users[i].password)) {
-                    return true;
-                } else {
-                    return false;
+db.users.findAll()
+    .then((users) => {
+        router.post('/admin/login', [
+            body('email').custom((value) => {
+                for (let i = 0; i < users.length; i++) {
+                    if (users[i].email == value) {
+                        return true
+                    }
                 }
-            };
-        };
-    }).withMessage('Contraseña incorrecta'),
-], adminController.processLogin);
+                return false
+            }).withMessage('Usuario inexistente'),
+            body('password').custom((value, {
+                req
+            }) => {
+                for (let i = 0; i < users.length; i++) {
+                    if (users[i].email == req.body.email) {
+                        if (bcrypt.compareSync(value, users[i].password)) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    };
+                };
+            }).withMessage('Contraseña incorrecta'),
+        ], adminController.processLogin);
+    })
 router.get('/admin/registro', adminController.register);
 router.post('/admin/registro', upload.single('photo'), [
     check('name').isAlpha().withMessage('El campo name solo debe contener letras de la A-Z'),
