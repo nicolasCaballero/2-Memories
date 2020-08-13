@@ -42,8 +42,8 @@
                                 <div class="form-group">
                                     <label for="visibility">Visibilidad</label>
                                     <select id="visibility" class="form-control rounded-pill" name="visibility">
-                                        <option <% if (category.visibility == "enabled") {%> selected <% } %>>enabled</option>
-                                        <option <% if (category.visibility == "disabled") {%> selected <% } %>>disabled</option>  
+                                        <option <% if (category.visibility == 0) {%> selected <% } %>>Enabled</option>
+                                        <option <% if (category.visibility == 1) {%> selected <% } %>>Disabled</option>  
                                     </select>
                                 </div>
                                 <div class="mx-auto bg-light mt-2 shadow-sm">

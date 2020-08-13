@@ -90,7 +90,7 @@ let adminController = {
             image: req.file ? req.file.filename : "",
             visibility: parseInt(req.body.visibility),
             price: parseInt(req.body.price),
-            special_price: parseInt(req.body.special_price),
+            specialPrice: parseInt(req.body.specialPrice),
             qty: parseInt(req.body.qty),
             categoryId: parseInt(req.body.categoryId)
         });
@@ -122,47 +122,39 @@ let adminController = {
                     product
                 });
             });
-        db.categories.findAll()
-            .then((category) => {
-                res.render(path.resolve(__dirname, '../views/admin/memoriesDetail.ejs'), {
-                    category
-                });
-            });
     },
     'memoriesDelete': (req, res) => {
-        let products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/products.json')));
-        let productId = req.params.sku;
-        let product = products.filter(p => p.sku != productId);
-        productsJSON = JSON.stringify(product, null, 2);
-        fs.writeFileSync(path.resolve(__dirname, '../models/products.json'), productsJSON);
+        db.products.destroy({
+            where: {
+                sku: req.params.sku
+            }
+        })
         res.redirect('/admin/listado-memories');
     },
     'memoriesEdit': (req, res) => {
-        db.products.findByPk(req.params.sku)
-            .then((product) => {
-                res.render(path.resolve(__dirname, '../views/admin/memoriesEdit.ejs'), {
-                    product
-                });
-            })
+        let productRequest = db.products.findByPk(req.params.sku);
+        let categoryRequest = db.categories.findAll();
+
+        Promise.all([productRequest, categoryRequest])
+            .then(([product, categories]) => {
+                res.render(path.resolve(__dirname, '../views/admin/memoriesEdit.ejs'), {product, categories});
+            });
     },
     'memoriesSaveEdit': (req, res) => {
-        let products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/products.json')));
-        req.body.sku = req.params.sku;
-        let productUpdate = products.map(p => {
-            if (p.sku == req.body.sku) {
-                p.name = req.body.name,
-                    p.description = req.body.description,
-                    p.image = p.image,
-                    p.visibility = req.body.visibility,
-                    p.categories = req.body.categories,
-                    p.price = parseInt(req.body.price),
-                    p.special_price = parseInt(req.body.special_price),
-                    p.qty = parseInt(req.body.qty)
+        db.products.update({
+            name: req.body.name,
+            description: req.body.description,
+            image: req.file ? req.file.filename : req.body.oldImage,
+            visibility: parseInt(req.body.visibility),
+            price: parseInt(req.body.price),
+            specialPrice: parseInt(req.body.specialPrice),
+            qty: parseInt(req.body.qty),
+            categoryId: parseInt(req.body.categoryId)
+        }, {
+            where: {
+                sku:req.params.sku
             }
-            return p;
         });
-        productJSON = JSON.stringify(productUpdate, null, 2);
-        fs.writeFileSync(path.resolve(__dirname, '../models/products.json'), productJSON);
         res.redirect('/admin/listado-memories');
     },
     'login': (req, res) => {

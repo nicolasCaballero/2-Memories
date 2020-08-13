@@ -41,14 +41,15 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="image">Imagen</label><br>
-                                    <img width="50%" class="img-thumbnail" src="/img/packs/<%= product.image%>" value ='<%= product.image%>' alt="">
+                                    <img width="50%" class="img-thumbnail" src="/img/packs/<%= product.image%>" alt="">
+                                    <input type="hiden" class="form-control-file rounded" id="imagen-producto" value ="<%= product.image%>" name="oldImage">
                                     <input type="file" class="form-control-file rounded" id="imagen-producto" name="image">
                                 </div>
                                 <div class="form-group">
                                     <label for="visibility">Visibilidad</label>
                                     <select id="visibility" class="form-control rounded-pill" name="visibility">
-                                        <option <% if (product.visibility == "true") {%> selected <% } %>>true</option>
-                                        <option <% if (product.visibility == "false") {%> selected <% } %>>false</option>  
+                                        <option value="<%= product.visibility %> "<% if (product.visibility == 0) {%> selected <% } %>>Enabled</option>
+                                        <option value="<%= product.visibility %> "<% if (product.visibility == 1) {%> selected <% } %>>Disabled</option>  
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -58,8 +59,8 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="special_price">Precio Especial $</label>
-                                    <input type="number" class="form-control rounded-pill" name="special_price"
-                                    value ='<%= product.special_price%>' required="required">
+                                    <input type="number" class="form-control rounded-pill" name="specialPrice"
+                                    value ='<%= product.specialPrice%>' required="required">
                                 </div>
                                 <div class="form-group">
                                     <label for="qty">Stock</label>
@@ -68,13 +69,18 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="categories">Categoría</label>
-                                    <select id="categories" class="form-control rounded-pill" name="categories">
-                                        <option <% if (product.categories == "aventura") {%> selected <% } %>>aventura</option>
-                                        <option <% if (product.categories == "bienestar") {%> selected <% } %>>bienestar</option> 
-                                        <option <% if (product.categories == "cursos") {%> selected <% } %>>cursos</option> 
-                                        <option <% if (product.categories == "entretenimiento") {%> selected <% } %>>entretenimiento</option> 
-                                        <option <% if (product.categories == "escapadas") {%> selected <% } %>>escapadas</option> 
-                                        <option <% if (product.categories == "gastronomia") {%> selected <% } %>>gastronomia</option> 
+                                    <select id="categories" class="form-control rounded-pill" name="categoryId">
+                                        <% for( let i = 0; i < categories.length; i++ ) { %>
+                                            <% if (categories[i].id == product.categoryId) { %>
+                                                <option value="<%= categories[i].id %>" selected>
+                                                    <%= categories[i].name %> 
+                                                </option>
+                                            <% } else {%>
+                                                <option value="<%= categories[i].id %>">
+                                                    <%= categories[i].name %> 
+                                                </option>
+                                            <% } %>
+                                        <% } %>
                                     </select>
                                 </div>
                                 <div class="mx-auto bg-light mt-2 shadow-sm">
