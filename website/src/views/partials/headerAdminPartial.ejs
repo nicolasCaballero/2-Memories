@@ -44,7 +44,7 @@
                         <a class="dropdown-item" href="/admin/categories-list">Listar categorías<i class="fas fa-list-alt ml-2"></i></a>
                     </div>
                 </li>
-                <% if (loggedInAdminUser && loggedInAdminUser.role == 1) { %>
+                <% if (loggedInAdminUser.role == 1) { %>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle active" href="#" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
