@@ -76,7 +76,10 @@ let adminController = {
         res.redirect('/admin/categories-list');
     },
     'memoriesCreate': (req, res) => {
-        res.render(path.resolve(__dirname, '../views/admin/memoriesCreate.ejs'));
+        db.categories.findAll()
+            .then((categories) => {
+                return res.render(path.resolve(__dirname, '../views/admin/memoriesCreate.ejs'), {categories});
+            })
     },
     'memoriesSave': (req, res) => {
         db.products.create({

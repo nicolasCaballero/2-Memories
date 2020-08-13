@@ -10,10 +10,6 @@
 <body>
     <%- include('../partials/headerAdminPartial.ejs') %>
     <div class="container-fluid">
-
-
-        <!-- Cuerpo principal -->
-
         <section class="row">
             <article class="col-12 card pt-5 border-0">
                 <div class="card-body">
@@ -69,12 +65,9 @@
                                 <div class="form-group">
                                     <label for="categories">Categoría</label>
                                     <select id="categories" class="form-control rounded-pill" name="categoryId">
-                                        <option value="1">Aventura</option>
-                                        <option value="2">Bienestar</option>
-                                        <option value="3">Cursos</option>
-                                        <option value="4">Entretenimiento</option>
-                                        <option value="5">Escapadas</option>
-                                        <option value="6">Gastronomía</option>
+                                        <% for( let i = 0; i < categories.length; i ++ ) { %>
+                                            <option value="<%= categories[i].id %> "><%= categories[i].name %> </option>
+                                        <% } %>
                                     </select>
                                 </div>
                                 <div class="mx-auto bg-light shadow-sm">
