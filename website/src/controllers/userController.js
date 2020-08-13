@@ -88,20 +88,17 @@ let userController = {
             })
     },
     'saveEdit': (req, res) => {
-        let users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/users.json')));
-        req.body.id = req.params.id;
-        let userUpdate = users.map(u => {
-            if (u.id == req.body.id) {
-                u.name = req.body.name,
-                    u.lastName = req.body.lastName,
-                    u.email = req.body.email,
-                    u.password = req.body.password,
-                    u.image = req.file ? req.file.filename : u.image
+        db.users.update({
+            name: req.body.name,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            password: req.body.password,
+            photo: req.file ? req.file.filename : req.body.oldImage,
+        }, {
+            where: {
+                id: req.params.id
             }
-            return u;
         });
-        usersJSON = JSON.stringify(userUpdate, null, 2);
-        fs.writeFileSync(path.resolve(__dirname, '../models/users.json'), usersJSON);
         res.redirect('/mi-cuenta/ver/' + req.params.id);
     }
 };
