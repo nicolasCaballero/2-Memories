@@ -37,7 +37,14 @@
                                     <% } else {%>
                                     <%= 'Disabled' %>
                                     <%}%></li>
-                                <li class="list-group-item"><strong>Categoría: </strong><%= product.categoryId%></li>
+                                <li class="list-group-item"><strong>Categoría: </strong>
+                                    <% if (product.categoryId == 1) { %> <%= 'Aventura' %>  <% } %>
+                                    <% if (product.categoryId == 2) { %> <%= 'Bienestar' %>  <% } %>
+                                    <% if (product.categoryId == 3) { %> <%= 'Cursos' %>  <% } %>
+                                    <% if (product.categoryId == 4) { %> <%= 'Entretenimiento' %>  <% } %>
+                                    <% if (product.categoryId == 5) { %> <%= 'Escapadas' %>  <% } %>
+                                    <% if (product.categoryId == 6) { %> <%= 'Gastronomía' %>  <% } %>
+                                </li>
                                 <li class="list-group-item"><strong>Experiencias Asociadas: </strong><%= product.experienceId%></li>
                                 <li class="list-group-item"><strong>Stock: </strong><%= product.qty%></li>
                                 <li class="list-group-item "><strong>Imagen: </strong><img width="50%" class="img-thumbnail" src="/img/packs/<%= product.image%>" alt=""></li>
