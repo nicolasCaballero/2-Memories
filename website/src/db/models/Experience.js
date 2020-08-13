@@ -20,12 +20,16 @@ module.exports = (sequelize, dataTypes) => {
         },
         website: {
             type: dataTypes.STRING
-        },
-        productSku: {
-            type: dataTypes.INTEGER
         }
     }, {
         tableName: 'experiences'
     });
+
+    Experience.associate = (models) => {
+        Experience.belongsTo(models.products, {
+            as: 'experienceProducts',
+            foreignKey: 'productSku'
+        });
+    };
     return Experience
 };

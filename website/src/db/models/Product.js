@@ -26,12 +26,22 @@ module.exports = (sequelize, dataTypes) => {
         },
         qty: {
             type: dataTypes.INTEGER
-        },
-        categoryId: {
-            type: dataTypes.INTEGER
         }
     }, {
         tableName: 'products'
     });
+
+    Product.associate = (models) => {
+        Product.belongsTo(models.categories, {
+            as: 'productCategory',
+            foreignKey: 'categoryId'
+        });
+    };
+    Product.associate = (models) => {
+        Product.hasMany(models.experiences, {
+            as: 'productExperiences',
+            foreignKey: 'productSku'
+        });
+    };
     return Product
 };
