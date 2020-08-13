@@ -53,18 +53,15 @@ let adminController = {
             })
     },
     'categoriesSaveEdit': (req, res) => {
-        let categories = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categories.json')));
-        req.body.id = req.params.id;
-        let categoriesUpdate = categories.map(c => {
-            if (c.id == req.body.id) {
-                c.category = req.body.category,
-                    c.image = c.image,
-                    c.visibility = req.body.visibility
+        db.categories.update({
+            name: req.body.name,
+            image: req.file ? req.file.filename : req.body.oldImage,
+            visibility: parseInt(req.body.visibility),
+        }, {
+            where: {
+                id:req.params.id
             }
-            return c;
         });
-        categorieJSON = JSON.stringify(categoriesUpdate, null, 2);
-        fs.writeFileSync(path.resolve(__dirname, '../models/categories.json'), categorieJSON);
         res.redirect('/admin/categories-list');
     },
     'categoriesDelete': (req, res) => {
