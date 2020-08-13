@@ -45,12 +45,10 @@ let adminController = {
             });
     },
     'categoriesEdit': (req, res) => {
-        let categories = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categories.json')));
-        let categoryID = req.params.id;
-        let category = categories.find(c => c.id == categoryID);
-        res.render(path.resolve(__dirname, '../views/admin/categoriesEdit.ejs'), {
-            category
-        });
+        db.categories.findByPk(req.params.id)
+            .then((category) => {
+                res.render(path.resolve(__dirname, '../views/admin/categoriesEdit.ejs'), {category});
+            })
     },
     'categoriesSaveEdit': (req, res) => {
         let categories = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/categories.json')));
@@ -201,9 +199,7 @@ let adminController = {
     },
     'logout': (req, res) => {
         req.session.destroy();
-        res.cookie('remembermeAdmin', null, {
-            maxAge: -1
-        });
+        res.cookie('remembermeAdmin', null, { maxAge: -1 });
         res.redirect('/admin');
     },
     'register': (req, res) => {
@@ -214,28 +210,14 @@ let adminController = {
         let lastUserId = completeUsers.pop();
         let errors = validationResult(req);
         if (errors.isEmpty()) {
-            let user = {
-                id: lastUserId.id + 1,
+            db.AdminUsers.create({
                 name: req.body.name,
                 username: req.body.username,
                 email: req.body.email,
                 password: bcrypt.hashSync(req.body.password, 10),
                 role: parseInt(req.body.role),
                 photo: req.file ? req.file.filename : "",
-            }
-            let archivoUsers = fs.readFileSync(path.resolve(__dirname, '../models/adminUsers.json'), {
-                encoding: 'utf-8'
             });
-            let users = [];
-            if (archivoUsers == "") {
-                users = [];
-            } else {
-                users = JSON.parse(archivoUsers);
-            };
-
-            users.push(user);
-            usersJSON = JSON.stringify(users, null, 2);
-            fs.writeFileSync(path.resolve(__dirname, '../models/adminUsers.json'), usersJSON);
             res.redirect('/admin');
         } else {
             return res.render(path.resolve(__dirname, '../views/admin/register'), {
