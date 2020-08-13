@@ -54,7 +54,9 @@ let userController = {
     },
     'logout': (req, res) => {
         req.session.destroy();
-        res.cookie('rememberme',null,{maxAge: -1});
+        res.cookie('rememberme', null, {
+            maxAge: -1
+        });
         res.redirect('/');
     },
     'register': (req, res) => {
@@ -78,12 +80,12 @@ let userController = {
         }
     },
     'usersShow': (req, res) => {
-        let completeUsers = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/users.json')));
-        let userId = req.params.id;
-        let user = completeUsers.find(u => u.id == userId);
-        res.render(path.resolve(__dirname, '../views/users/miCuenta.ejs'), {
-            user
-        });
+        db.users.findByPk(req.params.id)
+            .then((user) => {
+                res.render(path.resolve(__dirname, '../views/users/miCuenta.ejs'), {
+                    user
+                });
+            })
     },
     'saveEdit': (req, res) => {
         let users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/users.json')));
