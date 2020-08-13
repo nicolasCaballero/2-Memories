@@ -20,6 +20,9 @@ module.exports = (sequelize, dataTypes) => {
         },
         website: {
             type: dataTypes.STRING
+        },
+        productSku: {
+            type: dataTypes.INTEGER
         }
     }, {
         tableName: 'experiences'

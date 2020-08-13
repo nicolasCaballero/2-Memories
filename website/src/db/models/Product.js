@@ -26,6 +26,9 @@ module.exports = (sequelize, dataTypes) => {
         },
         qty: {
             type: dataTypes.INTEGER
+        },
+        categoryId: {
+            type: dataTypes.INTEGER
         }
     }, {
         tableName: 'products'
@@ -36,8 +39,6 @@ module.exports = (sequelize, dataTypes) => {
             as: 'productCategory',
             foreignKey: 'categoryId'
         });
-    };
-    Product.associate = (models) => {
         Product.hasMany(models.experiences, {
             as: 'productExperiences',
             foreignKey: 'productSku'
