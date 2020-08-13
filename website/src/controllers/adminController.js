@@ -7,7 +7,6 @@ const {
     body
 } = require('express-validator');
 
-const products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/products.json')));
 const db = require('../db/models');
 
 let adminController = {
@@ -59,7 +58,7 @@ let adminController = {
             visibility: parseInt(req.body.visibility),
         }, {
             where: {
-                id:req.params.id
+                id: req.params.id
             }
         });
         res.redirect('/admin/categories-list');
@@ -134,7 +133,10 @@ let adminController = {
 
         Promise.all([productRequest, categoryRequest])
             .then(([product, categories]) => {
-                res.render(path.resolve(__dirname, '../views/admin/memoriesEdit.ejs'), {product, categories});
+                res.render(path.resolve(__dirname, '../views/admin/memoriesEdit.ejs'), {
+                    product,
+                    categories
+                });
             });
     },
     'memoriesSaveEdit': (req, res) => {
@@ -149,7 +151,7 @@ let adminController = {
             categoryId: parseInt(req.body.categoryId)
         }, {
             where: {
-                sku:req.params.sku
+                sku: req.params.sku
             }
         });
         res.redirect('/admin/listado-memories');
@@ -241,38 +243,37 @@ let adminController = {
             });
     },
     'usersDelete': (req, res) => {
-        let users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/adminUsers.json')));
-        let userId = req.params.id;
-        let user = users.filter(u => u.id != userId);
-        usersJSON = JSON.stringify(user, null, 2);
-        fs.writeFileSync(path.resolve(__dirname, '../models/adminUsers.json'), usersJSON);
+        db.AdminUsers.destroy({
+            where: {
+                id: req.params.id
+            }
+        })
         res.redirect('/admin/listado-users');
     },
     'userEdit': (req, res) => {
-        let adminUsers = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/adminUsers.json')));
-        let adminId = req.params.id;
-        let user = adminUsers.find(u => u.id == adminId);
-        res.render(path.resolve(__dirname, '../views/admin/userEdit.ejs'), {
-            user
-        });
+        db.AdminUsers.findByPk(req.params.id)
+            .then((user) => {
+                res.render(path.resolve(__dirname, '../views/admin/userEdit.ejs'), {
+                    user
+                });
+            });
     },
     'userSaveEdit': (req, res) => {
-        let adminUsers = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/adminUsers.json')));
-        console.log('prueba: 1', req.body);
-        req.body.id = req.params.id;
-        let userUpdate = adminUsers.map(u => {
-            if (u.id == req.body.id) {
-                u.name = req.body.name,
-                    u.username = req.body.username,
-                    u.email = req.body.email,
-                    u.photo = u.photo,
-                    u.role = parseInt(req.body.role)
+        db.AdminUsers.update({
+            name: req.body.name,
+            username: req.body.username,
+            email: req.body.email,
+            password: bcrypt.hashSync(req.body.password, 10),
+            role: parseInt(req.body.role),
+            photo: req.file ? req.file.filename : req.body.oldImage,
+
+        }, {
+            where: {
+                id: req.params.id
             }
-            return u;
         });
-        adminUsersJSON = JSON.stringify(userUpdate, null, 2);
-        fs.writeFileSync(path.resolve(__dirname, '../models/adminUsers.json'), adminUsersJSON);
         res.redirect('/admin/listado-users');
+
     }
 };
 

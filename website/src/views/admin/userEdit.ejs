@@ -35,8 +35,9 @@
                                 <div class="form-group text-center photo">
                                     <img width="20%" class="rounded-circle" src="/img/adminUsers/<%= user.photo%>"
                                         value='<%= user.photo%>' alt="">
-                                    <input type="file" class="form-control-file rounded" id="imagen-producto"
-                                        name="photo">
+                                    <input type="file" class="form-control-file rounded" id="imagen-producto" name="photo">
+                                    <input type="hiden" class="form-control-file rounded" id="imagen-producto" value ="<%= user.photo%>" name="oldImage">
+
                                 </div>
                                 <div class="form-group">
                                     <label for="name">Nombre</label>
