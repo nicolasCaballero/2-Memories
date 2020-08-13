@@ -47,7 +47,9 @@ let adminController = {
     'categoriesEdit': (req, res) => {
         db.categories.findByPk(req.params.id)
             .then((category) => {
-                res.render(path.resolve(__dirname, '../views/admin/categoriesEdit.ejs'), {category});
+                res.render(path.resolve(__dirname, '../views/admin/categoriesEdit.ejs'), {
+                    category
+                });
             })
     },
     'categoriesSaveEdit': (req, res) => {
@@ -98,7 +100,11 @@ let adminController = {
         res.render(path.resolve(__dirname, '../views/admin/experienceCreate.ejs'));
     },
     'memoriesList': (req, res) => {
-        db.products.findAll()
+        db.products.findAll({
+                include: [{
+                    association: 'productCategory'
+                }]
+            })
             .then((products) => {
                 res.render(path.resolve(__dirname, '../views/admin/memoriesList.ejs'), {
                     products
@@ -107,10 +113,14 @@ let adminController = {
     },
     'memoriesShow': (req, res) => {
         db.products.findByPk(req.params.sku, {
-            include: [{association: 'productCategory'}]
-        })
+                include: [{
+                    association: 'productCategory'
+                }]
+            })
             .then((product) => {
-                res.render(path.resolve(__dirname, '../views/admin/memoriesDetail.ejs'), {product});
+                res.render(path.resolve(__dirname, '../views/admin/memoriesDetail.ejs'), {
+                    product
+                });
             });
         db.categories.findAll()
             .then((category) => {
@@ -199,7 +209,9 @@ let adminController = {
     },
     'logout': (req, res) => {
         req.session.destroy();
-        res.cookie('remembermeAdmin', null, { maxAge: -1 });
+        res.cookie('remembermeAdmin', null, {
+            maxAge: -1
+        });
         res.redirect('/admin');
     },
     'register': (req, res) => {

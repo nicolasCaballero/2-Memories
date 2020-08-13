@@ -47,7 +47,7 @@
                         <tr>
                             <td scope="row"><%= product.sku %> </td>
                             <td><%= product.name%> </td>
-                            <td><%= product.categoryId%> </td>
+                            <td><%= product.productCategory.name%> </td>
                             <td><%= product.price%> </td>
                             <td><%= product.qty%> </td>
                             <td><a id="btn-view" class=" text-decoration-none" href="/admin/listado-memories/view/<%= product.sku%>"><i class="fas fa-eye text-decoration-none"></i></a></td>
