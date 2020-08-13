@@ -6,6 +6,7 @@ const {
     validationResult,
     body
 } = require('express-validator');
+const db = require('../db/models');
 
 
 let userController = {
@@ -60,31 +61,15 @@ let userController = {
         res.render(path.resolve(__dirname, '../views/users/register.ejs'));
     },
     'create': (req, res, next) => {
-        let completeUsers = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/users.json')));
-        let lastUserId = completeUsers.pop();
         let errors = validationResult(req);
         if (errors.isEmpty()) {
-            let user = {
-                id: lastUserId.id + 1,
+            db.users.create({
                 name: req.body.name,
                 lastName: req.body.lastName,
                 email: req.body.email,
                 password: bcrypt.hashSync(req.body.password, 10)
-            }
-            let archivoUsers = fs.readFileSync(path.resolve(__dirname, '../models/users.json'), {
-                encoding: 'utf-8'
             });
-            let users = [];
-            if (archivoUsers == "") {
-                users = [];
-            } else {
-                users = JSON.parse(archivoUsers);
-            };
-
-            users.push(user);
-            usersJSON = JSON.stringify(users, null, 2);
-            fs.writeFileSync(path.resolve(__dirname, '../models/users.json'), usersJSON);
-            res.redirect('/mi-cuenta/ver/' + user.id);
+            res.redirect('/');
         } else {
             return res.render(path.resolve(__dirname, '../views/users/register'), {
                 old: req.body,

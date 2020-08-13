@@ -206,8 +206,6 @@ let adminController = {
         res.render(path.resolve(__dirname, '../views/admin/register.ejs'));
     },
     'userCreate': (req, res, next) => {
-        let completeUsers = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/adminUsers.json')));
-        let lastUserId = completeUsers.pop();
         let errors = validationResult(req);
         if (errors.isEmpty()) {
             db.AdminUsers.create({
