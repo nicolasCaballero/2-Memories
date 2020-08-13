@@ -7,7 +7,6 @@ const bcrypt = require('bcrypt');
 const adminController = require('../../controllers/adminController');
 const adminRoleMiddleware = require('../../middlewares/adminMiddlewares/adminRoleMiddleware');
 const adminLoggedInMiddleware = require('../../middlewares/adminMiddlewares/adminLoggedInMiddleware');
-const users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../models/adminUsers.json')));
 const db = require('../../db/models');
 const {
     check,

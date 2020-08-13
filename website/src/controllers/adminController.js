@@ -219,7 +219,7 @@ let adminController = {
                 role: parseInt(req.body.role),
                 photo: req.file ? req.file.filename : "",
             });
-            res.redirect('/admin');
+            res.redirect('/admin/listado-users');
         } else {
             return res.render(path.resolve(__dirname, '../views/admin/register'), {
                 errors: errors.errors
