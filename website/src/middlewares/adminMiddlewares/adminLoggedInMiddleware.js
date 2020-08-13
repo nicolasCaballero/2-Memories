@@ -1,6 +1,6 @@
-let loggedInMiddleware = (req, res, next) => {
+let adminLoggedInMiddleware = (req, res, next) => {
     if (req.session.loggedInAdminUser) {
-        res.redirect('/');
+        res.redirect('/admin');
     }
     next();
 };

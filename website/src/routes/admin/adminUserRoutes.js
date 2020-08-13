@@ -5,7 +5,8 @@ const fs = require('fs');
 const multer = require('multer');
 const bcrypt = require('bcrypt');
 const adminController = require('../../controllers/adminController');
-const adminRoleMiddleware = require('../../middlewares/adminMiddlewares/adminRoleMiddleware');
+const adminRoleMiddleware = require('../../middlewares/adminMiddlewares/adminLoggedInMiddleware');
+const adminLoggedInMiddleware = require('../../middlewares/adminMiddlewares/adminLoggedInMiddleware');
 const users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../models/adminUsers.json')));
 const {
     check,
@@ -25,7 +26,7 @@ const upload = multer({
     storage
 });
 
-router.get('/admin/login', adminController.login);
+router.get('/admin/login', adminLoggedInMiddleware, adminController.login);
 router.post('/admin/login', [
     body('email').custom((value) => {
         for (let i = 0; i < users.length; i++) {
