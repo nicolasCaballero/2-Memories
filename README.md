@@ -170,3 +170,16 @@ Seguir haciendo:
 * Mantener el compromiso con el proyecto.
 * Comunicación constante y fluída.
 * Reuniones semanales sobre el avance de cada uno y las tareas realizadas y por hacer.
+
+## Retrospectiva Sprint 4
+
+Comenzar a hacer:
+* Establecer fechas de finalización semanales. 
+
+Más de: 
+* Mejorar distribución del tiempo.
+
+Seguir haciendo: 
+* Organización del tiempo. 
+* Mantener el compromiso con el proyecto.
+* Comunicación constante y fluída.
