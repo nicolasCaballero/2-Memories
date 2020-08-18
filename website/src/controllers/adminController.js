@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const {
     check,
     validationResult,
@@ -160,50 +160,36 @@ let adminController = {
         res.render(path.resolve(__dirname, '../views/admin/login.ejs'));
     },
     'processLogin': (req, res) => {
-        let errors = validationResult(req);
-        if (errors.isEmpty()) {
-            let users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/adminUsers.json')));
-            for (let i = 0; i < users.length; i++) {
-                if (users[i].email == req.body.email) {
-                    if (bcrypt.compareSync(req.body.password, users[i].password)) {
-                        var userToLogIn = users[i];
-                        break;
-                    };
-                };
-            };
-            if (userToLogIn == undefined) {
-                return res.render(path.resolve(__dirname, '../views/admin/login.ejs'), {
-                    Title: 'Login',
-                    usuarioMail: req.body.email,
-                    password: req.body.password,
-                    old: req.body,
-                    errors: errors.mapped()
+        db.AdminUsers.findAll()
+            .then((users) => {
+                let errors = validationResult(req);
+                let userToLogIn;
+                userToLogIn = users.filter((user) => {
+                    return user.email == req.body.email && bcrypt.compareSync(req.body.password, user.password)
                 });
-            };
-            req.session.loggedInAdminUser = userToLogIn;
-            if (req.body.remember != undefined) {
-                res.cookie('remembermeAdmin', userToLogIn.email, {
-                    maxAge: 1000 * 60 * 60 * 24
-                });
-            };
-            res.redirect('/admin');
-        } else {
-
-            return res.render(path.resolve(__dirname, '../views/admin/login.ejs'), {
-                Title: 'Login',
-                usuarioMail: req.body.email,
-                password: req.body.password,
-                old: req.body,
-                errors: errors.mapped()
+                if (userToLogIn == "") {
+                    res.render(path.resolve(__dirname, '../views/admin/login.ejs'), {
+                        errors: [{
+                            msg: "Credenciales invalidas"
+                        }]
+                    });
+                } else {
+                    req.session.loggedInAdminUser = userToLogIn[0]
+                }
+                if (req.body.remember) {
+                    res.cookie('remembermeAdmin', userToLogIn[0].email, {
+                        maxAge: 1000 * 60 * 60 * 24
+                    })
+                }
+                return res.redirect('/admin');
             });
-        }
     },
     'logout': (req, res) => {
         req.session.destroy();
         res.cookie('remembermeAdmin', null, {
             maxAge: -1
         });
-        res.redirect('/admin');
+        res.redirect('/admin/login');
     },
     'register': (req, res) => {
         res.render(path.resolve(__dirname, '../views/admin/register.ejs'));
@@ -219,7 +205,7 @@ let adminController = {
                 role: parseInt(req.body.role),
                 photo: req.file ? req.file.filename : "",
             });
-            res.redirect('/admin/listado-users');
+            res.redirect('/admin');
         } else {
             return res.render(path.resolve(__dirname, '../views/admin/register'), {
                 errors: errors.errors
