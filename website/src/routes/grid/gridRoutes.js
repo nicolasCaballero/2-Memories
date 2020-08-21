@@ -8,4 +8,5 @@ router.get('/escapadas', gridController.escapeShow);
 router.get('/entretenimiento', gridController.entertainmentShow);
 router.get('/aventura', gridController.adventureShow);
 router.get('/cursos', gridController.coursesShow);
+
 module.exports = router;

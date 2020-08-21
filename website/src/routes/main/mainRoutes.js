@@ -9,5 +9,5 @@ router.get('/terminos-y-condiciones', mainController.tyc);
 router.get('/metodos-de-pago', mainController.paymenths);
 router.get('/metodos-de-envio', mainController.shipments);
 router.get('/contacto', mainController.contact);
-router.get('/test', mainController.test);
+
 module.exports = router;

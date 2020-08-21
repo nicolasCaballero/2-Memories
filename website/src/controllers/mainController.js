@@ -1,14 +1,15 @@
 const path = require('path');
-const fs = require ('fs');
 const db = require('../db/models');
 
 
 let mainController = {
     'index': (req, res) => {
         db.categories.findAll()
-        .then((categories) => {
-            res.render(path.resolve(__dirname, '../views/index/index.ejs'), {categories});
-        });
+            .then((categories) => {
+                res.render(path.resolve(__dirname, '../views/index/index.ejs'), {
+                    categories
+                });
+            });
     },
     'about': (req, res) => {
         res.render(path.resolve(__dirname, '../views/index/nosotros.ejs'));
@@ -27,9 +28,6 @@ let mainController = {
     },
     'shipments': (req, res) => {
         res.render(path.resolve(__dirname, '../views/index/shipments.ejs'));
-    },
-    'test': (req, res) => {
-        res.render(path.resolve(__dirname, '../views/index/test.ejs'));
     }
 
 };

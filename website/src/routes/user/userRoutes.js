@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const path = require('path');
-const fs = require('fs');
 const multer = require('multer');
 const bcrypt = require('bcrypt');
 const userController = require('../../controllers/userController');
@@ -59,18 +58,6 @@ router.get('/registro', loggedInMiddleware, userController.register);
 db.users.findAll()
     .then((users) => {
         router.post('/registro', [
-            // check('name').isAlpha().withMessage('El campo nombre solo debe contener letras de la A-Z'),
-            // check('name').isLength({
-            //     min: 1
-            // }).withMessage('El campo nombre no puede estár vacío'),
-            // check('lastName').isAlpha().withMessage('El campo apellido solo debe contener letras de la A-Z'),
-            // check('lastName').isLength({
-            //     min: 1
-            // }).withMessage('El campo apellido no puede estár vacío'),
-            // check('email').isEmail().withMessage('Ingrese un email válido'),
-            // check('password').isLength({
-            //     min: 8
-            // }).withMessage('La contraseña debe contener al menos 8 caracteres'),
             body('passwordConfirmation').custom((value, {
                 req
             }) => {
