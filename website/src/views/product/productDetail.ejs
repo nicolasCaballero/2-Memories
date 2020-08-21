@@ -12,8 +12,7 @@
     <div class="container-fluid" id="containerSupremo">
         <div class="row" id="containerProducto">
             <div class="col-lg-6 col-12" id="divImagenCentral">
-                <img src="/img/packs/<%= product.image%>" alt="<%= product.name%>"
-                    id="imagenMemorie" width="80%">
+                <img src="/img/packs/<%= product.image%>" alt="<%= product.name%>" id="imagenMemorie" width="80%">
             </div>
             <div class="col-lg-6 col-12" id="informacion">
                 <ul class="infoEnLista1">
@@ -37,12 +36,14 @@
                     <div class="row text-center" id="metodos">
                         <div class="col-6 col-6">
                             <li>
-                                <h6><a class="text-decoration-none text-dark" href="/metodos-de-pago" target="_blank"><i class="fas fa-credit-card mr-1"></i> FORMAS DE PAGO </a></h6>
+                                <h6><a class="text-decoration-none text-dark" href="/metodos-de-pago" target="_blank"><i
+                                            class="fas fa-credit-card mr-1"></i> FORMAS DE PAGO </a></h6>
                             </li>
                         </div>
                         <div class="col-6">
                             <li>
-                                <h6><a class="text-decoration-none text-dark" href="/metodos-de-envio" target="_blank"><i class="fas fa-truck mr-1"></i>METODOS DE ENVIO </a>
+                                <h6><a class="text-decoration-none text-dark" href="/metodos-de-envio"
+                                        target="_blank"><i class="fas fa-truck mr-1"></i>METODOS DE ENVIO </a>
                                     <h6>
                             </li>
                         </div>
@@ -54,12 +55,13 @@
                     <li><br></li>
 
                     <li><button type="button" class="btn-block btn-lg rounded-pill" id="botonComprar"><a
-                                class="text-decoration-none text-dark" href="/carrito/<%= product.sku %> ">COMPRAR</a></button>
+                                class="text-decoration-none text-dark"
+                                href="/carrito/<%= product.sku %> ">COMPRAR</a></button>
                     </li>
                 </ul>
             </div>
         </div>
-    
+
     </div>
 
     <div class="col-12" id="experienciasDentroDelMemorie">
@@ -67,63 +69,13 @@
     </div>
 
     <div class="row" id="filaExperiencias">
-
-        <div class="col-lg-3 col-xl-3 col-md-3 col-sm-12" id="experiencia/id"><a class="text-decoration-none text-dark"
-                href="/experiencia/id">
-                <img src="/img/memories genericas/sorrentinos.jpg" alt="Parolaccia" class="imagenDelLocal">
-                <h5 class="nombreLocal text-center">La Parolaccia</h5>
-            </a>
-        </div>
-
-        <div class="col-lg-3 col-xl-3 col-md-3 col-sm-12" id="detalle/experiencias"><a class="text-decoration-none text-dark"
-                href="/experiencia/id">
-                <img src="/img/memories genericas/estas ribs.jpg" alt="Bistecca" class="imagenDelLocal">
-                <h5 class="nombreLocal">La Bistecca</h5>
-            </a>
-        </div>
-
-        <div class="col-lg-3 col-xl-3 col-md-3 col-sm-12" id="detalle/experiencias"><a class="text-decoration-none text-dark"
-                href="/experiencia/id">
-                <img src="/img/memories genericas/burger.jpg" alt="Tucson" class="imagenDelLocal">
-                <h5 class="nombreLocal">Tucson</h5>
-            </a>
-        </div>
-
-        <div class="col-lg-3 col-xl-3 col-md-3 col-sm-12" id="detalle/experiencias"><a class="text-decoration-none text-dark"
-                href="/experiencia/id">
-                <img src="/img/memories genericas/bife y papas fritas.jpg" alt="" class="imagenDelLocal">
-                <h5 class="nombreLocal">El Pulpo</h5>
-            </a>
-        </div>
-
-        <div class="col-lg-3 col-xl-3 col-md-3 col-sm-12" id="detalle/experiencias"><a class="text-decoration-none text-dark"
-                href="/experiencia/id">
-                <img src="/img/memories genericas/experiencias-gastronomia.jpg" alt="LOS INMORTALES"
-                    class="imagenDelLocal">
-                <h5 class="nombreLocal">Los Inmortales</h5>
-            </a>
-        </div>
-
-        <div class="col-lg-3 col-xl-3 col-md-3 col-sm-12" id="detalle/experiencias"><a class="text-decoration-none text-dark"
-                href="/experiencia/id">
-                <img src="/img/memories genericas/paella.jpg" alt="ASATO" class="imagenDelLocal">
-                <h5 class="nombreLocal">Asato</h5>
-            </a>
-        </div>
-
-        <div class="col-lg-3 col-xl-3 col-md-3 col-sm-12" id="detalle/experiencias"><a class="text-decoration-none text-dark"
-                href="/experiencia/id">
-                <img src="/img/memories genericas/merluzza.jpg" alt="Maizales" class="imagenDelLocal">
-                <h5 class="nombreLocal">Los Maizales</h5>
-            </a>
-        </div>
-
-        <div class="col-lg-3 col-xl-3 col-md-3 col-sm-12" id="detalle/experiencias"><a class="text-decoration-none text-dark"
-                href="/experiencia/id">
-                <img src="/img/memories genericas/sushisushi.jpg" alt="Sipan" class="imagenDelLocal">
-                <h5 class="nombreLocal">Sipan Restaurant</h5>
-            </a>
-        </div>
+        <% for( let i = 0; i < product.productExperiences.length; i++ ) { %>
+            <div class="col-lg-3 col-xl-3 col-md-3 col-sm-12" id="experiencia/id">
+                <a class="text-decoration-none text-dark" href="/experiencia/id"> <img src="/img/experiences/<%= product.productExperiences[i].image%>" alt="<%= product.productExperiences[i].name %> " class="imagenDelLocal">
+                <h5 class="nombreLocal text-center"><%= product.productExperiences[i].name %> </h5>
+                </a>
+            </div>
+        <% } %>
     </div>
     <%- include('../partials/footerPartial.ejs') %>
     <%- include('../partials/jsPartials.ejs') %>

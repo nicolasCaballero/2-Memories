@@ -3,7 +3,11 @@ const db = require('../db/models');
 
 let productController = {
     'show': (req, res) => {
-        db.products.findByPk(req.params.sku)
+        db.products.findByPk(req.params.sku, {
+            include: [{
+                association: 'productExperiences'
+            }]
+        })
             .then((product) => {
                 res.render(path.resolve(__dirname, '../views/product/productDetail.ejs'), {
                     product

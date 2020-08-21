@@ -163,7 +163,7 @@ let adminController = {
     'experienceShow': (req, res) => {
         db.experiences.findByPk(req.params.id, {
                 include: [{
-                    association: 'experienceProducts'
+                    association: 'productExperiences'
                 }]
             })
             .then(experience => {
