@@ -198,19 +198,23 @@ let adminController = {
         let errors = validationResult(req);
         if (errors.isEmpty()) {
             db.AdminUsers.create({
-                name: req.body.name,
-                username: req.body.username,
-                email: req.body.email,
-                password: bcrypt.hashSync(req.body.password, 10),
-                role: parseInt(req.body.role),
-                photo: req.file ? req.file.filename : "",
-            });
-            res.redirect('/admin');
+                    name: req.body.name,
+                    username: req.body.username,
+                    email: req.body.email,
+                    password: bcrypt.hashSync(req.body.password, 10),
+                    role: parseInt(req.body.role),
+                    photo: req.file ? req.file.filename : "",
+                })
+                .then((newUser) => {
+                    res.redirect('/admin')
+                })
         } else {
             return res.render(path.resolve(__dirname, '../views/admin/register'), {
+                old: req.body,
                 errors: errors.errors
             });
         }
+
     },
     'usersList': (req, res) => {
         db.AdminUsers.findAll()

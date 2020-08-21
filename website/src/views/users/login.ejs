@@ -28,7 +28,7 @@
                                 <div class="form-group">
                                     <input type="email" class="form-control rounded-pill" name="email"
                                         placeholder="e-mail" value="<%=typeof old == 'undefined' ? '':old.email %>"
-                                        required="required" autofocus>
+                                         autofocus>
                                     <% if(typeof errors != 'undefined' && errors.email){%>
                                     <span class="text-danger"> <%= errors.email.msg %></span>
                                     <%}%>
@@ -36,7 +36,7 @@
                                 <div class="form-group">
                                     <i class="togglePassword fas fa-eye text-decoration-none eye"></i>
                                     <input type="password" class="password form-control rounded-pill" name="password"
-                                        placeholder="contraseña" required="required">
+                                        placeholder="contraseña">
                                         <% if(typeof errors != 'undefined' && errors.password){%>
                                             <span class="text-danger"> <%=errors.password.msg %></span>
                                             <%}%>

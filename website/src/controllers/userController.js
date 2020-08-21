@@ -14,43 +14,32 @@ let userController = {
         res.render(path.resolve(__dirname, '../views/users/login.ejs'));
     },
     'processLogin': (req, res, next) => {
-        let errors = validationResult(req);
-        if (errors.isEmpty()) {
-            let users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/users.json')));
-            for (let i = 0; i < users.length; i++) {
-                if (users[i].email == req.body.email) {
-                    if (bcrypt.compareSync(req.body.password, users[i].password)) {
-                        var userToLogIn = users[i];
-                        break;
-                    };
-                };
-            };
-            if (userToLogIn == undefined) {
-                return res.render(path.resolve(__dirname, '../views/users/login.ejs'), {
-                    Title: 'Login',
-                    usuarioMail: req.body.email,
-                    password: req.body.password,
-                    old: req.body,
-                    errors: errors.mapped()
+        db.users.findAll()
+            .then((user) => {
+                let errors = validationResult(req);
+                let userToLogIn;
+                userToLogIn = user.filter((u) => {
+                    return u.email == req.body.email && bcrypt.compareSync(req.body.password, u.password)
                 });
-            };
-            req.session.loggedInUser = userToLogIn;
-            if (req.body.remember != undefined) {
-                res.cookie('rememberme', userToLogIn.email, {
-                    maxAge: 1000 * 60 * 60 * 24
-                });
-            };
-            res.redirect('/');
-        } else {
+                if (userToLogIn == "") {
+                    res.render(path.resolve(__dirname, '../views/users/login.ejs'), {
+                        Title: 'Login',
+                        usuarioMail: req.body.email,
+                        password: req.body.password,
+                        old: req.body,
+                        errors: errors.mapped()
+                    });
+                } else {
+                    req.session.loggedInUser = userToLogIn[0];
+                }
+                if (req.body.remember) {
+                    res.cookie('rememberme', userToLogIn[0].email, {
+                        maxAge: 1000 * 60 * 60 * 24
+                    })
+                }
+                return res.redirect('/');
 
-            return res.render(path.resolve(__dirname, '../views/users/login.ejs'), {
-                Title: 'Login',
-                usuarioMail: req.body.email,
-                password: req.body.password,
-                old: req.body,
-                errors: errors.mapped()
             });
-        }
     },
     'logout': (req, res) => {
         req.session.destroy();
@@ -66,12 +55,14 @@ let userController = {
         let errors = validationResult(req);
         if (errors.isEmpty()) {
             db.users.create({
-                name: req.body.name,
-                lastName: req.body.lastName,
-                email: req.body.email,
-                password: bcrypt.hashSync(req.body.password, 10)
-            });
-            res.redirect('/');
+                    name: req.body.name,
+                    lastName: req.body.lastName,
+                    email: req.body.email,
+                    password: bcrypt.hashSync(req.body.password, 10)
+                })
+                .then((newUser) => {
+                    res.redirect('/login')
+                })
         } else {
             return res.render(path.resolve(__dirname, '../views/users/register'), {
                 old: req.body,
