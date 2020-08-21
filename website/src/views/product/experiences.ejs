@@ -4,7 +4,7 @@
 <head>
     <%- include('../partials/headPartial.ejs') %>
     <link rel="stylesheet" href="/css/product.css">
-    <title>EXPERIENCIA | MEMORIES</title>
+    <title><%= experience.name %>  | MEMORIES</title>
 </head>
 
 <body>
@@ -12,30 +12,21 @@
     <div class="container-fluid" id="containerSupremo">
         <div class="row" id="containerProducto">
             <div class="col-lg-6 col-12" id="divImagenCentral">
-                <img src="/img/memories genericas/sushisushi.jpg" alt="Memorie Take Away" width="80%"
+                <img src="/img/experiences/<%= experience.image %> " alt="<%= experience.name %> " width="80%"
                     id="imagenRestaurant">
             </div>
             <div class="col-lg-6 col-12" id="informacion">
                 <ul class="infoEnLista1">
 
                     <li id="nombreMemorie">
-                        <h2> Sipan Restaurants </h2>
+                        <h2> <%= experience.name %>  </h2>
                     </li>
 
                     <li><br></li>
 
                     <li id="textoDescriptivoMemorie">
-                        <h6> Una experiencia culinaria de alto nivel en el living de tu casa. </h6>
-                    </li>
-
-                    <li id="textoDescriptivoMemorie">
-                        <h6> "Amor por lo Nikkei". Con esta premisa Sipan invita a que exploren un mundo de sabores.
-                            <br> Su propuesta gastronómica es la cevichería con especialidad en pescados y mariscos.
-                        </h6>
-                    </li>
-
-                    <li id="textoDescriptivoMemorie">
-                        <h6> Distinguido como el mejor restaurante peruano en Argentina por el Gobierno de Perú.
+                        <h6>
+                            <%= experience.description %> 
                         </h6>
                     </li>
 
@@ -57,7 +48,7 @@
                         </div>
                     </div>
                     <li>
-                        <h6 id="txt-sku" class="text-center">#sku skuEjemplo</h6>
+                        <h6 id="txt-sku" class="text-center">SKU: #<%= experience.id %> </h6>
                     </li>
 
                     <li><br></li>
@@ -86,25 +77,11 @@
                         <ul class="items">
 
                             <li id="nombreMemorie">
-                                <h5> La experiencia incluye, únicamente para TAKE AWAY:
-                                    <br>
-                                    <br>
-                                    <ul>
-                                        <li>1 Entrada del Menú a elección </li>
-                                        <br>
-                                        <li>2 (dos) Platos principales del Menú a elección</li>
-                                        <br>
-                                        <li>2 (dos) Cocktails </li>
-                                        <br>
-                                        <li>2 (dos) Bebidas sin alcohol</li>
-                                        <br>
-                                        <li>2 (dos) Postres </li>
-                                    </ul>
-                                    <br>
+                                <%= experience.include %> 
                             <li>Una vez canjeada la Memorie no se aceptan devoluciones.</li>
+                            </li>
                             <li><br>
-                                <h5 id="website">Sitio Web: <a id="website" class="text-decoration-none text-dark"
-                                        href="http://www.sipanrestaurants.com/">Sipan Restaurantes</a></h5>
+                                <h5 id="website">Sitio Web: <a id="website" class="text-decoration-none text-dark" href="<%= experience.website %>" target="_blank"> <%= experience.website %> </a></h5>
                             </li>
                         </ul>
                     </div>
