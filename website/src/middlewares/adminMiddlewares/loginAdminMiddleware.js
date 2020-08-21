@@ -1,19 +1,25 @@
-const fs = require('fs');
-const path = require('path');
-const users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../../models/Adminusers.json')));
+const db = require('../../db/models');
+
 
 let loginAdminMiddleware = (req, res, next) => {
-    res.locals.loggedInAdminUser = null;
-    if (req.cookies.remembermeAdmin != 'undefined' && req.session.loggedInAdminUser != 'undefined') {
-        for (let i = 0; i < users.length; i++) {
-            if (users[i].email == req.cookies.remembermeAdmin) {
-                var userToLogIn = users[i];
-            };
-        };
-        req.session.loggedInAdminUser = userToLogIn;
-        res.locals.loggedInAdminUser = userToLogIn;
-    };
-    next();
+    res.locals.loggedInAdminUser = false;
+    if (req.session.loggedInAdminUser) {
+        res.locals.loggedInAdminUser = req.session.loggedInAdminUser;
+        return next();
+    } else if (req.cookies.remembermeAdmin) {
+        db.AdminUsers.findOne({
+                where: {
+                    email: req.cookies.remembermeAdmin
+                }
+            })
+            .then(user => {
+                req.session.loggedInAdminUser = user;
+                res.locals.loggedInAdminUser = user;
+                return next();
+            });
+    } else {
+        return next();
+    }
 };
 
 module.exports = loginAdminMiddleware;

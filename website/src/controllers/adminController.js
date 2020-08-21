@@ -160,29 +160,30 @@ let adminController = {
         res.render(path.resolve(__dirname, '../views/admin/login.ejs'));
     },
     'processLogin': (req, res) => {
-        db.AdminUsers.findAll()
-            .then((users) => {
-                let errors = validationResult(req);
-                let userToLogIn;
-                userToLogIn = users.filter((user) => {
-                    return user.email == req.body.email && bcrypt.compareSync(req.body.password, user.password)
-                });
-                if (userToLogIn == "") {
-                    res.render(path.resolve(__dirname, '../views/admin/login.ejs'), {
-                        errors: [{
-                            msg: "Credenciales invalidas"
-                        }]
-                    });
-                } else {
-                    req.session.loggedInAdminUser = userToLogIn[0]
-                }
-                if (req.body.remember) {
-                    res.cookie('remembermeAdmin', userToLogIn[0].email, {
-                        maxAge: 1000 * 60 * 60 * 24
+            let errors = validationResult(req);
+            if (errors.isEmpty()) {
+                db.AdminUsers.findOne({
+                        where: {
+                            email: req.body.email
+                        }
                     })
-                }
-                return res.redirect('/admin');
-            });
+                    .then((userToLogIn) => {
+                        delete userToLogIn.password
+                        req.session.loggedInAdminUser = userToLogIn
+                        if (req.body.remember) {
+                            res.cookie('remembermeAdmin', userToLogIn.email, {
+                                maxAge: 1000 * 60 * 60 * 24
+                            })
+                        }
+                        return res.redirect('/admin')
+                    })
+            } else {
+                res.render(path.resolve(__dirname, '../views/admin/login.ejs'), {
+                    errors: [{
+                        msg: "Credenciales invalidas"
+                    }]
+                });
+            }
     },
     'logout': (req, res) => {
         req.session.destroy();

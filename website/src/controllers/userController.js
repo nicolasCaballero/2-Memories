@@ -14,32 +14,32 @@ let userController = {
         res.render(path.resolve(__dirname, '../views/users/login.ejs'));
     },
     'processLogin': (req, res, next) => {
-        db.users.findAll()
-            .then((user) => {
-                let errors = validationResult(req);
-                let userToLogIn;
-                userToLogIn = user.filter((u) => {
-                    return u.email == req.body.email && bcrypt.compareSync(req.body.password, u.password)
-                });
-                if (userToLogIn == "") {
-                    res.render(path.resolve(__dirname, '../views/users/login.ejs'), {
-                        Title: 'Login',
-                        usuarioMail: req.body.email,
-                        password: req.body.password,
-                        old: req.body,
-                        errors: errors.mapped()
-                    });
-                } else {
-                    req.session.loggedInUser = userToLogIn[0];
-                }
-                if (req.body.remember) {
-                    res.cookie('rememberme', userToLogIn[0].email, {
-                        maxAge: 1000 * 60 * 60 * 24
-                    })
-                }
-                return res.redirect('/');
-
+        let errors = validationResult(req);
+        if (errors.isEmpty()) {
+            db.users.findOne({
+                    where: {
+                        email: req.body.email
+                    }
+                })
+                .then((userToLogIn) => {
+                    delete userToLogIn.password
+                    req.session.loggedInUser = userToLogIn
+                    if (req.body.remember) {
+                        res.cookie('rememberme', userToLogIn.email, {
+                            maxAge: 1000 * 60 * 60 * 24
+                        })
+                    }
+                    return res.redirect('/')
+                })
+        } else {
+            res.render(path.resolve(__dirname, '../views/users/login.ejs'), {
+                Title: 'Login',
+                usuarioMail: req.body.email,
+                password: req.body.password,
+                old: req.body,
+                errors: errors.mapped()
             });
+        }
     },
     'logout': (req, res) => {
         req.session.destroy();
@@ -63,6 +63,7 @@ let userController = {
                 .then((newUser) => {
                     res.redirect('/login')
                 })
+                .catch(error => console.log(error));
         } else {
             return res.render(path.resolve(__dirname, '../views/users/register'), {
                 old: req.body,

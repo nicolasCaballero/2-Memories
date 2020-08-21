@@ -1,19 +1,25 @@
-const fs = require('fs');
-const path = require('path');
-const users = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../models/users.json')));
+const db = require('../db/models');
+
 
 let loginMiddleware = (req, res, next) => {
-    res.locals.loggedInUser = null;
-    if (req.cookies.rememberme != 'undefined' && req.session.loggedInUser != 'undefined') {
-        for (let i = 0; i < users.length; i++) {
-            if (users[i].email == req.cookies.rememberme) {
-                var userToLogIn = users[i];
-            };
-        };
-        req.session.loggedInUser = userToLogIn;
-        res.locals.loggedInUser = userToLogIn;
-    };
-    next();
+    res.locals.loggedInUser = false;
+    if (req.session.loggedInUser) {
+        res.locals.loggedInUser = req.session.loggedInUser;
+        return next();
+    } else if (req.cookies.rememberme) {
+        db.users.findOne({
+                where: {
+                    email: req.cookies.rememberme
+                }
+            })
+            .then(user => {
+                req.session.loggedInUser = user;
+                res.locals.loggedInUser = user;
+                return next();
+            });
+    } else {
+        return next();
+    }
 };
 
 module.exports = loginMiddleware;
