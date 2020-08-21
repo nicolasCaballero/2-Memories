@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <%- include('../partials/headPartial.ejs') %>
+    <link rel="stylesheet" href="/css/admin/admin.css">
+    <title>Listado de Experiencias | MEMORIES</title>
+</head>
+
+<body>
+    <script>
+        function asegurar ()
+          {
+              rc = confirm("¿Seguro que desea Eliminar?");
+              return rc;
+          }
+        </script>
+    
+        <%- include('../partials/headerAdminPartial.ejs') %>
+    <div class="container-fluid">
+
+        <section class="row">
+            <article id="tituloAdmin" class="col-12 card pt-5 border-0">
+                <div class="card-body">
+                    <h1 class="card-title text-center">Listado de Experiencias</h1>
+
+
+                </div>
+            </article>
+        </section>
+
+        <table class="table mt-2 border-bottom">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Website</th>
+                    <th scope="col">Ver</th>
+                    <th scope="col">Editar</th>
+                    <th scope="col">Eliminar</th>
+                </tr>
+            </thead>
+            <tbody>
+                    <% experiences.forEach(experience => { %>
+                        <tr>
+                            <td scope="row"><%= experience.id %> </td>
+                            <td><%= experience.name%> </td>
+                            <td><a href="<%= experience.website%>" target="_blank"><%= experience.website%> </a></td>
+                            <td><a id="btn-view" class=" text-decoration-none" href="/admin/listado-memories/view/<%= experience.id%>"><i class="fas fa-eye text-decoration-none"></i></a></td>
+                            <td><a id="btn-edit" class=" text-decoration-none" href="/admin/listado-memories/edit/<%= experience.id%>"><i class="fas fa-edit text-decoration-none"></i></a></td>
+                            <td><a id="btn-delete" class=" text-decoration-none" onClick='return confirm("¿Seguro querés borrar la experiencia <%= experience.name%>?")' href="/admin/listado-memories/delete/<%= experience.id%>"><i class="fas fa-trash text-decoration-none"></i></a></td>
+                        </tr>
+                    <% }) ; %>
+            </tbody>
+        </table>
+
+        <div class="col-12 mx-auto  pt-4 ">
+            <div id="btn-volver" class="form-group float-left">
+                <a href="/admin"><button class="btn btn-secondary rounded-pill"><i class="fas fa-arrow-left mr-1"></i>Volver</button></a>
+            </div>
+            <div id="btn-guardar" class="float-right"><a href="/admin/experiences-create">
+                <button type="submit" class="btn btn-info rounded-pill mr-5">Agregar nueva experiencia</button></a>
+            </div>
+        </div>
+        
+    <%- include('../partials/jsPartials.ejs') %>
+</body>
+
+</html>

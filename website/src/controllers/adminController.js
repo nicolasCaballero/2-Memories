@@ -91,9 +91,6 @@ let adminController = {
         });
         res.redirect('/admin/listado-memories');
     },
-    'experienceCreate': (req, res) => {
-        res.render(path.resolve(__dirname, '../views/admin/experienceCreate.ejs'));
-    },
     'memoriesList': (req, res) => {
         db.products.findAll({
                 include: [{
@@ -155,34 +152,46 @@ let adminController = {
         });
         res.redirect('/admin/listado-memories');
     },
+    'experiencesList': (req, res) => {
+        db.experiences.findAll({
+        })
+            .then((experiences) => {
+                res.render(path.resolve(__dirname, '../views/admin/experiencesList.ejs'), {
+                    experiences
+                });
+            })
+    },
+    'experienceCreate': (req, res) => {
+        res.render(path.resolve(__dirname, '../views/admin/experienceCreate.ejs'));
+    },
     'login': (req, res) => {
         res.render(path.resolve(__dirname, '../views/admin/login.ejs'));
     },
     'processLogin': (req, res) => {
-            let errors = validationResult(req);
-            if (errors.isEmpty()) {
-                db.AdminUsers.findOne({
-                        where: {
-                            email: req.body.email
-                        }
-                    })
-                    .then((userToLogIn) => {
-                        delete userToLogIn.password
-                        req.session.loggedInAdminUser = userToLogIn
-                        if (req.body.remember) {
-                            res.cookie('remembermeAdmin', userToLogIn.email, {
-                                maxAge: 1000 * 60 * 60 * 24
-                            })
-                        }
-                        return res.redirect('/admin')
-                    })
-            } else {
-                res.render(path.resolve(__dirname, '../views/admin/login.ejs'), {
-                    errors: [{
-                        msg: "Credenciales invalidas"
-                    }]
-                });
-            }
+        let errors = validationResult(req);
+        if (errors.isEmpty()) {
+            db.AdminUsers.findOne({
+                    where: {
+                        email: req.body.email
+                    }
+                })
+                .then((userToLogIn) => {
+                    delete userToLogIn.password
+                    req.session.loggedInAdminUser = userToLogIn
+                    if (req.body.remember) {
+                        res.cookie('remembermeAdmin', userToLogIn.email, {
+                            maxAge: 1000 * 60 * 60 * 24
+                        })
+                    }
+                    return res.redirect('/admin')
+                })
+        } else {
+            res.render(path.resolve(__dirname, '../views/admin/login.ejs'), {
+                errors: [{
+                    msg: "Credenciales invalidas"
+                }]
+            });
+        }
     },
     'logout': (req, res) => {
         req.session.destroy();

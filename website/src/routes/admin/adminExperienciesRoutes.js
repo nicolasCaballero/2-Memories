@@ -15,8 +15,9 @@ const adminController = require('../../controllers/adminController');
 //     storage
 // });
 
-
+router.get('/admin/experiences-list', adminController.experiencesList);
 router.get('/admin/experiences-create', adminController.experienceCreate);
+
 
 
 
