@@ -5,6 +5,6 @@ const notLoggedInMiddleware = require('../../middlewares/notLoggedInMiddleware')
 
 router.get('/detalle/:sku', productController.show);
 router.get('/carrito/:sku', notLoggedInMiddleware, productController.addtoCart);
-router.get('/experiencia/id', productController.experiencies);
+router.get('/experiencia/:id', productController.experiencies);
 
 module.exports = router;

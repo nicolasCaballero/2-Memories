@@ -65,13 +65,13 @@
     </div>
 
     <div class="col-12" id="experienciasDentroDelMemorie">
-        <h2 id="titulo"> Seleccioná una de las experiencias dentro de este memorie </h2>
+        <h2 id="titulo"> El Memorie <strong><%= product.name %></strong> contiene las siguientes experiencias: </h2>
     </div>
 
     <div class="row" id="filaExperiencias">
         <% for( let i = 0; i < product.productExperiences.length; i++ ) { %>
             <div class="col-lg-3 col-xl-3 col-md-3 col-sm-12" id="experiencia/id">
-                <a class="text-decoration-none text-dark" href="/experiencia/id"> <img src="/img/experiences/<%= product.productExperiences[i].image%>" alt="<%= product.productExperiences[i].name %> " class="imagenDelLocal">
+                <a class="text-decoration-none text-dark" href="/experiencia/<%= product.productExperiences[i].id%>"> <img src="/img/experiences/<%= product.productExperiences[i].image%>" alt="<%= product.productExperiences[i].name %> " class="imagenDelLocal">
                 <h5 class="nombreLocal text-center"><%= product.productExperiences[i].name %> </h5>
                 </a>
             </div>
