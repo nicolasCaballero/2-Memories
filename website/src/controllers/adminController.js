@@ -153,12 +153,23 @@ let adminController = {
         res.redirect('/admin/listado-memories');
     },
     'experiencesList': (req, res) => {
-        db.experiences.findAll({
-        })
+        db.experiences.findAll()
             .then((experiences) => {
                 res.render(path.resolve(__dirname, '../views/admin/experiencesList.ejs'), {
                     experiences
                 });
+            })
+    },
+    'experienceShow': (req, res) => {
+        db.experiences.findByPk(req.params.id, {
+                include: [{
+                    association: 'experienceProducts'
+                }]
+            })
+            .then(experience => {
+                res.render(path.resolve(__dirname, '../views/admin/experienceDetail'), {
+                    experience
+                })
             })
     },
     'experienceCreate': (req, res) => {

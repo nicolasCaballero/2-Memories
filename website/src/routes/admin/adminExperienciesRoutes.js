@@ -17,6 +17,7 @@ const adminController = require('../../controllers/adminController');
 
 router.get('/admin/experiences-list', adminController.experiencesList);
 router.get('/admin/experiences-create', adminController.experienceCreate);
+router.get('/admin/experience/view/:id', adminController.experienceShow);
 
 
 
