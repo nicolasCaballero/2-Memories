@@ -170,8 +170,32 @@ let adminController = {
                 })
             })
     },
+    'experienceDelete': (req, res) => {
+        db.experiences.destroy({
+            where: {
+                id: req.params.id
+            }
+        });
+        res.redirect('/admin/experiences-list');
+    },
     'experienceCreate': (req, res) => {
-        res.render(path.resolve(__dirname, '../views/admin/experienceCreate.ejs'));
+        db.products.findAll()
+        .then((products) => {
+            return res.render(path.resolve(__dirname, '../views/admin/experienceCreate.ejs'), {
+                products
+            });
+        })
+    },
+    'experienceSave': (req, res) => {
+        db.experiences.create({
+            name: req.body.name,
+            description: req.body.description,
+            image: req.file ? req.file.filename : "",
+            include: req.body.include,
+            website: req.body.website,
+            productSku: parseInt(req.body.productSku)
+        });
+        res.redirect('/admin/experiences-list');
     },
     'login': (req, res) => {
         res.render(path.resolve(__dirname, '../views/admin/login.ejs'));
