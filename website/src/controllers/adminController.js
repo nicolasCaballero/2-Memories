@@ -105,9 +105,7 @@ let adminController = {
     },
     'memoriesShow': (req, res) => {
         db.products.findByPk(req.params.sku, {
-                include: [{
-                    association: 'productCategory'
-                }]
+                include: [{association: 'productCategory'},{association: 'productExperiences'}]
             })
             .then((product) => {
                 res.render(path.resolve(__dirname, '../views/admin/memoriesDetail.ejs'), {

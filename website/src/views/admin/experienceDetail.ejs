@@ -4,7 +4,7 @@
 <head>
     <%- include('../partials/headPartial.ejs') %>
     <link rel="stylesheet" href="/css/admin/admin.css">
-    <title>Detalle de la experiencia | MEMORIES</title>
+    <title><%= experience.name %>  | MEMORIES</title>
 </head>
 
 <body>
@@ -13,7 +13,7 @@
         <section class="row">
             <article class="col-12 card pt-5 border-0">
                 <div class="card-body">
-                    <h1 class="card-title text-center">Detalle de la experienca</h1>
+                    <h1 class="card-title text-center">Detalle de la experiencia <%= experience.name %> </h1>
                 </div>
             </article>
         </section>

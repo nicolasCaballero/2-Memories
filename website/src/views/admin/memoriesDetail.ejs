@@ -4,7 +4,7 @@
 <head>
     <%- include('../partials/headPartial.ejs') %>
     <link rel="stylesheet" href="/css/admin/admin.css">
-    <title>Detalle del Producto | MEMORIES</title>
+    <title> <%= product.name %>  | MEMORIES</title>
 </head>
 
 <body>
@@ -17,7 +17,7 @@
         <section class="row">
             <article class="col-12 card pt-5 border-0">
                 <div class="card-body">
-                    <h1 class="card-title text-center">Detalle del producto</h1>
+                    <h1 class="card-title text-center">Detalle del producto <%= product.name %> </h1>
                 </div>
             </article>
         </section>
@@ -40,7 +40,11 @@
                                 <li class="list-group-item"><strong>Categoría: </strong>
                                     <%= product.productCategory.name %> 
                                 </li>
-                                <li class="list-group-item"><strong>Experiencias Asociadas: </strong><%= product.experienceId%></li>
+                                <li class="list-group-item"><strong>Experiencias Asociadas: </strong>
+                                <% for( let i = 0; i < product.productExperiences.length; i++ ) { %>
+                                    <a href="/admin/experience/view/<%= product.productExperiences[i].id%>"><%= product.productExperiences[i].name + ', '%></a>
+                                <% } %>
+                            </li>
                                 <li class="list-group-item"><strong>Stock: </strong><%= product.qty%></li>
                                 <li class="list-group-item "><strong>Imagen: </strong><img width="50%" class="img-thumbnail" src="/img/packs/<%= product.image%>" alt=""></li>
                             </ul>
