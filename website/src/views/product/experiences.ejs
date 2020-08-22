@@ -31,22 +31,6 @@
                     </li>
 
                     <li><br></li>
-
-                    <div class="row" id="metodos">
-                        <div class="col-6 col-6">
-                            <li>
-                                <h6><a class="text-decoration-none text-dark" href=""> <i
-                                            class="fas fa-credit-card mr-1"></i>FORMAS DE PAGO </a></h6>
-                            </li>
-                        </div>
-                        <div class="col-6">
-                            <li>
-                                <h6><a class="text-decoration-none text-dark" href=""><i
-                                            class="fas fa-truck mr-1"></i>METODOS DE ENVIO </a>
-                                    <h6>
-                            </li>
-                        </div>
-                    </div>
                     <li>
                         <h6 id="txt-sku" class="text-center">SKU: #<%= experience.id %> </h6>
                     </li>
@@ -54,7 +38,7 @@
                     <li><br></li>
 
                     <li><button type="button" class="btn-block btn-lg rounded-pill" id="botonComprar"><a
-                                class="text-decoration-none text-dark" href="/detalle">VER MEMORIE</a>
+                                class="text-decoration-none text-dark" href="/detalle/<%= experience.productSku %> ">VER MEMORIE</a>
                         </button></li>
                 </ul>
 
