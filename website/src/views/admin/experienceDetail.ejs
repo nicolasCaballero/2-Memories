@@ -29,7 +29,7 @@
                                 <li class="list-group-item "><strong>Imagen: </strong><img width="50%" class="img-thumbnail" src="/img/experiences/<%= experience.image%>" alt=""></li>                                
                                 <li class="list-group-item"><strong>Que incluye: </strong><%= experience.include%></li>
                                 <li class="list-group-item"><strong>Website: </strong><a href="<%= experience.website%>" target="_blank"><%= experience.website%></a></li>
-                                <li class="list-group-item"><strong>Pertenece al producto: </strong><a href="/admin/listado-memories/view/<%=experience.experienceProducts.sku%>"><%= experience.experienceProducts.name + ' - Sku: ' + experience.experienceProducts.sku%></a></li>
+                                <li class="list-group-item"><strong>Pertenece al producto: </strong><a target="_blank" href="/admin/listado-memories/view/<%=experience.experienceProducts.sku%>"><%= experience.experienceProducts.name + ' - Sku: ' + experience.experienceProducts.sku%></a></li>
                             </ul>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
                             <a href="/admin/experiences-list"><button class="btn btn-secondary rounded-pill"><i class="fas fa-arrow-left mr-1"></i>Volver al listado</button></a>
                         </div>
                         <div id="btn-edit" class="form-group float-right">
-                            <a href="/admin/listado-memories/edit/<%= experience.id%>"><button class="btn btn-info rounded-pill">Editar<i class="fas fa-edit text-decoration-none ml-1"></i></button></a>
+                            <a href="/admin/experience/edit/<%= experience.id%>"><button class="btn btn-info rounded-pill">Editar<i class="fas fa-edit text-decoration-none ml-1"></i></button></a>
                         </div>
                     </div>
                                             
