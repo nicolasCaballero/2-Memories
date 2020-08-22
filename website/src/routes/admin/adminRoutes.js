@@ -19,12 +19,12 @@ const upload = multer({
 
 router.get('/admin',adminNotLoggedInMiddleware, adminController.index);
 router.get('/access-denied', adminController.denied);
-router.get('/admin/memories-create', adminController.memoriesCreate);
-router.post('/admin/memories-create', upload.single('image'), adminController.memoriesSave);
-router.get('/admin/listado-memories', adminController.memoriesList);
-router.get('/admin/listado-memories/view/:sku', adminController.memoriesShow);
-router.get('/admin/listado-memories/delete/:sku', adminController.memoriesDelete);
-router.get('/admin/listado-memories/edit/:sku', adminController.memoriesEdit);
-router.put('/admin/listado-memories/edit/:sku', upload.single('image'), adminController.memoriesSaveEdit);
+router.get('/admin/memories/create', adminController.memoriesCreate);
+router.post('/admin/memories/create', upload.single('image'), adminController.memoriesSave);
+router.get('/admin/memories/list', adminController.memoriesList);
+router.get('/admin/memories/list/view/:sku', adminController.memoriesShow);
+router.get('/admin/memories/list/delete/:sku', adminController.memoriesDelete);
+router.get('/admin/memories/list/edit/:sku', adminController.memoriesEdit);
+router.put('/admin/memories/list/edit/:sku', upload.single('image'), adminController.memoriesSaveEdit);
 
 module.exports = router;

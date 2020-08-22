@@ -22,9 +22,9 @@ const upload = multer({
   storage
 });
 
-router.get('/admin/categories-create', adminController.categoriesCreate);
-router.post('/admin/categories-create', upload.single('image'), adminController.categoriesSave);
-router.get('/admin/categories-list', adminController.categoriesList);
+router.get('/admin/categories/create', adminController.categoriesCreate);
+router.post('/admin/categories/create', upload.single('image'), adminController.categoriesSave);
+router.get('/admin/categories/list', adminController.categoriesList);
 router.get('/admin/categories/view/:id', adminController.categoriesShow);
 router.get('/admin/categories/delete/:id', adminController.categoriesDelete);
 router.get('/admin/categories/edit/:id', adminController.categoriesEdit);

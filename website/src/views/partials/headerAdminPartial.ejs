@@ -16,9 +16,9 @@
                         Memories</i>
                     </a>
                     <div class="dropdown-menu border shadow-sm" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/admin/memories-create">Agregar nuevo pack<i
+                        <a class="dropdown-item" href="/admin/memories/create">Agregar nuevo pack<i
                                 class="fas fa-plus-circle ml-2"></i></a>
-                        <a class="dropdown-item" href="/admin/listado-memories">Listar packs<i
+                        <a class="dropdown-item" href="/admin/memories/list">Listar packs<i
                                 class="fas fa-list-alt ml-2"></i></a>
                     </div>
                 </li>
@@ -28,9 +28,9 @@
                         Experiencias</i>
                     </a>
                     <div class="dropdown-menu border shadow-sm" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/admin/experiences-create">Agregar nueva experiencia<i
+                        <a class="dropdown-item" href="/admin/experiences/create">Agregar nueva experiencia<i
                                 class="fas fa-plus-circle ml-2"></i></a>
-                        <a class="dropdown-item" href="/admin/experiences-list">Listar experiencias<i class="fas fa-list-alt ml-2"></i></a>
+                        <a class="dropdown-item" href="/admin/experiences/list">Listar experiencias<i class="fas fa-list-alt ml-2"></i></a>
                     </div>
                 </li>
                 <li class="nav-item dropdown">
@@ -39,9 +39,9 @@
                         Categorías</i>
                     </a>
                     <div class="dropdown-menu border shadow-sm" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/admin/categories-create">Agregar nueva categoría<i
+                        <a class="dropdown-item" href="/admin/categories/create">Agregar nueva categoría<i
                                 class="fas fa-plus-circle ml-2"></i></a>
-                        <a class="dropdown-item" href="/admin/categories-list">Listar categorías<i class="fas fa-list-alt ml-2"></i></a>
+                        <a class="dropdown-item" href="/admin/categories/list">Listar categorías<i class="fas fa-list-alt ml-2"></i></a>
                     </div>
                 </li>
                 <% if (loggedInAdminUser.role == 1) { %>
@@ -51,9 +51,9 @@
                         Usuarios</i>
                     </a>
                     <div class="dropdown-menu border shadow-sm" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/admin/registro">Agregar nuevo usuario<i
+                        <a class="dropdown-item" href="/admin/register">Agregar nuevo usuario<i
                                 class="fas fa-plus-circle ml-2"></i></a>
-                        <a class="dropdown-item" href="/admin/listado-users">Listar usuarios<i
+                        <a class="dropdown-item" href="/admin/users/list">Listar usuarios<i
                                 class="fas fa-list-alt ml-2"></i></a>
                     </div>
                 </li>
@@ -68,7 +68,7 @@
                         <%= loggedInAdminUser.username %> <img class="rounded-circle" width="20%" src="/img/adminUsers/<%= loggedInAdminUser.photo %> " alt=""> </i>
                     </a>
                     <div class="dropdown-menu border shadow-sm" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/admin/listado-users/view/<%= loggedInAdminUser.id %> ">Mi Cuenta<i class="fas fa-edit ml-2"></i></a>
+                        <a class="dropdown-item" href="/admin/users/list/view/<%= loggedInAdminUser.id %> ">Mi Cuenta<i class="fas fa-edit ml-2"></i></a>
                         <a class="dropdown-item" href="/admin/logout">Salir<i class="fas fa-sign-out-alt ml-2"></i></a>
                     </div>
                 </li>

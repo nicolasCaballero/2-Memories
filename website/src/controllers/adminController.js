@@ -24,7 +24,7 @@ let adminController = {
             image: req.file ? req.file.filename : "",
             visibility: req.body.visibility
         });
-        res.redirect('/admin/categories-list');
+        res.redirect('/admin/categories/list');
     },
     'categoriesList': (req, res) => {
         db.categories.findAll()
@@ -60,7 +60,7 @@ let adminController = {
                 id: req.params.id
             }
         });
-        res.redirect('/admin/categories-list');
+        res.redirect('/admin/categories/list');
     },
     'categoriesDelete': (req, res) => {
         db.categories.destroy({
@@ -68,7 +68,7 @@ let adminController = {
                 id: req.params.id
             }
         });
-        res.redirect('/admin/categories-list');
+        res.redirect('/admin/categories/list');
     },
     'memoriesCreate': (req, res) => {
         db.categories.findAll()
@@ -89,7 +89,7 @@ let adminController = {
             qty: parseInt(req.body.qty),
             categoryId: parseInt(req.body.categoryId)
         });
-        res.redirect('/admin/listado-memories');
+        res.redirect('/admin/memories/list');
     },
     'memoriesList': (req, res) => {
         db.products.findAll({
@@ -119,7 +119,7 @@ let adminController = {
                 sku: req.params.sku
             }
         })
-        res.redirect('/admin/listado-memories');
+        res.redirect('/admin/memories/list');
     },
     'memoriesEdit': (req, res) => {
         let productRequest = db.products.findByPk(req.params.sku);
@@ -148,7 +148,7 @@ let adminController = {
                 sku: req.params.sku
             }
         });
-        res.redirect('/admin/listado-memories');
+        res.redirect('/admin/memories/list');
     },
     'experiencesList': (req, res) => {
         db.experiences.findAll()
@@ -176,7 +176,7 @@ let adminController = {
                 id: req.params.id
             }
         });
-        res.redirect('/admin/experiences-list');
+        res.redirect('/admin/experiences/list');
     },
     'experienceCreate': (req, res) => {
         db.products.findAll()
@@ -195,7 +195,7 @@ let adminController = {
             website: req.body.website,
             productSku: parseInt(req.body.productSku)
         });
-        res.redirect('/admin/experiences-list');
+        res.redirect('/admin/experiences/list');
     },
     'login': (req, res) => {
         res.render(path.resolve(__dirname, '../views/admin/login.ejs'));
@@ -280,7 +280,7 @@ let adminController = {
                 id: req.params.id
             }
         })
-        res.redirect('/admin/listado-users');
+        res.redirect('/admin/users/list');
     },
     'userEdit': (req, res) => {
         db.AdminUsers.findByPk(req.params.id)
@@ -304,7 +304,7 @@ let adminController = {
                 id: req.params.id
             }
         });
-        res.redirect('/admin/listado-users');
+        res.redirect('/admin/users/list');
 
     }
 };

@@ -11,19 +11,16 @@ const storage = multer.diskStorage({
     filename: function (req, file, cb) {
         cb(null, file.originalname);
     }
-})
+});
 
 const upload = multer({
     storage
 });
 
-router.get('/admin/experiences-list', adminController.experiencesList);
-router.get('/admin/experiences-create', adminController.experienceCreate);
-router.post('/admin/experiences-create', upload.single('image'), adminController.experienceSave);
+router.get('/admin/experiences/list', adminController.experiencesList);
+router.get('/admin/experiences/create', adminController.experienceCreate);
+router.post('/admin/experiences/create', upload.single('image'), adminController.experienceSave);
 router.get('/admin/experience/delete/:id', adminController.experienceDelete);
 router.get('/admin/experience/view/:id', adminController.experienceShow);
-
-
-
 
 module.exports = router;

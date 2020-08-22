@@ -30,7 +30,7 @@
                 <div class="row">
                     <div class="col-lg-8 col-md-10 col-sm-10 col-xs-12 mx-auto bg-light shadow-sm">
                         <div class="signup-form mt-2">
-                            <form action="/admin/listado-users/edit/<%= user.id%>?_method=PUT" method="POST"
+                            <form action="/admin/users/list/edit/<%= user.id%>?_method=PUT" method="POST"
                                 enctype="multipart/form-data">
                                 <div class="form-group text-center photo">
                                     <img width="20%" class="rounded-circle" src="/img/adminUsers/<%= user.photo%>"
@@ -74,7 +74,7 @@
                                 </div>
                             </form>
                             <div id="btn-volver" class="form-group float-left mt-2">
-                                <a href="/admin/listado-users"><button class="btn btn-secondary rounded-pill"><i
+                                <a href="/admin/users/list"><button class="btn btn-secondary rounded-pill"><i
                                             class="fas fa-arrow-left mr-1"></i>Volver al Listado</button></a>
                             </div>
                         </div>

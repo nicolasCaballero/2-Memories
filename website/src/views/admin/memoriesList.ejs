@@ -50,9 +50,9 @@
                             <td><%= product.productCategory.name%> </td>
                             <td><%= product.price%> </td>
                             <td><%= product.qty%> </td>
-                            <td><a id="btn-view" class=" text-decoration-none" href="/admin/listado-memories/view/<%= product.sku%>"><i class="fas fa-eye text-decoration-none"></i></a></td>
-                            <td><a id="btn-edit" class=" text-decoration-none" href="/admin/listado-memories/edit/<%= product.sku%>"><i class="fas fa-edit text-decoration-none"></i></a></td>
-                            <td><a id="btn-delete" class=" text-decoration-none" onClick='return confirm("¿Seguro querés borrar el producto <%= product.name%>?")' href="/admin/listado-memories/delete/<%= product.sku%>"><i class="fas fa-trash text-decoration-none"></i></a></td>
+                            <td><a id="btn-view" class=" text-decoration-none" href="/admin/memories/list/view/<%= product.sku%>"><i class="fas fa-eye text-decoration-none"></i></a></td>
+                            <td><a id="btn-edit" class=" text-decoration-none" href="/admin/memories/list/edit/<%= product.sku%>"><i class="fas fa-edit text-decoration-none"></i></a></td>
+                            <td><a id="btn-delete" class=" text-decoration-none" onClick='return confirm("¿Seguro querés borrar el producto <%= product.name%>?")' href="/admin/memories/list/delete/<%= product.sku%>"><i class="fas fa-trash text-decoration-none"></i></a></td>
                         </tr>
                     <% }) ; %>
             </tbody>
@@ -62,7 +62,7 @@
             <div id="btn-volver" class="form-group float-left">
                 <a href="/admin"><button class="btn btn-secondary rounded-pill"><i class="fas fa-arrow-left mr-1"></i>Volver</button></a>
             </div>
-            <div id="btn-guardar" class="float-right"><a href="/admin/memories-create">
+            <div id="btn-guardar" class="float-right"><a href="/admin/memories/create">
                 <button type="submit" class="btn btn-info rounded-pill mr-5">Agregar nuevo pack</button></a>
             </div>
         </div>

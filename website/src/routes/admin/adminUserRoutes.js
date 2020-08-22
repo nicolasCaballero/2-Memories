@@ -30,8 +30,8 @@ router.post('/admin/login', [
         check('email').isEmail().withMessage('Email incorrecto'),
         check('password').isLength({ min: 6}).withMessage('La contraseña debe contener al menos 6 caracteres')
         ], adminController.processLogin);
-router.get('/admin/registro', adminController.register);
-router.post('/admin/registro', upload.single('photo'), [
+router.get('/admin/register', adminController.register);
+router.post('/admin/register', upload.single('photo'), [
     check('name').isAlpha().withMessage('El campo name solo debe contener letras de la A-Z'),
     check('name').isLength({
         min: 1
@@ -47,10 +47,10 @@ router.post('/admin/registro', upload.single('photo'), [
     }).withMessage('La contraseña debe contener al menos 8 caracteres')
 ], adminController.userCreate);
 router.get('/admin/logout', adminController.logout);
-router.get('/admin/listado-users', adminRoleMiddleware, adminController.usersList);
-router.get('/admin/listado-users/view/:id', adminController.usersShow);
-router.get('/admin/listado-users/delete/:id', adminRoleMiddleware, adminController.usersDelete);
-router.get('/admin/listado-users/edit/:id', adminRoleMiddleware, adminController.userEdit);
-router.put('/admin/listado-users/edit/:id', upload.single('photo'), adminRoleMiddleware, adminController.userSaveEdit);
+router.get('/admin/users/list', adminRoleMiddleware, adminController.usersList);
+router.get('/admin/users/list/view/:id', adminController.usersShow);
+router.get('/admin/users/list/delete/:id', adminRoleMiddleware, adminController.usersDelete);
+router.get('/admin/users/list/edit/:id', adminRoleMiddleware, adminController.userEdit);
+router.put('/admin/users/list/edit/:id', upload.single('photo'), adminRoleMiddleware, adminController.userSaveEdit);
 
 module.exports = router;

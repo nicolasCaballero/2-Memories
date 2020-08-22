@@ -29,7 +29,7 @@
                 <div class="row">
                     <div class="col-lg-8 col-md-10 col-sm-10 col-xs-12 mx-auto bg-light shadow-sm">
                         <div class="signup-form mt-2">
-                            <form action="/admin/listado-memories/edit/<%= product.sku%>?_method=PUT" method="POST" enctype="multipart/form-data">
+                            <form action="/admin/memories/list/edit/<%= product.sku%>?_method=PUT" method="POST" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label for="name">Nombre</label>
                                     <input type="text" class="form-control rounded-pill" name="name" value ='<%= product.name%>' required="required">
@@ -90,7 +90,7 @@
                                 </div>
                             </form>
                             <div id="btn-volver" class="form-group float-left mt-2">
-                                <a href="/admin/listado-memories"><button class="btn btn-secondary rounded-pill"><i class="fas fa-arrow-left mr-1"></i>Volver al Listado</button></a>
+                                <a href="/admin/memories/list"><button class="btn btn-secondary rounded-pill"><i class="fas fa-arrow-left mr-1"></i>Volver al Listado</button></a>
                             </div>
                         </div>
                     </div>
