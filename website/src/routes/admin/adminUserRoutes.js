@@ -27,25 +27,55 @@ const upload = multer({
 
 router.get('/admin/login', adminLoggedInMiddleware, adminController.login);
 router.post('/admin/login', [
-        check('email').isEmail().withMessage('Email incorrecto'),
-        check('password').isLength({ min: 6}).withMessage('La contraseña debe contener al menos 6 caracteres')
-        ], adminController.processLogin);
-router.get('/admin/register', adminController.register);
-router.post('/admin/register', upload.single('photo'), [
-    check('name').isAlpha().withMessage('El campo name solo debe contener letras de la A-Z'),
-    check('name').isLength({
-        min: 1
-    }).withMessage('El campo name no puede estár vacío'),
-    check('username').isAlpha().withMessage('El campo username solo debe contener letras de la A-Z'),
-    check('username').isLength({
-        min: 1
-    }).withMessage('El campo username no puede estár vacío'),
-    check('username').isLowercase().withMessage('El campo username no puede contener mayúsculas'),
-    check('email').isEmail().withMessage('Ingrese un email válido'),
+    check('email').isEmail().withMessage('Email incorrecto'),
     check('password').isLength({
-        min: 8
-    }).withMessage('La contraseña debe contener al menos 8 caracteres')
-], adminController.userCreate);
+        min: 6
+    }).withMessage('La contraseña debe contener al menos 6 caracteres')
+], adminController.processLogin);
+router.get('/admin/register', adminController.register);
+db.AdminUsers.findAll()
+    .then((users) => {
+        router.post('/admin/register', upload.single('photo'), [
+            check('name').isAlpha().withMessage('El campo nombre solo debe contener letras de la A-Z'),
+            check('name').isLength({
+                min: 1
+            }).withMessage('El campo nombre no puede estar vacío'),
+            check('username').isAlpha().withMessage('El campo nombre de usuario solo debe contener letras de la A-Z'),
+            check('username').isLength({
+                min: 1
+            }).withMessage('El campo nombre de usuario no puede estar vacío'),
+            check('username').isLowercase().withMessage('El campo nombre de usuario no puede contener mayúsculas'),
+            check('password', 'La contraseña debe contener al ménos 8 caracteres, una minúscula, un número y una mayúscula').matches(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/, 'i'),
+            body('email').custom(value => {
+                let counter = 0;
+                for (let i = 0; i < users.length; i++) {
+                    if (users[i].email == value) {
+                        counter++;
+                    }
+                }
+                if (counter > 0) {
+                    return false;
+                } else {
+                    return true;
+                }
+            }).withMessage('El email ya se encuentra registrado'),
+            body('photo').custom((value, {
+                req
+            }) => {
+                let ext
+                if (req.file = !undefined) {
+                    return true;
+                } else {
+                    ext = '' + path.extname(req.files[0].filename).toLowerCase();
+                }
+                if (ext == '.jpg' || ext == '.jpeg' || ext == '.png' || ext == '.gif') {
+                    return true;
+                }
+                return false;
+            }).withMessage('Solo se aceptan archivos con extensión JPG, JPEG, PNG o GIF')
+
+        ], adminController.userCreate)
+    })
 router.get('/admin/logout', adminController.logout);
 router.get('/admin/users/list', adminRoleMiddleware, adminController.usersList);
 router.get('/admin/users/list/view/:id', adminController.usersShow);
