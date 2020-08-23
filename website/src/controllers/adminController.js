@@ -220,9 +220,11 @@ let adminController = {
                 })
         } else {
             res.render(path.resolve(__dirname, '../views/admin/login.ejs'), {
-                errors: [{
-                    msg: "Credenciales invalidas"
-                }]
+                Title: 'Login',
+                usuarioMail: req.body.email,
+                password: req.body.password,
+                old: req.body,
+                errors: errors.mapped()
             });
         }
     },

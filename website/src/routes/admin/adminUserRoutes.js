@@ -26,12 +26,32 @@ const upload = multer({
 });
 
 router.get('/admin/login', adminLoggedInMiddleware, adminController.login);
-router.post('/admin/login', [
-    check('email').isEmail().withMessage('Email incorrecto'),
-    check('password').isLength({
-        min: 6
-    }).withMessage('La contraseña debe contener al menos 6 caracteres')
-], adminController.processLogin);
+db.AdminUsers.findAll()
+    .then((users) => {
+        router.post('/admin/login', [
+            body('email').custom((value) => {
+                for (let i = 0; i < users.length; i++) {
+                    if (users[i].email == value) {
+                        return true
+                    }
+                }
+                return false
+            }).withMessage('Usuario inexistente'),
+            body('password').custom((value, {
+                req
+            }) => {
+                for (let i = 0; i < users.length; i++) {
+                    if (users[i].email == req.body.email) {
+                        if (bcrypt.compareSync(value, users[i].password)) {
+                            return true;
+                        } else {
+                            return false;
+                        }
+                    };
+                };
+            }).withMessage('Contraseña incorrecta'),
+        ], adminController.processLogin);
+    });
 router.get('/admin/register', adminController.register);
 db.AdminUsers.findAll()
     .then((users) => {

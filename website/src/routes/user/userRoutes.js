@@ -53,7 +53,7 @@ db.users.findAll()
                 };
             }).withMessage('Contraseña incorrecta'),
         ], userController.processLogin);
-    })
+    });
 router.get('/registro', loggedInMiddleware, userController.register);
 db.users.findAll()
     .then((users) => {

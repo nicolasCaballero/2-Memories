@@ -26,7 +26,7 @@
                         <div class="signup-form mt-3">
                             <form action="/login" method="POST">
                                 <div class="form-group">
-                                    <input type="email" class="form-control rounded-pill" name="email"
+                                    <input type="text" class="form-control rounded-pill" name="email"
                                         placeholder="e-mail" value="<%=typeof old == 'undefined' ? '':old.email %>"
                                          autofocus>
                                     <% if(typeof errors != 'undefined' && errors.email){%>
