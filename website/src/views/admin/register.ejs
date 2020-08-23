@@ -20,17 +20,6 @@
             <article id="tituloAdmin" class="col-12 card pt-5 border-0">
                 <div class="card-body">
                     <h1 class="card-title text-center">Crear nuevo usuario Administrador</h1>
-                    <% if (typeof errors != 'undefined') { %>
-                    <div class="alert alert-warning" role="alert">
-                        <ul>
-                            <% for(let i = 0; i < errors.length; i++) { %>
-                            <li>
-                                <%= errors[i].msg %>
-                            </li>
-                            <% } %>
-                        </ul>
-                    </div>
-                    <% } %>
                 </div>
             </article>
         </section>
@@ -41,21 +30,39 @@
                         <div class="signup-form mt-3">
                             <form action="/admin/register" method="post" enctype="multipart/form-data" novalidate>
                                 <div class="form-group">
-                                    <input type="text" class="form-control rounded-pill" name="name" placeholder="name"
-                                        required="required">
+                                    <input type="text" value="<%= typeof old != 'undefined' ? old.name : '' %>" class="form-control rounded-pill name" name="name" placeholder="name">
+                                    <% if(typeof errors != 'undefined' && errors.name){%>
+                                        <span class="text-danger"> <%= errors.name.msg %></span>
+                                        <%}%>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control rounded-pill" name="username"
-                                        placeholder="username" required="required">
+                                    <input type="text" class="form-control rounded-pill username" name="username"
+                                        placeholder="username" value="<%= typeof old != 'undefined' ? old.username : '' %>">
+                                        <% if(typeof errors != 'undefined' && errors.username){%>
+                                            <span class="text-danger"> <%= errors.username.msg %></span>
+                                            <%}%>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control rounded-pill" name="email"
-                                        placeholder="e-mail" required="required">
+                                    <input type="text" class="form-control rounded-pill email" name="email"
+                                        placeholder="e-mail" value="<%= typeof old != 'undefined' ? old.email : '' %>">
+                                        <% if(typeof errors != 'undefined' && errors.email){%>
+                                            <span class="text-danger"> <%= errors.email.msg %></span>
+                                            <%}%>
                                 </div>
                                 <div class="form-group">
-                                    <i class="togglePassword fas fa-eye text-decoration-none eye"></i>
+                                    <i class="togglePassword fas fa-eye text-decoration-none eye password"></i>
                                     <input type="password" class="password form-control rounded-pill" name="password"
-                                        placeholder="password" required="required">
+                                        placeholder="password">
+                                        <% if(typeof errors != 'undefined' && errors.password){%>
+                                            <span class="text-danger"> <%= errors.password.msg %></span>
+                                            <%}%>
+                                </div>
+                                <div id="message" class="form-group">
+                                    <h3>La contraseña debe contener:</h3>
+                                    <p id="letter" class="is-invalid"> 1 <b>minúscula</b></p>
+                                    <p id="capital"class="is-invalid"> 1 <b>mayúscula</b></p>
+                                    <p id="number" class="is-invalid"> 1 <b>número</b></p>
+                                    <p id="length" class="is-invalid"> 6 <b>caracteres</b></p>
                                 </div>
                                 <div class="form-group">
                                     <label for="role">Rol</label>
@@ -70,6 +77,9 @@
                                         alt="profile-image">
                                     <input type="file" class="form-control-file rounded text-center mt-2 center"
                                         id="imagen-producto" name="photo">
+                                        <% if(typeof errors != 'undefined' && errors.photo){%>
+                                            <span class="text-danger"> <%= errors.photo.msg %></span>
+                                            <%}%>
                                 </div>
                                 <div class="mx-auto bg-light shadow-sm">
                                     <div id="btn-crearCuenta" class="form-group float-right mt-2">
@@ -83,6 +93,7 @@
 
         </section>
         <%- include('../partials/jsPartials.ejs') %>
+    <script src="/js/adminRegisterValidation.js"></script>
 </body>
 
 </html>

@@ -253,9 +253,12 @@ let adminController = {
                     res.redirect('/admin')
                 })
         } else {
-            return res.render(path.resolve(__dirname, '../views/admin/register'), {
+            res.render(path.resolve(__dirname, '../views/admin/register.ejs'), {
+                Title: 'Login',
+                usuarioMail: req.body.email,
+                password: req.body.password,
                 old: req.body,
-                errors: errors.errors
+                errors: errors.mapped()
             });
         }
 
