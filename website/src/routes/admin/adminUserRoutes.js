@@ -95,7 +95,7 @@ db.AdminUsers.findAll()
             }).withMessage('Solo se aceptan archivos con extensión JPG, JPEG, PNG o GIF')
 
         ], adminController.userCreate)
-    })
+    });
 router.get('/admin/logout', adminController.logout);
 router.get('/admin/users/list', adminRoleMiddleware, adminController.usersList);
 router.get('/admin/users/list/view/:id', adminController.usersShow);

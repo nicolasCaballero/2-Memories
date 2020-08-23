@@ -64,9 +64,12 @@ let userController = {
                 })
                 .catch(error => console.log(error));
         } else {
-            return res.render(path.resolve(__dirname, '../views/users/register'), {
+            res.render(path.resolve(__dirname, '../views/users/register.ejs'), {
+                Title: 'Login',
+                usuarioMail: req.body.email,
+                password: req.body.password,
                 old: req.body,
-                errors: errors.errors
+                errors: errors.mapped()
             });
         }
     },

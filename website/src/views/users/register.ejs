@@ -20,17 +20,6 @@
                 <div class="text-left mt-3 mb-3">
                     <div class="text-center mt-3 mb-3">
                         <h2>¡Creá tu Cuenta!</h2>
-                        <% if (typeof errors != 'undefined') { %>
-                        <div class="alert alert-warning" role="alert">
-                            <ul>
-                                <% for(let i = 0; i < errors.length; i++) { %>
-                                <li>
-                                    <%= errors[i].msg %>
-                                </li>
-                                <% } %>
-                            </ul>
-                        </div>
-                        <% } %>
                     </div>
                     <div class="div-errors">
                         <ul>
@@ -48,19 +37,31 @@
                                 <div class="form-group">
                                     <input type="text" class="form-control rounded-pill name" name="name"
                                         value="<%= typeof old != 'undefined' ? old.name : '' %>" placeholder="nombre" autofocus>
+                                        <% if(typeof errors != 'undefined' && errors.name){%>
+                                            <span class="text-danger"> <%= errors.name.msg %></span>
+                                            <%}%>
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control rounded-pill lastName" name="lastName"
                                     value="<%= typeof old != 'undefined' ? old.lastName : '' %>" placeholder="apellido">
+                                    <% if(typeof errors != 'undefined' && errors.lastName){%>
+                                        <span class="text-danger"> <%= errors.lastName.msg %></span>
+                                        <%}%>
                                 </div>
                                 <div class="form-group">
                                     <input type="text" class="form-control rounded-pill email" name="email"
                                     value="<%= typeof old != 'undefined' ? old.email : '' %>" placeholder="e-mail" >
+                                    <% if(typeof errors != 'undefined' && errors.email){%>
+                                        <span class="text-danger"> <%= errors.email.msg %></span>
+                                        <%}%>
                                 </div>
                                 <div class="form-group">
                                     <i class="togglePassword fas fa-eye text-decoration-none eye"></i>
                                     <input type="password" class="password form-control rounded-pill" name="password"
                                         placeholder="contraseña">
+                                        <% if(typeof errors != 'undefined' && errors.password){%>
+                                            <span class="text-danger"> <%= errors.password.msg %></span>
+                                            <%}%>
                                 </div>
                                 <div id="message" class="form-group">
                                     <h3>La contraseña debe contener:</h3>
@@ -68,12 +69,6 @@
                                     <p id="capital"class="is-invalid"> 1 <b>mayúscula</b></p>
                                     <p id="number" class="is-invalid"> 1 <b>número</b></p>
                                     <p id="length" class="is-invalid"> 6 <b>caracteres</b></p>
-                                </div>
-                                <div class="form-group">
-                                    <i class="togglePassword2 fas fa-eye text-decoration-none eye"></i>
-                                    <input type="password" class="password2 form-control rounded-pill"
-                                        name="passwordConfirmation" placeholder="confirmar contraseña"
-                                        >
                                 </div>
                                 <div class="form-check ml-2">
                                     <input class="form-check-input" checked="checked" type="checkbox" value=""
