@@ -6,6 +6,7 @@ const bcrypt = require('bcrypt');
 const userController = require('../../controllers/userController');
 const loggedInMiddleware = require('../../middlewares/loggedInMiddleware');
 const accountValidationMiddleware = require('../../middlewares/accountValidationMiddleware');
+const notLoggedInMiddleware = require('../../middlewares/notLoggedInMiddleware');
 const db = require('../../db/models');
 
 
@@ -99,7 +100,7 @@ db.users.findAll()
         ], userController.create)
     });
 router.get('/logout', userController.logout);
-router.get('/mi-cuenta/ver/:id', accountValidationMiddleware, userController.usersShow);
+router.get('/mi-cuenta/ver/:id', notLoggedInMiddleware, accountValidationMiddleware, userController.usersShow);
 router.put('/mi-cuenta/ver/:id', upload.single('image'), userController.saveEdit);
 
 
