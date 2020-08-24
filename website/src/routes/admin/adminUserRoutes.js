@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 const adminController = require('../../controllers/adminController');
 const adminRoleMiddleware = require('../../middlewares/adminMiddlewares/adminRoleMiddleware');
 const adminLoggedInMiddleware = require('../../middlewares/adminMiddlewares/adminLoggedInMiddleware');
-const accountValidationMiddleware = require('../../middlewares/adminMiddlewares/accountValidationMiddleware');
+const adminAccountValidationMiddleware = require('../../middlewares/adminMiddlewares/adminAccountValidationMiddleware');
 const db = require('../../db/models');
 const {
     check,
@@ -99,7 +99,7 @@ db.AdminUsers.findAll()
     });
 router.get('/admin/logout', adminController.logout);
 router.get('/admin/users/list', adminRoleMiddleware, adminController.usersList);
-router.get('/admin/account/:id', accountValidationMiddleware, adminController.myAccount);
+router.get('/admin/account/:id', adminAccountValidationMiddleware, adminController.myAccount);
 router.get('/admin/users/list/view/:id', adminController.usersShow);
 router.get('/admin/users/list/delete/:id', adminRoleMiddleware, adminController.usersDelete);
 router.get('/admin/users/list/edit/:id', adminRoleMiddleware, adminController.userEdit);
