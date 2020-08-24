@@ -68,7 +68,7 @@
                         <%= loggedInAdminUser.username %> <img class="rounded-circle" width="20%" src="/img/adminUsers/<%= loggedInAdminUser.photo %> " alt=""> </i>
                     </a>
                     <div class="dropdown-menu border shadow-sm" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="/admin/users/list/view/<%= loggedInAdminUser.id %> ">Mi Cuenta<i class="fas fa-edit ml-2"></i></a>
+                        <a class="dropdown-item" href="/admin/account/<%= loggedInAdminUser.id %> ">Mi Cuenta<i class="fas fa-edit ml-2"></i></a>
                         <a class="dropdown-item" href="/admin/logout">Salir<i class="fas fa-sign-out-alt ml-2"></i></a>
                     </div>
                 </li>

@@ -271,6 +271,14 @@ let adminController = {
                 });
             });
     },
+    'myAccount': (req, res) => {
+        db.AdminUsers.findByPk(req.params.id)
+        .then((user) => {
+            res.render(path.resolve(__dirname, '../views/admin/myAccount.ejs'), {
+                user
+            });
+        }); 
+    },
     'usersShow': (req, res) => {
         db.AdminUsers.findByPk(req.params.id)
             .then((user) => {
