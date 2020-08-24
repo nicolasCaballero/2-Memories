@@ -21,6 +21,11 @@
                 <div class="card-body">
                     <h1 class="card-title text-center">Crear nuevo usuario Administrador</h1>
                 </div>
+                <div class="div-errors">
+                    <ul>
+
+                    </ul>
+                </div>
             </article>
         </section>
         <section class="bg-home pt-15">
@@ -28,7 +33,7 @@
                 <div class="row">
                     <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 mx-auto pt-2 fondo shadow-sm rounded-lg">
                         <div class="signup-form mt-3">
-                            <form action="/admin/register" method="post" enctype="multipart/form-data" novalidate>
+                            <form class="form" action="/admin/register" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <input type="text" value="<%= typeof old != 'undefined' ? old.name : '' %>" class="form-control rounded-pill name" name="name" placeholder="name">
                                     <% if(typeof errors != 'undefined' && errors.name){%>
@@ -50,7 +55,7 @@
                                             <%}%>
                                 </div>
                                 <div class="form-group">
-                                    <i class="togglePassword fas fa-eye text-decoration-none eye password"></i>
+                                    <i class="togglePassword fas fa-eye text-decoration-none eye"></i>
                                     <input type="password" class="password form-control rounded-pill" name="password"
                                         placeholder="password">
                                         <% if(typeof errors != 'undefined' && errors.password){%>
