@@ -1,5 +1,11 @@
 # PROJECT MEMORIES
 
+## PASOS PARA INICIAR EL PROYECTO
+* Clonar el repositorio.
+* Importar en mysql el archivo structure ubicado en la carpeta db, dentro de la raiz.
+* Dentro de la carpeta raíz ingresar al editor de código y ejecutar el comando NPM I, para instalar las depencias correspondientes para que el proyecto funcione.
+* Ejecutar el comando NODEMON I en la consola.
+* Conocer Memories :)
 
 ## DIAGRAMA DE RELACIONES DE BASE DE DATOS
 
