@@ -20,7 +20,7 @@ const upload = multer({storage});
 router.get('/admin/login', adminLoggedInMiddleware, adminController.login);
 router.post('/admin/login', adminProcessLoginMiddleware, adminController.processLogin);
 router.get('/admin/register', adminController.register);
-router.post('/admin/register', upload.single('photo'), adminAccountCreationMiddleware, adminController.userCreate);
+router.post('/admin/register', adminAccountCreationMiddleware, upload.single('photo'), adminController.userCreate);
 router.get('/admin/logout', adminController.logout);
 router.get('/admin/users/list', adminRoleMiddleware, adminController.usersList);
 router.get('/admin/account/:id', adminNotLoggedInMiddleware, adminAccountValidationMiddleware, adminController.myAccount);

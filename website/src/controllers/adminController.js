@@ -252,6 +252,7 @@ let adminController = {
                 .then((newUser) => {
                     res.redirect('/admin')
                 })
+                .catch(error => console.log(error));
         } else {
             res.render(path.resolve(__dirname, '../views/admin/register.ejs'), {
                 Title: 'Login',

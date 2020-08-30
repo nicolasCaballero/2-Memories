@@ -10,6 +10,8 @@ window.addEventListener('load', () => {
         let username = document.querySelector('.username');
         let email = document.querySelector('.email');
         let eye = document.querySelector('.eye');
+        let role = document.querySelector('.role');
+        let img = document.querySelector('.img');
 
 
 
@@ -27,6 +29,27 @@ window.addEventListener('load', () => {
             username.classList.add('is-valid');
             username.classList.remove('is-invalid');
         };
+        // emailValidation(email.value).then(exist => {
+        //     if (exist) {
+        //         errores.push('El email ya se encuentra registrado')
+        //         email.classList.add('is-invalid')
+        //         errorEmail.classList.add('text-danger')
+        //         errorEmail.innerHTML = 'El email ya se encuentra registrado'
+
+        //     } else {
+        //         email.classList.add('is-valid')
+        //         errorEmail.innerHTML = ''
+        //         email.classList.remove('is-invalid')
+
+        //     }
+        // })
+
+        // async function emailValidation(emailToFind) {
+        //     let request = await fetch('http://localhost:3000/admin/users/list')
+        //     let res = await request.json()
+        //     return (Array.from(res).find(user => user.email == emailToFind) != null)
+
+        // }
         let reEmail = /^(([^<>()\[\]\\.,;:\s@']+(\.[^<>()\[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
         if (!reEmail.test(email.value)) {
@@ -49,6 +72,20 @@ window.addEventListener('load', () => {
             password.classList.remove('is-invalid');
             eye.classList.remove('eye');
             eye.classList.add('eye3');
+        };
+        if (role.value == '') {
+            errors.push('El campo nombre no puede estar vacío');
+            role.classList.add('is-invalid');
+        } else {
+            role.classList.add('is-valid');
+            role.classList.remove('is-invalid');
+        };
+        if (img.value == '') {
+            errors.push('El campo nombre no puede estar vacío');
+            img.classList.add('is-invalid');
+        } else {
+            img.classList.add('is-valid');
+            img.classList.remove('is-invalid');
         };
 
         if (errors.length > 0) {

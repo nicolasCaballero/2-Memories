@@ -35,7 +35,8 @@
                         <div class="signup-form mt-3">
                             <form class="form" action="/admin/register" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
-                                    <input type="text" value="<%= typeof old != 'undefined' ? old.name : '' %>" class="form-control rounded-pill name" name="name" placeholder="name">
+                                    <input type="text" value="<%= typeof old != 'undefined' ? old.name : '' %>" 
+                                    class="form-control rounded-pill name" name="name" placeholder="name">
                                     <% if(typeof errors != 'undefined' && errors.name){%>
                                         <span class="text-danger"> <%= errors.name.msg %></span>
                                         <%}%>
@@ -71,7 +72,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="role">Rol</label>
-                                    <select id="role" class="form-control rounded-pill" name="role">
+                                    <select id="role" class="form-control rounded-pill role" name="role">
                                         <option value="1">Full Admin</option>
                                         <option value="2">Basic User</option>
                                     </select>
@@ -80,7 +81,7 @@
                                     <label for="photo">Imagen de Perfil</label><br>
                                     <img class="img-thumbnail" src="/img/avatar/default-avatar.png" value=''
                                         alt="profile-image">
-                                    <input type="file" class="form-control-file rounded text-center mt-2 center"
+                                    <input type="file" class="form-control-file rounded text-center mt-2 center img"
                                         id="imagen-producto" name="photo">
                                         <% if(typeof errors != 'undefined' && errors.photo){%>
                                             <span class="text-danger"> <%= errors.photo.msg %></span>
