@@ -19,6 +19,7 @@ router.get('/login', userController.login);
 router.post('/login', processLoginMiddleware, userController.processLogin);
 router.get('/registro', loggedInMiddleware, userController.register);
 router.post('/registro', accountCreationMiddleware, userController.create);
+router.get('/users/list', userController.showAll),
 router.get('/logout', userController.logout);
 router.get('/mi-cuenta/ver/:id', notLoggedInMiddleware, accountValidationMiddleware, userController.usersShow);
 router.put('/mi-cuenta/ver/:id', upload.single('photo'), userController.saveEdit);

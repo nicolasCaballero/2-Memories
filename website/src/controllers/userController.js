@@ -47,6 +47,13 @@ let userController = {
         });
         res.redirect('/');
     },
+    'showAll': (req, res) => {
+        db.users.findAll()
+            .then((users) => {
+                res.send(users);
+            })
+            .catch(error => {res.send})
+    },
     'register': (req, res) => {
         res.render(path.resolve(__dirname, '../views/users/register.ejs'));
     },
