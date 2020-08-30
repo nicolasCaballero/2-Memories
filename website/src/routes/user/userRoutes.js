@@ -21,7 +21,7 @@ router.get('/registro', loggedInMiddleware, userController.register);
 router.post('/registro', accountCreationMiddleware, userController.create);
 router.get('/logout', userController.logout);
 router.get('/mi-cuenta/ver/:id', notLoggedInMiddleware, accountValidationMiddleware, userController.usersShow);
-router.put('/mi-cuenta/ver/:id', upload.single('image'), userController.saveEdit);
+router.put('/mi-cuenta/ver/:id', upload.single('photo'), userController.saveEdit);
 
 
 module.exports = router;

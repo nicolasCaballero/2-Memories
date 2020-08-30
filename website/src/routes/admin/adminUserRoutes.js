@@ -9,23 +9,12 @@ const adminLoggedInMiddleware = require('../../middlewares/adminMiddlewares/admi
 const adminNotLoggedInMiddleware = require('../../middlewares/adminMiddlewares/adminNotLoggedInMiddleware');
 const adminAccountValidationMiddleware = require('../../middlewares/adminMiddlewares/adminAccountValidationMiddleware');
 const db = require('../../db/models');
-const {
-    check,
-    validationResult,
-    body
-} = require('express-validator');
+const {check, validationResult, body} = require('express-validator');
 const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, path.resolve(__dirname, '../../../public/img/adminUsers'));
-    },
-    filename: function (req, file, cb) {
-        cb(null, file.originalname);
-    }
+    destination: function (req, file, cb) {cb(null, path.resolve(__dirname, '../../../public/img/adminUsers'));},
+    filename: function (req, file, cb) {cb(null, file.originalname);}
 })
-
-const upload = multer({
-    storage
-});
+const upload = multer({storage});
 
 router.get('/admin/login', adminLoggedInMiddleware, adminController.login);
 db.AdminUsers.findAll()
