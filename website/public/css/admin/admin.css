@@ -66,3 +66,21 @@ td a {
 .password {
     margin-top: -30px;
 }
+
+.is-valid {
+    color: green
+}
+
+.is-valid:before {
+    position: relative;
+    content: "✔"
+}
+
+.is-invalid {
+    color: red;
+}
+
+.is-invalid:before {
+    position: relative;
+    content: "✖"
+}

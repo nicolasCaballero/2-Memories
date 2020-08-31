@@ -14,8 +14,11 @@
             <article class="col-12 card pt-5 border-0">
                 <div class="card-body">
                     <h1 class="card-title text-center">Agregar nuevo pack de Memories</h1>
+                </div>
+                <div class="div-errors">
+                    <ul>
 
-
+                    </ul>
                 </div>
             </article>
         </section>
@@ -25,20 +28,23 @@
                 <div class="row">
                     <div class="col-lg-8 col-md-10 col-sm-10 col-xs-12 mx-auto bg-light shadow-sm">
                         <div class="signup-form mt-2">
-                            <form action="/admin/memories/create" method="POST" enctype="multipart/form-data">
+                            <form class="form" action="/admin/memories/create" method="POST" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label for="name">Nombre</label>
-                                    <input type="text" class="form-control rounded-pill" name="name"
-                                        placeholder="Ej: Take Away" required="required">
+                                    <input type="text" class="form-control rounded-pill name" name="name"
+                                        placeholder="Ej: Take Away">
                                 </div>
                                 <div class="form-group">
                                     <label for="description">Descripción</label>
-                                    <input type="text" class="form-control rounded-pill" name="description"
+                                    <input type="text" class="form-control rounded-pill description" name="description"
                                     placeholder="Ej: Delicias para disfrutar en casa" rows="3">
                                 </div>
                                 <div class="form-group">
                                     <label for="image">Imagen (medidas recomendadas: 700x700 px)</label>
-                                    <input type="file" class="form-control-file rounded" id="imagen-producto" name="image">
+                                    <input type="file" class="form-control-file rounded image" id="imagen-producto" name="image">
+                                    <div class="img-errors">
+                                        <p></p>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="visibility">Visibilidad</label>
@@ -49,18 +55,18 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="price">Precio $</label>
-                                    <input type="number" class="form-control rounded-pill" name="price"
-                                        placeholder="Ej: 1899" required="required">
+                                    <input type="text" class="form-control rounded-pill price" name="price"
+                                        placeholder="Ej: 1899">
                                 </div>
                                 <div class="form-group">
                                     <label for="special_price">Precio Especial $</label>
-                                    <input type="number" class="form-control rounded-pill" name="specialPrice"
-                                        placeholder="Ej: 1899" required="required">
+                                    <input type="text" class="form-control rounded-pill specialPrice" name="specialPrice"
+                                        placeholder="Ej: 1899">
                                 </div>
                                 <div class="form-group">
                                     <label for="qty">Stock</label>
-                                    <input type="number" class="form-control rounded-pill" name="qty"
-                                        placeholder="Ej: 100" required="required">
+                                    <input type="text" class="form-control rounded-pill qty" name="qty"
+                                        placeholder="Ej: 100">
                                 </div>
                                 <div class="form-group">
                                     <label for="categories">Categoría</label>
@@ -87,6 +93,7 @@
     </div>
     </section>
     <%- include('../partials/jsPartials.ejs') %>
+    <script src="/js/productsValidation.js"></script>
 </body>
 
 </html>
