@@ -4,7 +4,7 @@ const db = require('../db/models');
 
 let mainController = {
     'open': (req, res) => {
-        res.render(path.resolve(__dirname, '../views/index/abrirMemorie.ejs.ejs'))
+        res.render(path.resolve(__dirname, '../views/index/abrirMemorie.ejs'))
     },
     'index': (req, res) => {
         db.categories.findAll()
