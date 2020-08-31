@@ -32,8 +32,8 @@ window.addEventListener('load', () => {
             errors.push('Solo se permiten imagenes .jpg | .jpeg | .png | .gif' );
             imgErrors.classList.add('is-invalid');
         } else {
-            image.classList.add('is-valid');
-            image.classList.remove('is-invalid');
+            imgErrors.classList.add('is-valid');
+            imgErrors.classList.remove('is-invalid');
         };
         if (price.value.match(numbers)) {
             price.classList.remove('is-invalid');

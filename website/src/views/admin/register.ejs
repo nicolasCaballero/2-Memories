@@ -83,6 +83,9 @@
                                         alt="profile-image">
                                     <input type="file" class="form-control-file rounded text-center mt-2 center img"
                                         id="imagen-producto" name="photo">
+                                        <div class="img-errors">
+                                            <p></p>
+                                        </div>
                                         <% if(typeof errors != 'undefined' && errors.photo){%>
                                             <span class="text-danger"> <%= errors.photo.msg %></span>
                                             <%}%>
