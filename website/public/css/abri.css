@@ -1,0 +1,61 @@
+* {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+body {
+    background-image: url('../img/bg-gift-gray.jpg');
+    background-size: 15%;
+    overflow-x: hidden;
+    width: 100%;
+    position: absolute;
+}
+
+.container-fluid {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.fondo {
+    background-color: rgba(247, 247, 247, 0.6)
+}
+
+#titulo {
+    margin-top: 50px;
+}
+
+#separador {
+    height: 50px;
+}
+
+p {
+    font-size: 1rem;
+}
+
+.contenido-modal {
+    display: flex;
+}
+
+@media (min-width: 656px) and (max-width: 1366px) {
+    body {
+        background-image: url('../img/bg-gift-gray.jpg');
+        background-position-x: center;
+        background-position-y: center;
+    }
+}
+
+@media (max-width: 655px) {
+    body {
+        background-image: url('../img/bg-gift-gray.jpg');
+        background-position-x: center;
+        background-position-y: center;
+    }
+}
+
+.eye {
+    margin-left: 95%;
+    cursor: pointer;
+}
+
+.password {
+    margin-top: -30px;
+}
