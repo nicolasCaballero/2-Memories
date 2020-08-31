@@ -3,73 +3,71 @@
 
 <head>
     <%- include('../partials/headPartial.ejs') %>
-    <link rel="stylesheet" href="/css/miCuenta.css">
-    <title>Mi Cuenta | MEMORIES</title>
+    <link rel="stylesheet" href="/css/abri.css">
+    <script src="/js/passwordToggle.js"></script>
+    <title>ABRI TU REGALO | MEMORIES</title>
 </head>
 
 <body>
-    <%- include('../partials/headerAdminPartial.ejs') %>
+    <%- include('../partials/headerPartial.ejs') %>
     <div class="container-fluid">
-
-        <section class="row">
-            <article class="col-12 card pt-5 border-0">
-                <div class="card-body">
-                    <h1 class="card-title text-center">Mi Cuenta</h1>
-
-
-                </div>
+        <section id="titulo" class="row">
+            <article class="col-12">
+                <div class="text-center mt-3 mb-3">
+                    <div class="text-center mt-3 mb-3">
+                        <h2>¡Abrí tu regalo!</h2>
+                    </div>
             </article>
         </section>
-
-        <section id="formulario" class="bg-home pt-4">
+        <section class="bg-home pt-15">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-md-10 col-sm-10 col-xs-12 mx-auto bg-light shadow-sm">
-                        <div class="signup-form mt-2">
-                            <form action="/" method="POST">
-                                <div class="form-group text-center col">
-                                    <label for="image">Imagen de Perfil</label><br>
-                                    <img class="img-thumbnail" src="/img/avatar/default-avatar.png" value ='' alt="">
-                                    <input type="file" class="form-control-file rounded text-center mt-2 center" id="imagen-producto" name="image">
+                    <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 mx-auto pt-2  fondo shadow-sm rounded-lg">
+                        <div class="signup-form mt-3">
+                            <form action="/login" method="POST">
+                                <div class="form-group mt-2">
+                                    <h4 class="mb-2">Ingresá el código de tu Memorie</h4></div>
+                                    <div class="form-group mt-2">
+                                    <input type="text" class="form-control rounded-pill" name="codigo-memorie"
+                                        placeholder="Código de 8 dígitos"
+                                        required="required" autofocus>
                                 </div>
-                                <div class="form-group">
-                                    <label for="name">Nombre</label>
-                                    <input type="text" class="form-control rounded-pill" name="name"
-                                        value='name' required="required">
+                                <div class="form-group text-left display-5">
+                                    <a data-toggle="modal" data-target="#exampleModalLong"><i class="fas fa-question-circle mr-1"></i>¿Dónde lo encuentro?</a>
                                 </div>
-                                <div class="form-group">
-                                    <label for="text">Apellido</label>
-                                    <input type="text" class="form-control rounded-pill" name="name"
-                                        value='apellido' required="required">
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="text" class="form-control rounded-pill" name="email"
-                                        value='email' rows="3">
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Password</label>
-                                    <input type="password" class="form-control rounded-pill" name="password"
-                                        value='password' required="required">
-                                </div>
-                                <div class="mx-auto bg-light mt-2 shadow-sm">
-                                    <div id="btn-guardar" class="form-group float-right mt-2">
-                                        <button type="submit" class="btn btn btn-info rounded-pill">Actualizar datos</button>
-                                    </div>
+                                <div class="form-group text-center btn-block">
+                                    <button type="submit"
+                                        class="btn btn-info btn-primary btn-lg btn-block rounded-pill">Abrir mi Memorie</button>
                                 </div>
                             </form>
-                            <div id="btn-volver" class="form-group float-left mt-2">
-                                <a href="/"><button class="btn btn-secondary rounded-pill"><i
-                                            class="fas fa-arrow-left mr-1"></i>Volver</button></a>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
+        <!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">¿Dónde puedo encontrar el código?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="contenido-modal">
+                <div class="mr-2"><img src="../img/memories-digital.png" /></div>
+                <div><p>Revisá el <strong>e-mail</strong> que recibiste a través de Memories de parte de la persona que te regaló. Allí podrás encontrar el código de 8 dígitos correspondiente.</p></div>
+            </div>
+        </div>
+      </div>
     </div>
-    </section>
-    <%- include('../partials/jsPartials.ejs') %>
+  </div>
+  
+        <div id="separador"></div>
+        <%- include('../partials/footerPartial.ejs') %>
+                                    <%- include('../partials/jsPartials.ejs') %>
 </body>
 
 </html>
