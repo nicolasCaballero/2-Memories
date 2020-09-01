@@ -10,6 +10,7 @@ const adminUserRoutes = require('./routes/admin/adminUserRoutes');
 const adminCategoriesRoutes = require('./routes/admin/adminCategoriesRoutes');
 const gridRoutes = require('./routes/grid/gridRoutes');
 const adminExperiencesRoutes = require('./routes/admin/adminExperienciesRoutes');
+const cartRoutes = require('./routes/cart/cartRoutes');
 const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 const loginMiddleware = require('./middlewares/loginMiddleware');
@@ -35,6 +36,7 @@ app.use(gridRoutes);
 app.use(adminUserRoutes);
 app.use(adminCategoriesRoutes);
 app.use(adminExperiencesRoutes);
+app.use(cartRoutes);
 app.use(function (req, res, next) {
     res.status(404);
     if (req.accepts('html')) {

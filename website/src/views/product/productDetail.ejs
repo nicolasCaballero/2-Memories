@@ -54,9 +54,11 @@
 
                     <li><br></li>
 
-                    <li><button type="button" class="btn-block btn-lg rounded-pill" id="botonComprar"><a
-                                class="text-decoration-none text-dark"
-                                href="/carrito/<%= product.sku %> ">COMPRAR</a></button>
+                    <li>
+                        <form action="/carrito/agregar" method="post">
+                            <input type="hidden"  name="productSku" value="<%= product.sku%>">
+                            <button type="submit" class="btn-block btn-lg rounded-pill" id="botonComprar">COMPRAR</button>
+                        </form>
                     </li>
                 </ul>
             </div>
