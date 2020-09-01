@@ -55,7 +55,7 @@ let gridController = {
     'search': (req, res) => {
         db.products.findAll({
                 where: {
-                    name: {
+                    description: {
                         [Op.like]: `%${req.query.search}%`
                     }
                 }
