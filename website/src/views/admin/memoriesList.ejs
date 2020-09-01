@@ -9,26 +9,20 @@
 
 <body>
     <script>
-        function asegurar ()
-          {
-              rc = confirm("¿Seguro que desea Eliminar?");
-              return rc;
-          }
-        </script>
-    
-        <%- include('../partials/headerAdminPartial.ejs') %>
+        function asegurar () {
+            rc = confirm("¿Seguro que desea Eliminar?");
+            return rc;
+        }
+    </script>
+<%- include('../partials/headerAdminPartial.ejs') %>
     <div class="container-fluid">
-
         <section class="row">
             <article id="tituloAdmin" class="col-12 card pt-5 border-0">
                 <div class="card-body">
                     <h1 class="card-title text-center">Listado de Packs de Memories</h1>
-
-
                 </div>
             </article>
         </section>
-
         <table class="table mt-2 border-bottom">
             <thead class="thead-dark">
                 <tr>
@@ -43,21 +37,20 @@
                 </tr>
             </thead>
             <tbody>
-                    <% products.forEach(product => { %>
-                        <tr>
-                            <td scope="row"><%= product.sku %> </td>
-                            <td><%= product.name%> </td>
-                            <td><%= product.productCategory.name%> </td>
-                            <td><%= product.price%> </td>
-                            <td><%= product.qty%> </td>
-                            <td><a id="btn-view" class=" text-decoration-none" href="/admin/memories/list/view/<%= product.sku%>"><i class="fas fa-eye text-decoration-none"></i></a></td>
-                            <td><a id="btn-edit" class=" text-decoration-none" href="/admin/memories/list/edit/<%= product.sku%>"><i class="fas fa-edit text-decoration-none"></i></a></td>
-                            <td><a id="btn-delete" class=" text-decoration-none" onClick='return confirm("¿Seguro querés borrar el producto <%= product.name%>?")' href="/admin/memories/list/delete/<%= product.sku%>"><i class="fas fa-trash text-decoration-none"></i></a></td>
-                        </tr>
-                    <% }) ; %>
+            <% products.forEach(product => { %>
+                <tr>
+                    <td scope="row"><%= product.sku %> </td>
+                    <td><%= product.name%> </td>
+                    <td><%= product.productCategory.name%> </td>
+                    <td><%= product.price%> </td>
+                    <td><%= product.qty%> </td>
+                    <td><a id="btn-view" class=" text-decoration-none" href="/admin/memories/list/view/<%= product.sku%>"><i class="fas fa-eye text-decoration-none"></i></a></td>
+                    <td><a id="btn-edit" class=" text-decoration-none" href="/admin/memories/list/edit/<%= product.sku%>"><i class="fas fa-edit text-decoration-none"></i></a></td>
+                    <td><a id="btn-delete" class=" text-decoration-none" onClick='return confirm("¿Seguro querés borrar el producto <%= product.name%>?")' href="/admin/memories/list/delete/<%= product.sku%>"><i class="fas fa-trash text-decoration-none"></i></a></td>
+                </tr>
+            <% }) ; %>
             </tbody>
         </table>
-
         <div class="col-12 mx-auto  pt-4 ">
             <div id="btn-volver" class="form-group float-left">
                 <a href="/admin"><button class="btn btn-secondary rounded-pill"><i class="fas fa-arrow-left mr-1"></i>Volver</button></a>
@@ -66,8 +59,7 @@
                 <button type="submit" class="btn btn-info rounded-pill mr-5">Agregar nuevo pack</button></a>
             </div>
         </div>
-        
+    </div>
     <%- include('../partials/jsPartials.ejs') %>
 </body>
-
 </html>

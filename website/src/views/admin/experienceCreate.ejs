@@ -9,7 +9,6 @@
 
 <body>
     <%- include('../partials/headerAdminPartial.ejs') %>
- 
     <div class="container-fluid">
         <section class="row">
             <article class="col-12 card pt-5 border-0">
@@ -18,7 +17,6 @@
                 </div>
             </article>
         </section>
-
         <section id="formulario" class="bg-home pt-4">
             <div class="container">
                 <div class="row">
@@ -27,14 +25,11 @@
                             <form action="/admin/experiences/create" method="POST" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label for="nombre">Nombre</label>
-                                    <input type="text" class="form-control rounded-pill" name="name"
-                                        placeholder="Ej: Tucson">
+                                    <input type="text" class="form-control rounded-pill" name="name" placeholder="Ej: Tucson">
                                 </div>
                                 <div class="form-group">
                                     <label for="descripción">Descripción</label>
-                                    <textarea class="form-control rounded-lg" name="description"
-                                        placeholder="Ej: Disfrutá de un buen plato, disfrutá Tucson."
-                                        rows="3"></textarea>
+                                    <textarea class="form-control rounded-lg" name="description" placeholder="Ej: Disfrutá de un buen plato, disfrutá Tucson." rows="3"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="imagen-producto">Imagen</label>
@@ -42,14 +37,11 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="includes">Incluye</label>
-                                    <textarea class="form-control rounded-lg" name="include"
-                                        placeholder="Ej: La experiencia incluye, una entrada, un plato principal, un postre y un cocktail, por persona. Válido para 2 (dos) personas por unica vez."
-                                        rows="3"></textarea>
+                                    <textarea class="form-control rounded-lg" name="include" placeholder="Ej: La experiencia incluye, una entrada, un plato principal, un postre y un cocktail, por persona. Válido para 2 (dos) personas por unica vez." rows="3"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="website">Website</label>
-                                    <input type="text" class="form-control rounded-pill" name="website"
-                                        placeholder="Ej: http://www.tucsonrestaurante.com.ar/">
+                                    <input type="text" class="form-control rounded-pill" name="website" placeholder="Ej: http://www.tucsonrestaurante.com.ar/">
                                 </div>
                                 <div class="form-group">
                                     <label for="productSku">Asociar a Memorie</label>
@@ -63,13 +55,12 @@
                                     <button type="submit" class="btn btn-info rounded-pill">Guardar</button>
                                 </div>
                             </form>
-
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
     </div>
-    </section>
     <%- include('../partials/jsPartials.ejs') %>
 </body>
 

@@ -20,17 +20,11 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }));
-
 app.use(cookieParser());
-
 app.use(express.static(path.join(__dirname, '../public')));
 app.set('view engine', 'ejs');
-app.use(express.urlencoded({
-    extended: false
-}));
+app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
-
-
 app.use(loginMiddleware);
 app.use(loginAdminMiddleware);
 app.use(mainRoutes);
@@ -44,9 +38,7 @@ app.use(adminExperiencesRoutes);
 app.use(function (req, res, next) {
     res.status(404);
     if (req.accepts('html')) {
-        res.render('404', {
-            url: req.url
-        });
+        res.render('404', { url: req.url });
         return;
     }
 });

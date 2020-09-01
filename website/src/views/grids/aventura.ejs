@@ -8,7 +8,7 @@
 </head>
 
 <body>
-  <%- include('../partials/headerPartial.ejs') %>
+<%- include('../partials/headerPartial.ejs') %>
   <div class="container-fluid">
     <div class="d-none d-lg-block">
       <section id="topBannerCategoria">
@@ -22,16 +22,13 @@
     </div>
     <div class="col-12" id="experienciasDentroDelMemorie">
       <h1 class="tituloCategoriaGrilla"> Aventura </h1>
-      <h4 class="subtituloCategoriaGrilla"> Disfrutá de experiencias <br> inolvidables </h4>
+        <h4 class="subtituloCategoriaGrilla"> Disfrutá de experiencias <br> inolvidables </h4>
     </div>
     <div class="container">
       <div class="row rowBotones">
         <div class="col-6 filtros">
           <div class="dropdown filtroOrdenar">
-            <button class="btn btn-secondary dropdown-toggle botonOrdenar" type="button" id="dropdownMenu2"
-              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Ordenar
-            </button>
+            <button class="btn btn-secondary dropdown-toggle botonOrdenar" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Ordenar </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
               <button class="dropdown-item" type="button">Precio más alto</button>
               <button class="dropdown-item" type="button">Precio más bajo</button>
@@ -39,13 +36,9 @@
             </div>
           </div>
         </div>
-
         <div class="col-6 filtros">
           <div class="dropdown filtroFiltrar">
-            <button class="btn btn-secondary dropdown-toggle botonFiltrar" type="button" id="dropdownMenu2"
-              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Filtrar
-            </button>
+            <button class="btn btn-secondary dropdown-toggle botonFiltrar" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filtrar</button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
               <button class="dropdown-item" type="button">Action</button>
               <button class="dropdown-item" type="button">Another action</button>
@@ -55,8 +48,7 @@
         </div>
       </div>
     </div>
-    <div class="row botonesCategoria"></div>
-    <img src="" alt="">
+    <div class="row botonesCategoria">
     <div class="container">
       <div class="row" id="rowMemoriesPacks">        
         <% for( let i = 0; i < products.length; i++ ) { %>
@@ -69,9 +61,9 @@
         <% } %>
       </div>
     </div>
-    <%- include('../partials/footerPartial.ejs') %>
-    <%- include('../partials/jsPartials.ejs') %>
   </div>
+<%- include('../partials/footerPartial.ejs') %>
+<%- include('../partials/jsPartials.ejs') %>
 </body>
 
 </html>

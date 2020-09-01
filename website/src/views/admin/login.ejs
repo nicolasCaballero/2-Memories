@@ -20,12 +20,9 @@
             <article id="tituloAdmin" class="col-12 card pt-5 border-0">
                 <div class="card-body">
                     <h1 class="card-title text-center">Iniciá sesión</h1>
-
-
                 </div>
             </article>
         </section>
-
         <section class="bg-home pt-15">
             <div class="container">
                 <div class="row">
@@ -33,20 +30,17 @@
                         <div class="signup-form mt-3">
                             <form action="/admin/login" method="POST">
                                 <div class="form-group">
-                                    <input type="text" class="form-control rounded-pill" name="email"
-                                        placeholder="e-mail" value="<%=typeof old == 'undefined' ? '':old.email %>"
-                                         autofocus>
-                                    <% if(typeof errors != 'undefined' && errors.email){%>
-                                    <span class="text-danger"> <%= errors.email.msg %></span>
-                                    <%}%>
+                                    <input type="text" class="form-control rounded-pill" name="email" placeholder="e-mail" value="<%=typeof old == 'undefined' ? '':old.email %>" autofocus>
+                                        <% if(typeof errors != 'undefined' && errors.email){%>
+                                            <span class="text-danger"> <%= errors.email.msg %></span>
+                                        <%}%>
                                 </div>
                                 <div class="form-group">
                                     <i class="togglePassword fas fa-eye text-decoration-none eye"></i>
-                                    <input type="password" class="password form-control rounded-pill" name="password"
-                                        placeholder="contraseña">
-                                        <% if(typeof errors != 'undefined' && errors.password){%>
-                                    <span class="text-danger"> <%=errors.password.msg %></span>
-                                    <%}%>
+                                        <input type="password" class="password form-control rounded-pill" name="password"  placeholder="contraseña">
+                                            <% if(typeof errors != 'undefined' && errors.password){%>
+                                                <span class="text-danger"> <%=errors.password.msg %></span>
+                                            <%}%>
                                 </div>
                                 <div class="form-group text-right display-5">
                                     <a href="#">¿Olvidaste tu contraseña?</a>
@@ -55,8 +49,7 @@
                                     <button type="submit" class="btn btn-info btn-primary btn-lg btn-block rounded-pill">Ingresar </button>
                                 </div>
                                 <div class="form-group text-center">
-                                    <input type="checkbox" name="remember" checked>
-                                    <label class="checkbox-inline">&nbsp;Recordarme</label>
+                                    <input type="checkbox" name="remember" checked> <label class="checkbox-inline">&nbsp;Recordarme</label>
                                 </div>
                             </form>
                         </div>
@@ -64,9 +57,8 @@
                 </div>
             </div>
         </section>
-
-        
-    <%- include('../partials/jsPartials.ejs') %>
+    </div>   
+<%- include('../partials/jsPartials.ejs') %>
 </body>
 
 </html>

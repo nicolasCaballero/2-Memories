@@ -10,20 +10,13 @@
 <body>
     <%- include('../partials/headerAdminPartial.ejs') %>
     <div class="container-fluid">
-
-
-        <!-- Cuerpo principal -->
-
         <section class="row">
             <article class="col-12 card pt-5 border-0">
                 <div class="card-body">
                     <h1 class="card-title text-center">Editar categoría <%= category.name%></h1>
-
-
                 </div>
             </article>
         </section>
-
         <section id="formulario" class="bg-home pt-4">
             <div class="container">
                 <div class="row">
@@ -49,7 +42,7 @@
                                 </div>
                                 <div class="mx-auto bg-light mt-2 shadow-sm">
                                     <div id="btn-guardar" class="form-group float-right mt-2">
-                                    <button type="submit" class="btn btn btn-info rounded-pill">Actualizar</button>
+                                        <button type="submit" class="btn btn btn-info rounded-pill">Actualizar</button>
                                     </div>
                                 </div>
                             </form>
@@ -60,8 +53,8 @@
                     </div>
                 </div>
             </div>
+        </section>
     </div>
-    </section>
     <%- include('../partials/jsPartials.ejs') %>
 </body>
 

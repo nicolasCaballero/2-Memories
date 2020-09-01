@@ -28,10 +28,7 @@
       <div class="row rowBotones">
         <div class="col-6 filtros">
           <div class="dropdown filtroOrdenar">
-            <button class="btn btn-secondary dropdown-toggle botonOrdenar" type="button" id="dropdownMenu2"
-              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Ordenar
-            </button>
+            <button class="btn btn-secondary dropdown-toggle botonOrdenar" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Ordenar </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
               <button class="dropdown-item" type="button">Precio más alto</button>
               <button class="dropdown-item" type="button">Precio más bajo</button>
@@ -39,13 +36,9 @@
             </div>
           </div>
         </div>
-
         <div class="col-6 filtros">
           <div class="dropdown filtroFiltrar">
-            <button class="btn btn-secondary dropdown-toggle botonFiltrar" type="button" id="dropdownMenu2"
-              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Filtrar
-            </button>
+            <button class="btn btn-secondary dropdown-toggle botonFiltrar" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filtrar</button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
               <button class="dropdown-item" type="button">Action</button>
               <button class="dropdown-item" type="button">Another action</button>
@@ -55,9 +48,9 @@
         </div>
       </div>
     </div>
-    <div class="row botonesCategoria"></div>
-    <img src="" alt="">
-    <div class="container">
+    <div class="row botonesCategoria">
+      <img src="" alt="">
+      <div class="container">
       <div class="row" id="rowMemoriesPacks">
         <% for( let i = 0; i < products.length; i++ ) { %>
         <% if (products[i].categoryId == 3 && products[i].visibility == 0 && products[i].qty >= 1) { %>
@@ -68,10 +61,10 @@
         <% } %>
         <% } %>
       </div>
+      </div>
     </div>
-    <%- include('../partials/footerPartial.ejs') %>
-    <%- include('../partials/jsPartials.ejs') %>
   </div>
+<%- include('../partials/footerPartial.ejs') %>
+<%- include('../partials/jsPartials.ejs') %>
 </body>
-
 </html>
