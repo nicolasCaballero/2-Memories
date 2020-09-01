@@ -1,23 +1,13 @@
 const path = require('path');
 const bcrypt = require('bcryptjs');
-const {
-    check,
-    validationResult,
-    body
-} = require('express-validator');
+const {check, validationResult, body } = require('express-validator');
 
 const db = require('../db/models');
 
 let adminController = {
-    'denied': (req, res) => {
-        res.render(path.resolve(__dirname, '../views/admin/denied.ejs'));
-    },
-    'index': (req, res) => {
-        res.render(path.resolve(__dirname, '../views/admin/index.ejs'));
-    },
-    'categoriesCreate': (req, res) => {
-        res.render(path.resolve(__dirname, '../views/admin/categoriesCreate.ejs'));
-    },
+    'denied': (req, res) => {res.render(path.resolve(__dirname, '../views/admin/denied.ejs'));},
+    'index': (req, res) => {res.render(path.resolve(__dirname, '../views/admin/index.ejs'));},
+    'categoriesCreate': (req, res) => {res.render(path.resolve(__dirname, '../views/admin/categoriesCreate.ejs'));},
     'categoriesSave': (req, res) => {
         db.categories.create({
             name: req.body.name,
@@ -28,28 +18,16 @@ let adminController = {
     },
     'categoriesList': (req, res) => {
         db.categories.findAll()
-            .then((categories) => {
-                res.render(path.resolve(__dirname, '../views/admin/categoriesList.ejs'), {
-                    categories
-                });
-            });
+            .then((categories) => {res.render(path.resolve(__dirname, '../views/admin/categoriesList.ejs'), {categories});});
     },
     'categoriesShow': (req, res) => {
         db.categories.findByPk(req.params.id)
-            .then((category) => {
-                res.render(path.resolve(__dirname, '../views/admin/categoriesDetail.ejs'), {
-                    category
-                });
-            });
-    },
+            .then((category) => {res.render(path.resolve(__dirname, '../views/admin/categoriesDetail.ejs'), {category});});
+        },
     'categoriesEdit': (req, res) => {
         db.categories.findByPk(req.params.id)
-            .then((category) => {
-                res.render(path.resolve(__dirname, '../views/admin/categoriesEdit.ejs'), {
-                    category
-                });
-            })
-    },
+            .then((category) => {res.render(path.resolve(__dirname, '../views/admin/categoriesEdit.ejs'), {category});})
+        },
     'categoriesSaveEdit': (req, res) => {
         db.categories.update({
             name: req.body.name,
@@ -63,20 +41,12 @@ let adminController = {
         res.redirect('/admin/categories/list');
     },
     'categoriesDelete': (req, res) => {
-        db.categories.destroy({
-            where: {
-                id: req.params.id
-            }
-        });
+        db.categories.destroy({where: {id: req.params.id}});
         res.redirect('/admin/categories/list');
     },
     'memoriesCreate': (req, res) => {
         db.categories.findAll()
-            .then((categories) => {
-                return res.render(path.resolve(__dirname, '../views/admin/memoriesCreate.ejs'), {
-                    categories
-                });
-            })
+            .then((categories) => {return res.render(path.resolve(__dirname, '../views/admin/memoriesCreate.ejs'), {categories});})
     },
     'memoriesSave': (req, res) => {
         db.products.create({
@@ -97,28 +67,16 @@ let adminController = {
                     association: 'productCategory'
                 }]
             })
-            .then((products) => {
-                res.render(path.resolve(__dirname, '../views/admin/memoriesList.ejs'), {
-                    products
-                });
-            });
+            .then((products) => {res.render(path.resolve(__dirname, '../views/admin/memoriesList.ejs'), {products});});
     },
     'memoriesShow': (req, res) => {
         db.products.findByPk(req.params.sku, {
                 include: [{association: 'productCategory'},{association: 'productExperiences'}]
             })
-            .then((product) => {
-                res.render(path.resolve(__dirname, '../views/admin/memoriesDetail.ejs'), {
-                    product
-                });
-            });
+            .then((product) => {res.render(path.resolve(__dirname, '../views/admin/memoriesDetail.ejs'), {product});});
     },
     'memoriesDelete': (req, res) => {
-        db.products.destroy({
-            where: {
-                sku: req.params.sku
-            }
-        })
+        db.products.destroy({where: {sku: req.params.sku}})
         res.redirect('/admin/memories/list');
     },
     'memoriesEdit': (req, res) => {
@@ -126,12 +84,7 @@ let adminController = {
         let categoryRequest = db.categories.findAll();
 
         Promise.all([productRequest, categoryRequest])
-            .then(([product, categories]) => {
-                res.render(path.resolve(__dirname, '../views/admin/memoriesEdit.ejs'), {
-                    product,
-                    categories
-                });
-            });
+            .then(([product, categories]) => {res.render(path.resolve(__dirname, '../views/admin/memoriesEdit.ejs'), {product, categories});});
     },
     'memoriesSaveEdit': (req, res) => {
         db.products.update({
@@ -152,11 +105,7 @@ let adminController = {
     },
     'experiencesList': (req, res) => {
         db.experiences.findAll()
-            .then((experiences) => {
-                res.render(path.resolve(__dirname, '../views/admin/experiencesList.ejs'), {
-                    experiences
-                });
-            })
+            .then((experiences) => {res.render(path.resolve(__dirname, '../views/admin/experiencesList.ejs'), {experiences});})
     },
     'experienceShow': (req, res) => {
         db.experiences.findByPk(req.params.id, {
@@ -164,27 +113,15 @@ let adminController = {
                     association: 'experienceProducts'
                 }]
             })
-            .then(experience => {
-                res.render(path.resolve(__dirname, '../views/admin/experienceDetail'), {
-                    experience
-                })
-            })
+            .then(experience => {res.render(path.resolve(__dirname, '../views/admin/experienceDetail'), {experience})})
     },
     'experienceDelete': (req, res) => {
-        db.experiences.destroy({
-            where: {
-                id: req.params.id
-            }
-        });
+        db.experiences.destroy({where: {id: req.params.id}});
         res.redirect('/admin/experiences/list');
     },
     'experienceCreate': (req, res) => {
         db.products.findAll()
-        .then((products) => {
-            return res.render(path.resolve(__dirname, '../views/admin/experienceCreate.ejs'), {
-                products
-            });
-        })
+        .then((products) => {return res.render(path.resolve(__dirname, '../views/admin/experienceCreate.ejs'), {products});})
     },
     'experienceSave': (req, res) => {
         db.experiences.create({
@@ -261,48 +198,27 @@ let adminController = {
                 old: req.body,
                 errors: errors.mapped()
             });
-        }
-
+        };
     },
     'usersList': (req, res) => {
         db.AdminUsers.findAll()
-            .then((adminUsers) => {
-                res.render(path.resolve(__dirname, '../views/admin/usersList.ejs'), {
-                    adminUsers
-                });
-            });
+            .then((adminUsers) => {res.render(path.resolve(__dirname, '../views/admin/usersList.ejs'), {adminUsers});});
     },
     'myAccount': (req, res) => {
         db.AdminUsers.findByPk(req.params.id)
-        .then((user) => {
-            res.render(path.resolve(__dirname, '../views/admin/myAccount.ejs'), {
-                user
-            });
-        }); 
+        .then((user) => {res.render(path.resolve(__dirname, '../views/admin/myAccount.ejs'), {user});}); 
     },
     'usersShow': (req, res) => {
         db.AdminUsers.findByPk(req.params.id)
-            .then((user) => {
-                res.render(path.resolve(__dirname, '../views/admin/userDetail.ejs'), {
-                    user
-                });
-            });
+            .then((user) => {res.render(path.resolve(__dirname, '../views/admin/userDetail.ejs'), {user});});
     },
     'usersDelete': (req, res) => {
-        db.AdminUsers.destroy({
-            where: {
-                id: req.params.id
-            }
-        })
+        db.AdminUsers.destroy({where: {id: req.params.id}})
         res.redirect('/admin/users/list');
     },
     'userEdit': (req, res) => {
         db.AdminUsers.findByPk(req.params.id)
-            .then((user) => {
-                res.render(path.resolve(__dirname, '../views/admin/userEdit.ejs'), {
-                    user
-                });
-            });
+            .then((user) => {res.render(path.resolve(__dirname, '../views/admin/userEdit.ejs'), {user});});
     },
     'userSaveEdit': (req, res) => {
         db.AdminUsers.update({

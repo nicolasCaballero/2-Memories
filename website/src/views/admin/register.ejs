@@ -33,35 +33,31 @@
                 <div class="row">
                     <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 mx-auto pt-2 fondo shadow-sm rounded-lg">
                         <div class="signup-form mt-3">
-                            <form class="form" action="/admin/register" method="post" enctype="multipart/form-data">
+                            <form class="form" action="/admin/register" method="POST" enctype="multipart/form-data">
                                 <div class="form-group">
-                                    <input type="text" value="<%= typeof old != 'undefined' ? old.name : '' %>" 
-                                    class="form-control rounded-pill name" name="name" placeholder="name">
+                                    <input type="text" value="<%= typeof old != 'undefined' ? old.name : '' %>" class="form-control rounded-pill name" name="name" placeholder="name">
                                     <% if(typeof errors != 'undefined' && errors.name){%>
                                         <span class="text-danger"> <%= errors.name.msg %></span>
+                                    <%}%>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control rounded-pill username" name="username" placeholder="username" value="<%= typeof old != 'undefined' ? old.username : '' %>">
+                                        <% if(typeof errors != 'undefined' && errors.username){%>
+                                            <span class="text-danger"> <%= errors.username.msg %></span>
                                         <%}%>
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" class="form-control rounded-pill username" name="username"
-                                        placeholder="username" value="<%= typeof old != 'undefined' ? old.username : '' %>">
-                                        <% if(typeof errors != 'undefined' && errors.username){%>
-                                            <span class="text-danger"> <%= errors.username.msg %></span>
-                                            <%}%>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" class="form-control rounded-pill email" name="email"
-                                        placeholder="e-mail" value="<%= typeof old != 'undefined' ? old.email : '' %>">
+                                    <input type="text" class="form-control rounded-pill email" name="email" placeholder="e-mail" value="<%= typeof old != 'undefined' ? old.email : '' %>">
                                         <% if(typeof errors != 'undefined' && errors.email){%>
                                             <span class="text-danger"> <%= errors.email.msg %></span>
-                                            <%}%>
+                                        <%}%>
                                 </div>
                                 <div class="form-group">
                                     <i class="togglePassword fas fa-eye text-decoration-none eye"></i>
-                                    <input type="password" class="password form-control rounded-pill" name="password"
-                                        placeholder="password">
+                                    <input type="password" class="password form-control rounded-pill" name="password" placeholder="password">
                                         <% if(typeof errors != 'undefined' && errors.password){%>
                                             <span class="text-danger"> <%= errors.password.msg %></span>
-                                            <%}%>
+                                        <%}%>
                                 </div>
                                 <div id="message" class="form-group">
                                     <h3>La contraseña debe contener:</h3>
@@ -79,16 +75,14 @@
                                 </div>
                                 <div class="form-group text-center col">
                                     <label for="photo">Imagen de Perfil</label><br>
-                                    <img class="img-thumbnail" src="/img/avatar/default-avatar.png" value=''
-                                        alt="profile-image">
-                                    <input type="file" class="form-control-file rounded text-center mt-2 center img"
-                                        id="imagen-producto" name="photo">
+                                    <img class="img-thumbnail" src="/img/avatar/default-avatar.png" value='' alt="profile-image">
+                                    <input type="file" class="form-control-file rounded text-center mt-2 center img" id="imagen-producto" name="photo">
                                         <div class="img-errors">
                                             <p></p>
                                         </div>
                                         <% if(typeof errors != 'undefined' && errors.photo){%>
                                             <span class="text-danger"> <%= errors.photo.msg %></span>
-                                            <%}%>
+                                        <%}%>
                                 </div>
                                 <div class="mx-auto bg-light shadow-sm">
                                     <div id="btn-crearCuenta" class="form-group float-right mt-2">
@@ -99,10 +93,9 @@
                         </div>
                     </div>
                 </div>
-
+            </div>
         </section>
-        <%- include('../partials/jsPartials.ejs') %>
+    <%- include('../partials/jsPartials.ejs') %>
     <script src="/js/adminRegisterValidation.js"></script>
 </body>
-
 </html>
