@@ -12,12 +12,12 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         
-        quantity: {
+        qty: {
             type: dataTypes.INTEGER,
             allowNull: false
         },
         
-        subtotal: {
+        subTotal: {
             type: dataTypes.DECIMAL,
             allowNull: false
         },

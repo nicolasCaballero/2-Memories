@@ -60,13 +60,12 @@ DROP TABLE IF EXISTS `cart`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `cart` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `userId` int(11) DEFAULT NULL,
-  `total` int(11) DEFAULT NULL,
   `orderNumber` int(11) DEFAULT NULL,
+  `total` int(11) DEFAULT NULL,
+  `userId` int(11) DEFAULT NULL,
   `createdAt` timestamp NULL DEFAULT current_timestamp(),
   `updatedAt` timestamp NULL DEFAULT current_timestamp(),
   `deletedAt` timestamp NULL DEFAULT current_timestamp(),
-  `productSku` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -152,16 +151,16 @@ DROP TABLE IF EXISTS `items`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `items` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `state` tinyint(4) DEFAULT NULL,
   `salePrice` int(11) DEFAULT NULL,
   `qty` int(11) DEFAULT NULL,
   `subTotal` int(11) DEFAULT NULL,
+  `state` tinyint(4) DEFAULT NULL,
   `userId` int(11) DEFAULT NULL,
-  `productId` int(11) DEFAULT NULL,
+  `productSku` int(11) DEFAULT NULL,
+  `cartId` int(11) DEFAULT NULL,
   `createdAt` timestamp NULL DEFAULT current_timestamp(),
   `updatedAt` timestamp NULL DEFAULT current_timestamp(),
   `deletedAt` timestamp NULL DEFAULT current_timestamp(),
-  `productSku` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -251,4 +250,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2020-09-01 17:22:48
+-- Dump completed on 2020-09-01 18:41:35

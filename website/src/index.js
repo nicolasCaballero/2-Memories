@@ -15,6 +15,7 @@ const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 const loginMiddleware = require('./middlewares/loginMiddleware');
 const loginAdminMiddleware = require('./middlewares/adminMiddlewares/loginAdminMiddleware');
+const cartQtyMiddleware = require('./middlewares/cartQtyMiddleware');
 
 app.use(session({
     secret: 'secret',
@@ -28,6 +29,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 app.use(loginMiddleware);
 app.use(loginAdminMiddleware);
+app.use(cartQtyMiddleware);
 app.use(mainRoutes);
 app.use(userRoutes);
 app.use(productRoutes);
