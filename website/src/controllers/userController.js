@@ -1,12 +1,9 @@
 const path = require('path');
 const bcrypt = require('bcrypt');
-const {
-    check,
-    validationResult,
-    body
-} = require('express-validator');
+const {check, validationResult, body} = require('express-validator');
 const db = require('../db/models');
-
+const { reset } = require('nodemon');
+const toThousand = n =>n.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");
 
 let userController = {
     'login': (req, res) => {
@@ -102,11 +99,23 @@ let userController = {
         });
         res.redirect('/mi-cuenta/ver/' + req.params.id);
     },
-    'compras': (req, res) => {
-        res.render(path.resolve(__dirname, '../views/users/compras.ejs'));
-    },
     'comprasDetail': (req, res) => {
         res.render(path.resolve(__dirname, '../views/users/comprasDetail.ejs'));
+    },
+    'history': (req, res) => {
+        db.cart.findAll({
+            where: {
+                userId : req.session.loggedInUser.id
+            },
+            include: {
+                all: true,
+                nested: true
+            }
+        })
+        .then(carts =>{
+            res.render(path.resolve(__dirname, '../views/users/compras.ejs'), {carts, toThousand});
+            // res.send(carts)
+        })
     },
 };
 

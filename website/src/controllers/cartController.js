@@ -55,6 +55,42 @@ let cartController = {
         })
         .then(()=> res.redirect('/carrito'))
         .catch(error => console.log(error))
+    },
+    'shop': (req, res) => {
+        let totalPrice = 0;
+        db.items.findAll({
+            where: {
+                userId: req.session.loggedInUser.id,
+                state: 1
+            }
+        })
+        .then(items =>{
+            totalPrice = items.reduce((total, item) => (total = total + Number(item.subTotal)),0);
+        })
+        db.cart.findOne({
+            order: [['createdAt','DESC']]
+        })
+        .then((cart)=>{
+            return db.cart.create({
+                orderNumber: cart ? cart.orderNumber + 1 : 1,
+                total: totalPrice,
+                userId: req.session.loggedInUser.id
+            })
+        })
+        .then(cart =>{
+            db.items.update({
+                state: 0,
+                cartId: cart.id
+            },{
+                where: {
+                    userId: req.session.loggedInUser.id,
+                    state: 1
+                }
+            }
+            )
+        })
+        .then((cart)=> res.redirect('/mi-cuenta/ver/compras/' + req.session.loggedInUser.id))
+        .catch(error => console.log(error))
     }
 };
 
