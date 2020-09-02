@@ -20,23 +20,23 @@
         <div class="container">
             <div class="card mx-auto col-8 bg-light shadow-sm">
                 <div class="card-body">
-                    <h5 class="card-title text-center mb-4"><strong>Nº Orden: 1234</strong></h5>
+                    <h5 class="card-title text-center mb-4"><strong>Nº Orden: <%= cart.id %> </strong></h5>
 
                         <article class="d-flex flex-column justify-content-between">
                             <p class="card-text"><strong>Fecha de compra: </strong></p>
-                            <p class="card-text">02-09-2020</p>
+                            <p class="card-text"><%=new Date(cart.createdAt).getDate() + '-' + (new Date(cart.createdAt).getMonth() + 1) +  '-' + new Date(cart.createdAt).getFullYear()%></p>
                             <br>
                             <p class="card-text"><strong>Productos: </strong></p>
-                            <p class="card-text">Buen día | x1 | $1.999</p>
-                            <p class="card-text">Gourmet Restó | x1 | $2.999</p>
+                            <% cart.items.forEach(item => { %>
+                                <p class="card-text"><%= item.products.name %> | x<%= item.qty %> | $<%= toThousand(item.products.price) %></p>
+                            <% }) %>
                             <br>
                             <p class="card-text"><strong>Precio Total: </strong></p>
-                            <p class="card-text">$4.998</p>
+                            <p class="card-text">$<%= toThousand(cart.total) %></p>
                         </article>
                 </div>
             </div>
     </div>
-    
     <%- include('../partials/jsPartials.ejs') %>
 </body>
 </html>

@@ -99,8 +99,17 @@ let userController = {
         });
         res.redirect('/mi-cuenta/ver/' + req.params.id);
     },
-    'comprasDetail': (req, res) => {
-        res.render(path.resolve(__dirname, '../views/users/comprasDetail.ejs'));
+    'ordersDetail': (req, res) => {
+        db.cart.findByPk(req.params.cartId, {
+            include : {
+                all: true,
+                nested: true
+            }
+        })
+        .then((cart) =>{
+            // res.send(cart)
+            res.render(path.resolve(__dirname, '../views/users/comprasDetail.ejs'), {cart, toThousand} );
+        })
     },
     'history': (req, res) => {
         db.cart.findAll({
