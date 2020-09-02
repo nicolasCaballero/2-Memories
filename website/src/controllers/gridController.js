@@ -1,22 +1,22 @@
 const path = require('path');
 const db = require('../db/models');
 const Op = db.Sequelize.Op;
+const toThousand = n =>n.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");
+
 
 
 let gridController = {
     'adventureShow': (req, res) => {
         db.products.findAll()
             .then((products) => {
-                res.render(path.resolve(__dirname, '../views/grids/aventura.ejs'), {
-                    products
-                });
+                res.render(path.resolve(__dirname, '../views/grids/aventura.ejs'), {products, toThousand});
             });
     },
     'wellbeingShow': (req, res) => {
         db.products.findAll()
             .then((products) => {
                 res.render(path.resolve(__dirname, '../views/grids/bienestar.ejs'), {
-                    products
+                    products, toThousand
                 });
             });
     },
@@ -24,7 +24,7 @@ let gridController = {
         db.products.findAll()
             .then((products) => {
                 res.render(path.resolve(__dirname, '../views/grids/cursos.ejs'), {
-                    products
+                    products, toThousand
                 });
             });
     },
@@ -32,7 +32,7 @@ let gridController = {
         db.products.findAll()
             .then((products) => {
                 res.render(path.resolve(__dirname, '../views/grids/entretenimiento.ejs'), {
-                    products
+                    products, toThousand
                 });
             });
     },
@@ -40,7 +40,7 @@ let gridController = {
         db.products.findAll()
             .then((products) => {
                 res.render(path.resolve(__dirname, '../views/grids/escapadas.ejs'), {
-                    products
+                    products, toThousand
                 });
             });
     },
@@ -48,7 +48,7 @@ let gridController = {
         db.products.findAll()
             .then((products) => {
                 res.render(path.resolve(__dirname, '../views/grids/gastronomia.ejs'), {
-                    products
+                    products, toThousand
                 });
             });
     },

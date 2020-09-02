@@ -1,5 +1,7 @@
 const path = require('path');
 const db = require('../db/models');
+const toThousand = n =>n.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");
+
 
 let productController = {
     'show': (req, res) => {
@@ -9,9 +11,7 @@ let productController = {
                 }]
             })
             .then((product) => {
-                res.render(path.resolve(__dirname, '../views/product/productDetail.ejs'), {
-                    product
-                });
+                res.render(path.resolve(__dirname, '../views/product/productDetail.ejs'), {product, toThousand});
             });
     },
     'experiencies': (req, res) => {

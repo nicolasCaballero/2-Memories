@@ -1,6 +1,7 @@
 const path = require('path');
 const db = require('../db/models');
 const {validationResult} = require('express-validator');
+const toThousand = n =>n.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");
 
 let cartController = {
     'addToCart': (req, res) => {
@@ -41,7 +42,7 @@ let cartController = {
         })        
         .then((items) => {
             let total = items.reduce((total, item) => (total = total + Number(item.subTotal)),0);
-            res.render(path.resolve(__dirname, '../views/cart/cart.ejs'), {cartProducts :items, total});
+            res.render(path.resolve(__dirname, '../views/cart/cart.ejs'), {cartProducts :items, total, toThousand});
         })
 
     },

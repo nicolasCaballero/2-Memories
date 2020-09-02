@@ -30,7 +30,7 @@
                                     <article class="mb-3">
                                         <div class="row border rounded-sm shadow-sm">
                                             <div class="col-4">
-                                                <img class="mr-2 mt-2 pt-2 rounded d-block" src="/img/packs/<%= cartProducts[i].products.image %> " width="145px" alt="<%= cartProducts[i].products.name %>">
+                                                <a href="/detalle/<%= cartProducts[i].products.sku %>"><img class="mr-2 mt-2 pt-2 rounded d-block" src="/img/packs/<%= cartProducts[i].products.image %> " width="145px" alt="<%= cartProducts[i].products.name %>"></a>
                                             </div>
                                             <div class="col-8">
                                                 <div class="card-body ml-2">
@@ -56,12 +56,12 @@
                                                 <% for( let i = 0; i < cartProducts.length; i++ ) { %>
                                                     <article class="d-flex flex-row justify-content-between">
                                                         <p class="card-text"><%= cartProducts[i].products.name %>  x1</p>
-                                                        <p class="card-text">$<%= cartProducts[i].products.price %> </p>
+                                                        <p class="card-text">$<%= toThousand(cartProducts[i].products.price) %> </p>
                                                     </article>
                                                 <% } %>
                                                 <article id="precio-total" class="d-flex flex-row justify-content-between border-top pt-3">
                                                 <p class="card-text"><strong>Precio Total</strong></p>
-                                                <p class="card-text"><strong>$<%= total %></strong></p>
+                                                <p class="card-text"><strong>$<%= toThousand(total) %></strong></p>
                                             </article>
                                                 <div class="text-center">
                                                     <p id="continuar" class="text-center text-black-50"><a href="/" class="text-reset text-decoration-none">Continuar comprando</a></p>
