@@ -56,3 +56,10 @@ h2 {
 #separador {
     height: 50px;
 }
+
+#botonVolver {
+    color: white;
+    border-style: none;
+    background-color: #F48169;
+    text-decoration: none;
+}
