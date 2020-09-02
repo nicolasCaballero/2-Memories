@@ -101,7 +101,13 @@ let userController = {
             }
         });
         res.redirect('/mi-cuenta/ver/' + req.params.id);
-    }
+    },
+    'compras': (req, res) => {
+        res.render(path.resolve(__dirname, '../views/users/compras.ejs'));
+    },
+    'comprasDetail': (req, res) => {
+        res.render(path.resolve(__dirname, '../views/users/comprasDetail.ejs'));
+    },
 };
 
 module.exports = userController;
