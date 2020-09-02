@@ -30,6 +30,16 @@ body {
     transition: transform .5s ease;
 }
 
+.badge {
+    margin-left: 0px;
+    font-size: 9px;
+}
+
+.badge-info {
+    background-color: #F48169;
+    color: white;
+}
+
 .inner-addon {
     position: relative;
     width: 60%;
