@@ -1,0 +1,86 @@
+* {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.btn-info {
+    background-color: #f48169;
+    border-color: #f48169;
+}
+
+.btn-secondary {
+    background-color: #FBC46C;
+    border-color: #FBC46C;
+}
+
+.container-fluid {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+h1 {
+    margin-top: 50px;
+}
+
+#formulario {
+    margin-bottom: 40px;
+}
+
+.card {
+    margin-top: 1rem;
+}
+
+#tituloAdmin {
+    margin-top: 100px;
+}
+
+#tituloAdmin {
+    margin-top: 0px;
+}
+
+td a {
+    color: #212529;
+    text-decoration: none;
+}
+
+.fondo {
+    background-color: rgba(247, 247, 247, 0.7)
+}
+
+#btn-view:hover {
+    color: #FBC46C;
+}
+
+#btn-edit:hover {
+    color: #79C8D6;
+}
+
+#btn-delete:hover {
+    color: #F48169;
+}
+
+.eye {
+    margin-left: 95%;
+    cursor: pointer;
+}
+
+.password {
+    margin-top: -30px;
+}
+
+.is-valid {
+    color: green
+}
+
+.is-valid:before {
+    position: relative;
+    content: "✔"
+}
+
+.is-invalid {
+    color: red;
+}
+
+.is-invalid:before {
+    position: relative;
+    content: "✖"
+}
