@@ -5,6 +5,8 @@ const notLoggedInMiddleware = require('../../middlewares/notLoggedInMiddleware')
 
 router.post('/carrito/agregar', notLoggedInMiddleware, cartController.addToCart);
 router.post('/carrito/borrar', notLoggedInMiddleware, cartController.delete);
-router.get('/carrito', notLoggedInMiddleware, cartController.cart)
+router.get('/carrito', notLoggedInMiddleware, cartController.cart);
+router.post('/carrito/compra', notLoggedInMiddleware, cartController.shop);
+
 
 module.exports = router;
