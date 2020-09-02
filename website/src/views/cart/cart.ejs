@@ -30,17 +30,17 @@
                                     <article class="mb-3">
                                         <div class="row border rounded-sm shadow-sm">
                                             <div class="col-4">
-                                                <img class="mr-2 mt-2 pt-2 rounded d-block" src="/img/packs/<%= cartProducts[i].products.image %> "
-                                                    width="145px" alt="<%= cartProducts[i].products.name %>">
+                                                <img class="mr-2 mt-2 pt-2 rounded d-block" src="/img/packs/<%= cartProducts[i].products.image %> " width="145px" alt="<%= cartProducts[i].products.name %>">
                                             </div>
                                             <div class="col-8">
                                                 <div class="card-body ml-2">
                                                     <h5 id="titulo-producto" class="card-title py-2 pl-2"><strong><%= cartProducts[i].products.name %> </strong></h5>
                                                     <p id="precio-producto" class="card-text pl-2 mt-2"><i class="fas fa-money-bill-alt mr-1"></i><strong>$<%= cartProducts[i].products.price %> </strong></p>
                                                     <p id="cantidad" class="card-text pl-2"><i class="fas fa-minus mr-1"></i> x1<i class="fas fa-plus ml-1"></i></p>
-                                                    <a href="#">
-                                                        <p id="eliminar" class="card-text float-right mb-1"><i class="fas fa-trash-alt mr-1"></i>Eliminar</p>
-                                                    </a>
+                                                    <form action="/carrito/borrar" method="post">
+                                                        <input type="hidden" name="cartId" value="<%=cartProducts[i].id%>">
+                                                        <button id="eliminar" type="submit" class="card-text float-right mb-1"><i class="fas fa-trash-alt mr-1"></i>Eliminar</button>
+                                                    </form>
                                                 </div>
                                             </div>
                                         </div>
@@ -59,8 +59,7 @@
                                                         <p class="card-text">$<%= cartProducts[i].products.price %> </p>
                                                     </article>
                                                 <% } %>
-                                                <article id="precio-total"
-                                                class="d-flex flex-row justify-content-between border-top pt-3">
+                                                <article id="precio-total" class="d-flex flex-row justify-content-between border-top pt-3">
                                                 <p class="card-text"><strong>Precio Total</strong></p>
                                                 <p class="card-text"><strong>$<%= total %></strong></p>
                                             </article>

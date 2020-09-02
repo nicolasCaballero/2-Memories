@@ -45,6 +45,16 @@ let cartController = {
         })
 
     },
+    'delete': (req, res) => {
+        db.items.destroy({
+            where: {
+                id : req.body.cartId,
+                userId : req.session.loggedInUser.id
+            }
+        })
+        .then(()=> res.redirect('/carrito'))
+        .catch(error => console.log(error))
+    }
 };
 
 module.exports = cartController;
