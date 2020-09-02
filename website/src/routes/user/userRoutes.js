@@ -24,5 +24,6 @@ router.get('/logout', userController.logout);
 router.get('/mi-cuenta/ver/:id', notLoggedInMiddleware, accountValidationMiddleware, userController.usersShow);
 router.put('/mi-cuenta/ver/:id', upload.single('photo'), userController.saveEdit);
 router.get('/mi-cuenta/ver/compras/:id',notLoggedInMiddleware, accountValidationMiddleware, userController.history);
+router.get('/mi-cuenta/compras/detalle',notLoggedInMiddleware, userController.comprasDetail);
 
 module.exports = router;
