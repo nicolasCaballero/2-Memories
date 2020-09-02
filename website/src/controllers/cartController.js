@@ -40,7 +40,7 @@ let cartController = {
             }
         })        
         .then((items) => {
-            let total = items.reduce((total, item) => (total = total + Number(item.subtotal)),0);
+            let total = items.reduce((total, item) => (total = total + Number(item.subTotal)),0);
             res.render(path.resolve(__dirname, '../views/cart/cart.ejs'), {cartProducts :items, total});
         })
 
