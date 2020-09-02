@@ -14,14 +14,6 @@ let productController = {
                 });
             });
     },
-    'addtoCart': (req, res) => {
-        db.products.findByPk(req.params.sku)
-            .then((product) => {
-                res.render(path.resolve(__dirname, '../views/product/cart.ejs'), {
-                    product
-                });
-            });
-    },
     'experiencies': (req, res) => {
         db.experiences.findByPk(req.params.id)
             .then((experience) => {

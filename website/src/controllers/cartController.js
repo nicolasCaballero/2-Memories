@@ -27,7 +27,24 @@ let cartController = {
             db.products.findByPk(req.body.productSku,{include: [{association: 'productCategory'}]})
             .then((product) => {res.render(path.resolve(__dirname, '../views/admin/memoriesDetail.ejs'), {product});});
         }
-    }
+    },
+    'cart': (req, res) => {
+        db.items.findAll({
+            where : {
+                state: 1,
+                userId: req.session.loggedInUser.id
+            },
+            include: {
+                all: true,
+                nested: true
+            }
+        })        
+        .then((items) => {
+            let total = items.reduce((total, item) => (total = total + Number(item.subtotal)),0);
+            res.render(path.resolve(__dirname, '../views/cart/cart.ejs'), {cartProducts :items, total});
+        })
+
+    },
 };
 
 module.exports = cartController;
