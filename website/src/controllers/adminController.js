@@ -264,13 +264,29 @@ let adminController = {
         });
     },
     'registeredUsers': (req, res) => {
-        db.users.findAll()
+        db.users.findAll({
+            include : {
+                all: true,
+                nested: true
+            }
+        })
         .then((users) => {
             return res.render(path.resolve(__dirname, '../views/admin/usersWebList.ejs'), {users});
         })
     },
-    'usersWebOrdersList': (req, res) => {
-        res.render(path.resolve(__dirname, '../views/admin/usersWebOrdersList.ejs'));
+    'salesHistory': (req, res) => {
+        db.cart.findAll({
+            where: {
+                userId : req.params.id
+            },
+            include: {
+                all: true,
+                nested: true
+            }
+        })
+        .then(cart => {
+        res.render(path.resolve(__dirname, '../views/admin/usersWebOrdersList.ejs'), {cart, toThousand});
+        })
     }
 };
 

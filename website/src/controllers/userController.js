@@ -83,7 +83,7 @@ let userController = {
                 res.render(path.resolve(__dirname, '../views/users/miCuenta.ejs'), {
                     user
                 });
-            })
+        })
     },
     'saveEdit': (req, res) => {
         db.users.update({
