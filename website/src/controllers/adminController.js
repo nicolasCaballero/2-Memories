@@ -69,7 +69,7 @@ let adminController = {
                     association: 'productCategory'
                 }]
             })
-            .then((products) => {res.render(path.resolve(__dirname, '../views/admin/memoriesList.ejs'), {products, toThousand});});
+            .then((products) => {res.render(path.resolve(__dirname, '../views/admin/memoriesList.ejs'), {products,});});
     },
     'memoriesShow': (req, res) => {
         db.products.findByPk(req.params.sku, {
@@ -263,8 +263,11 @@ let adminController = {
             // res.send(cart)
         });
     },
-    'usersWebList': (req, res) => {
-        res.render(path.resolve(__dirname, '../views/admin/usersWebList.ejs'));
+    'registeredUsers': (req, res) => {
+        db.users.findAll()
+        .then((users) => {
+            return res.render(path.resolve(__dirname, '../views/admin/usersWebList.ejs'), {users});
+        })
     },
     'usersWebOrdersList': (req, res) => {
         res.render(path.resolve(__dirname, '../views/admin/usersWebOrdersList.ejs'));

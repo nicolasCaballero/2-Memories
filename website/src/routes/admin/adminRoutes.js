@@ -16,6 +16,7 @@ router.get('/access/denied', adminController.denied);
 router.get('/admin/memories/create', adminController.memoriesCreate);
 router.post('/admin/memories/create', upload.single('image'), adminController.memoriesSave);
 router.get('/admin/memories/list', adminController.memoriesList);
+router.get('/admin/registered-users', adminController.registeredUsers);
 router.get('/admin/memories/list/view/:sku', adminController.memoriesShow);
 router.get('/admin/memories/list/delete/:sku', adminController.memoriesDelete);
 router.get('/admin/memories/list/edit/:sku', adminController.memoriesEdit);

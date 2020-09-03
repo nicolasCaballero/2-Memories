@@ -28,7 +28,5 @@ router.get('/admin/users/list/view/:id', adminController.usersShow);
 router.get('/admin/users/list/delete/:id', adminRoleMiddleware, adminController.usersDelete);
 router.get('/admin/users/list/edit/:id', adminRoleMiddleware, adminController.userEdit);
 router.put('/admin/users/list/edit/:id', upload.single('photo'), adminRoleMiddleware, adminController.userSaveEdit);
-router.get('/admin/users-web/list', adminController.usersWebList);
-router.get('/admin/users-web/list/view/orders', adminController.usersWebOrdersList);
 
 module.exports = router;
