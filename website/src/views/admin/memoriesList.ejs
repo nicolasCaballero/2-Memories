@@ -42,7 +42,7 @@
                     <td scope="row"><%= product.sku %> </td>
                     <td><%= product.name%> </td>
                     <td><%= product.productCategory.name%> </td>
-                    <td><%= product.price%> </td>
+                    <td>$<%= toThousand(product.price)%> </td>
                     <td><%= product.qty%> </td>
                     <td><a id="btn-view" class=" text-decoration-none" href="/admin/memories/list/view/<%= product.sku%>"><i class="fas fa-eye text-decoration-none"></i></a></td>
                     <td><a id="btn-edit" class=" text-decoration-none" href="/admin/memories/list/edit/<%= product.sku%>"><i class="fas fa-edit text-decoration-none"></i></a></td>
