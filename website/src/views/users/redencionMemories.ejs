@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <%- include('../partials/headPartial.ejs') %>
+    <link rel="stylesheet" href="/css/compras.css">
+    <link rel="stylesheet" href="/css/product.css">
+    <title>Detalle de Compra | MEMORIES</title>
+</head>
+
+<body>
+<%- include('../partials/headerPartial.ejs') %>
+    <div class="container-fluid">
+        <section class="row">
+            <article id="tituloDetalleCompra" class="col-12 card mt-1 border-0">
+                <div class="card-body">
+                    <h1 class="card-title text-center">¡Hola <%= cart.user.name %>!</h1>
+                    <h2 class="card-title text-center">Tu compra # <%= cart.id %></h2>
+                    <p class="text-center">Incluye los siguientes MEMORIES</p>
+                </div>
+            </article>
+        </section>
+        <div class="row" id="filaExperiencias">
+            <% for( let i = 0; i < cart.items.length; i++ ) { %>
+                <div class="col-lg-3 col-xl-3 col-md-3 col-sm-12" id="experiencia/id">
+                    <a class="text-decoration-none text-dark" href="/detalle/<%= cart.items[i].products.sku%>"> <img src="/img/packs/<%= cart.items[i].products.image %>" alt="<%= cart.items[i].products.name %> " class="imagenDelLocal">
+                    <h5 class="nombreLocal text-center"><%= cart.items[i].products.name %> </h5>
+                    </a>
+                </div>
+            <% } %>
+        </div>
+    </div>
+    <%- include('../partials/jsPartials.ejs') %>
+    <%- include('../partials/footerPartial.ejs') %>
+</body>
+</html>

@@ -126,6 +126,21 @@ let userController = {
             // res.send(carts)
         })
     },
+    'redeem': (req, res) => {
+        db.cart.findByPk(req.params.cartId, {
+            where: {
+                userId : req.session.loggedInUser.id
+            },
+            include: {
+                all: true,
+                nested: true
+            }
+        })
+        .then(cart =>{
+            res.render(path.resolve(__dirname, '../views/users/redencionMemories.ejs'), {cart, toThousand});
+            // res.send(carts)
+        })
+    }
 };
 
 module.exports = userController;
