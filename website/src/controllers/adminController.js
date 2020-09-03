@@ -1,6 +1,8 @@
 const path = require('path');
 const bcrypt = require('bcryptjs');
 const {check, validationResult, body } = require('express-validator');
+const toThousand = n =>n.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");
+
 
 const db = require('../db/models');
 
@@ -221,7 +223,16 @@ let adminController = {
             .then((user) => {res.render(path.resolve(__dirname, '../views/admin/userEdit.ejs'), {user});});
     },
     'ordersList': (req, res) => {
-        res.render(path.resolve(__dirname, '../views/admin/ordersList.ejs'));
+        db.cart.findAll({
+            include : {
+                all: true,
+                nested: true
+            }
+        })
+            .then((carts) => {
+                res.render(path.resolve(__dirname, '../views/admin/ordersList.ejs'), {carts, toThousand});
+                // res.send(carts)
+            });
     },
     'ordersDetail': (req, res) => {
         res.render(path.resolve(__dirname, '../views/admin/ordersDetail.ejs'));

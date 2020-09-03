@@ -24,26 +24,25 @@
                     <th scope="col">Fecha de compra</th>
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellido</th>
-                    <th scope="col">e-mail Usuario</th>
+                    <th scope="col">e-mail</th>
                     <th scope="col">Status</th>
                     <th scope="col">Precio Total $</th>
                     <th scope="col">Ver Detalle</th>
                 </tr>
             </thead>
             <tbody>
-
-                <tr>
-                    <td scope="row">1234 </td>
-                    <td>03-09-2020 </td>
-                    <td>Juan </td>
-                    <td>Pérez </td>
-                    <td>juanperez@gmail.com </td>
-                    <td>Aprobado </td>
-                    <td>$9.999</td>
-                    <td><a id="btn-view" class=" text-decoration-none" href="/admin/orders/detail"><i class="fas fa-eye text-decoration-none"></i></a></td>
-
-                </tr>
-
+                <% for( let i = 0; i < carts.length; i++ ) { %>
+                    <tr>
+                        <td scope="row"><%= carts[i].id %> </td>
+                        <td><%=new Date(carts[i].createdAt).getDate() + '-' + (new Date(carts[i].createdAt).getMonth() + 1) +  '-' + new Date(carts[i].createdAt).getFullYear()%></td>
+                        <td><%= carts[i].user.name %> </td>
+                        <td><%= carts[i].user.lastName %> </td>
+                        <td><%= carts[i].user.email %> </td>
+                        <td>Aprobado </td>
+                        <td><%= toThousand(carts[i].total) %></td>
+                        <td><a id="btn-view" class=" text-decoration-none" href="/admin/orders/detail"><i class="fas fa-eye text-decoration-none"></i></a></td>
+                    </tr>
+                <% } %>
             </tbody>
         </table>
         <div class="col-12 mx-auto  pt-4 ">

@@ -5,12 +5,8 @@ const multer = require('multer');
 const adminController = require('../../controllers/adminController');
 const adminNotLoggedInMiddleware = require('../../middlewares/adminMiddlewares/adminNotLoggedInMiddleware');
 const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, path.resolve(__dirname, '../../../public/img/packs'));
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.originalname);
-  }
+  destination: function (req, file, cb) {cb(null, path.resolve(__dirname, '../../../public/img/packs'));},
+  filename: function (req, file, cb) {cb(null, file.originalname);}
 })
 
 const upload = multer({
@@ -26,7 +22,7 @@ router.get('/admin/memories/list/view/:sku', adminController.memoriesShow);
 router.get('/admin/memories/list/delete/:sku', adminController.memoriesDelete);
 router.get('/admin/memories/list/edit/:sku', adminController.memoriesEdit);
 router.put('/admin/memories/list/edit/:sku', upload.single('image'), adminController.memoriesSaveEdit);
-router.get('/admin/orders/list', adminController.ordersList);
+router.get('/admin/orders/list',adminNotLoggedInMiddleware, adminController.ordersList);
 router.get('/admin/orders/detail', adminController.ordersDetail);
 
 module.exports = router;
