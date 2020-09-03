@@ -13,14 +13,14 @@
         <section class="row">
             <article class="col-12 card pt-5 border-0">
                 <div class="card-body">
-                    <h1 class="card-title text-center">Órden #<%= cart.id %>  </h1>
+                    <h1 class="card-title text-center">Orden #<%= cart.id %>  </h1>
                 </div>
             </article>
         </section>
         <section class="bg-white pt-4">
             <div class="container">
                 <div class="row mb-4" >
-                    <div class="col-8 mx-auto bg-light shadow-sm">
+                    <div class="col-xl-8 col-lg-8 col-md-10 col-sm-10 mx-auto bg-light shadow-sm">
                         <div class="card">
                             <ul class="list-group">
                                 <li class="list-group-item"><strong>Fecha de compra: </strong><%=new Date(cart.createdAt).getDate() + '-' + (new Date(cart.createdAt).getMonth() + 1) +  '-' + new Date(cart.createdAt).getFullYear()%></li>
@@ -33,6 +33,7 @@
                                     <table class="table mt-2 border-bottom">
                                         <thead class="thead-light">
                                             <tr>
+                                                <th scope="col">Imagen</th>
                                                 <th scope="col">Sku</th>
                                                 <th scope="col">Nombre</th>
                                                 <th scope="col">Cantidad</th>
@@ -42,7 +43,8 @@
                                         <tbody>
                                             <% for( let i = 0; i < cart.items.length; i++ ) { %>
                                                 <tr>
-                                                    <td scope="row"><%= cart.items[i].products.sku %></td>
+                                                    <td scope="row"><img width="100px" class="img-thumbnail" src="/img/packs/<%= cart.items[i].products.image %>" alt=""></td>
+                                                    <td><%= cart.items[i].products.sku %></td>
                                                     <td><%= cart.items[i].products.name %></td>
                                                     <td>1</td>
                                                     <td>$<%= toThousand(cart.items[i].products.price) %> </td>                            
@@ -54,7 +56,7 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-8 mx-auto bg-light pt-4 shadow-sm">
+                    <div class="col-xl-8 col-lg-8 col-md-10 col-sm-10 mx-auto bg-light pt-4 shadow-sm">
                         <div id="btn-volver" class="form-group float-left">
                             <a href="/admin/orders/list"><button class="btn btn-secondary rounded-pill"><i class="fas fa-arrow-left mr-1"></i>Volver al listado</button></a>
                         </div>
