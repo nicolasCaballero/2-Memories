@@ -262,6 +262,12 @@ let adminController = {
             res.render(path.resolve(__dirname, '../views/admin/ordersDetail.ejs'), {cart, toThousand});
             // res.send(cart)
         });
+    },
+    'usersWebList': (req, res) => {
+        res.render(path.resolve(__dirname, '../views/admin/usersWebList.ejs'));
+    },
+    'usersWebOrdersList': (req, res) => {
+        res.render(path.resolve(__dirname, '../views/admin/usersWebOrdersList.ejs'));
     }
 };
 

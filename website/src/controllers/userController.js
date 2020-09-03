@@ -140,7 +140,7 @@ let userController = {
             res.render(path.resolve(__dirname, '../views/users/redencionMemories.ejs'), {cart, toThousand});
             // res.send(carts)
         })
-    }
+    },
 };
 
 module.exports = userController;
