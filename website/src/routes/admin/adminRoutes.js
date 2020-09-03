@@ -26,5 +26,7 @@ router.get('/admin/memories/list/view/:sku', adminController.memoriesShow);
 router.get('/admin/memories/list/delete/:sku', adminController.memoriesDelete);
 router.get('/admin/memories/list/edit/:sku', adminController.memoriesEdit);
 router.put('/admin/memories/list/edit/:sku', upload.single('image'), adminController.memoriesSaveEdit);
+router.get('/admin/orders/list', adminController.ordersList);
+router.get('/admin/orders/detail', adminController.ordersDetail);
 
 module.exports = router;

@@ -220,6 +220,12 @@ let adminController = {
         db.AdminUsers.findByPk(req.params.id)
             .then((user) => {res.render(path.resolve(__dirname, '../views/admin/userEdit.ejs'), {user});});
     },
+    'ordersList': (req, res) => {
+        res.render(path.resolve(__dirname, '../views/admin/ordersList.ejs'));
+    },
+    'ordersDetail': (req, res) => {
+        res.render(path.resolve(__dirname, '../views/admin/ordersDetail.ejs'));
+    },
     'userSaveEdit': (req, res) => {
         db.AdminUsers.update({
             name: req.body.name,

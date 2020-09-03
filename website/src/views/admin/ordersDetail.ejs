@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <%- include('../partials/headPartial.ejs') %>
+    <link rel="stylesheet" href="/css/admin/admin.css">
+    <title> Detalle de Orden  | MEMORIES</title>
+</head>
+
+<body>
+<%- include('../partials/headerAdminPartial.ejs') %>
+    <div class="container-fluid">
+        <section class="row">
+            <article class="col-12 card pt-5 border-0">
+                <div class="card-body">
+                    <h1 class="card-title text-center">Detalle de Orden #1234 </h1>
+                </div>
+            </article>
+        </section>
+        <section class="bg-white pt-4">
+            <div class="container">
+                <div class="row mb-4" >
+                    <div class="col-8 mx-auto bg-light shadow-sm">
+                        <div class="card">
+                            <ul class="list-group">
+                                <li class="list-group-item"><strong>Fecha de compra</strong>03-09-2020</li>
+                                <li class="list-group-item"><strong>Nombre: </strong>Juan</li>
+                                <li class="list-group-item"><strong>Apellido: </strong>Pérez</li>
+                                <li class="list-group-item"><strong>e-mail Usuario: </strong>juanperez@gmail.com</li>
+                                <li class="list-group-item"><strong>Status</strong>Aprobado</li>
+                                <li class="list-group-item"><strong>Precio Total: </strong>$9.999</li>
+                                <li class="list-group-item"><strong>Productos</strong>Buen día x1 $1.999 | Gourmet Restó x1 $2.999</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-8 mx-auto bg-light pt-4 shadow-sm">
+                        <div id="btn-volver" class="form-group float-left">
+                            <a href="/admin/orders/list"><button class="btn btn-secondary rounded-pill"><i class="fas fa-arrow-left mr-1"></i>Volver al listado</button></a>
+                        </div>
+                    </div>                         
+                </div>
+            </div>
+        </section>
+    </div>
+<%- include('../partials/jsPartials.ejs') %>
+</body>
+</html>
