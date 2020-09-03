@@ -222,21 +222,6 @@ let adminController = {
         db.AdminUsers.findByPk(req.params.id)
             .then((user) => {res.render(path.resolve(__dirname, '../views/admin/userEdit.ejs'), {user});});
     },
-    'ordersList': (req, res) => {
-        db.cart.findAll({
-            include : {
-                all: true,
-                nested: true
-            }
-        })
-            .then((carts) => {
-                res.render(path.resolve(__dirname, '../views/admin/ordersList.ejs'), {carts, toThousand});
-                // res.send(carts)
-            });
-    },
-    'ordersDetail': (req, res) => {
-        res.render(path.resolve(__dirname, '../views/admin/ordersDetail.ejs'));
-    },
     'userSaveEdit': (req, res) => {
         db.AdminUsers.update({
             name: req.body.name,
@@ -253,6 +238,30 @@ let adminController = {
         });
         res.redirect('/admin/users/list');
 
+    },
+    'ordersList': (req, res) => {
+        db.cart.findAll({
+            include : {
+                all: true,
+                nested: true
+            }
+        })
+            .then((carts) => {
+                res.render(path.resolve(__dirname, '../views/admin/ordersList.ejs'), {carts, toThousand});
+                // res.send(carts)
+            });
+    },
+    'ordersDetail': (req, res) => {
+        db.cart.findByPk(req.params.id,{
+            include : {
+                all: true,
+                nested: true
+            }
+        })
+        .then((cart) => {
+            res.render(path.resolve(__dirname, '../views/admin/ordersDetail.ejs'), {cart, toThousand});
+            // res.send(cart)
+        });
     }
 };
 

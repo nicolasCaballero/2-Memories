@@ -13,7 +13,7 @@
         <section class="row">
             <article class="col-12 card pt-5 border-0">
                 <div class="card-body">
-                    <h1 class="card-title text-center">Detalle de Orden #1234 </h1>
+                    <h1 class="card-title text-center">Órden #<%= cart.id %>  </h1>
                 </div>
             </article>
         </section>
@@ -23,34 +23,31 @@
                     <div class="col-8 mx-auto bg-light shadow-sm">
                         <div class="card">
                             <ul class="list-group">
-                                <li class="list-group-item"><strong>Fecha de compra: </strong>03-09-2020</li>
-                                <li class="list-group-item"><strong>Nombre: </strong>Juan</li>
-                                <li class="list-group-item"><strong>Apellido: </strong>Pérez</li>
-                                <li class="list-group-item"><strong>e-mail Usuario: </strong>juanperez@gmail.com</li>
+                                <li class="list-group-item"><strong>Fecha de compra: </strong><%=new Date(cart.createdAt).getDate() + '-' + (new Date(cart.createdAt).getMonth() + 1) +  '-' + new Date(cart.createdAt).getFullYear()%></li>
+                                <li class="list-group-item"><strong>Nombre: </strong><%= cart.user.name %></li>
+                                <li class="list-group-item"><strong>Apellido: </strong><%= cart.user.lastName %></li>
+                                <li class="list-group-item"><strong>e-mail: </strong><%= cart.user.email %></li>
                                 <li class="list-group-item"><strong>Status: </strong>Aprobado</li>
-                                <li class="list-group-item"><strong>Precio Total: </strong>$9.999</li>
+                                <li class="list-group-item"><strong>Precio Total: </strong>$<%= toThousand(cart.total) %></li>
                                 <li class="list-group-item"><strong>Productos: </strong>
                                     <table class="table mt-2 border-bottom">
                                         <thead class="thead-light">
                                             <tr>
+                                                <th scope="col">Sku</th>
                                                 <th scope="col">Nombre</th>
                                                 <th scope="col">Cantidad</th>
                                                 <th scope="col">Precio</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                            
-                                            <tr>
-                                                <td scope="row">Buen día </td>
-                                                <td>1</td>
-                                                <td>$1.999 </td>                            
-                                            </tr>
-                                            <tr>
-                                                <td scope="row">Gourmet Restó </td>
-                                                <td>1</td>
-                                                <td>$2.999 </td>                            
-                                            </tr>
-                            
+                                            <% for( let i = 0; i < cart.items.length; i++ ) { %>
+                                                <tr>
+                                                    <td scope="row"><%= cart.items[i].products.sku %></td>
+                                                    <td><%= cart.items[i].products.name %></td>
+                                                    <td>1</td>
+                                                    <td>$<%= toThousand(cart.items[i].products.price) %> </td>                            
+                                                </tr>
+                                            <% } %>
                                         </tbody>
                                     </table>
                                 </li>
