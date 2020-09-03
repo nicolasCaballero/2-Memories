@@ -275,18 +275,25 @@ let adminController = {
         })
     },
     'salesHistory': (req, res) => {
-        db.cart.findAll({
+        db.users.findAll({
             where: {
-                userId : req.params.id
-            },
-            include: {
-                all: true,
-                nested: true
+                id: req.params.id
             }
         })
-        .then(cart => {
-        res.render(path.resolve(__dirname, '../views/admin/usersWebOrdersList.ejs'), {cart, toThousand});
-        })
+            .then(users => {
+                db.cart.findAll({
+                    where: {
+                        userId : req.params.id
+                    },
+                    include: {
+                        all: true,
+                        nested: true
+                    }
+                })
+                .then(cart => {
+                res.render(path.resolve(__dirname, '../views/admin/usersWebOrdersList.ejs'), {cart, toThousand, users});
+                })
+            })
     }
 };
 
