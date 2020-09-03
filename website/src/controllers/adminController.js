@@ -69,7 +69,7 @@ let adminController = {
                     association: 'productCategory'
                 }]
             })
-            .then((products) => {res.render(path.resolve(__dirname, '../views/admin/memoriesList.ejs'), {products,});});
+            .then((products) => {res.render(path.resolve(__dirname, '../views/admin/memoriesList.ejs'), {products, toThousand});});
     },
     'memoriesShow': (req, res) => {
         db.products.findByPk(req.params.sku, {
