@@ -12,7 +12,7 @@
   <section class="row">
     <article id="tituloAdmin" class="col-12 card pt-5 border-0">
       <div class="card-body">
-        <h1 class="card-title text-center">Administración de Productos</h1>
+        <h1 class="card-title text-center">Administración Memories</h1>
       </div>
     </article>
   </section>
@@ -39,14 +39,24 @@
           <a class="text-decoration-none" href="/admin/categories/list"><button type="button" class="btn btn-block btn-light mb-3">Listar categorías<i class="fas fa-list-alt ml-2"></i></button></a>
         </div>
       </div>
+<% if (loggedInAdminUser.role == 1) { %>
+
+      <div class="col text-center">
+        <h3>Usuarios</h3>
+        <div class="d-flex flex-column">
+          <a class="text-decoration-none" href="/admin/register"><button type="button" class="btn btn-block btn-light mb-3">Crear nuevo usuario<i class="fas fa-user-edit ml-2"></i></button></a>
+          <a class="text-decoration-none" href="/admin/users/list"><button type="button" class="btn btn-block btn-light mb-3">Listar usuarios<i class="fas fa-list-alt ml-2"></i></button></a>
+        </div>
+      </div>
     </div>
+<% } %>
+
 <% if (loggedInAdminUser.role == 1) { %>
   <div id="adminUsuarios" class="row justify-content-md-center">
     <div class="col-6 text-center">
-      <h1 class="card-title text-center">Administración de Usuarios</h1>
+      <h1 class="card-title text-center">Ventas</h1>
       <div class="d-flex flex-column">
-        <a class="text-decoration-none" href="/admin/register"><button type="button" class="btn btn-block btn-light mb-3">Crear nuevo usuario<i class="fas fa-user-edit ml-2"></i></button></a>
-        <a class="text-decoration-none" href="/admin/users/list"><button type="button" class="btn btn-block btn-light mb-3">Listar usuarios<i class="fas fa-list-alt ml-2"></i></button></a>
+        <a class="text-decoration-none" href="/admin/orders/list"><button type="button" class="btn btn-block btn-light mb-3">Listar Ventas<i class="fas fa-list-alt ml-2"></i></button></a>
       </div>
     </div>
   </div>
