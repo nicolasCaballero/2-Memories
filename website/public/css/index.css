@@ -33,7 +33,7 @@ ul {
 }
 
 .card-img-top-paso {
-    width: 40%;
+    width: 60%;
 }
 
 
@@ -223,9 +223,8 @@ a:hover .imagenCategoriaHome{
     margin-bottom: -42%;
 }
 
-#textoPaso {
+.textoPaso {
     text-align: center;
-    font-weight: bold;
 }
 
 .card-body {
@@ -236,8 +235,10 @@ a:hover .imagenCategoriaHome{
     margin-left: 1%;
     border-top: solid #79c8d6;
     border-top-width: 1px;
-    padding-top: 2%;
+    padding-top: 3%;
+    padding-bottom: 1%;
     margin-right: 1%;
+    margin-top: 2%;
 }
 
 .imagenPasoAPaso {
@@ -346,6 +347,20 @@ a:hover .imagenCategoriaHome{
     transform: translate(-50%, -50%);
 }
 
+.salmon {
+    color: #F48169;
+    font-weight: bold;
+}
+
+.middleblue {
+    color: #79C8D6;
+    font-weight: bold;
+}
+
+.yellow {
+    color: #FBC46C;
+    font-weight: bold;
+}
 
 
 
