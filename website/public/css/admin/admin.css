@@ -105,6 +105,7 @@ td a {
 .inner-addon-eye .fa-eye {
     position: absolute;
     padding: 10px;
+    padding-right: 30px;
 }
 
 .right-addon .fa-eye {
