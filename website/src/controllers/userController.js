@@ -118,16 +118,13 @@ let userController = {
             include: {
                 all: true,
                 nested: true
-            }
+            },
+            order: [
+                ['createdAt', 'DESC']
+            ]
         })
         .then(carts =>{
-            // let totalItems = carts.map(cart => {
-            //     cart.items = Array.from(cart.items).length
-            //     return cart
-            // })
-            // res.send(totalItems)
             res.render(path.resolve(__dirname, '../views/users/compras.ejs'), {carts, toThousand});
-            // res.send(carts)
         })
     },
     'redeem': (req, res) => {
