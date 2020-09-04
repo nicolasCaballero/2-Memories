@@ -73,12 +73,11 @@ td a {
 }
 
 .eye {
-    margin-left: 95%;
     cursor: pointer;
 }
 
 .password {
-    margin-top: -30px;
+    margin-top: -0px;
 }
 
 #message {
@@ -103,4 +102,35 @@ td a {
 .is-invalid:before {
     position: relative;
     content: "✖"
+}
+
+.icon {
+    padding: 0px;
+
+}
+
+.input-icons { 
+
+}
+
+.input-icons i { 
+
+} 
+
+.inner-addon-eye {
+    position: relative;
+    width: 100%;
+}
+
+.inner-addon-eye .fa-eye {
+    position: absolute;
+    padding: 10px;
+}
+
+.right-addon .fa-eye {
+    right: 0px;
+}
+
+.right-addon input {
+    padding-right: 30px;
 }
