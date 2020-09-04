@@ -35,6 +35,16 @@ body {
     color: #f48169;
 }
 
+#eliminar {
+    color: white;
+}
+
+.btn-info {
+    background-color: #f48169;
+    border-color: #f48169;
+    color: white;
+}
+
 #precio-producto {
     font-size: 18px;
 }
