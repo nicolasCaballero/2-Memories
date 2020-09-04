@@ -34,9 +34,7 @@
                     <tr>
                         <td scope="row"><%= cart.id %>  </td>
                         <td><%=new Date(cart.createdAt).getDate() + '-' + (new Date(cart.createdAt).getMonth() + 1) +  '-' + new Date(cart.createdAt).getFullYear()%></td>
-                        <% cart.items.forEach(item => { %>
-                            <td><%=item.qty%> </td>
-                         <% }); %>           
+                            <td><%=cart.items.length%> </td>
                         <td>$<%= toThousand(cart.total) %> </td>
                         <td><a id="btn-view" class=" text-decoration-none" href="/mi-cuenta/ver/compras/detalle/<%=loggedInUser.id%>/<%= cart.id %>"><i class="fas fa-eye text-decoration-none"></i></a></td>
                     </tr>

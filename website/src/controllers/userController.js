@@ -107,7 +107,6 @@ let userController = {
             }
         })
         .then((cart) =>{
-            // res.send(cart)
             res.render(path.resolve(__dirname, '../views/users/comprasDetail.ejs'), {cart, toThousand} );
         })
     },
@@ -122,6 +121,11 @@ let userController = {
             }
         })
         .then(carts =>{
+            // let totalItems = carts.map(cart => {
+            //     cart.items = Array.from(cart.items).length
+            //     return cart
+            // })
+            // res.send(totalItems)
             res.render(path.resolve(__dirname, '../views/users/compras.ejs'), {carts, toThousand});
             // res.send(carts)
         })
