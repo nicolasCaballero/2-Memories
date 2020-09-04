@@ -75,7 +75,7 @@ let adminController = {
         db.products.findByPk(req.params.sku, {
                 include: [{association: 'productCategory'},{association: 'productExperiences'}]
             })
-            .then((product) => {res.render(path.resolve(__dirname, '../views/admin/memoriesDetail.ejs'), {product});});
+            .then((product) => {res.render(path.resolve(__dirname, '../views/admin/memoriesDetail.ejs'), {product, toThousand});});
     },
     'memoriesDelete': (req, res) => {
         db.products.destroy({where: {sku: req.params.sku}})

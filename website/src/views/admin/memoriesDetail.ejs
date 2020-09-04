@@ -26,8 +26,8 @@
                                 <li class="list-group-item"><strong>Sku: </strong><%= product.sku%></li>
                                 <li class="list-group-item"><strong>Nombre: </strong><%= product.name%></li>
                                 <li class="list-group-item"><strong>Descripción: </strong><%= product.description%></li>
-                                <li class="list-group-item"><strong>Precio: </strong>$<%= product.price%></li>
-                                <li class="list-group-item"><strong>Precio Especial: </strong>$<%= product.specialPrice%></li>
+                                <li class="list-group-item"><strong>Precio: </strong>$<%= toThousand(product.price)%></li>
+                                <li class="list-group-item"><strong>Precio Especial: </strong>$<%= toThousand(product.specialPrice)%></li>
                                 <li class="list-group-item"><strong>Visibilidad: </strong>
                                 <% if (product.visibility == 0) { %>
                                     <%= 'Enabled' %>

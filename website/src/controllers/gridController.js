@@ -61,7 +61,7 @@ let gridController = {
                 }
             })
             .then(result => {
-                res.render(path.resolve(__dirname, '../views/grids/search.ejs'), {result});
+                res.render(path.resolve(__dirname, '../views/grids/search.ejs'), {result, toThousand});
             })
             .catch(error => res.send(error))
     },
