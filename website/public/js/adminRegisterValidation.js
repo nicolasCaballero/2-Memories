@@ -10,7 +10,6 @@ window.addEventListener('load', () => {
         let username = document.querySelector('.username');
         let email = document.querySelector('.email');
         let eye = document.querySelector('.eye');
-        let role = document.querySelector('.role');
         let image = document.querySelector('.img');
         let imgErrors = document.querySelector('.img-errors');
         let filePath = image.value;
@@ -55,7 +54,7 @@ window.addEventListener('load', () => {
             eye.classList.add('eye3');
         };
         if (!allowedExtensions.exec(filePath)) {
-            errors.push('Solo se permiten imagenes .jpg | .jpeg | .png | .gif' );
+            errors.push('Solo se permiten imagenes .jpg | .jpeg | .png | .gif');
             imgErrors.classList.add('is-invalid');
         } else {
             imgErrors.classList.add('is-valid');

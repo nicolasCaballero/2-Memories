@@ -244,11 +244,13 @@ let adminController = {
             include : {
                 all: true,
                 nested: true
-            }
+            },
+            order: [
+                ['createdAt', 'DESC']
+            ]
         })
             .then((carts) => {
                 res.render(path.resolve(__dirname, '../views/admin/ordersList.ejs'), {carts, toThousand});
-                // res.send(carts)
             });
     },
     'ordersDetail': (req, res) => {
@@ -260,7 +262,6 @@ let adminController = {
         })
         .then((cart) => {
             res.render(path.resolve(__dirname, '../views/admin/ordersDetail.ejs'), {cart, toThousand});
-            // res.send(cart)
         });
     },
     'registeredUsers': (req, res) => {
