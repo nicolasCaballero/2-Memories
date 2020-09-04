@@ -32,6 +32,10 @@ ul {
     
 }
 
+.card-img-top {
+    width: 40%;
+}
+
 
 #titulo { 
     font-weight: normal;
