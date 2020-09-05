@@ -90,7 +90,7 @@ let userController = {
             name: req.body.name,
             lastName: req.body.lastName,
             email: req.body.email,
-            password: req.body.password,
+            password: bcrypt.hashSync(req.body.password, 10),
             photo: req.file ? req.file.filename : req.body.oldImage,
         }, {
             where: {
