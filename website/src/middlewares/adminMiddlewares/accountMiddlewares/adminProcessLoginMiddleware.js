@@ -5,7 +5,7 @@ let {check, validationResult, body} = require('express-validator');
 
 
 let adminProcessLogin = [
-    body('email').custom(async (value, {req}) => Array.from(await users.findAll()).filter(u => (u.email== value && bcrypt.compareSync(req.body.password, u.password))).length < 1 ? Promise.reject("Credenciales Inválidas") : true),
+    body('username').custom(async (value, {req}) => Array.from(await users.findAll()).filter(u => (u.username== value && bcrypt.compareSync(req.body.password, u.password))).length < 1 ? Promise.reject("Credenciales Inválidas") : true),
 ]
 
 module.exports = adminProcessLogin;

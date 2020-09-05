@@ -144,7 +144,7 @@ let adminController = {
         if (errors.isEmpty()) {
             db.AdminUsers.findOne({
                     where: {
-                        email: req.body.email
+                        username: req.body.username
                     }
                 })
                 .then((userToLogIn) => {
@@ -160,7 +160,7 @@ let adminController = {
         } else {
             res.render(path.resolve(__dirname, '../views/admin/login.ejs'), {
                 Title: 'Login',
-                usuarioMail: req.body.email,
+                username: req.body.username,
                 password: req.body.password,
                 old: req.body,
                 errors: errors.mapped()
