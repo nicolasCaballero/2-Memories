@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <%- include('../partials/headPartial.ejs') %>
+  <link rel="stylesheet" href="/css/product.css">
+  <title>VARIEDADES | MEMORIES</title>
+</head>
+
+<body>
+<%- include('../partials/headerPartial.ejs') %>
+  <div class="container-fluid">
+    <div class="d-none d-lg-block">
+      <section id="topBannerCategoria">
+        <img src="/img/banners/banner-aventura-desktop.jpg" alt="gastronomia" class="bannerGrilla">
+      </section>
+    </div>
+    <div class="d-lg-none">
+      <section id="topBannerCategoria">
+        <img src="/img/banners/banner-aventura-mobile.jpg" alt="gastronomia" class="bannerGrilla">
+      </section>
+    </div>
+    <div class="col-12" id="experienciasDentroDelMemorie">
+      <h1 class="tituloCategoriaGrilla"> VARIEDADES </h1>
+        <h4 class="subtituloCategoriaGrilla"> Disfrutá de experiencias <br> inolvidables </h4>
+    </div>
+    <div class="container">
+      <div class="row rowBotones">
+        <div class="col-6 filtros">
+          <div class="dropdown filtroOrdenar">
+            <button class="btn btn-secondary dropdown-toggle botonOrdenar" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Ordenar </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <button class="dropdown-item" type="button">Precio más alto</button>
+              <button class="dropdown-item" type="button">Precio más bajo</button>
+              <button class="dropdown-item" type="button">Más nuevo</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 filtros">
+          <div class="dropdown filtroFiltrar">
+            <button class="btn btn-secondary dropdown-toggle botonFiltrar" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filtrar</button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <button class="dropdown-item" type="button">Action</button>
+              <button class="dropdown-item" type="button">Another action</button>
+              <button class="dropdown-item" type="button">Something else here</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row botonesCategoria">
+    <div class="container">
+      <div class="row" id="rowMemoriesPacks">        
+        <% for( let i = 0; i < products.length; i++ ) { %>
+        <% if (products[i].categoryId == 7 && products[i].visibility == 0 && products[i].qty >= 1) { %>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12" class="memoriePack"><a href="/detalle/<%= products[i].sku %>">
+          <img class="imagenMemoriePack" src="/img/packs/<%= products[i].image %>" alt="<%= products[i].name %>"></a>
+          <% if (products[i].price == products[i].specialPrice) { %>
+          <h4 class="text-center mb-4"><%= '$' +  toThousand(products[i].price) %></h4>
+          <% } else {%>
+          <h4 class="text-center mb-4"><%= '$' +  toThousand(products[i].specialPrice) %></h4>
+          <h4 class="text-center mb-4 specialPrice"><%= '$' +  toThousand(products[i].price) %></h4>
+          <% } %> 
+        </div>
+        <% } %>
+        <% } %>
+      </div>
+    </div>
+  </div>
+<%- include('../partials/footerPartial.ejs') %>
+<%- include('../partials/jsPartials.ejs') %>
+</body>
+
+</html>

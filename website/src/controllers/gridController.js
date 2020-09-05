@@ -52,6 +52,12 @@ let gridController = {
                 });
             });
     },
+    'varieties': (req, res) => {
+        db.products.findAll()
+            .then((products) => {
+                res.render(path.resolve(__dirname, '../views/grids/variedades.ejs'), {products, toThousand});
+            });
+    },
     'search': (req, res) => {
         db.experiences.findAll({
                 where: {
