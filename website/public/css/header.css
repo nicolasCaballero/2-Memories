@@ -73,6 +73,7 @@ body {
 
 .dropdown-menu {
     border: 0px;
+    margin-top: 0px;
 }
 
 #separador2 {
@@ -93,7 +94,7 @@ a:hover .img-categorias-header {
 }
 
 #nav-left {
-    flex-direction: row;
+    flex-direction: column;
     padding-left: 0;
     margin-bottom: 0;
     list-style: none;
