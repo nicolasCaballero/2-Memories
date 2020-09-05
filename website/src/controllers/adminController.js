@@ -289,7 +289,10 @@ let adminController = {
                     include: {
                         all: true,
                         nested: true
-                    }
+                    },
+                    order: [
+                        ['createdAt', 'DESC']
+                    ]
                 })
                 .then(cart => {
                 res.render(path.resolve(__dirname, '../views/admin/usersWebOrdersList.ejs'), {cart, toThousand, users});
