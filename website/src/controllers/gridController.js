@@ -69,6 +69,12 @@ let gridController = {
             })
             .catch(error => res.send(error))
     },
+    'seeAll': (req, res) => {
+        db.products.findAll()
+            .then(products => {
+                res.render(path.resolve(__dirname, '../views/grids/allProducts.ejs'), {products, toThousand});
+            })
+    }
 };
 
 module.exports = gridController;

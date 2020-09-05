@@ -9,5 +9,6 @@ router.get('/entretenimiento', gridController.entertainmentShow);
 router.get('/aventura', gridController.adventureShow);
 router.get('/cursos', gridController.coursesShow);
 router.get('/search', gridController.search);
+router.get('/products/ver-todo', gridController.seeAll);
 
 module.exports = router;
