@@ -53,15 +53,19 @@ let gridController = {
             });
     },
     'search': (req, res) => {
-        db.products.findAll({
+        db.experiences.findAll({
                 where: {
                     description: {
                         [Op.like]: `%${req.query.search}%`
                     }
+                },
+                include : {
+                    all: true,
+                    nested: true
                 }
             })
             .then(result => {
-                res.render(path.resolve(__dirname, '../views/grids/search.ejs'), {result, toThousand});
+                res.render(path.resolve(__dirname, '../views/grids/search.ejs'), {result});
             })
             .catch(error => res.send(error))
     },

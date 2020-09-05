@@ -42,12 +42,10 @@
       <div class="container">
         <div class="row" id="rowMemoriesPacks">        
           <% for( let i = 0; i < result.length; i++ ) { %>
-          <% if (result[i].visibility == 0 && result[i].qty >= 1) { %>
-          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12" class="memoriePack"><a href="/detalle/<%= result[i].sku %>">
-            <img class="imagenMemoriePack" src="/img/packs/<%= result[i].image %>" alt="<%= result[i].name %>"></a>
-            <h4 class="text-center mb-4"><%= '$' +  toThousand(result[i].price) %></h4>
+          <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12" class="memoriePack"><a href="/experiencia/<%= result[i].id %>">
+            <img class="imagenMemoriePack" src="/img/experiences/<%= result[i].image %>" alt="<%= result[i].name %>"></a>
+            <h4 class="text-center mb-4"><%= result[i].name %> </h4>
           </div>
-          <% } %>
           <% } %>
         </div>
       </div>

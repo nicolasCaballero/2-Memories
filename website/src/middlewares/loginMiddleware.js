@@ -10,7 +10,8 @@ let loginMiddleware = (req, res, next) => {
         db.users.findOne({
                 where: {
                     email: req.cookies.rememberme
-                }
+                },
+                force: true
             })
             .then(user => {
                 req.session.loggedInUser = user;
