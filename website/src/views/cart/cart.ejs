@@ -24,11 +24,11 @@
                 <div class="row justify-content-center mt-3">
                     <h2>Tu Carrito</h2>
                     <section class="col-12 text-center">
-                        <div class="row justify-content-center">
+                        <div class="row justify-content-center" id="productosCarrito">
                             <div class="col-xl-5 col-lg-5 col-md-11 col-sm-11 col-xs-11 mx-1">
                             <% for( let i = 0; i < cartProducts.length; i++ ) { %>
                                     <article class="mb-3">
-                                        <div class="row border rounded-sm shadow-sm">
+                                        <div class="mx-1 row border rounded-sm shadow-sm">
                                             <div class="col-4">
                                                 <a href="/detalle/<%= cartProducts[i].products.sku %>"><img class="mr-2 mt-4 rounded d-block" src="/img/packs/<%= cartProducts[i].products.image %> " width="145px" alt="<%= cartProducts[i].products.name %>"></a>
                                             </div>
