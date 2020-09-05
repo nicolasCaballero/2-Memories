@@ -45,7 +45,7 @@
                             <td><%=new Date(cart[i].createdAt).getDate() + '-' + (new Date(cart[i].createdAt).getMonth() + 1) +  '-' + new Date(cart[i].createdAt).getFullYear()%></td>
                             <td>Aprobado </td>
                             <td>$<%= toThousand(cart[i].total) %></td>
-                            <td><a id="btn-view" class=" text-decoration-none" href="/admin/orders/detail/"><i class="fas fa-eye text-decoration-none"></i></a></td>
+                            <td><a id="btn-view" class=" text-decoration-none" href="/admin/orders/detail/<%= cart[i].id %> "><i class="fas fa-eye text-decoration-none"></i></a></td>
                         </tr>
                     <% } %>
                 </tbody>
