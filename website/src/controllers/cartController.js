@@ -12,10 +12,16 @@ let cartController = {
             })
             .then((product) =>{
                 let qty = 1;
+                let subtotal = 0;
+                if(product.price == product.specialPrice) {
+                    subtotal = product.price
+                } else {
+                    subtotal = product.specialPrice
+                }
                 return db.items.create({
                     salePrice : product.price,
                     qty : qty,
-                    subTotal : qty * product.price,
+                    subTotal : qty * subtotal,
                     state: 1,
                     userId: req.session.loggedInUser.id,
                     productSku: product.sku,

@@ -11,6 +11,11 @@ ul {
     list-style: none;
 }
 
+.specialPrice {
+    text-decoration-line: line-through;
+    color: #9b9b9b;
+}
+
 * {
     font-family: 'Source Sans Pro', sans-serif;
     box-sizing: border-box;
@@ -32,20 +37,20 @@ ul {
 #imagenMemorie {
     border-radius: 20px;
     width: 80%;
-    
+
 }
 
 
-#titulo { 
+#titulo {
     font-weight: normal;
     font-size: 1.5rem;
     text-align: center;
     padding-top: 0.5%;
     margin-top: 2.5%;
-    margin-bottom: 2.5%; 
-    margin-left: 2%;    
+    margin-bottom: 2.5%;
+    margin-left: 2%;
     border-top: solid #79c8d6;
-    border-width: 1px; 
+    border-width: 1px;
 }
 
 #informacion {
@@ -85,6 +90,7 @@ a {
     color: black;
     text-align: center;
 }
+
 .nombreLocal :hover {
     color: #FBC46C;
     text-align: center;
@@ -95,12 +101,12 @@ a {
     border-radius: 20px;
     width: 70%;
     margin: auto;
-    opacity:85%;
+    opacity: 85%;
     transition: opacity .2s ease;
 }
 
 a:hover .imagenDelLocal {
-    opacity:100%;
+    opacity: 100%;
     transition: opacity .2s ease;
 }
 
@@ -122,14 +128,14 @@ a:hover .imagenDelLocal {
 }
 
 .queIncluye {
-        font-weight: normal;
-        font-size: 1.5rem;
-        text-align: center;
-        border-width: 1px;
-        padding-top: 0.5%;
-        margin-top: 2.5%;
-        margin-bottom: 2.5%;
-        border-top: solid #79c8d6  
+    font-weight: normal;
+    font-size: 1.5rem;
+    text-align: center;
+    border-width: 1px;
+    padding-top: 0.5%;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+    border-top: solid #79c8d6
 }
 
 #experiencias {
@@ -190,11 +196,11 @@ a:hover .imagenDelLocal {
 }
 
 .carouselLanding {
-padding-bottom: 3%;
+    padding-bottom: 3%;
 }
 
 #eslogan {
-margin-bottom: 18%;
+    margin-bottom: 18%;
 }
 
 #categoriaIndividualHome {
@@ -230,8 +236,8 @@ margin-bottom: 18%;
 }
 
 .imagenPasoAPaso {
-    display:block;
-    margin:auto;
+    display: block;
+    margin: auto;
 }
 
 #textoPaso4 {
@@ -247,10 +253,10 @@ margin-bottom: 18%;
 
 @media (max-width: 600px) {
 
-#categoriaIndividualHome {
+    #categoriaIndividualHome {
         margin-bottom: 2%;
         padding-right: 4%;
-}
+    }
 
 }
 
@@ -266,7 +272,8 @@ margin-bottom: 18%;
 
 .tituloCategoriaGrilla {
     text-align: center;
-    font-weight: bold;;
+    font-weight: bold;
+    ;
 }
 
 .subtituloCategoriaGrilla {
@@ -274,7 +281,7 @@ margin-bottom: 18%;
     border-bottom: solid #FBC46C;
     border-bottom-width: 1px;
     margin-top: 1%;
-   padding-bottom: 1%;
+    padding-bottom: 1%;
 }
 
 .filtroOrdenar {
@@ -313,12 +320,12 @@ margin-bottom: 18%;
 .imagenMemoriePack {
     width: 100%;
     border-radius: 20px;
-    opacity:85%;
+    opacity: 85%;
     transition: opacity .2s ease;
 }
 
 a:hover .imagenMemoriePack {
-    opacity:100%;
+    opacity: 100%;
     transition: opacity .2s ease;
 }
 
@@ -342,13 +349,13 @@ a:hover .imagenMemoriePack {
         padding-left: 7%;
         margin-top: 10px;
         margin-bottom: 10px;
-    
+
     }
 
-    #titulo { 
+    #titulo {
         margin-left: 2%;
-        margin-right: 2%;    
-        
+        margin-right: 2%;
+
     }
 
     .infoEnLista1 {
@@ -362,5 +369,5 @@ a:hover .imagenMemoriePack {
     .queTrae {
         text-align: center;
     }
-    
-    }
+
+}

@@ -47,7 +47,12 @@
                                                     <td><%= cart.items[i].products.sku %></td>
                                                     <td><%= cart.items[i].products.name %></td>
                                                     <td>1</td>
+                                                    <% if (cart.items[i].products.price == cart.items[i].products.specialPrice) { %>
                                                     <td>$<%= toThousand(cart.items[i].products.price) %> </td>                            
+                                                    <% } else { %>
+                                                    <td class="specialPrice">$<%= toThousand(cart.items[i].products.price) %> </td>                            
+                                                    <td>$<%= toThousand(cart.items[i].products.specialPrice) %> </td>                            
+                                                    <% } %> 
                                                 </tr>
                                             <% } %>
                                         </tbody>

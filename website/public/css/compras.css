@@ -84,3 +84,8 @@ td a {
     position: relative;
     content: "✖"
 }
+
+.specialPrice {
+    text-decoration-line: line-through;
+    color: #9b9b9b;
+}

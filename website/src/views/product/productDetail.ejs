@@ -24,7 +24,12 @@
                     <li><br></li>
 
                     <li id="precioMemorie">
+                        <% if (product.price == product.specialPrice) { %>
                         <h3><i class="fas fa-money-bill-alt mr-1"></i>$<%= toThousand(product.price)%></h3>
+                        <% } else { %>
+                        <h3 class="specialPrice"><i class="fas fa-money-bill-alt mr-1"></i>$<%= toThousand(product.price)%></h3>
+                        <h3>$<%= toThousand(product.specialPrice)%></h3>
+                        <% } %> 
                     </li>
 
                     <li><br></li>

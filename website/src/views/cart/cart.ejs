@@ -35,7 +35,12 @@
                                             <div class="col-8">
                                                 <div class="card-body ml-2">
                                                     <h5 id="titulo-producto" class="card-title py-2 pl-2"><strong><%= cartProducts[i].products.name %> </strong></h5>
-                                                    <p id="precio-producto" class="card-text pl-2 mt-2"><i class="fas fa-money-bill-alt mr-1"></i><strong>$<%= toThousand(cartProducts[i].products.price) %> </strong></p>
+                                                    <% if (cartProducts[i].products.price == cartProducts[i].products.specialPrice) { %>
+                                                        <p id="precio-producto" class="card-text pl-2 mt-2"><i class="fas fa-money-bill-alt mr-1"></i><strong>$<%= toThousand(cartProducts[i].products.price) %> </strong></p>
+                                                    <% } else { %>
+                                                        <p id="precio-producto" class="card-text pl-2 mt-2 specialPrice"><i class="fas fa-money-bill-alt mr-1"></i><strong>$<%= toThousand(cartProducts[i].products.price) %> </strong></p>
+                                                        <p id="precio-producto" class="card-text pl-2 mt-2"><i class="fas fa-money-bill-alt mr-1"></i><strong>$<%= toThousand(cartProducts[i].products.specialPrice) %> </strong></p>
+                                                    <% } %> 
                                                     <p id="cantidad" class="card-text pl-2"><i class="fas fa-minus mr-1"></i> x1<i class="fas fa-plus ml-1"></i></p>
                                                     <form action="/carrito/borrar" method="post">
                                                         <input type="hidden" name="cartId" value="<%=cartProducts[i].id%>">
@@ -56,7 +61,11 @@
                                                 <% for( let i = 0; i < cartProducts.length; i++ ) { %>
                                                     <article class="d-flex flex-row justify-content-between">
                                                         <p class="card-text"><%= cartProducts[i].products.name %>  x1</p>
+                                                        <% if (cartProducts[i].products.price == cartProducts[i].products.specialPrice) { %>
                                                         <p class="card-text">$<%= toThousand(cartProducts[i].products.price) %> </p>
+                                                        <% } else {%>
+                                                        <p class="card-text">$<%= toThousand(cartProducts[i].products.specialPrice) %> </p>
+                                                        <% } %> 
                                                     </article>
                                                 <% } %>
                                                 <article id="precio-total" class="d-flex flex-row justify-content-between border-top pt-3">

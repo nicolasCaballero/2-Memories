@@ -44,7 +44,12 @@
                                                     <td><%= item.products.sku %></td>
                                                     <td><%= item.products.name %></td>
                                                     <td><%= item.qty %></td>
+                                                    <% if (item.products.price == item.products.specialPrice) { %>
                                                     <td>$<%= toThousand(item.products.price) %> </td>                            
+                                                    <% } else {%>
+                                                    <td class="specialPrice">$<%= toThousand(item.products.price) %> </td>
+                                                    <td>$<%= toThousand(item.products.specialPrice) %> </td>
+                                                    <% } %> 
                                                 </tr>
                                                 <% }) %>
                                         </tbody>
