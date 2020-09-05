@@ -91,4 +91,60 @@ a:hover .img-categorias-header {
     overflow-x: hidden;
     overflow-y: scroll;
 }
+
+#nav-left {
+    flex-direction: row;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    justify-content: flex-start;
+    padding-right: .5rem;
+    padding-left: .5rem;
+    margin-bottom: .5rem;
+}
+
+.navbar-collapse {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.nav-right {
+        flex-direction: row;
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style: none;
+        justify-content: flex-start;
+        padding-right: .5rem;
+        padding-left: .5rem;
+        margin-bottom: .5rem;
+}
+
+.navbar-nav {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: row;
+    padding-left: .5rem;
+    margin-bottom: 0;
+    list-style: none;
+}
+
+.navbar-nav .nav-link {
+    padding-right: 1.5rem;
+}
+
+#search-field {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
+    -ms-flex-align: center;
+    align-items: center;
+    padding-left: .5rem;
+    margin-bottom: .5rem;
+}
 }

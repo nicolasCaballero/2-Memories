@@ -92,7 +92,7 @@
                     <a id="link-admin" class="nav-link active" href="/admin">Admin<i class="fas fa-tools ml-1"></i></a>
                 </li>
             </ul>
-            <form class="form-inline" action="/search" method="GET">
+            <form id="search-field" class="form-inline" action="/search" method="GET">
                 <div class="input-group">
                     <div class="inner-addon left-addon">
                         <i class="fas fa-search"></i>
@@ -102,7 +102,7 @@
                 </div>
             </form>
             <% if (!loggedInUser) { %>
-            <ul class="navbar-nav">
+            <ul class="navbar-nav nav-right">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle active" href="#" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
@@ -115,7 +115,7 @@
                 </li>
             </ul>
             <% } else {%>
-            <ul class="navbar-nav">
+            <ul class="navbar-nav nav-right">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle active" href="#" role="button" data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">

@@ -5,12 +5,8 @@ module.exports = {
     "password": "root",
     "database": "memories_db",
     "host": "127.0.0.1",
-<<<<<<< HEAD
     "dialect": "mysql",
     "port": 8889
-=======
-    "dialect": "mysql"
->>>>>>> SebaLocal
   },
   "test": {
     "username": "root",
