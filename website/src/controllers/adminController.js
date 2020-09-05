@@ -19,7 +19,11 @@ let adminController = {
         res.redirect('/admin/categories/list');
     },
     'categoriesList': (req, res) => {
-        db.categories.findAll()
+        db.categories.findAll({
+            order: [
+                ['id', 'DESC']
+            ]
+        })
             .then((categories) => {res.render(path.resolve(__dirname, '../views/admin/categoriesList.ejs'), {categories});});
     },
     'categoriesShow': (req, res) => {
@@ -67,7 +71,10 @@ let adminController = {
         db.products.findAll({
                 include: [{
                     association: 'productCategory'
-                }]
+                }],
+                order: [
+                    ['sku', 'DESC']
+                ]
             })
             .then((products) => {res.render(path.resolve(__dirname, '../views/admin/memoriesList.ejs'), {products, toThousand});});
     },
@@ -106,7 +113,10 @@ let adminController = {
         res.redirect('/admin/memories/list');
     },
     'experiencesList': (req, res) => {
-        db.experiences.findAll()
+        db.experiences.findAll({
+            order: [
+                ['id', 'DESC']
+            ]})
             .then((experiences) => {res.render(path.resolve(__dirname, '../views/admin/experiencesList.ejs'), {experiences});})
     },
     'experienceShow': (req, res) => {
@@ -203,7 +213,11 @@ let adminController = {
         };
     },
     'usersList': (req, res) => {
-        db.AdminUsers.findAll()
+        db.AdminUsers.findAll({
+            order: [
+                ['id', 'DESC']
+            ]
+        })
             .then((adminUsers) => {res.render(path.resolve(__dirname, '../views/admin/usersList.ejs'), {adminUsers});});
     },
     'myAccount': (req, res) => {
@@ -269,7 +283,10 @@ let adminController = {
             include : {
                 all: true,
                 nested: true
-            }
+            },
+            order: [
+                ['id', 'DESC']
+            ]
         })
         .then((users) => {
             return res.render(path.resolve(__dirname, '../views/admin/usersWebList.ejs'), {users});

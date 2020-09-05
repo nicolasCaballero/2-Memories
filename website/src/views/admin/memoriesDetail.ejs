@@ -37,9 +37,14 @@
                                 </li>
                                 <li class="list-group-item"><strong>Categoría: </strong><%= product.productCategory.name %></li>
                                 <li class="list-group-item"><strong>Experiencias Asociadas: </strong>
-                                    <% for( let i = 0; i < product.productExperiences.length; i++ ) { %>
-                                        <a href="/admin/experience/view/<%= product.productExperiences[i].id%>"><%= product.productExperiences[i].name + ', '%></a>
-                                    <% } %>
+                                    <% if (product.productExperiences.length != 0) { %>
+                                        <% for( let i = 0; i < product.productExperiences.length; i++ ) { %>
+                                            <a href="/admin/experience/view/<%= product.productExperiences[i].id%>"><%= product.productExperiences[i].name + ', '%></a>
+                                        <% } %>
+                                    <% } else { %>
+                                        <span>Todavía no hay experiencias asociadas      <i class="fas fa-arrow-right"></i></span>
+                                        <a href="/admin/experiences/create">   Crear Experiencia</a>
+                                    <% } %> 
                                 </li>
                                 <li class="list-group-item"><strong>Stock: </strong><%= product.qty%></li>
                                 <li class="list-group-item "><strong>Imagen: </strong><img width="50%" class="img-thumbnail" src="/img/packs/<%= product.image%>" alt=""></li>
