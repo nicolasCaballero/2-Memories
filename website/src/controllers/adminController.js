@@ -249,7 +249,7 @@ let adminController = {
                 ['createdAt', 'DESC']
             ]
         })
-            .then((carts) => {
+            .then(carts => {
                 res.render(path.resolve(__dirname, '../views/admin/ordersList.ejs'), {carts, toThousand});
             });
     },
