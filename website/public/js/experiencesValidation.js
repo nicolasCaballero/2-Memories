@@ -9,9 +9,8 @@ window.addEventListener('load', () => {
 
         let name = document.querySelector('.name');
         let description = document.querySelector('.description');
-        let price = document.querySelector('.price');
-        let specialPrice = document.querySelector('.specialPrice');
-        let stock = document.querySelector('.qty');
+        let includes = document.querySelector('.includes');
+        let website = document.querySelector('.website');
         let image = document.querySelector('.image');
         let imgErrors = document.querySelector('.img-errors');
         let filePath = image.value;
@@ -31,33 +30,26 @@ window.addEventListener('load', () => {
             description.classList.add('is-valid');
             description.classList.remove('is-invalid');
         };
+        if (includes.value.length <= 0) {
+            errors.push('El campo incluye no puede estar vacío');
+            includes.classList.add('is-invalid');
+        } else {
+            includes.classList.add('is-valid');
+            includes.classList.remove('is-invalid');
+        };
+        if (website.value.length <= 0) {
+            errors.push('Debes indicar un website');
+            website.classList.add('is-invalid');
+        } else {
+            website.classList.add('is-valid');
+            website.classList.remove('is-invalid');
+        };
         if (!allowedExtensions.exec(filePath)) {
             errors.push('Solo se permiten imagenes .jpg | .jpeg | .png | .gif' );
             imgErrors.classList.add('is-invalid');
         } else {
             imgErrors.classList.add('is-valid');
             imgErrors.classList.remove('is-invalid');
-        };
-        if (price.value.match(numbers)) {
-            price.classList.remove('is-invalid');
-            price.classList.add('is-valid');
-        } else {
-            errors.push('El campo precio solo debe contener números');
-            price.classList.add('is-invalid');
-        };
-        if (specialPrice.value.match(numbers)) {
-            specialPrice.classList.remove('is-invalid');
-            specialPrice.classList.add('is-valid');
-        } else {
-            errors.push('El campo precio especial solo debe contener números');
-            specialPrice.classList.add('is-invalid');
-        };
-        if (stock.value.match(numbers)) {
-            stock.classList.remove('is-invalid');
-            stock.classList.add('is-valid');
-        } else {
-            errors.push('El campo stock especial solo debe contener números');
-            stock.classList.add('is-invalid');
         };
 
         if (errors.length > 0) {

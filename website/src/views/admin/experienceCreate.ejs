@@ -15,6 +15,10 @@
                 <div class="card-body">
                     <h1 class="card-title text-center">Agregar nueva experiencia</h1>
                 </div>
+                <div class="div-errors">
+                    <ul>
+                    </ul>
+                </div>
             </article>
         </section>
         <section id="formulario" class="bg-home pt-4">
@@ -22,26 +26,29 @@
                 <div class="row">
                     <div class="col-lg-8 col-md-10 col-sm-10 col-xs-12 mx-auto bg-light shadow-sm">
                         <div class="signup-form mt-2">
-                            <form action="/admin/experiences/create" method="POST" enctype="multipart/form-data">
+                            <form class="form" action="/admin/experiences/create" method="POST" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label for="nombre">Nombre</label>
-                                    <input type="text" class="form-control rounded-pill" name="name" placeholder="Ej: Tucson">
+                                    <input type="text" class="form-control rounded-pill name" name="name" placeholder="Ej: Tucson">
                                 </div>
                                 <div class="form-group">
                                     <label for="descripción">Descripción</label>
-                                    <textarea class="form-control rounded-lg" name="description" placeholder="Ej: Disfrutá de un buen plato, disfrutá Tucson." rows="3"></textarea>
+                                    <textarea class="form-control rounded-lg description" name="description" placeholder="Ej: Disfrutá de un buen plato, disfrutá Tucson." rows="3"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="imagen-producto">Imagen</label>
-                                    <input type="file" class="form-control-file rounded" id="imagen-producto" name="image">
+                                    <input type="file" class="form-control-file rounded image" id="imagen-producto" name="image">
+                                    <div class="img-errors">
+                                        <p></p>
+                                    </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="includes">Incluye</label>
-                                    <textarea class="form-control rounded-lg" name="include" placeholder="Ej: La experiencia incluye, una entrada, un plato principal, un postre y un cocktail, por persona. Válido para 2 (dos) personas por unica vez." rows="3"></textarea>
+                                    <textarea class="form-control rounded-lg includes" name="include" placeholder="Ej: La experiencia incluye, una entrada, un plato principal, un postre y un cocktail, por persona. Válido para 2 (dos) personas por unica vez." rows="3"></textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="website">Website</label>
-                                    <input type="text" class="form-control rounded-pill" name="website" placeholder="Ej: http://www.tucsonrestaurante.com.ar/">
+                                    <input type="text" class="form-control rounded-pill website" name="website" placeholder="Ej: http://www.tucsonrestaurante.com.ar/">
                                 </div>
                                 <div class="form-group">
                                     <label for="productSku">Asociar a Memorie</label>
@@ -62,6 +69,7 @@
         </section>
     </div>
     <%- include('../partials/jsPartials.ejs') %>
+    <script src="/js/experiencesValidation.js"></script>
 </body>
 
 </html>
