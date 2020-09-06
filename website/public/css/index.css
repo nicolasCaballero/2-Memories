@@ -362,6 +362,31 @@ a:hover .imagenCategoriaHome{
     font-weight: bold;
 }
 
+.fix-home {
+    vertical-align: top;
+    font-size: larger;
+}
+
+h1 {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: white;
+}
+
+h2 {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+h3 {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+h4 {
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+h5 {
+    font-family: 'Source Sans Pro', sans-serif;
+}
 
 
 
