@@ -35,12 +35,14 @@
                                             <div class="col-8">
                                                 <div class="card-body ml-2">
                                                     <h5 id="titulo-producto" class="card-title py-2 pl-2"><strong><%= cartProducts[i].products.name %> </strong></h5>
+                                                    <div class="row justify-content-center">
                                                     <% if (cartProducts[i].products.price == cartProducts[i].products.specialPrice) { %>
                                                         <p id="precio-producto" class="card-text pl-2 mt-2"><i class="fas fa-money-bill-alt mr-1"></i><strong>$<%= toThousand(cartProducts[i].products.price) %> </strong></p>
                                                     <% } else { %>
                                                         <p id="precio-producto" class="card-text pl-2 mt-2 specialPrice"><i class="fas fa-money-bill-alt mr-1"></i><strong>$<%= toThousand(cartProducts[i].products.price) %> </strong></p>
-                                                        <p id="precio-producto" class="card-text pl-2 mt-2"><i class="fas fa-money-bill-alt mr-1"></i><strong>$<%= toThousand(cartProducts[i].products.specialPrice) %> </strong></p>
+                                                        <p id="precio-producto" class="card-text pl-2 mt-2"><i class="fas fa-tag mr-1"></i><strong>$<%= toThousand(cartProducts[i].products.specialPrice) %> </strong></p>
                                                     <% } %> 
+                                                    </div>
                                                     <p id="cantidad" class="card-text pl-2"><i class="fas fa-minus mr-1"></i> x1<i class="fas fa-plus ml-1"></i></p>
                                                     <form action="/carrito/borrar" method="post">
                                                         <input type="hidden" name="cartId" value="<%=cartProducts[i].id%>">

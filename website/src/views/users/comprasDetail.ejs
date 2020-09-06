@@ -29,26 +29,28 @@
                                 <li class="list-group-item"><strong>Productos: </strong>
                                     <table class="table mt-2 border-bottom">
                                         <thead class="thead-light">
-                                            <tr>
+                                            <tr class="tituloTabla">
                                                 <th scope="col">Imagen</th>
                                                 <th scope="col">Sku</th>
                                                 <th scope="col">Nombre</th>
-                                                <th scope="col">Cantidad</th>
-                                                <th scope="col">Precio</th>
+                                                <th scope="col">Cant</th>
+                                                <th scope="col">Precio<br>Lista</th>
+                                                <th scope="col">Precio<br>Especial</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <% cart.items.forEach(item => { %>
-                                                <tr>
+                                                <tr class="camposTabla">
                                                     <td scope="row"><img width="100px" class="img-thumbnail" src="/img/packs/<%= item.products.image %>" alt=""></td>
                                                     <td><%= item.products.sku %></td>
                                                     <td><%= item.products.name %></td>
                                                     <td><%= item.qty %></td>
                                                     <% if (item.products.price == item.products.specialPrice) { %>
-                                                    <td>$<%= toThousand(item.products.price) %> </td>                            
+                                                    <td>$<%= toThousand(item.products.price) %> </td> 
+                                                    <td>-</td>                           
                                                     <% } else {%>
                                                     <td class="specialPrice">$<%= toThousand(item.products.price) %> </td>
-                                                    <td>$<%= toThousand(item.products.specialPrice) %> </td>
+                                                    <td class="border-bottom">$<%= toThousand(item.products.specialPrice) %> </td>
                                                     <% } %> 
                                                 </tr>
                                                 <% }) %>

@@ -23,12 +23,12 @@
 
                     <li><br></li>
 
-                    <li id="precioMemorie">
+                    <li class="row mx-auto" id="precioMemorie">
                         <% if (product.price == product.specialPrice) { %>
                         <h3><i class="fas fa-money-bill-alt mr-1"></i>$<%= toThousand(product.price)%></h3>
                         <% } else { %>
                         <h3 class="specialPrice"><i class="fas fa-money-bill-alt mr-1"></i>$<%= toThousand(product.price)%></h3>
-                        <h3>$<%= toThousand(product.specialPrice)%></h3>
+                        <h3 class="ml-1"><i class="fas fa-tag mr-2 ml-1"></i>$<%= toThousand(product.specialPrice)%></h3>
                         <% } %> 
                     </li>
 
@@ -77,7 +77,7 @@
 
     <div class="row" id="filaExperiencias">
         <% for( let i = 0; i < product.productExperiences.length; i++ ) { %>
-            <div class="col-lg-3 col-xl-3 col-md-3 col-sm-12" id="experiencia/id">
+            <div class="col-lg-3 col-xl-3 col-md-3 col-sm-12 mb-3" id="experiencia/id">
                 <a class="text-decoration-none text-dark" href="/experiencia/<%= product.productExperiences[i].id%>"> <img src="/img/experiences/<%= product.productExperiences[i].image%>" alt="<%= product.productExperiences[i].name %> " class="imagenDelLocal">
                 <h5 class="nombreLocal text-center"><%= product.productExperiences[i].name %> </h5>
                 </a>
