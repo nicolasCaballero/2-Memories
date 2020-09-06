@@ -4,6 +4,7 @@
 <head>
     <%- include('../partials/headPartial.ejs') %>
     <link rel="stylesheet" href="/css/product.css">
+    <link rel="stylesheet" href="sweetalert2.min.css">
     <title><%= product.name%> | MEMORIES</title>
 </head>
 
@@ -86,9 +87,9 @@
     </div>
     <%- include('../partials/footerPartial.ejs') %>
     <%- include('../partials/jsPartials.ejs') %>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="/js/productAddToCart.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    </div>
+</div>
     </div>
 </body>
 
