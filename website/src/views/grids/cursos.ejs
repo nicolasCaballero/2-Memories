@@ -24,27 +24,16 @@
       <h1 class="tituloCategoriaGrilla"> Cursos </h1>
       <h4 class="subtituloCategoriaGrilla"> Disfrutá de experiencias <br> inolvidables </h4>
     </div>
-    <div class="container">
-      <div class="row rowBotones">
-        <div class="col-6 filtros">
-          <div class="dropdown filtroOrdenar">
-            <button class="btn btn-secondary dropdown-toggle botonOrdenar" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Ordenar </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-              <button class="dropdown-item" type="button">Precio más alto</button>
-              <button class="dropdown-item" type="button">Precio más bajo</button>
-              <button class="dropdown-item" type="button">Más nuevo</button>
-            </div>
-          </div>
-        </div>
-        <div class="col-6 filtros">
-          <div class="dropdown filtroFiltrar">
-            <button class="btn btn-secondary dropdown-toggle botonFiltrar" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Filtrar</button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-              <button class="dropdown-item" type="button">Action</button>
-              <button class="dropdown-item" type="button">Another action</button>
-              <button class="dropdown-item" type="button">Something else here</button>
-            </div>
-          </div>
+    <div class="container text-center">
+      <div class="btn-group">
+        <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Ordenar
+        </button>
+        <div class="dropdown-menu text-center">
+          <a class="dropdown-item" href="/cursos/az">A / Z</a>
+          <a class="dropdown-item" href="/cursos/za">Z / A</a>
+          <a class="dropdown-item" href="/cursos/lowest">PRECIO MÁS BAJO</a>
+          <a class="dropdown-item" href="/cursos/highest">PRECIO MÁS ALTO</a>
         </div>
       </div>
     </div>

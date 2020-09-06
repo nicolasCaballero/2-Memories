@@ -7,56 +7,424 @@ const toThousand = n =>n.toString().replace(/\B(?=(\d{3})+(?!\d))/g,".");
 
 let gridController = {
     'adventureShow': (req, res) => {
-        db.products.findAll()
+        switch (req.params.order) {
+            case 'az':
+                db.products.findAll({
+                    order: [
+                        ['name', 'ASC']
+                    ]
+                })
+                .then((products) => {
+                    res.render(path.resolve(__dirname, '../views/grids/aventura.ejs'), {
+                        products, toThousand
+                    });
+                });
+                break;
+            case 'za':
+                db.products.findAll({
+                    order: [
+                        ['name', 'DESC']
+                    ]
+                })
+                .then((products) => {
+                    res.render(path.resolve(__dirname, '../views/grids/aventura.ejs'), {
+                        products, toThousand
+                    });
+                });
+                break;
+            case 'lowest':
+                db.products.findAll({
+                    order: [
+                        ['price', 'ASC']
+                    ]
+                })
+                .then((products) => {
+                    res.render(path.resolve(__dirname, '../views/grids/aventura.ejs'), {
+                        products, toThousand
+                    });
+                });
+                break;
+            case 'highest':
+            db.products.findAll({
+                order: [
+                    ['price', 'DESC']
+                ]
+            })
             .then((products) => {
-                res.render(path.resolve(__dirname, '../views/grids/aventura.ejs'), {products, toThousand});
+                res.render(path.resolve(__dirname, '../views/grids/aventura.ejs'), {
+                    products, toThousand
+                });
             });
+            break;
+            default:
+                db.products.findAll()
+                .then((products) => {
+                    res.render(path.resolve(__dirname, '../views/grids/aventura.ejs'), {
+                        products, toThousand
+                    });
+                });
+                break;
+        }
     },
     'wellbeingShow': (req, res) => {
-        db.products.findAll()
+        switch (req.params.order) {
+            case 'az':
+                db.products.findAll({
+                    order: [
+                        ['name', 'ASC']
+                    ]
+                })
+                .then((products) => {
+                    res.render(path.resolve(__dirname, '../views/grids/bienestar.ejs'), {
+                        products, toThousand
+                    });
+                });
+                break;
+            case 'za':
+                db.products.findAll({
+                    order: [
+                        ['name', 'DESC']
+                    ]
+                })
+                .then((products) => {
+                    res.render(path.resolve(__dirname, '../views/grids/bienestar.ejs'), {
+                        products, toThousand
+                    });
+                });
+                break;
+            case 'lowest':
+                db.products.findAll({
+                    order: [
+                        ['price', 'ASC']
+                    ]
+                })
+                .then((products) => {
+                    res.render(path.resolve(__dirname, '../views/grids/bienestar.ejs'), {
+                        products, toThousand
+                    });
+                });
+                break;
+            case 'highest':
+            db.products.findAll({
+                order: [
+                    ['price', 'DESC']
+                ]
+            })
             .then((products) => {
                 res.render(path.resolve(__dirname, '../views/grids/bienestar.ejs'), {
                     products, toThousand
                 });
             });
+            break;
+            default:
+                db.products.findAll()
+                .then((products) => {
+                    res.render(path.resolve(__dirname, '../views/grids/bienestar.ejs'), {
+                        products, toThousand
+                    });
+                });
+                break;
+        }
     },
     'coursesShow': (req, res) => {
-        db.products.findAll()
+        switch (req.params.order) {
+            case 'az':
+                db.products.findAll({
+                    order: [
+                        ['name', 'ASC']
+                    ]
+                })
+                .then((products) => {
+                    res.render(path.resolve(__dirname, '../views/grids/cursos.ejs'), {
+                        products, toThousand
+                    });
+                });
+                break;
+            case 'za':
+                db.products.findAll({
+                    order: [
+                        ['name', 'DESC']
+                    ]
+                })
+                .then((products) => {
+                    res.render(path.resolve(__dirname, '../views/grids/cursos.ejs'), {
+                        products, toThousand
+                    });
+                });
+                break;
+            case 'lowest':
+                db.products.findAll({
+                    order: [
+                        ['price', 'ASC']
+                    ]
+                })
+                .then((products) => {
+                    res.render(path.resolve(__dirname, '../views/grids/cursos.ejs'), {
+                        products, toThousand
+                    });
+                });
+                break;
+            case 'highest':
+            db.products.findAll({
+                order: [
+                    ['price', 'DESC']
+                ]
+            })
             .then((products) => {
                 res.render(path.resolve(__dirname, '../views/grids/cursos.ejs'), {
                     products, toThousand
                 });
             });
+            break;
+            default:
+                db.products.findAll()
+                .then((products) => {
+                    res.render(path.resolve(__dirname, '../views/grids/cursos.ejs'), {
+                        products, toThousand
+                    });
+                });
+                break;
+        }
     },
     'entertainmentShow': (req, res) => {
-        db.products.findAll()
+        switch (req.params.order) {
+            case 'az':
+                db.products.findAll({
+                    order: [
+                        ['name', 'ASC']
+                    ]
+                })
+                .then((products) => {
+                    res.render(path.resolve(__dirname, '../views/grids/entretenimiento.ejs'), {
+                        products, toThousand
+                    });
+                });
+                break;
+            case 'za':
+                db.products.findAll({
+                    order: [
+                        ['name', 'DESC']
+                    ]
+                })
+                .then((products) => {
+                    res.render(path.resolve(__dirname, '../views/grids/entretenimiento.ejs'), {
+                        products, toThousand
+                    });
+                });
+                break;
+            case 'lowest':
+                db.products.findAll({
+                    order: [
+                        ['price', 'ASC']
+                    ]
+                })
+                .then((products) => {
+                    res.render(path.resolve(__dirname, '../views/grids/entretenimiento.ejs'), {
+                        products, toThousand
+                    });
+                });
+                break;
+            case 'highest':
+            db.products.findAll({
+                order: [
+                    ['price', 'DESC']
+                ]
+            })
             .then((products) => {
                 res.render(path.resolve(__dirname, '../views/grids/entretenimiento.ejs'), {
                     products, toThousand
                 });
             });
+            break;
+            default:
+                db.products.findAll()
+                .then((products) => {
+                    res.render(path.resolve(__dirname, '../views/grids/entretenimiento.ejs'), {
+                        products, toThousand
+                    });
+                });
+                break;
+        }
     },
     'escapeShow': (req, res) => {
-        db.products.findAll()
+        switch (req.params.order) {
+            case 'az':
+                db.products.findAll({
+                    order: [
+                        ['name', 'ASC']
+                    ]
+                })
+                .then((products) => {
+                    res.render(path.resolve(__dirname, '../views/grids/escapadas.ejs'), {
+                        products, toThousand
+                    });
+                });
+                break;
+            case 'za':
+                db.products.findAll({
+                    order: [
+                        ['name', 'DESC']
+                    ]
+                })
+                .then((products) => {
+                    res.render(path.resolve(__dirname, '../views/grids/escapadas.ejs'), {
+                        products, toThousand
+                    });
+                });
+                break;
+            case 'lowest':
+                db.products.findAll({
+                    order: [
+                        ['price', 'ASC']
+                    ]
+                })
+                .then((products) => {
+                    res.render(path.resolve(__dirname, '../views/grids/escapadas.ejs'), {
+                        products, toThousand
+                    });
+                });
+                break;
+            case 'highest':
+            db.products.findAll({
+                order: [
+                    ['price', 'DESC']
+                ]
+            })
             .then((products) => {
                 res.render(path.resolve(__dirname, '../views/grids/escapadas.ejs'), {
                     products, toThousand
                 });
             });
+            break;
+            default:
+                db.products.findAll()
+                .then((products) => {
+                    res.render(path.resolve(__dirname, '../views/grids/escapadas.ejs'), {
+                        products, toThousand
+                    });
+                });
+                break;
+        }
     },
     'gastronomyShow': (req, res) => {
-        db.products.findAll()
+        switch (req.params.order) {
+            case 'az':
+                db.products.findAll({
+                    order: [
+                        ['name', 'ASC']
+                    ]
+                })
+                .then((products) => {
+                    res.render(path.resolve(__dirname, '../views/grids/gastronomia.ejs'), {
+                        products, toThousand
+                    });
+                });
+                break;
+            case 'za':
+                db.products.findAll({
+                    order: [
+                        ['name', 'DESC']
+                    ]
+                })
+                .then((products) => {
+                    res.render(path.resolve(__dirname, '../views/grids/gastronomia.ejs'), {
+                        products, toThousand
+                    });
+                });
+                break;
+            case 'lowest':
+                db.products.findAll({
+                    order: [
+                        ['price', 'ASC']
+                    ]
+                })
+                .then((products) => {
+                    res.render(path.resolve(__dirname, '../views/grids/gastronomia.ejs'), {
+                        products, toThousand
+                    });
+                });
+                break;
+            case 'highest':
+            db.products.findAll({
+                order: [
+                    ['price', 'DESC']
+                ]
+            })
             .then((products) => {
                 res.render(path.resolve(__dirname, '../views/grids/gastronomia.ejs'), {
                     products, toThousand
                 });
             });
+            break;
+            default:
+                db.products.findAll()
+                .then((products) => {
+                    res.render(path.resolve(__dirname, '../views/grids/gastronomia.ejs'), {
+                        products, toThousand
+                    });
+                });
+                break;
+        }
     },
     'varieties': (req, res) => {
-        db.products.findAll()
+        switch (req.params.order) {
+            case 'az':
+                db.products.findAll({
+                    order: [
+                        ['name', 'ASC']
+                    ]
+                })
+                .then((products) => {
+                    res.render(path.resolve(__dirname, '../views/grids/variedades.ejs'), {
+                        products, toThousand
+                    });
+                });
+                break;
+            case 'za':
+                db.products.findAll({
+                    order: [
+                        ['name', 'DESC']
+                    ]
+                })
+                .then((products) => {
+                    res.render(path.resolve(__dirname, '../views/grids/variedades.ejs'), {
+                        products, toThousand
+                    });
+                });
+                break;
+            case 'lowest':
+                db.products.findAll({
+                    order: [
+                        ['price', 'ASC']
+                    ]
+                })
+                .then((products) => {
+                    res.render(path.resolve(__dirname, '../views/grids/variedades.ejs'), {
+                        products, toThousand
+                    });
+                });
+                break;
+            case 'highest':
+            db.products.findAll({
+                order: [
+                    ['price', 'DESC']
+                ]
+            })
             .then((products) => {
-                res.render(path.resolve(__dirname, '../views/grids/variedades.ejs'), {products, toThousand});
+                res.render(path.resolve(__dirname, '../views/grids/variedades.ejs'), {
+                    products, toThousand
+                });
             });
+            break;
+            default:
+                db.products.findAll()
+                .then((products) => {
+                    res.render(path.resolve(__dirname, '../views/grids/variedades.ejs'), {
+                        products, toThousand
+                    });
+                });
+                break;
+        }
     },
     'search': (req, res) => {
         db.experiences.findAll({
@@ -76,10 +444,64 @@ let gridController = {
             .catch(error => res.send(error))
     },
     'seeAll': (req, res) => {
-        db.products.findAll()
-            .then(products => {
-                res.render(path.resolve(__dirname, '../views/grids/allProducts.ejs'), {products, toThousand});
+        switch (req.params.order) {
+            case 'az':
+                db.products.findAll({
+                    order: [
+                        ['name', 'ASC']
+                    ]
+                })
+                .then((products) => {
+                    res.render(path.resolve(__dirname, '../views/grids/allProducts.ejs'), {
+                        products, toThousand
+                    });
+                });
+                break;
+            case 'za':
+                db.products.findAll({
+                    order: [
+                        ['name', 'DESC']
+                    ]
+                })
+                .then((products) => {
+                    res.render(path.resolve(__dirname, '../views/grids/allProducts.ejs'), {
+                        products, toThousand
+                    });
+                });
+                break;
+            case 'lowest':
+                db.products.findAll({
+                    order: [
+                        ['price', 'ASC']
+                    ]
+                })
+                .then((products) => {
+                    res.render(path.resolve(__dirname, '../views/grids/allProducts.ejs'), {
+                        products, toThousand
+                    });
+                });
+                break;
+            case 'highest':
+            db.products.findAll({
+                order: [
+                    ['price', 'DESC']
+                ]
             })
+            .then((products) => {
+                res.render(path.resolve(__dirname, '../views/grids/allProducts.ejs'), {
+                    products, toThousand
+                });
+            });
+            break;
+            default:
+                db.products.findAll()
+                .then((products) => {
+                    res.render(path.resolve(__dirname, '../views/grids/allProducts.ejs'), {
+                        products, toThousand
+                    });
+                });
+                break;
+        }
     }
 };
 
