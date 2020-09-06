@@ -111,4 +111,21 @@ td a {
 .specialPrice {
     text-decoration-line: line-through;
     color: #9b9b9b;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.regularPrice {
+    text-decoration-line: none;
+    color: black;
+    border-bottom: 1px solid #dee2e6;
+}
+
+@media (max-width: 768px) {
+.tituloTabla {
+    font-size: 0.75rem;
+}
+
+.camposTabla {
+    font-size: 0.75rem;
+}
 }

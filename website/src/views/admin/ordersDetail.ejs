@@ -36,8 +36,9 @@
                                                 <th scope="col">Imagen</th>
                                                 <th scope="col">Sku</th>
                                                 <th scope="col">Nombre</th>
-                                                <th scope="col">Cantidad</th>
-                                                <th scope="col">Precio</th>
+                                                <th scope="col">Cant</th>
+                                                <th scope="col">Precio Lista</th>
+                                                <th scope="col">Precio Especial</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -48,10 +49,11 @@
                                                     <td><%= cart.items[i].products.name %></td>
                                                     <td>1</td>
                                                     <% if (cart.items[i].products.price == cart.items[i].products.specialPrice) { %>
-                                                    <td>$<%= toThousand(cart.items[i].products.price) %> </td>                            
+                                                    <td>$<%= toThousand(cart.items[i].products.price) %> </td>
+                                                    <td>-</td>                              
                                                     <% } else { %>
                                                     <td class="specialPrice">$<%= toThousand(cart.items[i].products.price) %> </td>                            
-                                                    <td>$<%= toThousand(cart.items[i].products.specialPrice) %> </td>                            
+                                                    <td class="border-bottom">$<%= toThousand(cart.items[i].products.specialPrice) %> </td>                            
                                                     <% } %> 
                                                 </tr>
                                             <% } %>
