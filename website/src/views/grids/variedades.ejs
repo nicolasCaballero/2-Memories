@@ -42,13 +42,13 @@
       <div class="row" id="rowMemoriesPacks">        
         <% for( let i = 0; i < products.length; i++ ) { %>
         <% if (products[i].categoryId == 13 && products[i].visibility == 0 && products[i].qty >= 1) { %>
-        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12" class="memoriePack"><a href="/detalle/<%= products[i].sku %>">
-          <img class="imagenMemoriePack" src="/img/packs/<%= products[i].image %>" alt="<%= products[i].name %>"></a>
+        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 text-center mb-4" class="memoriePack"><a href="/detalle/<%= products[i].sku %>">
+          <img class="imagenMemoriePack mb-2" src="/img/packs/<%= products[i].image %>" alt="<%= products[i].name %>"></a>
           <% if (products[i].price == products[i].specialPrice) { %>
-          <h4 class="text-center mb-4"><%= '$' +  toThousand(products[i].price) %></h4>
+          <h4 class="text-center mb-4 mismaLinea"><i class="fas fa-money-bill-alt mr-1"></i><%= '$' +  toThousand(products[i].price) %></h4>
           <% } else {%>
-          <h4 class="text-center mb-4"><%= '$' +  toThousand(products[i].specialPrice) %></h4>
-          <h4 class="text-center mb-4 specialPrice"><%= '$' +  toThousand(products[i].price) %></h4>
+          <h4 class="text-center mb-4 specialPrice mismaLinea"><i class="fas fa-money-bill-alt mr-1"></i><%= '$' +  toThousand(products[i].price) %></h4>
+          <h4 class="text-center mb-4 mismaLinea"><i class="fas fa-tag mr-2 ml-1"></i><%= '$' +  toThousand(products[i].specialPrice) %></h4>
           <% } %> 
         </div>
         <% } %>

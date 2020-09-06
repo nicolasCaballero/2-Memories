@@ -329,6 +329,11 @@ a:hover .imagenMemoriePack {
     transition: opacity .2s ease;
 }
 
+.mismaLinea {
+    display: inline;
+    text-align: center;
+}
+
 @media (max-width: 991px) {
 
     #divImagenCentral {
