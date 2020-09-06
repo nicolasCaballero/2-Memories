@@ -14,7 +14,7 @@ let adminController = {
         db.categories.create({
             name: req.body.name,
             image: req.file ? req.file.filename : "",
-            visibility: req.body.visibility
+            visibility: parseInt(req.body.visibility)
         });
         res.redirect('/admin/categories/list');
     },
