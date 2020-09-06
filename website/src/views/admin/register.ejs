@@ -32,7 +32,7 @@
                 <div class="row">
                     <div class="col-xl-6 col-lg-6 col-md-10 col-sm-12 mx-auto pt-2 fondo shadow-sm rounded-lg">
                         <div class="signup-form mt-3">
-                            <form class="form" action="/admin/register" method="POST" enctype="multipart/form-data">
+                            <form autocomplete="off" class="form" action="/admin/register" method="POST" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <input type="text" value="<%= typeof old != 'undefined' ? old.name : '' %>" class="form-control rounded-pill name" name="name" placeholder="name">
                                     <% if(typeof errors != 'undefined' && errors.name){%>
