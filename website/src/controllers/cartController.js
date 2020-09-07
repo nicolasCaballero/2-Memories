@@ -27,7 +27,7 @@ let cartController = {
                     productSku: product.sku,
                     cartId: null
                 })
-                .then(items  => res.redirect('/detalle/' + product.sku))
+                .then(items  => res.redirect('/detalle/' + product.sku + '?from=cartsucces'))
                 .catch(error => console.log(error)) 
             })
         } else {
@@ -59,7 +59,7 @@ let cartController = {
                 userId : req.session.loggedInUser.id
             }
         })
-        .then(()=> res.redirect('/carrito'))
+        .then(()=> res.redirect('/carrito?from=cartdelete'))
         .catch(error => console.log(error))
     },
     'shop': (req, res) => {
