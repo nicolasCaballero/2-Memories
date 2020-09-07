@@ -139,19 +139,19 @@ a:active, a:focus {
   color: #FFFFFF;
 }
 
-.salmon a:hover {
+.salmon-text a:hover {
   color: #F48169;
   text-decoration: none !important;
   outline: none !important;
 }
 
-.yellow a:hover {
+.yellow-text a:hover {
   color: #fbc46c;
   text-decoration: none !important;
   outline: none !important;
 }
 
-.middle-blue a:hover {
+.middle-blue-text a:hover {
   color: #79c8d6;
   text-decoration: none !important;
   outline: none !important;
