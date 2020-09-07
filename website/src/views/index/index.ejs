@@ -51,14 +51,17 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-        <section>
-            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
-                <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@m uk-grid">
+        <section class="d-flex row justify-content-center">
+            <div class="col-12">
+                <h2 class="b-4 mt-4 mb-4 text-center"> Categorías </h2>
+            </div>
+            <div id="sliderContainer" class="uk-position-relative uk-visible-toggle uk-light col-xl-9 d-flex justify-content-center text-center" tabindex="-1" uk-slider>
+                <ul id="listaSlider" class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@m uk-grid justify-content-center text-center">
                     <% for( let i = 0; i < categories.length; i++ ) { %>
                         <% if (categories[i].visibility == 0) { %>
                     <li>
                         <div id="rowCategoriasHome" class="uk-panel">
-                            <a href="/<%= categories[i].name %> "><img class ="imagenCategoriaHome d-block w-100" src="/img/categorias/<%= categories[i].image %>" alt="Categoria <%= categories[i].name %> "></a>
+                            <a href="/<%= categories[i].name %> "><img class ="imagenCategoriaHome w-100" src="/img/categorias/<%= categories[i].image %>" alt="Categoria <%= categories[i].name %> "></a>
                             <div class="uk-position-center uk-panel"></div>
                         </div>
                     </li>

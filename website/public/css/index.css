@@ -178,10 +178,11 @@ a {
 
 #rowCategoriasHome {
     justify-content: space-between;
-    margin-left: 2%;
-    margin-right: 2%;
-    padding-left: 2%;
-    padding-right: 2%;
+    margin-left: 1%;
+    margin-right: 1%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+
 }
 
 .carouselLanding {
@@ -387,6 +388,14 @@ h5 {
     font-family: 'Source Sans Pro', sans-serif;
 }
 
+.sliderContainer {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.listaSlider {
+    max-height: 60vh;
+}
 
 
 @media (max-width: 540px) {
