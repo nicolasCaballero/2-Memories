@@ -106,3 +106,15 @@ td a {
     font-size: 0.75rem;
 }
 }
+
+@media (min-width: 200px) and (max-width: 600px) {
+    #img-billetera {
+        width: 20%;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1000px) {
+    #img-billetera {
+        width: 10%;
+    }
+}

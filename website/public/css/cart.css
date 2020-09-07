@@ -78,3 +78,15 @@ h2 {
     text-decoration-line: line-through;
     color: #9b9b9b;
 }
+
+@media (min-width: 200px) and (max-width: 600px) {
+    #img-carrito-vacio {
+        width: 30%;
+    }
+}
+
+@media (min-width: 601px) and (max-width: 1000px) {
+    #img-carrito-vacio {
+        width: 20%;
+    }
+}
