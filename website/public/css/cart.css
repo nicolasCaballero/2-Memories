@@ -79,6 +79,12 @@ h2 {
     color: #9b9b9b;
 }
 
+.swal-text {
+    font-family: 'Source Sans Pro', sans-serif;
+    text-align: center;
+    color: black;
+  }
+
 @media (min-width: 200px) and (max-width: 600px) {
     #img-carrito-vacio {
         width: 30%;
