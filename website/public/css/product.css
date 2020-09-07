@@ -339,6 +339,12 @@ a:hover .imagenMemoriePack {
     text-align: center;
 }
 
+.swal-text {
+    font-family: 'Source Sans Pro', sans-serif;
+    text-align: center;
+    color: black;
+  }
+
 @media (max-width: 991px) {
 
     #divImagenCentral {
