@@ -323,13 +323,12 @@ a:hover .imagenDelLocal {
 }
 
 .imagenMemoriePack {
-    width: 100%;
+    width: 95%;
     border-radius: 20px;
     opacity: 85%;
     transition: opacity .2s ease;
     align-items: center;
-    padding-right: 15px;
-    padding-left: 15px;
+
 }
 
 a:hover .imagenMemoriePack {
