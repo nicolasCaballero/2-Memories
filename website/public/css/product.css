@@ -310,7 +310,7 @@ a:hover .imagenDelLocal {
 .botonesCategoria {
     border-bottom: solid #FBC46C;
     border-bottom-width: 1px;
-    margin-top: 1%;
+    margin-top: 2%;
 
 }
 
@@ -327,6 +327,9 @@ a:hover .imagenDelLocal {
     border-radius: 20px;
     opacity: 85%;
     transition: opacity .2s ease;
+    align-items: center;
+    padding-right: 15px;
+    padding-left: 15px;
 }
 
 a:hover .imagenMemoriePack {
